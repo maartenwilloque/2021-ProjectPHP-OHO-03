@@ -10963,7 +10963,7 @@ jQuery.extend( {
 		}
 	},
 
-	// Not public_html - generate a queueHooks object, or return the current one
+	// Not public - generate a queueHooks object, or return the current one
 	_queueHooks: function( elem, type ) {
 		var key = type + "queueHooks";
 		return dataPriv.get( elem, key ) || dataPriv.access( elem, key, {
@@ -11534,7 +11534,7 @@ function on( elem, types, selector, data, fn, one ) {
 }
 
 /*
- * Helper functions for managing events -- not part of the public_html interface.
+ * Helper functions for managing events -- not part of the public interface.
  * Props to Dean Edwards' addEvent library for many of the ideas.
  */
 jQuery.event = {
@@ -37336,14 +37336,47 @@ module.exports = function(module) {
 
 /***/ }),
 
+/***/ "./resources/js/MyExpenseTM.js":
+/*!*************************************!*\
+  !*** ./resources/js/MyExpenseTM.js ***!
+  \*************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+var MyExpenseTM = function () {
+  function hello() {
+    console.log('The MyExpenseTMJavaScript works! 🙂');
+  }
+
+  return {
+    hello: hello // publicly available as: VinylShop.hello()
+
+  };
+}();
+
+/* harmony default export */ __webpack_exports__["default"] = (MyExpenseTM);
+
+/***/ }),
+
 /***/ "./resources/js/app.js":
 /*!*****************************!*\
   !*** ./resources/js/app.js ***!
   \*****************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-__webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _MyExpenseTM__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./MyExpenseTM */ "./resources/js/MyExpenseTM.js");
+__webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js"); // Make 'MyExpenseTM' accessible inside the HTML pages
+
+
+
+window.MyExpenseTM = _MyExpenseTM__WEBPACK_IMPORTED_MODULE_0__["default"]; // Run the hello() function
+
+_MyExpenseTM__WEBPACK_IMPORTED_MODULE_0__["default"].hello();
 
 /***/ }),
 
