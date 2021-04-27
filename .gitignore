@@ -4,7 +4,6 @@
 /node_modules
 /storage/*.key
 /vendor
-.env
 .phpunit.result.cache
 npm-debug.log
 public_html/css/app.css
