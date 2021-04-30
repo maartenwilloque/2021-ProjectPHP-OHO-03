@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateBedragsTable extends Migration
+class CreateParameterTypesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,13 @@ class CreateBedragsTable extends Migration
      */
     public function up()
     {
-        Schema::create('bedrags', function (Blueprint $table) {
+        Schema::create('parameter_types', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('onkost_id');// shorthand for $table->unsignedBigInteger('id');
-            $table->float('bedrag',6,2);
-            $table->float('resterend_bedrag',6,2)->default(0);
+            $table->foreignId('parameter_name_id');// shorthand for $table->unsignedBigInteger('id');
+            $table->string('name');
             $table->timestamps();
             // Foreign key relation
-            $table->foreign('onkost_id')->references('id')->on('onkosts')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('parameter_name_id')->references('id')->on('parameter_names')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 
@@ -31,6 +30,6 @@ class CreateBedragsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('bedrags');
+        Schema::dropIfExists('parameter_types');
     }
 }

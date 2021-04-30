@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateVervoersmiddelsTable extends Migration
+class CreateParameterStatusesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,9 @@ class CreateVervoersmiddelsTable extends Migration
      */
     public function up()
     {
-        Schema::create('vervoersmiddels', function (Blueprint $table) {
+        Schema::create('parameter_statuses', function (Blueprint $table) {
             $table->id();
-            $table->string('naam');
+            $table->string('name');
             $table->timestamps();
         });
     }
@@ -27,6 +27,6 @@ class CreateVervoersmiddelsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('vervoersmiddels');
+        Schema::dropIfExists('parameter_statuses');
     }
 }
