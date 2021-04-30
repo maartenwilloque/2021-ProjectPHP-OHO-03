@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTypesTable extends Migration
+class CreateAmountsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,15 @@ class CreateTypesTable extends Migration
      */
     public function up()
     {
-        Schema::create('types', function (Blueprint $table) {
+        Schema::create('amounts', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('parameternaam_id');// shorthand for $table->unsignedBigInteger('id');
-            $table->string('naam');
+            $table->foreignId('expense_id');// shorthand for $table->unsignedBigInteger('id');
+            $table->float('amount',6,2);
+            $table->float('remaining_amount',6,2)->default(0);
             $table->timestamps();
             // Foreign key relation
-            $table->foreign('parameternaam_id')->references('id')->on('parameternaams')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('expense_id')->references('id')->on('expenses')->onDelete('cascade')->onUpdate('cascade');
         });
-
     }
 
     /**
@@ -31,6 +31,6 @@ class CreateTypesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('types');
+        Schema::dropIfExists('amounts');
     }
 }

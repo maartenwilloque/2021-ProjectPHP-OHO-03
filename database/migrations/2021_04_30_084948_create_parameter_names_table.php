@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateParameternaamsTable extends Migration
+class CreateParameterNamesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,9 @@ class CreateParameternaamsTable extends Migration
      */
     public function up()
     {
-        Schema::create('parameternaams', function (Blueprint $table) {
+        Schema::create('parameter_names', function (Blueprint $table) {
             $table->id();
-            $table->string('naam');
+            $table->string('name');
             $table->timestamps();
         });
     }
@@ -27,6 +27,6 @@ class CreateParameternaamsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('parameternaams');
+        Schema::dropIfExists('parameter_names');
     }
 }

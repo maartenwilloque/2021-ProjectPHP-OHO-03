@@ -15,15 +15,15 @@ class CreateUsersTable extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id(); // shorthand for $table->bigIncrements('id');
-            $table->string('naam');
-            $table->string('voornaam');
+            $table->string('name');
+            $table->string('first_name');
             $table->string('email')->unique();
-            $table->string('straat');
-            $table->string('nummer');;
-            $table->string('gemeente');
-            $table->boolean('goedkeurder')->default(false);
+            $table->string('street');
+            $table->string('number');;
+            $table->string('city');
+            $table->boolean('approver')->default(false);
             $table->boolean('finance')->default(false);
-            $table->boolean('actief')->default(true);
+            $table->boolean('active')->default(true);
             $table->boolean('admin')->default(false);
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
@@ -34,13 +34,13 @@ class CreateUsersTable extends Migration
         DB::table('users')->insert(
             [
                 [
-                    'naam' => 'Van Moorleghem',
-                    'voornaam' => 'Erwin',
+                    'name' => 'Van Moorleghem',
+                    'first_name' => 'Erwin',
                     'email' => 'erwin@example.com',
-                    'straat'=>'straat1',
-                    'nummer'=>'1',
-                    'gemeente'=>'Geel',
-                    'goedkeurder'=>true,
+                    'street'=>'straat1',
+                    'number'=>'1',
+                    'city'=>'Geel',
+                    'approver'=>true,
                     'finance'=>false,
                     'admin'=>false,
                     'password' => Hash::make('erwin'),
@@ -48,13 +48,13 @@ class CreateUsersTable extends Migration
                     'email_verified_at' => now()
                 ],
                 [
-                    'naam' => 'Swaan',
-                    'voornaam' => 'Alex',
+                    'name' => 'Swaan',
+                    'first_name' => 'Alex',
                     'email' => 'alex@example.com',
-                    'straat'=>'straat2',
-                    'nummer'=>'2',
-                    'gemeente'=>'Geel',
-                    'goedkeurder'=>false,
+                    'street'=>'straat2',
+                    'number'=>'2',
+                    'city'=>'Geel',
+                    'approver'=>false,
                     'finance'=>true,
                     'admin'=>false,
                     'password' => Hash::make('alex'),
@@ -62,13 +62,13 @@ class CreateUsersTable extends Migration
                     'email_verified_at' => now()
                 ],
                 [
-                    'naam' => 'Willoqué',
-                    'voornaam' => 'Maarten',
+                    'name' => 'Willoqué',
+                    'first_name' => 'Maarten',
                     'email' => 'maarten@example.com',
-                    'straat'=>'straat3',
-                    'nummer'=>'3',
-                    'gemeente'=>'Geel',
-                    'goedkeurder'=>false,
+                    'street'=>'straat3',
+                    'number'=>'3',
+                    'city'=>'Geel',
+                    'approver'=>false,
                     'finance'=>true,
                     'admin'=>true,
                     'password' => Hash::make('maarten'),
