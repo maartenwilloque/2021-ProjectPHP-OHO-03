@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class parameter_name extends Model
+class Expenseprogress extends Model
 {
     //
 }

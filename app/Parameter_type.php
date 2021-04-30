@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class cost_progress extends Model
+class Parameter_type extends Model
 {
     //
 }

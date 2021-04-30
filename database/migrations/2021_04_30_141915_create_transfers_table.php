@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCostProgressesTable extends Migration
+class CreateTransfersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,17 +13,18 @@ class CreateCostProgressesTable extends Migration
      */
     public function up()
     {
-        Schema::create('cost_progresses', function (Blueprint $table) {
+        Schema::create('transfers', function (Blueprint $table) {
             $table->id();
             $table->foreignId('expense_id');// shorthand for $table->unsignedBigInteger('id');
-            $table->foreignId('inspector_id');// Relation with met user table
-            $table->foreignId('parameter_status_id');
-            $table->text('note')->nullable();
+            $table->foreignId('transport_id');
+            $table->text('reason');
+            $table->date('date')->default(date(now()));
+            $table->float('distance',3,1);
+            $table->string('unit')->default('Km');
             $table->timestamps();
             // Foreign key relation
             $table->foreign('expense_id')->references('id')->on('expenses')->onDelete('cascade')->onUpdate('cascade');
-            $table->foreign('inspector_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
-            $table->foreign('parameter_status_id')->references('id')->on('parameter_statuses')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('transport_id')->references('id')->on('transports')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 
@@ -34,6 +35,6 @@ class CreateCostProgressesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('cost_progresses');
+        Schema::dropIfExists('transfers');
     }
 }

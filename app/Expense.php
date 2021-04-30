@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class transport extends Model
+class Expense extends Model
 {
     //
 }
