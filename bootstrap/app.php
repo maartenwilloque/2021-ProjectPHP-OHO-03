@@ -18,7 +18,6 @@ $app = new Illuminate\Foundation\Application(
 $app->bind('path.public', function() {
     return base_path().'/public_html';
 });
-
 /*
 |--------------------------------------------------------------------------
 | Bind Important Interfaces

@@ -20,3 +20,7 @@ mix.browserSync({
     proxy: 'myexpensetm.test',
     port: 3000
 });
+
+mix.version();
+
+mix.disableNotifications();
