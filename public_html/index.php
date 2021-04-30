@@ -36,7 +36,10 @@ require __DIR__.'/../vendor/autoload.php';
 */
 
 $app = require_once __DIR__.'/../bootstrap/app.php';
-
+// overwrite the default public path with the path of the current folder
+$app->bind('path.public', function() {
+    return __DIR__;
+});
 /*
 |--------------------------------------------------------------------------
 | Run The Application
@@ -58,9 +61,3 @@ $response = $kernel->handle(
 $response->send();
 
 $kernel->terminate($request, $response);
-
-$app = require_once __DIR__.'/../bootstrap/app.php';
-// overwrite the default public path with the path of the current folder
-$app->bind('path.public', function() {
-    return __DIR__;
-});

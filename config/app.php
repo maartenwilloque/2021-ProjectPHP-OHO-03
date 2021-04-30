@@ -161,6 +161,7 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
+        App\Providers\HelperServiceProvider::class,
 
         /*
          * Package Service Providers...
@@ -174,7 +175,6 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
-        App\Providers\HelperServiceProvider::class,
 
     ],
 
@@ -229,7 +229,6 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'Json' => Facades\App\Helpers\Json::class,
         'Mask' => Facades\App\Helpers\Mask::class,
-
     ],
 
 ];

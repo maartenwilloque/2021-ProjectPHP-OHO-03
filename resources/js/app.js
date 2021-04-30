@@ -1,7 +1,8 @@
 require('./bootstrap');
 
-// Make 'MyExpenseTM' accessible inside the HTML pages
-import MyExpenseTM from "./MyExpenseTM";
-window.MyExpenseTM = MyExpenseTM;
+
+// Make 'myExpense' accessible inside the HTML pages
+import myExpense from "./myExpense";
+window.myExpense = myExpense;
 // Run the hello() function
-MyExpenseTM.hello();
+myExpense.hello();
