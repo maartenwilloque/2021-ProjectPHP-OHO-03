@@ -13,6 +13,31 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Auth::routes();
+Route::get('logout', 'Auth\LoginController@logout');
+Route::redirect('home', '/');
+Route::view('/', 'home');
+
+
+//--------------------------------------------------------------------------------------------------
+//middleware classen nog toe te voegen !
+//zie cursus https://itf-laravel.netlify.app/laravel_7/auth.html#protecting-routes
+//--------------------------------------------------------------------------------------------------
+//Deze kunnen we gebruiken om dingen af te schermen van gewone docenten bijv enkel voor admin
+Route::middleware(['auth'])->prefix('admin')->group(function () {
+//    route::redirect('/', 'admin files');
+//    Route::get('records', 'Admin\RecordController@index');
 });
+
+//Deze kunnen we gebruiken om dingen af te schermen van gewone docenten bijv enkel voor finance
+Route::middleware(['auth'])->prefix('finance')->group(function () {
+//    route::redirect('/', 'finaceFiles');
+//    Route::get('records', 'Admin\RecordController@index');
+});
+
+//Deze kunnen we gebruiken om dingen af te schermen van gewone docenten bijv enkel voor approver
+Route::middleware(['auth'])->prefix('approver')->group(function () {
+//    route::redirect('/', 'approverFiles');
+//    Route::get('records', 'Admin\RecordController@index');
+});
+//--------------------------------------------------------------------------------------------------

@@ -12,7 +12,6 @@ const mix = require('laravel-mix');
  */
 
 mix.setPublicPath('public_html');
-
 mix.js('resources/js/app.js', 'js')
     .sass('resources/sass/app.scss', 'css');
 
@@ -20,7 +19,3 @@ mix.browserSync({
     proxy: 'myexpensetm.test',
     port: 3000
 });
-
-mix.version();
-
-mix.disableNotifications();
