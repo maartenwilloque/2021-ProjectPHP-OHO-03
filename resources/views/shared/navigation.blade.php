@@ -9,23 +9,23 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/">Home</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/contact-us">Contact</a>
-                </li>
+{{--                <li class="nav-item">--}}
+{{--                    <a class="nav-link" href="/contact-us">Contact</a>--}}
+{{--                </li>--}}
             </ul>
             {{--  Auth navigation  --}}
             <ul class="navbar-nav ml-auto">
                 @guest
-                    <li class="nav-item">
-                        <a class="nav-link" href="/login"><i class="fas fa-sign-in-alt"></i>Login</a>
-                    </li>
+{{--                    <li class="nav-item">--}}
+{{--                        <a class="nav-link" href="/login"><i class="fas fa-sign-in-alt"></i>Login</a>--}}
+{{--                    </li>--}}
                     <li class="nav-item">
                         <a class="nav-link" href="/register"><i class="fas fa-signature"></i>Register</a>
                     </li>
                 @endguest
-                <li class="nav-item">
-                    <a class="nav-link" href="/basket"><i class="fas fa-shopping-basket"></i>Basket</a>
-                </li>
+{{--                <li class="nav-item">--}}
+{{--                    <a class="nav-link" href="/basket"><i class="fas fa-shopping-basket"></i>Basket</a>--}}
+{{--                </li>--}}
                 @auth
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#!" data-toggle="dropdown">
