@@ -37400,9 +37400,6 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js"); // Make '
 window.myExpense = _myExpense__WEBPACK_IMPORTED_MODULE_0__["default"]; // Run the hello() function
 
 _myExpense__WEBPACK_IMPORTED_MODULE_0__["default"].hello();
-$(function () {
-  $('nav i.fas').addClass('fa-fw mr-1');
-});
 
 /***/ }),
 

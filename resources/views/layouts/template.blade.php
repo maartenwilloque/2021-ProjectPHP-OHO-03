@@ -1,10 +1,11 @@
 <!doctype html>
-<html lang="en">
+<html lang="nl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/8c72cf5c6d.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
-    <title>@yield('title', 'The Vinyl Shop')</title>
+    <title>@yield('title', 'My Expense')</title>
     @include('shared.icons')
 </head>
 <body>
