@@ -3,8 +3,8 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
-                <div class="card">
-                    <div class="card-header">{{ __('MY Expense: User registration') }}</div>
+                <div class="card col-sm-12">
+                    <div class="card-header">{{ __('MyExpense: Registratie') }}</div>
 
                     <div class="card-body">
                         <form method="POST" action="{{ route('register') }}">
@@ -13,7 +13,7 @@
                             <div class="form-group row">
                                 <div class="col-6">
                                     <label for="name"
-                                           class="col-form-label text-md-right">{{ __('Name') }}</label>
+                                           class="col-form-label text-md-right">{{ __('Naam') }}</label>
                                     <div class="">
                                         <input id="name" type="text"
                                                class="form-control @error('name') is-invalid @enderror"
@@ -28,7 +28,7 @@
                                 </div>
                                 <div class="col-6">
                                     <label for="firstname"
-                                           class="col-form-label text-md-right">{{ __('Firstname') }}</label>
+                                           class="col-form-label text-md-right">{{ __('Voornaam') }}</label>
                                     <div class="">
                                         <input id="firstname" type="text"
                                                class="form-control @error('firstname') is-invalid @enderror"
@@ -45,7 +45,7 @@
                             <div class="form-group row">
                                 <div class="col-6">
                                     <label for="street"
-                                           class="col-form-label text-md-right">{{ __('Street') }}</label>
+                                           class="col-form-label text-md-right">{{ __('Straat') }}</label>
                                     <div class="">
                                         <input id="street" type="text"
                                                class="form-control @error('street') is-invalid @enderror"
@@ -60,7 +60,7 @@
                                 </div>
                                 <div class="col-3">
                                     <label for="number"
-                                           class="col-form-label text-md-right">{{ __('Number') }}</label>
+                                           class="col-form-label text-md-right">{{ __('Nr') }}</label>
                                     <div class="">
                                         <input id="number" type="text"
                                                class="form-control @error('number') is-invalid @enderror"
@@ -77,7 +77,7 @@
                             <div class="form-group row">
                                 <div class="col-6">
                                     <label for="city"
-                                           class="col-form-label text-md-right">{{ __('City') }}</label>
+                                           class="col-form-label text-md-right">{{ __('Gemeente') }}</label>
                                     <div class="">
                                         <input id="city" type="text"
                                                class="form-control @error('city') is-invalid @enderror"
@@ -109,7 +109,7 @@
                             <div class="form-group row">
                                 <div class="col-6">
                                     <label for="password"
-                                           class="col-form-label text-md-right">{{ __('Password') }}</label>
+                                           class="col-form-label text-md-right">{{ __('Paswoord') }}</label>
                                     <div class="">
                                         <input id="password" type="password"
                                                class="form-control @error('password') is-invalid @enderror"
@@ -125,7 +125,7 @@
                                 </div>
                                 <div class="col-6">
                                     <label for="password-confirm"
-                                           class="col-form-label text-md-right">{{ __('Confirm Password') }}</label>
+                                           class="col-form-label text-md-right">{{ __('Bevestig') }}</label>
                                     <div class="">
                                         <input id="password-confirm" type="password" class="form-control"
                                                name="password_confirmation" required autocomplete="new-password">

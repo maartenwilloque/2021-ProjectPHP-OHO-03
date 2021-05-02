@@ -17,7 +17,6 @@ Route::get('logout', 'Auth\LoginController@logout');
 Route::redirect('home', '/');
 Route::view('/', 'auth.login');
 
-
 //--------------------------------------------------------------------------------------------------
 //middleware classen nog toe te voegen !
 //zie cursus https://itf-laravel.netlify.app/laravel_7/auth.html#protecting-routes
