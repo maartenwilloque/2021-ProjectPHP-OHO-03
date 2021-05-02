@@ -135,7 +135,8 @@
                             </div>
                             <div class="form-group row">
                                 <div class="col-12">
-                                    <button type="submit" class="btn btn-primary">
+                                    {{--                                    <button type="submit" class="btn btn-primary">--}}
+                                    <button type="submit" class="color_Orange_Back rounded-sm">
                                         {{ __('Register') }}
                                     </button>
                                 </div>
