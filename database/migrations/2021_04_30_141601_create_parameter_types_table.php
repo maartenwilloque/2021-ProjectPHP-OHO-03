@@ -24,6 +24,28 @@ class CreateParameterTypesTable extends Migration
             $table->foreign('type_id')->references('id')->on('types')->onDelete('cascade')->onUpdate('cascade');
 
         });
+        DB::table('parameter_types')->insert(
+            [
+                [
+                    'value'=> 800,
+                    'type_id'=> 1,
+                    'from_date'=> date_create_from_format('d-m-Y','01-01-2000'),
+                    'to_date'=> now(),
+                ],
+                [
+                    'value'=> 0.50,
+                    'type_id'=> 2,
+                    'from_date'=> date_create_from_format('d-m-Y','01-01-2000'),
+                    'to_date'=> now(),
+                ],
+                [
+                    'value'=> 0.15,
+                    'type_id'=> 3,
+                    'from_date'=> date_create_from_format('d-m-Y','01-01-2000'),
+                    'to_date'=> now(),
+                ],
+            ]
+        );
     }
 
     /**

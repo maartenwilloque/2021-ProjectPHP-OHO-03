@@ -1,5 +1,6 @@
 <?php
 
+use Faker\Factory;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -37,12 +38,12 @@ class CreateUsersTable extends Migration
                     'name' => 'Van Moorleghem',
                     'firstname' => 'Erwin',
                     'email' => 'erwin@example.com',
-                    'street'=>'straat1',
-                    'number'=>'1',
-                    'city'=>'Geel',
-                    'approver'=>true,
-                    'finance'=>false,
-                    'admin'=>false,
+                    'street' => 'straat1',
+                    'number' => '1',
+                    'city' => 'Geel',
+                    'approver' => true,
+                    'finance' => false,
+                    'admin' => false,
                     'password' => Hash::make('erwin'),
                     'created_at' => now(),
                     'email_verified_at' => now()
@@ -51,12 +52,12 @@ class CreateUsersTable extends Migration
                     'name' => 'Swaan',
                     'firstname' => 'Alex',
                     'email' => 'alex@example.com',
-                    'street'=>'straat2',
-                    'number'=>'2',
-                    'city'=>'Geel',
-                    'approver'=>false,
-                    'finance'=>true,
-                    'admin'=>false,
+                    'street' => 'straat2',
+                    'number' => '2',
+                    'city' => 'Geel',
+                    'approver' => false,
+                    'finance' => true,
+                    'admin' => false,
                     'password' => Hash::make('alex'),
                     'created_at' => now(),
                     'email_verified_at' => now()
@@ -65,12 +66,12 @@ class CreateUsersTable extends Migration
                     'name' => 'Willoqué',
                     'firstname' => 'Maarten',
                     'email' => 'maarten@example.com',
-                    'street'=>'straat3',
-                    'number'=>'3',
-                    'city'=>'Geel',
-                    'approver'=>false,
-                    'finance'=>true,
-                    'admin'=>true,
+                    'street' => 'straat3',
+                    'number' => '3',
+                    'city' => 'Geel',
+                    'approver' => false,
+                    'finance' => true,
+                    'admin' => true,
                     'password' => Hash::make('maarten'),
                     'created_at' => now(),
                     'email_verified_at' => now()
