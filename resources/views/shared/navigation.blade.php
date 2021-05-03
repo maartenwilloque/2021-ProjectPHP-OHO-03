@@ -61,6 +61,12 @@
                     <span class="nav-text">Mijn profiel aanpassen</span>
                 </a>
             </li>
+                <li class="has-subnav">
+                    <a href="#">
+                        <i class="fas fa-unlock-alt fa"></i>
+                        <span class="nav-text">Mijn paswoord updaten</span>
+                    </a>
+                </li>
             <li class="has-subnav">
                 <a href="#">
                     <i class="far fa-thumbs-up fa"></i>
