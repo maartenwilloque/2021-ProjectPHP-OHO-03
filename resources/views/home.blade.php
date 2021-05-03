@@ -1,5 +1,5 @@
 @extends('layouts.template')
-
+@section('title','My Expense Home')
 @section('main')
     <div class="container">
         <div class="row justify-content-center">
