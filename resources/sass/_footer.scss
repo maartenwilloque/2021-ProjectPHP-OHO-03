@@ -2,9 +2,16 @@
     .footerDetails {
         display: none;
     }
-    .footerSmall
-    {
+    .footerSmall {
         font-size: small;
-       height: 3vh;
+        height: 3vh;
     }
 }
+
+.footerHeigth {
+    height: 12vh;
+    border-top: $Orange;
+    border-style: outset;
+    border-width: 1px;
+}
+

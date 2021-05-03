@@ -10942,6 +10942,27 @@ a.text-dark:focus {
   }
 }
 
+.color_Orange_Back {
+  background: #e73e16;
+  color: #e8e6e2;
+}
+
+.color_Orange {
+  color: #e73e16;
+}
+
+.color_Yellow {
+  color: #f2b700;
+}
+
+.color_Green {
+  color: #2d995a;
+}
+
+.color_Blue {
+  color: #0091a6;
+}
+
 .fa-2x {
   font-size: 2em;
 }
@@ -10964,7 +10985,7 @@ nav.main-menu.expanded {
 
 .main-menu {
   background: #f8f9fa;
-  border-right: 1px solid #e5e5e5;
+  border-right: 1px solid #e73e16;
   position: absolute;
   top: 0;
   bottom: 0;
@@ -11091,28 +11112,10 @@ nav.main-menu li.active > a,
   }
 }
 
-.color_White {
-  color: #fefefb;
-}
-
-.color_Green {
-  color: #2d995a;
-}
-
-.color_Orange_Back {
-  background: #e73e16;
-  color: #e8e6e2;
-}
-
-.color_Orange {
-  background: #e73e16;
-}
-
-.color_Gray {
-  color: #e8e6e2;
-}
-
-.color_Yellow {
-  color: #f2b700;
+.footerHeigth {
+  height: 12vh;
+  border-top: #e73e16;
+  border-style: outset;
+  border-width: 1px;
 }
 
