@@ -29,7 +29,7 @@ Route::middleware(['auth'])->prefix('admin')->group(function () {
 
 //Deze kunnen we gebruiken om dingen af te schermen van gewone docenten bijv enkel voor finance
 Route::middleware(['auth'])->prefix('finance')->group(function () {
-//    route::redirect('/', 'finaceFiles');
+//    route::redirect('/', 'financeFiles');
 //    Route::get('records', 'Admin\RecordController@index');
 });
 
@@ -37,5 +37,10 @@ Route::middleware(['auth'])->prefix('finance')->group(function () {
 Route::middleware(['auth'])->prefix('approver')->group(function () {
 //    route::redirect('/', 'approverFiles');
 //    Route::get('records', 'Admin\RecordController@index');
+});
+Route::middleware(['auth'])->prefix('user')->group(function () {
+    Route::redirect('/', '/user/profile');
+    Route::get('profile', 'User\ProfileController@edit');
+    Route::post('profile', 'User\ProfileController@update');
 });
 //--------------------------------------------------------------------------------------------------

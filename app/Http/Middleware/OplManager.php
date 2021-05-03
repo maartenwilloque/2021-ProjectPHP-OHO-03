@@ -4,7 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 
-class OplManagar
+class OplManager
 {
     /**
      * Handle an incoming request.

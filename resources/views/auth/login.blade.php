@@ -1,10 +1,10 @@
 @extends('layouts.template')
-
+@section('title','My Expense Login')
 @section('main')
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
-                <div class="card col-sm-12 container-fluid">
+                <div class="card col-sm-12 container">
                     <div class="card-header">{{ __('Welkom op My Expense!') }}</div>
                     <div class="card-body">
                         <form method="POST" action="{{ route('login') }}">
@@ -19,7 +19,6 @@
                                                    class="form-control @error('email') is-invalid @enderror"
                                                    name="email"
                                                    value="{{ old('email') }}" required autocomplete="email" autofocus>
-
                                             @error('email')
                                             <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -51,7 +50,7 @@
                                                 <input class="form-check-input" type="checkbox" name="remember"
                                                        id="remember" {{ old('remember') ? 'checked' : '' }}>
 
-                                                <label class="form-check-label" for="remember">
+                                                <label class="form-check-label small" for="remember">
                                                     {{ __('Onthouden') }}
                                                 </label>
                                             </div>
@@ -61,13 +60,13 @@
                                     <div class="form-group row mb-0">
                                         <div class="col-md-12 offset-md-5">
                                             {{--                                <button type="submit" class="btn btn-primary">--}}
-                                            <button type="submit" class="color_Orange_Back rounded-sm">
+                                            <button type="submit" class="small rounded-lg">
                                                 {{ __('Login') }}
                                             </button>
 
                                             @if (Route::has('password.request'))
-                                                <a class="btn btn-link" href="{{ route('password.request') }}">
-                                                    {{ __('Vergeten?') }}
+                                                <a class="small rounded-lg" href="{{ route('password.request') }}">
+                                                    {{ __('oops...vergeten?') }}
                                                 </a>
                                             @endif
                                         </div>
