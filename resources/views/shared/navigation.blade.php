@@ -56,7 +56,7 @@
                 </a>
             </li>
             <li class="has-subnav">
-                <a href="#">
+                <a href="/user/profile">
                     <i class="fas fa-id-card fa"></i>
                     <span class="nav-text">Mijn profiel aanpassen</span>
                 </a>
