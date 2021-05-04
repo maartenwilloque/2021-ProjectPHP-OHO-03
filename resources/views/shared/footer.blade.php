@@ -1,6 +1,6 @@
 <!-- footer.html  -->
-<footer class="fixed-bottom footerHeigth">
-    <div class="row  container-fluid justify-content-around bg-light">
+<footer class="fixed-bottom footerHeigth ">
+    <div class="row  container-fluid justify-content-around bg-transparent">
         <div class="col-sm-4 text-center footerDetails  color_Green">
             <span class="font-weight-normal color_Orange">Contact</span>
             <br>
