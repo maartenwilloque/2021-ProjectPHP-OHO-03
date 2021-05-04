@@ -62,7 +62,7 @@
                 </a>
             </li>
                 <li class="has-subnav">
-                    <a href="#">
+                    <a href="/user/password">
                         <i class="fas fa-unlock-alt fa"></i>
                         <span class="nav-text">Mijn paswoord updaten</span>
                     </a>

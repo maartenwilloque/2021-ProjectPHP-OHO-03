@@ -2,42 +2,14 @@
 @section('title','My Expense Profile')
 @section('main')
     @include('shared.alert')
-    {{--    <form action="/user/profile" method="post">--}}
-    {{--        @csrf--}}
-    {{--        <div class="form-group">--}}
-    {{--            <label for="name">Name</label>--}}
-    {{--            <input type="text" name="name" id="name"--}}
-    {{--                   class="form-control @error('name') is-invalid @enderror"--}}
-    {{--                   placeholder="Your name"--}}
-    {{--                   value="{{ old('name', auth()->user()->name ) }}"--}}
-    {{--                   required>--}}
-    {{--            @error('name')--}}
-    {{--            <div class="invalid-feedback">{{ $message }}</div>--}}
-    {{--            @enderror--}}
-    {{--        </div>--}}
-    {{--        <div class="form-group">--}}
-    {{--            <label for="email">Email</label>--}}
-    {{--            <input type="email" name="email" id="email"--}}
-    {{--                   class="form-control @error('email') is-invalid @enderror"--}}
-    {{--                   placeholder="Your email"--}}
-    {{--                   value="{{ old('email', auth()->user()->email) }}"--}}
-    {{--                   required>--}}
-    {{--            @error('email')--}}
-    {{--            <div class="invalid-feedback">{{ $message }}</div>--}}
-    {{--            @enderror--}}
-    {{--        </div>--}}
-    {{--        <button type="submit" class="btn btn-success">Update Profile</button>--}}
-    {{--    </form>--}}
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card col-sm-12">
                     <div class="card-header">{{ __('MyExpense: Update Profiel') }}</div>
-
                     <div class="card-body">
                         <form action="/user/profile" method="post">
                             @csrf
-
                             <div class="form-group row">
                                 <div class="col-6">
                                     <label for="name"
@@ -62,7 +34,8 @@
                                         <input id="firstname" type="text"
                                                class="form-control @error('firstname') is-invalid @enderror"
                                                name="firstname"
-                                               value="{{ old('firstname', auth()->user()->firstname ) }}" required autocomplete="name" autofocus>
+                                               value="{{ old('firstname', auth()->user()->firstname ) }}" required
+                                               autocomplete="name" autofocus>
                                         @error('firstname')
                                         <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -78,7 +51,8 @@
                                     <div class="">
                                         <input id="street" type="text"
                                                class="form-control @error('street') is-invalid @enderror"
-                                               name="street"  value="{{ old('street', auth()->user()->street ) }}" required autocomplete="name"
+                                               name="street" value="{{ old('street', auth()->user()->street ) }}"
+                                               required autocomplete="name"
                                                autofocus>
                                         @error('street')
                                         <span class="invalid-feedback" role="alert">
@@ -94,7 +68,8 @@
                                         <input id="number" type="text"
                                                class="form-control @error('number') is-invalid @enderror"
                                                name="number"
-                                               value="{{ old('number', auth()->user()->number ) }}" required autocomplete="name" autofocus>
+                                               value="{{ old('number', auth()->user()->number ) }}" required
+                                               autocomplete="name" autofocus>
                                         @error('number')
                                         <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -110,7 +85,8 @@
                                     <div class="">
                                         <input id="city" type="text"
                                                class="form-control @error('city') is-invalid @enderror"
-                                               name="city"  value="{{ old('city', auth()->user()->city ) }}" required autocomplete="name"
+                                               name="city" value="{{ old('city', auth()->user()->city ) }}" required
+                                               autocomplete="name"
                                                autofocus>
                                         @error('city')
                                         <span class="invalid-feedback" role="alert">
@@ -126,7 +102,8 @@
                                         <input id="email" type="text"
                                                class="form-control @error('email') is-invalid @enderror"
                                                name="email"
-                                               value="{{ old('email', auth()->user()->email ) }}" required autocomplete="name" autofocus>
+                                               value="{{ old('email', auth()->user()->email ) }}" required
+                                               autocomplete="name" autofocus>
                                         @error('email')
                                         <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
