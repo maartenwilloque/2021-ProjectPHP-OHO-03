@@ -20,17 +20,14 @@
             @endif
 
             @if(Auth::user()->approver)
-                @include('shared.navigationPartials.active')
                 @include('shared.navigationPartials.approver')
             @endif
 
             @if(Auth::user()->finance)
-                @include('shared.navigationPartials.active')
                 @include('shared.navigationPartials.finance')
             @endif
 
             @if(Auth::user()->admin)
-                @include('shared.navigationPartials.active')
                 @include('shared.navigationPartials.approver')
                 @include('shared.navigationPartials.finance')
             @endif
