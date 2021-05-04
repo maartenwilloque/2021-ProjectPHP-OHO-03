@@ -16,7 +16,7 @@ class CreateExpenseprogressesTable extends Migration
         Schema::create('expenseprogresses', function (Blueprint $table) {
             $table->id();
             $table->foreignId('expense_id');// shorthand for $table->unsignedBigInteger('id');
-            $table->foreignId('inspector_id');// Relation with met user table
+            $table->foreignId('inspector_id')->nullable()->unsigned();// Relation with met user table
             $table->foreignId('status_id');
             $table->text('note')->nullable();
             $table->timestamps();

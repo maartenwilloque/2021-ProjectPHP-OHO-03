@@ -18,6 +18,29 @@ class CreateStatusesTable extends Migration
             $table->string('name');
             $table->timestamps();
         });
+        //insert statuses
+        DB::table('statuses')->insert(
+            [
+                [
+                    'name' => 'Concept'
+                ],
+                [
+                    'name' => 'Ingediend'
+                ],
+                [
+                    'name' => 'Goedgekeurd KP'
+                ],
+                [
+                    'name' => 'Afgekeurd KP'
+                ],
+                [
+                    'name' => 'Goedgekeurd FIN'
+                ],
+                [
+                    'name' => 'Afgekeurd FIN'
+                ]
+            ]
+        );
     }
 
     /**

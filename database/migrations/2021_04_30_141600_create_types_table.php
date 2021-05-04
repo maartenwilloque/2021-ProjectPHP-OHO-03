@@ -18,6 +18,26 @@ class CreateTypesTable extends Migration
             $table->string('name');
             $table->timestamps();
         });
+        //Insert Types
+        DB::table('types')->insert(
+            [
+                [
+                    'name' => 'Algemeen'
+                ],
+                [
+                    'name' => 'Algemeen_Laptop'
+                ],
+                [
+                    'name' => 'Vervoer_KM'
+                ],
+                [
+                    'name' => 'Vervoer_Fiets'
+                ],
+                [
+                    'name' => 'Vervoer_Euro'
+                ],
+            ]
+        );
     }
 
     /**

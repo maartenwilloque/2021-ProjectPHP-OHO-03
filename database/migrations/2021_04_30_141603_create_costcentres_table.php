@@ -27,6 +27,12 @@ class CreateCostcentresTable extends Migration
             [
                 [
                     'responsible' => 1,
+                    'costcentre' => '0000000000',
+                    'description' => 'Algemeen',
+                    'created_at' => now(),
+                ],
+                [
+                    'responsible' => 1,
                     'costcentre' => 'WU3EIGE02274',
                     'description' => 'Buitenlandse reis',
                     'created_at' => now(),

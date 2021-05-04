@@ -18,6 +18,20 @@ class CreateTransportsTable extends Migration
             $table->string('name');
             $table->timestamps();;
         });
+        //insert transport
+        DB::table('transports')->insert(
+            [
+                [
+                    'name' => 'Fiets'
+                ],
+                [
+                    'name' => 'Auto'
+                ],
+                [
+                    'name' => 'Openbaar_Vervoer'
+                ]
+            ]
+        );
     }
 
     /**
