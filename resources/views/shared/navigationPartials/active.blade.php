@@ -1,16 +1,16 @@
-<li class="has-subnav">
+<li>
     <a href="#">
         <i class="fas fa-wallet fa"></i>
-        <span class="nav-text">My Expense</span>
+        <span class="nav-text">Home</span>
     </a>
 </li>
-<li class="has-subnav">
+<li>
     <a href="/user/profile">
         <i class="fas fa-id-card fa"></i>
         <span class="nav-text">Mijn profiel aanpassen</span>
     </a>
 </li>
-<li class="has-subnav">
+<li>
     <a href="/user/password">
         <i class="fas fa-unlock-alt fa"></i>
         <span class="nav-text">Mijn paswoord updaten</span>
