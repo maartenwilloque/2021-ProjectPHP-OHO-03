@@ -21,11 +21,12 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|Attachment whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Attachment whereUpdatedAt($value)
  * @mixin \Eloquent
+ * @property-read \App\Expense $expense
  */
 class Attachment extends Model
 {
     public function expense()
     {
-        return $this->belongsTo('App/Expense')->withDefault();
+        return $this->belongsTo('App\Expense')->withDefault();
     }
 }

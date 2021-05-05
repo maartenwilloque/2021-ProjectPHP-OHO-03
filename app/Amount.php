@@ -23,11 +23,12 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|Amount whereRemainingAmount($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Amount whereUpdatedAt($value)
  * @mixin \Eloquent
+ * @property-read \App\Expense $expense
  */
 class Amount extends Model
 {
     public function expense()
     {
-       return $this->belongsTo('App/Expense')->withDefault();
+       return $this->belongsTo('App\Expense')->withDefault();
     }
 }

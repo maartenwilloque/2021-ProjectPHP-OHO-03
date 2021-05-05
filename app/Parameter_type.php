@@ -25,11 +25,12 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|Parameter_type whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Parameter_type whereValue($value)
  * @mixin \Eloquent
+ * @property-read \App\Type $type
  */
 class Parameter_type extends Model
 {
     public function type()
     {
-        return $this->belongsTo('App/Type');
+        return $this->belongsTo('App\Type');
     }
 }

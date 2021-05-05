@@ -34,6 +34,10 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|Expense whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Expense whereUserId($value)
  * @mixin \Eloquent
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Attachment[] $attachements
+ * @property-read int|null $attachements_count
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Expenseprogress[] $expenseprgresses
+ * @property-read int|null $expenseprgresses_count
  */
 class Expense extends Model
 {
@@ -51,7 +55,7 @@ class Expense extends Model
     }
     public function attachements()
     {
-        return $this->hasMany('App\Attachement');
+        return $this->hasMany('App\Attachment');
     }
     public function amounts()
     {
@@ -61,9 +65,9 @@ class Expense extends Model
     {
         return $this->hasMany('App\Transfer');
     }
-    public function expenseprogresses()
+    public function expenseprgresses()
     {
-        return $this->hasMany('App\Expenseporgress');
+        return $this->hasMany('App\Expenseprogress');
     }
 
 
