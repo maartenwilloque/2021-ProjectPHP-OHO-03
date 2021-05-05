@@ -65,7 +65,7 @@ class Expense extends Model
     {
         return $this->hasMany('App\Transfer');
     }
-    public function expenseprgresses()
+    public function expenseprogresses()
     {
         return $this->hasMany('App\Expenseprogress');
     }
