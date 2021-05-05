@@ -19,11 +19,13 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|Transport whereName($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Transport whereUpdatedAt($value)
  * @mixin \Eloquent
+ * @property-read \Illuminate\Database\Eloquent\Collection|Transport[] $transfers
+ * @property-read int|null $transfers_count
  */
 class Transport extends Model
 {
     public function transfers()
     {
-        return $this->hasMany('App/Transport');
+        return $this->hasMany('App\Transport');
     }
 }

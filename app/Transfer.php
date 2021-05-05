@@ -29,16 +29,18 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|Transfer whereUnit($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Transfer whereUpdatedAt($value)
  * @mixin \Eloquent
+ * @property-read Transfer $transfer
+ * @property-read \App\Expense $expense
  */
 class Transfer extends Model
 {
     public function expense()
     {
-        return $this->belongsTo('App/Expense');
+        return $this->belongsTo('App\Expense');
     }
 
     public function transfer()
     {
-        return $this->belongsTo('App/Trensfer');
+        return $this->belongsTo('App\Transfer');
     }
 }

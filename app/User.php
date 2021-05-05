@@ -53,6 +53,8 @@ use Illuminate\Notifications\Notifiable;
  * @method static \Illuminate\Database\Eloquent\Builder|User whereStreet($value)
  * @method static \Illuminate\Database\Eloquent\Builder|User whereUpdatedAt($value)
  * @mixin \Eloquent
+ * @property string $gsm
+ * @method static \Illuminate\Database\Eloquent\Builder|User whereGsm($value)
  */
 class User extends Authenticatable
 {

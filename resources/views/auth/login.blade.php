@@ -1,11 +1,12 @@
 @extends('layouts.template')
 @section('title','My Expense Login')
 @section('main')
-    <div class="container">
+    <div class="container-fluid">
         <div class="row justify-content-center">
             <div class="col-md-8">
-                <div class="card col-sm-12 container">
-                    <div class="card-header">{{ __('Welkom op My Expense!') }}</div>
+                <div class="card col-sm-12">
+                    <div
+                        class="bg-transparent  color_Orange font-weight-bolder text-center border-bottom border-left border-right">{{ __('Welkom op My Expense Login!') }}</div>
                     <div class="card-body">
                         <form method="POST" action="{{ route('login') }}">
                             @csrf
@@ -29,7 +30,6 @@
                                     <div class="form-group row">
                                         <label for="password"
                                                class="col-md-5 col-form-label text-md-left">{{ __('Paswoord') }}</label>
-
                                         <div class="col-md-7">
                                             <input id="password" type="password"
                                                    class="form-control @error('password') is-invalid @enderror"
@@ -59,21 +59,16 @@
 
                                     <div class="form-group row mb-0">
                                         <div class="col-md-12 offset-md-5">
-                                            {{--                                <button type="submit" class="btn btn-primary">--}}
-                                            <button type="submit" class="small rounded-lg">
+                                            <button type="submit" class="rounded">
                                                 {{ __('Login') }}
                                             </button>
-
                                             @if (Route::has('password.request'))
-                                                <a class="small rounded-lg" href="{{ route('password.request') }}">
-                                                    {{ __('oops...vergeten?') }}
+                                                <a class="small ml-3" href="{{ route('password.request') }}">
+                                                    {{ __('Oops...vergeten? Klik hier') }}
                                                 </a>
                                             @endif
                                         </div>
                                     </div>
-                                </div>
-                                <div class="col-2">
-                                    <img class="img-fluid" src="assets/logo/MyExpenseLogo.png" alt="">
                                 </div>
                             </div>
                         </form>

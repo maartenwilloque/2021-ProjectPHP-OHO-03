@@ -19,16 +19,20 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|Type whereName($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Type whereUpdatedAt($value)
  * @mixin \Eloquent
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Expense[] $expense
+ * @property-read int|null $expense_count
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Parameter_type[] $parameterType
+ * @property-read int|null $parameter_type_count
  */
 class Type extends Model
 {
     public function parameterType()
     {
-        return $this->hasMany('App/Parameter_Type');
+        return $this->hasMany('App\Parameter_Type');
     }
 
     public function expense()
     {
-        return $this->hasMany('App/Expense');
+        return $this->hasMany('App\Expense');
     }
 }

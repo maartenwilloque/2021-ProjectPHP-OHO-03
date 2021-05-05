@@ -13,7 +13,16 @@
     border-top: $Orange;
     border-style: outset;
     border-width: 1px;
-    background-color: $Gray;
+    background-color: $Dark;
+
+}
+.footer,span{
+    color: $White;
+    text-decoration: underline;
+    text-decoration-color: $Orange;
+    }
+.footer,i,a,p,h6{
+    color: $LightGray!important;
 }
 
 

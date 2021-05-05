@@ -14,7 +14,6 @@ class PasswordController extends Controller
     {
         return view('user.password');
     }
-
     // Update and encrypt user password
     public function update(Request $request)
     {

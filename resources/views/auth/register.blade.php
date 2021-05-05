@@ -1,16 +1,14 @@
 @extends('layouts.template')
 @section('title','My Expense Register')
 @section('main')
-    <div class="container">
+    <div class="container-fluid">
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card col-sm-12">
-                    <div class="card-header">{{ __('MyExpense: Registratie') }}</div>
-
+                    <div class="bg-transparent  color_Orange font-weight-bolder text-center border-bottom border-left border-right">{{ __('Welkom op My Expense Registratie!') }}</div>
                     <div class="card-body">
                         <form method="POST" action="{{ route('register') }}">
                             @csrf
-
                             <div class="form-group row">
                                 <div class="col-6">
                                     <label for="name"
@@ -44,7 +42,7 @@
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <div class="col-6">
+                                <div class="col-5">
                                     <label for="street"
                                            class="col-form-label text-md-right">{{ __('Straat') }}</label>
                                     <div class="">
@@ -59,7 +57,7 @@
                                         @enderror
                                     </div>
                                 </div>
-                                <div class="col-3">
+                                <div class="col-2">
                                     <label for="number"
                                            class="col-form-label text-md-right">{{ __('Nr') }}</label>
                                     <div class="">
@@ -67,6 +65,21 @@
                                                class="form-control @error('number') is-invalid @enderror"
                                                name="number"
                                                value="{{ old('number') }}" required autocomplete="name" autofocus>
+                                        @error('number')
+                                        <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="col-5">
+                                    <label for="gsm"
+                                           class="col-form-label text-md-right">{{ __('GSM') }}</label>
+                                    <div class="">
+                                        <input id="gsm" type="text"
+                                               class="form-control @error('gsm') is-invalid @enderror"
+                                               name="gsm"
+                                               value="{{ old('gsm') }}" required autocomplete="name" autofocus>
                                         @error('number')
                                         <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -136,8 +149,7 @@
                             </div>
                             <div class="form-group row">
                                 <div class="col-12">
-                                    {{--                                    <button type="submit" class="btn btn-primary">--}}
-                                    <button type="submit" class="color_Orange_Back rounded-sm">
+                                    <button type="submit" class="rounded">
                                         {{ __('Register') }}
                                     </button>
                                 </div>

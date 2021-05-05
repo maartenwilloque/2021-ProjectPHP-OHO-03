@@ -25,20 +25,23 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|Expenseprogress whereStatusId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Expenseprogress whereUpdatedAt($value)
  * @mixin \Eloquent
+ * @property-read \App\User $approver
+ * @property-read \App\Expense $onkost
+ * @property-read \App\Status $status
  */
 class Expenseprogress extends Model
 {
     public function status()
     {
-        return $this->belongsTo('App/Status');
+        return $this->belongsTo('App\Status');
     }
     public function onkost()
     {
-        return $this->belongsTo('App/Expense');
+        return $this->belongsTo('App\Expense');
     }
 
     public function approver()
     {
-        return $this->belongsTo('App/USer');
+        return $this->belongsTo('App\USer');
     }
 }

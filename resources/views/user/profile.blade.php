@@ -1,14 +1,14 @@
 @extends('layouts.template')
 @section('title','My Expense Profile')
 @section('main')
-    @include('shared.alert')
-    <div class="container">
+    <div class="container-fluid">
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card col-sm-12">
-                    <div class="card-header">{{ __('MyExpense: Update Profiel') }}</div>
+                    <div
+                        class="bg-transparent  color_Orange font-weight-bolder text-center border-bottom border-left border-right">{{ __('Update My Expense profiel!') }}</div>
                     <div class="card-body">
-                        <form action="/user/profile" method="post">
+                        <form method="POST" action="{{ '/user/profile'}}">
                             @csrf
                             <div class="form-group row">
                                 <div class="col-6">
@@ -45,14 +45,14 @@
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <div class="col-6">
+                                <div class="col-5">
                                     <label for="street"
                                            class="col-form-label text-md-right">{{ __('Straat') }}</label>
                                     <div class="">
                                         <input id="street" type="text"
                                                class="form-control @error('street') is-invalid @enderror"
                                                name="street" value="{{ old('street', auth()->user()->street ) }}"
-                                               required autocomplete="name"
+                                               required autocomplete="street"
                                                autofocus>
                                         @error('street')
                                         <span class="invalid-feedback" role="alert">
@@ -61,7 +61,7 @@
                                         @enderror
                                     </div>
                                 </div>
-                                <div class="col-3">
+                                <div class="col-2">
                                     <label for="number"
                                            class="col-form-label text-md-right">{{ __('Nr') }}</label>
                                     <div class="">
@@ -69,8 +69,24 @@
                                                class="form-control @error('number') is-invalid @enderror"
                                                name="number"
                                                value="{{ old('number', auth()->user()->number ) }}" required
-                                               autocomplete="name" autofocus>
+                                               autocomplete="number" autofocus>
                                         @error('number')
+                                        <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="col-5">
+                                    <label for="gsm"
+                                           class="col-form-label text-md-right">{{ __('GSM nummer') }}</label>
+                                    <div class="">
+                                        <input id="gsm" type="text"
+                                               class="form-control @error('gsm') is-invalid @enderror"
+                                               name="gsm"
+                                               value="{{ old('gsm', auth()->user()->gsm ) }}" required
+                                               autocomplete="gsm" autofocus>
+                                        @error('gsm')
                                         <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -86,7 +102,7 @@
                                         <input id="city" type="text"
                                                class="form-control @error('city') is-invalid @enderror"
                                                name="city" value="{{ old('city', auth()->user()->city ) }}" required
-                                               autocomplete="name"
+                                               autocomplete="city"
                                                autofocus>
                                         @error('city')
                                         <span class="invalid-feedback" role="alert">
@@ -103,7 +119,7 @@
                                                class="form-control @error('email') is-invalid @enderror"
                                                name="email"
                                                value="{{ old('email', auth()->user()->email ) }}" required
-                                               autocomplete="name" autofocus>
+                                               autocomplete="email" autofocus>
                                         @error('email')
                                         <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -114,8 +130,7 @@
                             </div>
                             <div class="form-group row">
                                 <div class="col-12">
-                                    {{--                                    <button type="submit" class="btn btn-primary">--}}
-                                    <button type="submit" class="color_Orange_Back rounded-sm">
+                                    <button type="submit" class="rounded">
                                         {{ __('Update') }}
                                     </button>
                                 </div>
