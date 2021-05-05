@@ -1,10 +1,10 @@
 @extends('layouts.template')
 @section('title','My Expense Login')
 @section('main')
-    <div class="container">
+    <div class="container-fluid">
         <div class="row justify-content-center">
             <div class="col-md-8">
-                <div class="card col-sm-12 container">
+                <div class="card col-sm-12 container-fluid">
                     <div class="card-header">{{ __('Welkom op My Expense!') }}</div>
                     <div class="card-body">
                         <form method="POST" action="{{ route('login') }}">

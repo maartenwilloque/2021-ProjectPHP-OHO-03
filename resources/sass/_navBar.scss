@@ -2,6 +2,7 @@
 @import url(https://fonts.googleapis.com/css?family=Titillium+Web:300);
 .fa-2x {
     font-size: 2em;
+    color: $Orange!important;
 }
 .fa {
     position: relative;
@@ -10,7 +11,8 @@
     height: 36px;
     text-align: center;
     vertical-align: middle;
-    font-size:20px;
+    font-size:18px;
+    color: $Orange!important;
 }
 
 
@@ -20,7 +22,7 @@
 }
 
 .main-menu {
-    background:$Gray;
+    background:$LightGray;
     border-right:1px solid $Orange;
     position:absolute;
     top:0;
@@ -37,6 +39,7 @@
 
 .main-menu>ul {
     margin:7px 0;
+
 }
 
 .main-menu li {
@@ -50,7 +53,7 @@
     display:table;
     border-collapse:collapse;
     border-spacing:0;
-    color:$Orange ;
+    color:$Blue ;
     font-family: arial;
     font-size: 14px;
     text-decoration:none;
@@ -76,6 +79,9 @@
     vertical-align:middle;
     width:190px;
     font-family: 'Titillium Web', sans-serif;
+    color: $Dark;
+    text-decoration:none!important;
+    font-weight: bolder;
 }
 
 .logout {
@@ -112,7 +118,7 @@ nav ul,nav li {
 }
 .main-menu li:hover>a,nav.main-menu li.active>a,.dropdown-menu>li>a:hover,.dropdown-menu>li>a:focus,.dropdown-menu>.active>a,.dropdown-menu>.active>a:hover,.dropdown-menu>.active>a:focus,.no-touch .dashboard-page nav.dashboard-menu ul li:hover a,.dashboard-page nav.dashboard-menu ul li.active a {
     color:#fff;
-    background-color:#5fa2db;
+    background-color:$Dark;
 }
 .area {
     float: left;

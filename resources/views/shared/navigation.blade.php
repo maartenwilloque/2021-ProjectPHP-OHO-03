@@ -9,7 +9,7 @@
             </li>
             <li class="has-subnav">
                 <a href="/register">
-                    <i class="far fa-registered fa"></i>
+                    <i class="fas fa-user-plus fa"></i>
                     <span class="nav-text">Registreer</span>
                 </a>
             </li>
@@ -39,7 +39,7 @@
         <ul class="logout">
             <li>
                 <a href="/logout">
-                    <i class="fa fa-power-off fa-2x"></i>
+                    <i class="fa fa-power-off fa-2"></i>
                     <span class="nav-text">Logout</span>
                 </a>
             </li>

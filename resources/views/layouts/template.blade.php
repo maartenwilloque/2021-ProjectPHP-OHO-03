@@ -21,7 +21,7 @@
         })
     </script>
 </head>
-<body>
+<body id="body">
 @include('shared.navigation')
 <main class="container mt-3">
     @yield('main', 'Page under construction...')

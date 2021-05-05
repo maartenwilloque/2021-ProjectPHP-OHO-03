@@ -10951,6 +10951,10 @@ a.text-dark:focus {
   color: #e8e6e2;
 }
 
+.color_LightGray {
+  color: #bababa;
+}
+
 .color_Orange {
   color: #e73e16;
 }
@@ -10967,8 +10971,17 @@ a.text-dark:focus {
   color: #0091a6;
 }
 
+.color_White {
+  color: #fefefb;
+}
+
+#body {
+  background-color: #e8e6e2;
+}
+
 .fa-2x {
   font-size: 2em;
+  color: #e73e16 !important;
 }
 
 .fa {
@@ -10978,7 +10991,8 @@ a.text-dark:focus {
   height: 36px;
   text-align: center;
   vertical-align: middle;
-  font-size: 20px;
+  font-size: 18px;
+  color: #e73e16 !important;
 }
 
 .main-menu:hover,
@@ -10988,7 +11002,7 @@ nav.main-menu.expanded {
 }
 
 .main-menu {
-  background: #e8e6e2;
+  background: #bababa;
   border-right: 1px solid #e73e16;
   position: absolute;
   top: 0;
@@ -11017,7 +11031,7 @@ nav.main-menu.expanded {
   display: table;
   border-collapse: collapse;
   border-spacing: 0;
-  color: #e73e16;
+  color: #0091a6;
   font-family: arial;
   font-size: 14px;
   text-decoration: none;
@@ -11041,6 +11055,9 @@ nav.main-menu.expanded {
   vertical-align: middle;
   width: 190px;
   font-family: "Titillium Web", sans-serif;
+  color: #5a5a5a;
+  text-decoration: none !important;
+  font-weight: bolder;
 }
 
 .logout {
@@ -11088,7 +11105,7 @@ nav.main-menu li.active > a,
 .no-touch .dashboard-page nav.dashboard-menu ul li:hover a,
 .dashboard-page nav.dashboard-menu ul li.active a {
   color: #fff;
-  background-color: #5fa2db;
+  background-color: #5a5a5a;
 }
 
 .area {
@@ -11121,6 +11138,22 @@ nav.main-menu li.active > a,
   border-top: #e73e16;
   border-style: outset;
   border-width: 1px;
-  background-color: #e8e6e2;
+  background-color: #5a5a5a;
+}
+
+.footer,
+span {
+  color: #fefefb;
+  text-decoration: underline;
+  -webkit-text-decoration-color: #e73e16;
+          text-decoration-color: #e73e16;
+}
+
+.footer,
+i,
+a,
+p,
+h6 {
+  color: #bababa !important;
 }
 

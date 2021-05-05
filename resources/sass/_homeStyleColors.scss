@@ -4,6 +4,8 @@ $White: #fefefb;
 $Green: #2d995a;
 $Gray: #e8e6e2;
 $Yellow: #f2b700;
+$Dark:#5a5a5a;
+$LightGray:#bababa;
 
 
 //-----------------------------------------------------------
@@ -14,6 +16,10 @@ $Yellow: #f2b700;
 .color_Gray
 {
     color: $Gray;
+}
+.color_LightGray
+{
+    color: $LightGray;
 }
 
 .color_Orange
@@ -31,4 +37,11 @@ $Yellow: #f2b700;
 .color_Blue
 {
     color: $Blue;
+}
+.color_White
+{
+    color: $White;
+}
+#body{
+   background-color: $Gray;
 }
