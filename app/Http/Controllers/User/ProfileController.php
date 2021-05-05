@@ -23,7 +23,7 @@ class ProfileController extends Controller
         ]);
 
         // Update user in the database and redirect to previous page
-        $user = User::findOrFail(auth()->id());
+        $user = User::findorfail(auth()->id());
         $user->name = $request->name;
         $user->firstname = $request->firstname;
         $user->street = $request->street;
@@ -31,6 +31,7 @@ class ProfileController extends Controller
         $user->city = $request->city;
         $user->email = $request->email;
         $user->save();
+
         session()->flash('succes', 'Uw profiel is geupdate');
         return back();
     }
