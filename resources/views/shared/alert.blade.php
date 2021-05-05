@@ -1,19 +1,39 @@
 {{-- session key = success --}}
-@if (session()->has('success'))
-    <div class="alert alert-success alert-dismissable">
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">×</span>
-        </button>
-        <p>{!! session()->get('success') !!}</p>
+@if ($message = Session::get('success'))
+    <div class="alert alert-success alert-block">
+        <button type="button" class="close" data-dismiss="alert">×</button>
+        <strong>{{ $message }}</strong>
     </div>
 @endif
 
-{{-- session key = danger --}}
-@if (session()->has('danger'))
-    <div class="alert alert-danger alert-dismissable">
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">×</span>
-        </button>
-        <p>{!! session()->get('danger') !!}</p>
+
+@if ($message = Session::get('error'))
+    <div class="alert alert-danger alert-block">
+        <button type="button" class="close" data-dismiss="alert">×</button>
+        <strong>{{ $message }}</strong>
+    </div>
+@endif
+
+
+@if ($message = Session::get('warning'))
+    <div class="alert alert-warning alert-block">
+        <button type="button" class="close" data-dismiss="alert">×</button>
+        <strong>{{ $message }}</strong>
+    </div>
+@endif
+
+
+@if ($message = Session::get('info'))
+    <div class="alert alert-info alert-block">
+        <button type="button" class="close" data-dismiss="alert">×</button>
+        <strong>{{ $message }}</strong>
+    </div>
+@endif
+
+
+@if ($errors->any())
+    <div class="alert alert-danger">
+        <button type="button" class="close" data-dismiss="alert">×</button>
+        Verifieer het formulier op fouten aub.
     </div>
 @endif

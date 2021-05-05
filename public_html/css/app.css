@@ -10992,6 +10992,11 @@ nav {
   width: 100%;
 }
 
+.navAws {
+  color: #e8e6e2 !important;
+  text-shadow: -0.5px 0 #e73e16, 0 0.5px #e73e16, 0.5px 0 #e73e16, 0 -0.5px #e73e16;
+}
+
 nav ul {
   line-height: 60px;
   list-style: none;
@@ -11032,11 +11037,13 @@ nav ul li a {
   display: none;
 }
 
-.logout {
-  font-size: large;
-  font-weight: bold;
-  color: #fefefb;
-  text-shadow: -0.5px 0 #e73e16, 0 0.5px #e73e16, 0.5px 0 #e73e16, 0 -0.5px #e73e16;
+.fa-sign-out-alt {
+  padding-left: 20px;
+  margin-bottom: 0;
+  font-size: xx-large;
+  color: #e8e6e2 !important;
+  position: center;
+  text-shadow: -1px 0 #e73e16, 0 1px #e73e16, 1px 0 #e73e16, 0 -1px #e73e16;
 }
 
 @media (max-width: 786px) {

@@ -12,6 +12,12 @@ nav {
     width: 100%;
 }
 
+.navAws {
+
+    color: $Gray !important;
+    text-shadow: -0.5px 0 $Orange, 0 0.5px $Orange, 0.5px 0 $Orange, 0 -0.5px $Orange;
+}
+
 nav ul {
     line-height: 60px;
     list-style: none;
@@ -22,24 +28,24 @@ nav ul {
     margin: 0;
     padding-right: 40px;
     transition: 1s;
-    text-decoration: none!important;
+    text-decoration: none !important;
 }
 
 
 nav ul li {
     display: inline-block;
     padding: 8px 6px;
-    text-decoration: none!important;
+    text-decoration: none !important;
 
 }
 
 nav ul li a {
     font-size: 16px;
     color: $White !important;
-    text-decoration: none!important;
+    text-decoration: none !important;
 }
-.nav-text
-{
+
+.nav-text {
     text-decoration: none;
 }
 
@@ -53,13 +59,15 @@ nav ul li a {
     cursor: pointer;
     display: none;
 }
-.logout
-{
-    font-size: large;
-    font-weight: bold;
-    color: $White;
-    //Border rond Logout
-    text-shadow: -0.5px 0 $Orange, 0 0.5px $Orange, 0.5px 0 $Orange, 0 -0.5px $Orange;
+
+.fa-sign-out-alt {
+    padding-left: 20px;
+    margin-bottom: 0;
+    font-size: xx-large;
+    //font-weight: lighter;
+    color: $Gray!important;
+    position: center;
+    text-shadow: -1px 0 $Orange, 0 1px $Orange, 1px 0 $Orange, 0 -1px $Orange;
 }
 
 //responsiviteit

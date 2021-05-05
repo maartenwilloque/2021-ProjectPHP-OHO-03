@@ -30,9 +30,9 @@ class ProfileController extends Controller
         $user->number = $request->number;
         $user->city = $request->city;
         $user->email = $request->email;
+        $user->gsm = $request->gsm;
         $user->save();
 
-        session()->flash('succes', 'Uw profiel is geupdate');
-        return back();
+        return back()->with('succes','Uw profiel is geupdate');
     }
 }

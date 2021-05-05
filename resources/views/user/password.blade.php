@@ -1,14 +1,14 @@
 @extends('layouts.template')
 @section('title','My Expense Profile')
 @section('main')
-    @include('shared.alert')
-    <div class="container">
+    <div class="container-fluid">
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card col-sm-12">
-                    <div class="card-header">{{ __('MyExpense: Update paswoord') }}</div>
+                    <div
+                        class="bg-transparent  color_Orange font-weight-bolder text-center border-bottom border-left border-right">{{ __('Update My Expense paswoord!') }}</div>
                     <div class="card-body">
-                        <form action="/user/password" method="post">
+                        <form method="POST" action="{{ '/user/password'}}">
                             @csrf
                             <div class="form-group row">
                                 <div class="col-6">
@@ -17,7 +17,8 @@
                                     <div class="">
                                         <input id="current_password" type="password"
                                                class="form-control @error('current_password') is-invalid @enderror"
-                                               name="current_password" value="{{ old('current_password' ) }}" required autofocus>
+                                               name="current_password" value="{{ old('current_password' ) }}" required
+                                               autofocus>
                                         @error('current_password')
                                         <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>

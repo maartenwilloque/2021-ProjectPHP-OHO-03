@@ -33,7 +33,8 @@
 <body>
 <div>
     @include('shared.navigation')
-    <main class="container mt-5 content">
+    <main class="container mt-1 content">
+        @include('shared.alert')
         @yield('main', 'Page under construction...')
     </main>
 </div>
