@@ -19,7 +19,7 @@ class CreateUsersTable extends Migration
             $table->string('name');
             $table->string('firstname');
             $table->string('email')->unique();
-            $table->string('gsm')->nullable();
+            $table->string('gsm');
             $table->string('street');
             $table->string('number');
             $table->string('city');
@@ -39,6 +39,7 @@ class CreateUsersTable extends Migration
                     'name' => 'Van Moorleghem',
                     'firstname' => 'Erwin',
                     'email' => 'erwin@example.com',
+                    'gsm'=>'0497001122',
                     'street' => 'straat1',
                     'number' => '1',
                     'city' => 'Geel',
@@ -53,6 +54,7 @@ class CreateUsersTable extends Migration
                     'name' => 'Swaan',
                     'firstname' => 'Alex',
                     'email' => 'alex@example.com',
+                    'gsm'=>'0497110022',
                     'street' => 'straat2',
                     'number' => '2',
                     'city' => 'Geel',
@@ -67,6 +69,7 @@ class CreateUsersTable extends Migration
                     'name' => 'Willoqué',
                     'firstname' => 'Maarten',
                     'email' => 'maarten@example.com',
+                    'gsm'=>'0497001133',
                     'street' => 'straat3',
                     'number' => '3',
                     'city' => 'Geel',
