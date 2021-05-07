@@ -1,7 +1,4 @@
 @media only screen and (max-width: 480px) {
-    .footerDetails {
-        display: none;
-    }
     .footerSmall {
         font-size: small;
         height: 3vh;
@@ -9,17 +6,11 @@
 }
 
 .footerHeigth {
-    height: 12vh;
-    border-top: $Orange;
-    border-style: outset;
-    border-width: 1px;
-    background-color: $Dark;
+    background-color: $TmGrey;
 
 }
 .footer,span{
-    color: $White;
-    text-decoration: underline;
-    text-decoration-color: $Orange;
+    color: $LightGray;
     }
 .footer,i,a,p,h6{
     color: $LightGray!important;

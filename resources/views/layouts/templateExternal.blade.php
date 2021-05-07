@@ -10,7 +10,7 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-{{--        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>--}}
+    {{--        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>--}}
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script>
         $(document).ready(function () {
@@ -31,23 +31,21 @@
     </script>
 </head>
 <body>
-<header>
-    <h1>Welcome to my expenses</h1>
-</header>
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-2">
-            @include('shared.navigation')
-        </div>
-    </div>
+<div class="container-fluid ">
+    <div class="row no-gutter">
+        <div class="col-md-6 d-none d-md-flex bgColor">
+            @yield('image')</div>
+        <div class="col-md-6 bg-light">
+            <main>
+                @include('shared.alert')
+                @yield('main', 'Page under construction...')
+            </main>
+            <script src="{{ mix('js/app.js') }}"></script>
+            @yield('script_after')
+        </div><!-- End -->
 
+    </div>
 </div>
-    <main class="container mt-1 content">
-        @include('shared.alert')
-        @yield('main', 'Page under construction...')
-    </main>
 @include('shared.footer')
-<script src="{{ mix('js/app.js') }}"></script>
-@yield('script_after')
 </body>
 </html>

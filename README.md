@@ -8,4 +8,4 @@
 - Erwin Van Moorleghem (Document lead)
 - Alex Swaan
 
-## URL: [https://myexpenses.sinners.be/](https://myexpenses.sinners.be/)
+## URL: [https://ohoteam3.sinners.be/](https://ohoteam3.sinners.be/)

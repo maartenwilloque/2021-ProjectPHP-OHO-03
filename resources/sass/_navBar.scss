@@ -1,16 +1,12 @@
 .logo {
-    line-height: 30px;
-    position: fixed;
-    float: left;
-    margin: 20px 50px;
     max-height: 3em;
 
 }
 
-nav {
-    position: relative;
-    width: 100%;
-}
+//nav {
+//    position: relative;
+//    width: 100%;
+//}
 
 .navAws {
 
@@ -24,7 +20,7 @@ nav ul {
     background: $Blue;
     overflow: hidden;
     padding: 0;
-    text-align: right;
+    //text-align: right;
     margin: 0;
     padding-right: 40px;
     transition: 1s;

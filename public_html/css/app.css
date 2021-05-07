@@ -10975,21 +10975,16 @@ a.text-dark:focus {
   color: #fefefb;
 }
 
+.color_TMGrey {
+  background-color: #575757;
+}
+
 #body {
   background-color: #e8e6e2;
 }
 
 .logo {
-  line-height: 30px;
-  position: fixed;
-  float: left;
-  margin: 20px 50px;
   max-height: 3em;
-}
-
-nav {
-  position: relative;
-  width: 100%;
 }
 
 .navAws {
@@ -11003,7 +10998,6 @@ nav ul {
   background: #0091a6;
   overflow: hidden;
   padding: 0;
-  text-align: right;
   margin: 0;
   padding-right: 40px;
   transition: 1s;
@@ -11084,10 +11078,6 @@ nav ul li a {
 }
 
 @media only screen and (max-width: 480px) {
-  .footerDetails {
-    display: none;
-  }
-
   .footerSmall {
     font-size: small;
     height: 3vh;
@@ -11095,19 +11085,12 @@ nav ul li a {
 }
 
 .footerHeigth {
-  height: 12vh;
-  border-top: #e73e16;
-  border-style: outset;
-  border-width: 1px;
-  background-color: #5a5a5a;
+  background-color: #575757;
 }
 
 .footer,
 span {
-  color: #fefefb;
-  text-decoration: underline;
-  -webkit-text-decoration-color: #e73e16;
-          text-decoration-color: #e73e16;
+  color: #bababa;
 }
 
 .footer,
@@ -11116,5 +11099,30 @@ a,
 p,
 h6 {
   color: #bababa !important;
+}
+
+.login,
+.image {
+  min-height: 100vh;
+}
+
+.loginLogo {
+  max-height: 50vh;
+}
+
+.mobilelogo {
+  max-width: 20vh;
+}
+
+.bgColor {
+  background-color: #009cab;
+}
+
+.btnColor {
+  background-color: #009cab;
+}
+
+.registericon {
+  font-size: 30px;
 }
 

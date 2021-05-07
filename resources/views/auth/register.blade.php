@@ -1,5 +1,9 @@
-@extends('layouts.template')
-@section('title','My Expense Register')
+@extends('layouts.templateExternal')
+@section('image')
+    <div class="row mx-auto my-auto">
+        <img src="/assets/logo/MyExpenseLogo.png" class="loginLogo" alt="My expense Logo">
+    </div>
+@endsection
 @section('main')
     <div class="container-fluid">
         <div class="row justify-content-center">
