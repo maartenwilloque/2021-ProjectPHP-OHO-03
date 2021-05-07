@@ -11101,6 +11101,11 @@ h6 {
   color: #bababa !important;
 }
 
+.aboutmodal {
+  background-color: #575757 !important;
+  border-radius: 30px !important;
+}
+
 .login,
 .image {
   min-height: 100vh;
