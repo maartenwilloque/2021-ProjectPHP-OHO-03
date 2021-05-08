@@ -1,5 +1,5 @@
 <li>
-    <a href="#">
+    <a href="/user/profile">
         <i class="fas fa-wallet fa navAws"></i>
         <span class="nav-text">Home</span>
     </a>
