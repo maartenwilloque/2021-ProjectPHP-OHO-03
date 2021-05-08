@@ -6,6 +6,9 @@ $Gray: #e8e6e2;
 $Yellow: #f2b700;
 $Dark:#5a5a5a;
 $LightGray:#bababa;
+$TmBlue: #009cab;
+$TmOrange:#f04c25;
+$TmGrey: #575757;
 
 
 //-----------------------------------------------------------
@@ -41,6 +44,9 @@ $LightGray:#bababa;
 .color_White
 {
     color: $White;
+}
+.color_TMGrey{
+    background-color: $TmGrey;
 }
 #body{
    background-color: $Gray;
