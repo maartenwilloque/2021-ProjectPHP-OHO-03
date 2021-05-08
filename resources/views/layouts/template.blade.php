@@ -38,6 +38,7 @@
                 @yield('main', '...')
             </main>
             <script src="{{ mix('js/app.js') }}"></script>
+            @yield('customJs','')
         </div>
     </div>
 </div>
