@@ -31,6 +31,11 @@
             @if(Auth::user()->admin)
                 @include('shared.navigationPartials.approver')
                 @include('shared.navigationPartials.finance')
+                    <li>
+                        <a href="/admin/users">
+                            <span class="nav-text">Users</span>
+                        </a>
+                    </li>
             @endif
             <li>
                 <a href="/logout"> <span class="nav-text">Logout</span></a>

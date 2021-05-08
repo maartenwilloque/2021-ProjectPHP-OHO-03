@@ -43,9 +43,9 @@ class CreateUsersTable extends Migration
                     'street' => 'straat1',
                     'number' => '1',
                     'city' => 'Geel',
-                    'approver' => true,
+                    'approver' => false,
                     'finance' => false,
-                    'admin' => false,
+                    'admin' => true,
                     'password' => Hash::make('erwin'),
                     'created_at' => now(),
                     'email_verified_at' => now()
