@@ -9,10 +9,6 @@ window.myExpense = myExpense;
 myExpense.hello();
 
 $(function () {
-    $('nav i.fas').addClass('fa-fw mr-1');
-});
-
-$(function () {
     $('[required]').each(function () {
     });
 
@@ -26,4 +22,5 @@ $(function () {
         $(this).tooltip('hide');
     });
 });
+
 

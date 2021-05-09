@@ -1,5 +1,5 @@
 <nav>
-    <ul class="nav">
+    <ul class="navbar">
         <li class="nav-item">
             <img src="/assets/logo/MyExpenseLogo.png" class="logo" alt="My expense Logo">
         </li>
@@ -43,3 +43,4 @@
         @endauth
     </ul>
 </nav>
+
