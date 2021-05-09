@@ -36,7 +36,8 @@ class LoginController extends Controller
 // BRON https://kaloraat.com/articles/laravel-how-to-redirect-user-to-different-pages-based-on-different-user-role
 
 // check if authenticated, then redirect to dashboard
-    protected function authenticated() {
+    protected function authenticated()
+    {
 
         if ($this->middleware('active')) {
             return redirect('user');
@@ -49,21 +50,21 @@ class LoginController extends Controller
     }
 
 
-/**
- * Create a new controller instance.
- *
- * @return void
- */
-public
-function __construct()
-{
-    $this->middleware('guest')->except('logout');
-}
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public
+    function __construct()
+    {
+        $this->middleware('guest')->except('logout');
+    }
 
-public
-function logout(Request $request)
-{
-    Auth::logout();
-    return redirect('/login');
-}
+    public
+    function logout(Request $request)
+    {
+        Auth::logout();
+        return redirect('/');
+    }
 }
