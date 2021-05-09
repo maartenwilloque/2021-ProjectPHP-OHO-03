@@ -1,6 +1,5 @@
 <?php
 
-use Faker\Factory;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -39,7 +38,7 @@ class CreateUsersTable extends Migration
                     'name' => 'Van Moorleghem',
                     'firstname' => 'Erwin',
                     'email' => 'erwin@example.com',
-                    'gsm'=>'0497001122',
+                    'gsm' => '0497001122',
                     'street' => 'straat1',
                     'number' => '1',
                     'city' => 'Geel',
@@ -54,7 +53,7 @@ class CreateUsersTable extends Migration
                     'name' => 'Swaan',
                     'firstname' => 'Alex',
                     'email' => 'alex@example.com',
-                    'gsm'=>'0497110022',
+                    'gsm' => '0497110022',
                     'street' => 'straat2',
                     'number' => '2',
                     'city' => 'Geel',
@@ -69,7 +68,7 @@ class CreateUsersTable extends Migration
                     'name' => 'Willoqué',
                     'firstname' => 'Maarten',
                     'email' => 'maarten@example.com',
-                    'gsm'=>'0497001133',
+                    'gsm' => '0497001133',
                     'street' => 'straat3',
                     'number' => '3',
                     'city' => 'Geel',
@@ -79,8 +78,69 @@ class CreateUsersTable extends Migration
                     'password' => Hash::make('maarten'),
                     'created_at' => now(),
                     'email_verified_at' => now()
+                ],
+                [
+                    'name' => 'Klant',
+                    'firstname' => 'Active',
+                    'email' => 'active@example.com',
+                    'gsm' => '0497110022',
+                    'street' => 'straat2',
+                    'number' => '2',
+                    'city' => 'Geel',
+                    'approver' => false,
+                    'finance' => false,
+                    'admin' => false,
+                    'password' => Hash::make('klant'),
+                    'created_at' => now(),
+                    'email_verified_at' => now()
+                ],
+                [
+                    'name' => 'Klant',
+                    'firstname' => 'Approver',
+                    'email' => 'approver@example.com',
+                    'gsm' => '0497110022',
+                    'street' => 'straat2',
+                    'number' => '2',
+                    'city' => 'Geel',
+                    'approver' => true,
+                    'finance' => false,
+                    'admin' => false,
+                    'password' => Hash::make('klant'),
+                    'created_at' => now(),
+                    'email_verified_at' => now()
+                ],
+                [
+                    'name' => 'Klant',
+                    'firstname' => 'Finance',
+                    'email' => 'finance@example.com',
+                    'gsm' => '0497110022',
+                    'street' => 'straat2',
+                    'number' => '2',
+                    'city' => 'Geel',
+                    'approver' => false,
+                    'finance' => true,
+                    'admin' => false,
+                    'password' => Hash::make('klant'),
+                    'created_at' => now(),
+                    'email_verified_at' => now()
+                ],
+                [
+                    'name' => 'Klant',
+                    'firstname' => 'Admin',
+                    'email' => 'admin@example.com',
+                    'gsm' => '0497110022',
+                    'street' => 'straat2',
+                    'number' => '2',
+                    'city' => 'Geel',
+                    'approver' => false,
+                    'finance' => false,
+                    'admin' => true,
+                    'password' => Hash::make('klant'),
+                    'created_at' => now(),
+                    'email_verified_at' => now()
                 ]
             ]
+
         );
     }
 

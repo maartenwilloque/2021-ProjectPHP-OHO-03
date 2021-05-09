@@ -38,6 +38,8 @@ use Illuminate\Database\Eloquent\Model;
  * @property-read int|null $attachements_count
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Expenseprogress[] $expenseprgresses
  * @property-read int|null $expenseprgresses_count
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Expenseprogress[] $expenseprogresses
+ * @property-read int|null $expenseprogresses_count
  */
 class Expense extends Model
 {

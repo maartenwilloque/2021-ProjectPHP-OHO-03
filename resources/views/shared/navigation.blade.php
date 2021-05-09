@@ -32,7 +32,7 @@
                 @include('shared.navigationPartials.approver')
                 @include('shared.navigationPartials.finance')
                     <li>
-                        <a href="/admin/users">
+                        <a href="/admin/user">
                             <span class="nav-text">Users</span>
                         </a>
                     </li>

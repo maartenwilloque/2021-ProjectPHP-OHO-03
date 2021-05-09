@@ -16,13 +16,14 @@ use App\BootGridDataAdminUsers;
 Auth::routes();
 Route::get('logout', 'Auth\LoginController@logout');
 Route::redirect('home', '/');
-Route::view('/', 'auth.login');
+Route::view('/', 'auth.index');
 
 
 
 Route::middleware(['auth'])->prefix('admin')->group(function () {
-    Route::view('/users', 'admin.user');
-
+    Route::redirect('/','/admin/user');
+//    Route::view('/users', 'admin.user');
+    Route::resource('user', 'Admin\UsersController');
 });
 
 
@@ -38,7 +39,7 @@ Route::middleware(['auth'])->prefix('approver')->group(function () {
 });
 
 Route::middleware(['auth'])->prefix('user')->group(function () {
-    Route::redirect('/', 'user/profile');
+    Route::redirect('/', '/user/profile');
     Route::get('profile', 'User\ProfileController@edit');
     Route::post('profile', 'User\ProfileController@update');
     Route::get('password', 'User\PasswordController@edit');
