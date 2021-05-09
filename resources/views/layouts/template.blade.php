@@ -24,8 +24,8 @@
             <script src="{{ mix('js/app.js') }}"></script>
             {{--    Extra styles voor Bootgrid --}}
             {{--   installed with npm install jquery-bootgrid --}}
-            <script src="jquery.js"></script>
-            <script src="jquery.bootgrid.js"></script>
+{{--            <script src="jquery.js"></script>--}}
+{{--            <script src="jquery.bootgrid.js"></script>--}}
             {{--   --------------------------- --}}
         </div>
     </div>
