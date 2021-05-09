@@ -13,7 +13,6 @@
                                 {{ session('status') }}
                             </div>
                         @endif
-
                         <ul>
                             <p class="alert-info"> <i class="fas fa-users"></i>  OHO 2020-2021 PHP project Team 3</p>
                             <li>Alex Swaan</li>

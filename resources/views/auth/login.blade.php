@@ -4,8 +4,6 @@
     <div class="row mx-auto my-auto">
         <img src="/assets/logo/MyExpenseLogo.png" class="loginLogo" alt="My expense Logo">
     </div>
-
-
 @endsection
 @section('main')
     <div class=" row pt-3 pr-3 float-right">
@@ -15,7 +13,6 @@
     </div>
     <div class=" row login d-flex align-items-center py-5">
         <div class="container">
-
             <div class="row">
                 <div class="col-lg-10 col-xl-7 mx-auto pb-5">
                     <div class="row justify-content-center pb-5">
@@ -47,7 +44,6 @@
                                         </span>
                             @enderror
                         </div>
-
                         <div class="form-group ">
                             <div class="form-check pl-5">
                                 <input class="form-check-input" type="checkbox" name="remember"
@@ -57,7 +53,6 @@
                                 </label>
                             </div>
                         </div>
-
                         <div class="form-group  mt-5">
                             <button type="submit"
                                     class="btn btn-dark btn-block text-uppercase mb-2 rounded-pill shadow-sm">
@@ -68,7 +63,6 @@
                                     {{ __('Oops...vergeten? Klik hier') }}
                                 </a>
                             @endif
-
                         </div>
                     </form>
                 </div>

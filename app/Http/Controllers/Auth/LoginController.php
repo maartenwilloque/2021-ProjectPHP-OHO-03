@@ -7,6 +7,7 @@ use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Request;
+use User;
 
 class LoginController extends Controller
 {
@@ -28,19 +29,41 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = RouteServiceProvider::HOME;
 
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        $this->middleware('guest')->except('logout');
+
+// protected $redirectTo = RouteServiceProvider::HOME;
+
+// BRON https://kaloraat.com/articles/laravel-how-to-redirect-user-to-different-pages-based-on-different-user-role
+
+// check if authenticated, then redirect to dashboard
+    protected function authenticated() {
+
+        if ($this->middleware('active')) {
+            return redirect('user');
+        }
+// else if ($user->role_id == 2) {
+//            return redirect('/author');
+//        } else {
+//            return redirect('/blog');
+//        }
     }
-    public function logout(Request $request) {
-        Auth::logout();
-        return redirect('/login');
-    }
+
+
+/**
+ * Create a new controller instance.
+ *
+ * @return void
+ */
+public
+function __construct()
+{
+    $this->middleware('guest')->except('logout');
+}
+
+public
+function logout(Request $request)
+{
+    Auth::logout();
+    return redirect('/login');
+}
 }
