@@ -21,8 +21,9 @@ Route::view('/', 'auth.login');
 
 
 Route::middleware(['auth'])->prefix('admin')->group(function () {
-    Route::view('/users', 'admin.user');
-
+    Route::redirect('/','/admin/user');
+//    Route::view('/users', 'admin.user');
+    Route::resource('user', 'Admin\UsersController');
 });
 
 
