@@ -22,14 +22,13 @@ Route::view('/', 'auth.index');
 
 Route::middleware(['auth'])->prefix('admin')->group(function () {
     Route::redirect('/','/admin/user');
-//    Route::view('/users', 'admin.user');
     Route::resource('user', 'Admin\UsersController');
 });
 
 
 Route::middleware(['auth'])->prefix('finance')->group(function () {
-//    route::redirect('/', 'financeFiles');
-//    Route::get('records', 'Admin\RecordController@index');
+    Route::redirect('/','/finance/parameter');
+    Route::resource('parameter', 'finance\ParameterController');
 });
 
 
@@ -42,7 +41,7 @@ Route::middleware(['auth'])->prefix('user')->group(function () {
     Route::redirect('/', '/user/profile');
     Route::get('profile', 'User\ProfileController@edit');
     Route::post('profile', 'User\ProfileController@update');
-//    Route::get('password', 'User\PasswordController@edit');
-//    Route::post('password', 'User\PasswordController@update');
+    Route::get('password', 'User\PasswordController@edit');
+    Route::post('password', 'User\PasswordController@update');
 });
 //--------------------------------------------------------------------------------------------------

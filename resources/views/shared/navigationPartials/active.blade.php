@@ -25,7 +25,7 @@
 </li>
 <li>
     <a href="/user/profile">
-        <span class="nav-text">Mijn profiel aanpassen</span>
+        <span class="nav-text">Mijn profiel</span>
     </a>
 </li>
 >>>>>>> 6ef5f33ca2c951e54077934c48e71f3f32ee6155

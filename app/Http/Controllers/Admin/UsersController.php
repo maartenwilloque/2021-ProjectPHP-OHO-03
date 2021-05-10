@@ -77,8 +77,7 @@ class UsersController extends Controller
      */
     public function update(Request $request, User $user)
     {
-
-
+//        Input van checkboxes bepalen en wegschrijven naar database
         if ($request->get('active')) {
             $user->active = 1;
         } else {
