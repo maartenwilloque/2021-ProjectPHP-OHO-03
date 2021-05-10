@@ -1,6 +1,6 @@
 <li>
-    <a href="#">
-        <span class="nav-text">Parameters aanpassen</span>
+    <a href="/finance/parameter">
+        <span class="nav-text">Parameters</span>
     </a>
 </li>
 <li>

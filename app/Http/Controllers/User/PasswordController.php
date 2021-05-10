@@ -12,7 +12,7 @@ class PasswordController extends Controller
     // Edit user password
     public function edit()
     {
-        return view('user.password');
+        return view('user.profile');
     }
     // Update and encrypt user password
     public function update(Request $request)

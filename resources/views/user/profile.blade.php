@@ -13,7 +13,7 @@
                 <img src="/assets/logo/MyExpenseLogo.png" class="mobilelogo d-md-none" alt="My expense Logo">
             </div>
             {{--            Profiel updaten--}}
-            <h5 class="display-4">Profiel</h5>
+            <h5 class="display-5">Profiel</h5>
             <form method="POST" action="{{ '/user/profile'}}">
                 @csrf
                 <div class="form-group row">
@@ -23,8 +23,7 @@
                         <div class="">
                             <input id="name" type="text"
                                    class="form-control @error('name') is-invalid @enderror"
-                                   name="name" value="{{ old('name', auth()->user()->name ) }}" required
-                                   autocomplete="name"
+                                   name="name" value="{{ old('name', auth()->user()->name ) }}" required autocomplete="name"
                                    autofocus>
                             @error('name')
                             <span class="invalid-feedback" role="alert">
@@ -41,7 +40,7 @@
                                    class="form-control @error('firstname') is-invalid @enderror"
                                    name="firstname"
                                    value="{{ old('firstname', auth()->user()->firstname ) }}" required
-                                   autocomplete="name" autofocus>
+                                   autocomplete="firstname" autofocus>
                             @error('firstname')
                             <span class="invalid-feedback" role="alert">
                                                                         <strong>{{ $message }}</strong>
@@ -152,7 +151,7 @@
             <div class="row justify-content-center pb-5">
                 {{--                <img src="/assets/logo/MyExpenseLogo.png" class="mobilelogo d-md-none" alt="My expense Logo">--}}
             </div>
-            <h3 class="display-4">Paswoord</h3>
+            <h5 class="display-5">Paswoord</h5>
             <form method="POST" action="{{ '/user/password'}}">
                 @csrf
                 <div class="form-group row">
@@ -162,16 +161,15 @@
                         <div class="">
                             <input id="current_password" type="password"
                                    class="form-control @error('current_password') is-invalid @enderror"
-                                   name="current_password" value="{{ old('current_password' ) }}" required
-                                   autofocus>
+                                   name="current_password" value="{{ old('current_password' ) }}" required autofocus>
                             @error('current_password')
                             <span class="invalid-feedback" role="alert">
-                                                                        <strong>{{ $message }}</strong>
-                                                                    </span>
+                         <strong>{{ $message }}</strong>
+                            </span>
                             @enderror
                         </div>
                     </div>
-                    <div class="col-6"> </div>
+                    <div class="col-6"></div>
                     <div class="col-6">
                         <label for="password"
                                class="col-form-label text-md-right">{{ __('Nieuw paswoord') }}</label>
@@ -188,6 +186,7 @@
                         </div>
                     </div>
                 </div>
+
                 <div class="form-group row">
                     <div class="col-12">
                         <button type="submit" class="rounded">

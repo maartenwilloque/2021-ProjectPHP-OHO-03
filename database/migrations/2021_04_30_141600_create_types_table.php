@@ -34,7 +34,7 @@ class CreateTypesTable extends Migration
                     'name' => 'Vervoer_Fiets'
                 ],
                 [
-                    'name' => 'Vervoer_Euro'
+                    'name' => 'Vervoer_Openbaar'
                 ],
             ]
         );

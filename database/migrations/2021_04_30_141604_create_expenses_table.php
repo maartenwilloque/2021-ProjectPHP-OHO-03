@@ -19,6 +19,7 @@ class CreateExpensesTable extends Migration
             $table->foreignId('user_id');
             $table->foreignId('type_id');
             $table->string('name');
+            $table->date('date');
             $table->text('description')->nullable();
             $table->timestamps();
             // Foreign key relation

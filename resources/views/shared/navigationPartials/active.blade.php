@@ -5,7 +5,7 @@
 </li>
 <li>
     <a href="/user/profile">
-        <span class="nav-text">Mijn profiel aanpassen</span>
+        <span class="nav-text">Mijn profiel</span>
     </a>
 </li>
 

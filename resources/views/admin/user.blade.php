@@ -3,33 +3,33 @@
 @include('shared.navigation')
 
 @section('main')
-    <h1>Users</h1>
+    <h5 class="display-5">Users</h5>
     <div class="table-responsive-sm ">
         <table class="table" id="myTable">
             <thead>
             <tr>
-                <th onclick="sortTable(0)">#<i class="fas fa-sort small"></i></th>
-                <th onclick="sortTable(1)">Naam<i class="fas fa-sort"></i></th>
-                <th onclick="sortTable(2)">Voornaam<i class="fas fa-sort"></i></th>
-                <th onclick="sortTable(3)">Active<i class="fas fa-sort"></i></th>
-                <th onclick="sortTable(4)">Approver<i class="fas fa-sort"></i></th>
-                <th onclick="sortTable(5)">Finance<i class="fas fa-sort"></i></th>
-                <th onclick="sortTable(6)">Admin<i class="fas fa-sort"></i></th>
-                <th>Update</th>
+                <th class="small" onclick="sortTable(0)">#<i class="fas fa-sort small"></i></th>
+                <th class="small" onclick="sortTable(1)">Naam<i class="fas fa-sort"></i></th>
+                <th class="small" onclick="sortTable(2)">Voornaam<i class="fas fa-sort"></i></th>
+                <th class="small" onclick="sortTable(3)">Active<i class="fas fa-sort"></i></th>
+                <th class="small" onclick="sortTable(4)">Approver<i class="fas fa-sort"></i></th>
+                <th class="small" onclick="sortTable(5)">Finance<i class="fas fa-sort"></i></th>
+                <th class="small" onclick="sortTable(6)">Admin<i class="fas fa-sort"></i></th>
+                <th class="small">Update</th>
             </tr>
             </thead>
             <tbody>
             @foreach($users as $user)
                 <tr>
-                    <td>{{ $user->id }}</td>
-                    <td>{{ $user->name }}</td>
-                    <td>{{ $user->firstname }}</td>
-                    <td>{{ $user->active }}</td>
-                    <td>{{ $user->approver }}</td>
-                    <td>{{ $user->finance}}</td>
-                    <td>{{ $user->admin }}</td>
+                    <td class="small">{{ $user->id }}</td>
+                    <td class="small">{{ $user->name }}</td>
+                    <td class="small">{{ $user->firstname }}</td>
+                    <td class="small">{{ $user->active }}</td>
+                    <td class="small">{{ $user->approver }}</td>
+                    <td class="small">{{ $user->finance}}</td>
+                    <td class="small">{{ $user->admin }}</td>
                     <td>
-                        <form action="/admin/genres/{{ $user->id }}" method="post">
+                        <form action="/admin/user/{{ $user->id }}" method="post">
                             @method('delete')
                             @csrf
                             <div class="btn-group btn-group">

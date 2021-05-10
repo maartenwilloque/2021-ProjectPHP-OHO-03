@@ -12,6 +12,7 @@
     <main>
         @include('shared.alert')
         @yield('main', '...')
+        <br>
     </main>
     <script src="{{ mix('js/app.js') }}"></script>
 </div>
