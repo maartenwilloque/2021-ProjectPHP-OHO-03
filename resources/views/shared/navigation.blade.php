@@ -1,5 +1,4 @@
 <nav>
-<<<<<<< HEAD
     <div id="mySidenav" class="sidenav">
         <a href="#" class="closebtn hider toggle btn" id="hidebtn" style="z-index: 2">&times;</a>
         <div class="nav container">
