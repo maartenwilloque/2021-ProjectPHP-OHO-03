@@ -1,18 +1,19 @@
 
 .logo {
-    max-width: 80px;
+    max-width: 8vh;
     padding-top: 2vh;
     padding-bottom: 1vh;
     margin-left: 2vh;
 }
 .header {
-    background-color: $TmBlue;
+    background-color: $TmGrey;
     height: 13vh;
 }
 .headertitle{
     font-size: 56px;
     padding-top: 2vh;
     padding-bottom: 1vh;
+    color: $LightGray;
 
 }
 .menu-icons {
@@ -25,7 +26,7 @@
     z-index: 1;
     top: 13vh;
     left: 0;
-    background-color: $TmBlue;
+    background-color: $TmGrey;
     //overflow-x: hidden;
     transition: 0.5s;
     padding-top: 15px;
