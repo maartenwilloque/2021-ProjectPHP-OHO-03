@@ -11,6 +11,7 @@
 @include('shared.header')
 @include('shared.navigation')
 <div class="container-fluid ">
+    @yield('main')
 </div>
 @include('shared.footer')
 <script src="{{ mix('js/app.js') }}"></script>
