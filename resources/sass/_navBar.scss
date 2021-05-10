@@ -1,107 +1,56 @@
+
 .logo {
-    max-height: 3em;
+    max-width: 80px;
+    padding-top: 2vh;
+    padding-bottom: 1vh;
+    margin-left: 2vh;
+}
+.header {
+    background-color: $TmBlue;
+    height: 13vh;
+}
+.headertitle{
+    font-size: 56px;
+    padding-top: 2vh;
+    padding-bottom: 1vh;
 
 }
-
-//nav {
-//    position: relative;
-//    width: 100%;
-//}
-
-.navAws {
-
-    color: $Gray !important;
-    text-shadow: -0.5px 0 $Orange, 0 0.5px $Orange, 0.5px 0 $Orange, 0 -0.5px $Orange;
+.menu-icons {
+    font-size: 30px;
+}
+.sidenav {
+    height: 82vh;
+    width: 80px;
+    position: fixed;
+    z-index: 1;
+    top: 13vh;
+    left: 0;
+    background-color: $TmBlue;
+    //overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 15px;
 }
 
-nav ul {
-    line-height: 60px;
-    list-style: none;
-    background: $Blue;
-    overflow: hidden;
-    padding: 0;
-    //text-align: right;
-    margin: 0;
-    padding-right: 40px;
-    transition: 1s;
-    text-decoration: none !important;
-}
-
-
-nav ul li {
-    display: inline-block;
-    padding: 8px 6px;
-    text-decoration: none !important;
-
-}
-
-nav ul li a {
-    font-size: 16px;
-    color: $White !important;
-    text-decoration: none !important;
-}
-
-.nav-text {
+.sidenav a {
+    padding: 8px 8px 8px 8px;
     text-decoration: none;
+    font-size: 18px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+    margin-bottom: 10px;
+    margin-left: 10px;
 }
 
-.menu-icon {
-    line-height: 30px;
-    width: 100%;
-    background: $Blue;
-    text-align: right;
-    box-sizing: border-box;
-    padding: 15px 24px;
-    cursor: pointer;
-    display: none;
+.sidenav a:hover {
+    color: #f1f1f1;
 }
 
-.fa-sign-out-alt {
-    padding-left: 20px;
-    margin-bottom: 0;
-    font-size: xx-large;
-    //font-weight: lighter;
-    color: $Gray!important;
-    position: center;
-    text-shadow: -1px 0 $Orange, 0 1px $Orange, 1px 0 $Orange, 0 -1px $Orange;
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
 }
 
-//responsiviteit
-@media(max-width: 786px) {
-
-    .logo {
-        position: fixed;
-        top: 0;
-        margin-left: 15px;
-        margin-top: 8px;
-    }
-
-    nav ul {
-        max-height: 0px;
-        background: $Blue;
-    }
-
-    nav.black ul {
-        background: $Blue;
-    }
-
-    .showing {
-        max-height: 34em;
-    }
-
-    nav ul li {
-        box-sizing: border-box;
-        width: 100%;
-        padding: 1px;
-        text-align: left;
-    }
-
-    .menu-icon {
-        display: block;
-    }
-    .menu-icon-Color {
-        color: $White !important;
-
-    }
-
-}
