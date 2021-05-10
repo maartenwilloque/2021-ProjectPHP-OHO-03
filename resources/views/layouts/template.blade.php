@@ -8,14 +8,14 @@
     @include('shared.icons')
 </head>
 <body>
+@include('shared.header')
+@include('shared.navigation')
 <div class="container-fluid ">
-    <main>
-        @include('shared.alert')
-        @yield('main', '...')
-        <br>
-    </main>
-    <script src="{{ mix('js/app.js') }}"></script>
 </div>
 @include('shared.footer')
+<script src="{{ mix('js/app.js') }}"></script>
+@yield('Scripts')
+@include('shared.js')
+
 </body>
 </html>

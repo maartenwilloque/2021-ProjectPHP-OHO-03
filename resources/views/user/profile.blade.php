@@ -1,6 +1,5 @@
 @extends('layouts.template')
 @section('title','My Expense Profiel')
-@include('shared.navigation')
 @section('main')
     <div class="row justify-content-center m-auto">
         {{--        marge--}}

@@ -8,6 +8,7 @@ let MyExpense = (function () {
     return {
         hello: hello    // publicly available as: VinylShop.hello()
     };
+
 })();
 
 export default MyExpense;
