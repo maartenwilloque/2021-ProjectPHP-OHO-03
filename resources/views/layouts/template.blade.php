@@ -9,23 +9,12 @@
 </head>
 <body>
 <div class="container-fluid ">
-    <div class="row no-gutter">
-{{--        <div class="col-md-6 d-none d-md-flex bgColor">@yield('image')</div>--}}
-        <div class="col-md-6 bg-light">
-            <main>
-                @include('shared.alert')
-                @yield('main', '...')
-            </main>
-            <script src="{{ mix('js/app.js') }}"></script>
-            {{--    Extra styles voor Bootgrid --}}
-            {{--   installed with npm install jquery-bootgrid --}}
-{{--            <script src="jquery.js"></script>--}}
-{{--            <script src="jquery.bootgrid.js"></script>--}}
-            {{--   --------------------------- --}}
-        </div>
-    </div>
+    <main>
+        @include('shared.alert')
+        @yield('main', '...')
+    </main>
+    <script src="{{ mix('js/app.js') }}"></script>
 </div>
-@yield('Scripts')
 @include('shared.footer')
 </body>
 </html>
