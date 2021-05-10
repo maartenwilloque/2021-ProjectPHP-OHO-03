@@ -37401,9 +37401,6 @@ window.myExpense = _myExpense__WEBPACK_IMPORTED_MODULE_0__["default"]; // Run th
 
 _myExpense__WEBPACK_IMPORTED_MODULE_0__["default"].hello();
 $(function () {
-  $('nav i.fas').addClass('fa-fw mr-1');
-});
-$(function () {
   $('[required]').each(function () {});
   $('nav i.fas').addClass('fa-fw mr-1');
   $('body').tooltip({
