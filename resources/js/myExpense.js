@@ -4,6 +4,7 @@ let MyExpense = (function () {
         console.log('MyExpense JavaScript works! 🙂');
     }
 
+
     return {
         hello: hello    // publicly available as: VinylShop.hello()
     };
@@ -11,3 +12,4 @@ let MyExpense = (function () {
 })();
 
 export default MyExpense;
+

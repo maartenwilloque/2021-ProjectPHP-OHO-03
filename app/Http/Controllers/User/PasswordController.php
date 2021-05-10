@@ -20,7 +20,7 @@ class PasswordController extends Controller
         // Validate $request
         $this->validate($request, [
             'current_password' => 'required',
-            'password' => 'required|min:8|confirmed',
+            'password' => 'required|min:8',
         ]);
 
         // Update encrypted user password in the database and redirect to previous page

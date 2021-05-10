@@ -22,9 +22,10 @@
         </div>
     </div>
 </div>
+@include('shared.footer')
 <script src="{{ mix('js/app.js') }}"></script>
 @yield('Scripts')
 @include('shared.js')
-@include('shared.footer')
+
 </body>
 </html>
