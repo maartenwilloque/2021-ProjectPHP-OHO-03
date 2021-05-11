@@ -17,9 +17,11 @@ class ParameterController extends Controller
      */
     public function index()
     {
-        $parametersType = Parameter_type::orderBy('from_date')
+        $prmTypes = Type::orderBy('name')
             ->get();
-        $result = compact('parametersType');
+        $parametersTypes = Parameter_type::orderBy('id')
+            ->get();
+        $result = compact('parametersTypes', 'prmTypes');
         Json::dump($result);
         return view('finance.parameter.index', $result);
     }
@@ -31,14 +33,13 @@ class ParameterController extends Controller
      */
     public function create()
     {
-        $types= Type::all(['id','name']);
-        return view('finance.parameter',compact('types'));
+
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -49,7 +50,7 @@ class ParameterController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -60,21 +61,25 @@ class ParameterController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param \App\Parameter_type $parameterstype
+     * @param \App\Parameter_type $parameterstypes
      * @return \Illuminate\Http\Response
      */
-    public function edit(Parameter_type $parameterstype)
+    public function edit(Parameter_type $parametersTypes)
     {
-        $result = compact('parameterstype');
-        Json::dump($parameterstype);
+        $prmTypes = Type::orderBy('name')
+            ->get();
+        $parametersTypes = Parameter_type::orderBy('id')
+            ->get();
+        $result = compact('parametersTypes', 'prmTypes');
+        Json::dump($result);
         return view('finance.parameter.edit', $result);
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param \Illuminate\Http\Request $request
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -85,7 +90,7 @@ class ParameterController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)

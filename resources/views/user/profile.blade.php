@@ -1,12 +1,12 @@
 @extends('layouts.template')
 @section('title','My Expense Profiel')
 @section('main')
-    <div class="row justify-content-center m-auto">
+    <div class="row">
         {{--        marge--}}
-        <div class="col-md-1"></div>
+        <div class="col-1"></div>
         {{--        marge--}}
         {{--        profiel--}}
-        <div class="col-sm-12 col-md-4">
+        <div class="col-5">
             {{--        Logo--}}
             <div class="row justify-content-center">
                 <img src="/assets/logo/MyExpenseLogo.png" class="mobilelogo d-md-none" alt="My expense Logo">
@@ -196,7 +196,7 @@
                     <br>
                     <br>
                     <br>
-                    <div class="col-12">
+                    <div class="col-6">
                         <button type="submit" class="rounded">
                             {{ __('Update paswoord') }}
                         </button>

@@ -42,11 +42,6 @@ class LoginController extends Controller
         if ($this->middleware('active')) {
             return redirect('user');
         }
-// else if ($user->role_id == 2) {
-//            return redirect('/author');
-//        } else {
-//            return redirect('/blog');
-//        }
     }
 
 
