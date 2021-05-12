@@ -10996,10 +10996,57 @@ a.text-dark:focus {
 }
 
 .headertitle {
-  font-size: 56px;
-  padding-top: 2vh;
-  padding-bottom: 1vh;
+  /* Extra small devices (phones, 600px and down) */
+  /* Small devices (portrait tablets and large phones, 600px and up) */
+  /* Medium devices (landscape tablets, 768px and up) */
+  /* Large devices (laptops/desktops, 992px and up) */
+  /* Extra large devices (large laptops and desktops, 1200px and up) */
   color: #bababa;
+}
+
+@media only screen and (max-width: 600px) {
+  .headertitle {
+    font-size: 120%;
+    padding-left: 15vw;
+    padding-top: 4vh;
+    padding-bottom: 2vh;
+  }
+}
+
+@media only screen and (min-width: 600px) {
+  .headertitle {
+    font-size: 200%;
+    padding-left: 8vw;
+    padding-top: 4vh;
+    padding-bottom: 2vh;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .headertitle {
+    font-size: 200%;
+    padding-left: 3vw;
+    padding-top: 3vh;
+    padding-bottom: 2vh;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .headertitle {
+    font-size: 300%;
+    padding-left: 7vw;
+    padding-top: 4vh;
+    padding-bottom: 2vh;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .headertitle {
+    font-size: 300%;
+    padding-left: 1vw;
+    padding-top: 1vh;
+    padding-bottom: 2vh;
+  }
 }
 
 .menu-icons {

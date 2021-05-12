@@ -1,4 +1,3 @@
-
 .logo {
     max-width: 8vh;
     padding-top: 2vh;
@@ -10,12 +9,49 @@
     height: 13vh;
 }
 .headertitle{
-    font-size: 56px;
-    padding-top: 2vh;
-    padding-bottom: 1vh;
-    color: $LightGray;
+    /* Extra small devices (phones, 600px and down) */
+    @media only screen and (max-width: 600px) {
+        font-size: 120%;
+        padding-left: 15vw;
+        padding-top: 4vh;
+        padding-bottom: 2vh;
+    }
 
+    /* Small devices (portrait tablets and large phones, 600px and up) */
+    @media only screen and (min-width: 600px) {
+        font-size: 200%;
+        padding-left: 8vw;
+        padding-top: 4vh;
+        padding-bottom: 2vh;
+    }
+
+    /* Medium devices (landscape tablets, 768px and up) */
+    @media only screen and (min-width: 768px) {
+        font-size: 200%;
+        padding-left: 3vw;
+        padding-top: 3vh;
+        padding-bottom: 2vh;
+
+    }
+    /* Large devices (laptops/desktops, 992px and up) */
+    @media only screen and (min-width: 992px) {
+        font-size: 300%;
+        padding-left: 7vw;
+        padding-top: 4vh;
+        padding-bottom: 2vh;
+    }
+
+    /* Extra large devices (large laptops and desktops, 1200px and up) */
+    @media only screen and (min-width: 1200px) {
+        font-size: 300%;
+        padding-left: 1vw;
+        padding-top: 1vh;
+        padding-bottom: 2vh;
+
+    }
+    color: $LightGray;
 }
+
 .menu-icons {
     font-size: 30px;
 }
