@@ -14,10 +14,10 @@
             {{--            User updaten--}}
             @method('put')
             @csrf
-{{--            <h5 class="display-5">Update parameters: {{ $parametersTypes->id }}</h5>--}}
+            {{--            <h5 class="display-5">Update parameters: {{ $parametersTypes->id }}</h5>--}}
             <form action="/finance/parameter/{{$id ?? ''}}" method="post">
-                    @method('put')
-                    @csrf
+                @method('put')
+                @csrf
                 <div class="form-group row">
                     <div class="col-6">
                         {{--                        <label for="current_password"--}}
@@ -49,18 +49,18 @@
                             {{--                                                    @enderror--}}
                             {{--                                                    <label for="prmtype"--}}
                             {{--                                                                                   class="col-form-label text-md-right">{{ __('Type) }}</label>--}}
-{{--                            <select class="form-control form-control-sm">--}}
-{{--                                {{ Form::select('organization_id', $items}}--}}
-{{--                            </select>--}}
-{{--                            <div class="form-group">--}}
-{{--                                <label for="prmType">Select Type:</label>--}}
-{{--                                <select name="prmType" class="form-control" style="width:250px">--}}
-{{--                                    <option value="">--- Select Type---</option>--}}
-{{--                                    @foreach ($prmTypes as $key => $value)--}}
-{{--                                        <option value="{{ $key }}">{{ $value }}</option>--}}
-{{--                                    @endforeach--}}
-{{--                                </select>--}}
-{{--                            </div>--}}
+                            {{--                            <select class="form-control form-control-sm">--}}
+                            {{--                                {{ Form::select('organization_id', $items}}--}}
+                            {{--                            </select>--}}
+                            {{--                            <div class="form-group">--}}
+                            {{--                                <label for="prmType">Select Type:</label>--}}
+                            {{--                                <select name="prmType" class="form-control" style="width:250px">--}}
+                            {{--                                    <option value="">--- Select Type---</option>--}}
+                            {{--                                    @foreach ($prmTypes as $key => $value)--}}
+                            {{--                                        <option value="{{ $key }}">{{ $value }}</option>--}}
+                            {{--                                    @endforeach--}}
+                            {{--                                </select>--}}
+                            {{--                            </div>--}}
                         </div>
                     </div>
                     <div class="col-6"></div>

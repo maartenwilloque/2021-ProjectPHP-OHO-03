@@ -17,13 +17,20 @@
                 <table class="table" id="userTable">
                     <thead>
                     <tr>
-                        <th class="small" onclick="TableSort.sortTable(0,'userTable')">#<i class="fas fa-sort small"></i></th>
-                        <th class="small" onclick="TableSort.sortTable(1,'userTable')">Naam<i class="fas fa-sort small"></i></th>
-                        <th class="small" onclick="TableSort.sortTable(2,'userTable')">Voornaam<i class="fas fa-sort small"></i></th>
-                        <th class="small" onclick="TableSort.sortTable(3,'userTable')">Active<i class="fas fa-sort small"></i></th>
-                        <th class="small" onclick="TableSort.sortTable(4,'userTable')">Approver<i class="fas fa-sort small"></i></th>
-                        <th class="small" onclick="TableSort.sortTable(5,'userTable')">Finance<i class="fas fa-sort small"></i></th>
-                        <th class="small" onclick="TableSort.sortTable(6,'userTable')">Admin<i class="fas fa-sort small"></i></th>
+                        <th class="small" onclick="TableSort.sortTable(0,'userTable')">#<i
+                                class="fas fa-sort small"></i></th>
+                        <th class="small" onclick="TableSort.sortTable(1,'userTable')">Naam<i
+                                class="fas fa-sort small"></i></th>
+                        <th class="small" onclick="TableSort.sortTable(2,'userTable')">Voornaam<i
+                                class="fas fa-sort small"></i></th>
+                        <th class="small" onclick="TableSort.sortTable(3,'userTable')">Active<i
+                                class="fas fa-sort small"></i></th>
+                        <th class="small" onclick="TableSort.sortTable(4,'userTable')">Approver<i
+                                class="fas fa-sort small"></i></th>
+                        <th class="small" onclick="TableSort.sortTable(5,'userTable')">Finance<i
+                                class="fas fa-sort small"></i></th>
+                        <th class="small" onclick="TableSort.sortTable(6,'userTable')">Admin<i
+                                class="fas fa-sort small"></i></th>
                         <th class="small">Update</th>
                     </tr>
                     </thead>
@@ -59,7 +66,7 @@
                     @endforeach
                     </tbody>
                 </table>
-{{--                <div class="col-md-1"></div>--}}
+                {{--                <div class="col-md-1"></div>--}}
                 {{--        marge--}}
             </div>
         </div>
