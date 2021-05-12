@@ -1,18 +1,18 @@
 @extends('layouts.template')
 @section('title','My Expense Profiel')
 @section('main')
-    <div class="row justify-content-center m-auto">
+    <div class="row">
         {{--        marge--}}
-        <div class="col-md-1"></div>
+        <div class="col-1"></div>
         {{--        marge--}}
         {{--        profiel--}}
-        <div class="col-sm-12 col-md-4">
+        <div class="col-5">
             {{--        Logo--}}
-            <div class="row justify-content-center pb-5">
+            <div class="row justify-content-center">
                 <img src="/assets/logo/MyExpenseLogo.png" class="mobilelogo d-md-none" alt="My expense Logo">
             </div>
             {{--            Profiel updaten--}}
-            <h5 class="display-5">Profiel</h5>
+            <h5 class="display-5 mt-2">Profiel</h5>
             <form method="POST" action="{{ '/user/profile'}}">
                 @csrf
                 <div class="form-group row">
@@ -22,7 +22,8 @@
                         <div class="">
                             <input id="name" type="text"
                                    class="form-control @error('name') is-invalid @enderror"
-                                   name="name" value="{{ old('name', auth()->user()->name ) }}" required autocomplete="name"
+                                   name="name" value="{{ old('name', auth()->user()->name ) }}" required
+                                   autocomplete="name"
                                    autofocus>
                             @error('name')
                             <span class="invalid-feedback" role="alert">
@@ -135,7 +136,7 @@
                 <div class="form-group row">
                     <div class="col-12">
                         <button type="submit" class="rounded">
-                            {{ __('Update') }}
+                            {{ __('Update Profiel') }}
                         </button>
                     </div>
                 </div>
@@ -147,10 +148,10 @@
         {{--        marge--}}
         {{--        Paswoord--}}
         <div class="col-sm-12 col-md-4">
-            <div class="row justify-content-center pb-5">
+            <div class="row justify-content-center">
                 {{--                <img src="/assets/logo/MyExpenseLogo.png" class="mobilelogo d-md-none" alt="My expense Logo">--}}
             </div>
-            <h5 class="display-5">Paswoord</h5>
+            <h5 class="display-5 mt-2">Paswoord</h5>
             <form method="POST" action="{{ '/user/password'}}">
                 @csrf
                 <div class="form-group row">
@@ -169,8 +170,10 @@
                         </div>
                     </div>
                     <div class="col-6"></div>
+                </div>
+                <div class="form-group row">
                     <div class="col-6">
-                        <label for="password"
+                        <label for="current_password"
                                class="col-form-label text-md-right">{{ __('Nieuw paswoord') }}</label>
                         <div class="">
                             <input id="password" type="password"
@@ -179,17 +182,23 @@
                                    value="{{ old('password' ) }}" required autofocus>
                             @error('password')
                             <span class="invalid-feedback" role="alert">
-                                                                        <strong>{{ $message }}</strong>
-                                                                    </span>
+                         <strong>{{ $message }}</strong>
+                            </span>
                             @enderror
                         </div>
                     </div>
-                </div>
-
-                <div class="form-group row">
-                    <div class="col-12">
+                    <div class="col-6"></div>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <div class="col-6">
                         <button type="submit" class="rounded">
-                            {{ __('Update') }}
+                            {{ __('Update paswoord') }}
                         </button>
                     </div>
                 </div>

@@ -19,7 +19,6 @@ Route::redirect('home', '/');
 Route::view('/', 'auth.index');
 
 
-
 Route::middleware(['auth'])->prefix('admin')->group(function () {
     Route::redirect('/','/admin/user');
     Route::resource('user', 'Admin\UsersController');
@@ -28,7 +27,7 @@ Route::middleware(['auth'])->prefix('admin')->group(function () {
 
 Route::middleware(['auth'])->prefix('finance')->group(function () {
     Route::redirect('/','/finance/parameter');
-    Route::resource('parameter', 'finance\ParameterController');
+    Route::resource('parameter', 'Finance\ParameterController');
 });
 
 
@@ -38,7 +37,8 @@ Route::middleware(['auth'])->prefix('approver')->group(function () {
 });
 
 Route::middleware(['auth'])->prefix('user')->group(function () {
-    Route::redirect('/', '/user/profile');
+    Route::redirect('/', 'user');
+    Route::view('/', 'user.index');
     Route::get('profile', 'User\ProfileController@edit');
     Route::post('profile', 'User\ProfileController@update');
     Route::get('password', 'User\PasswordController@edit');

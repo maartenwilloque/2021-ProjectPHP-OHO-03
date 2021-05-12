@@ -1,5 +1,5 @@
 <div class="row">
-    <div class="col-12"> <a href="#"><i class="fas fa-cog menu-icons"></i>
+    <div class="col-12"> <a href="/finance/parameter"><i class="fas fa-cog menu-icons"></i>
             <span class="nav-text toggle">Parameters aanpassen</span>
         </a></div>
 </div>
