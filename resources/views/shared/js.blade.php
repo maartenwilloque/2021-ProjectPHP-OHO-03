@@ -1,3 +1,4 @@
+
 <script>
     function openNav() {
         document.getElementById("mySidenav").style.width = "250px";
@@ -25,5 +26,10 @@
 
     })
 
+    $(document).ready(function() {
+        $('#approval').DataTable( {
+            StateSave: true
+        } );
+    } );
 
 </script>

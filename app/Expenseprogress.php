@@ -35,13 +35,13 @@ class Expenseprogress extends Model
     {
         return $this->belongsTo('App\Status');
     }
-    public function onkost()
+    public function expense()
     {
         return $this->belongsTo('App\Expense');
     }
 
-    public function approver()
+    public function inspector()
     {
-        return $this->belongsTo('App\USer');
+        return $this->belongsTo('App\User');
     }
 }

@@ -21,7 +21,7 @@
                     <button type="button" class="btn bg-transparent"><i class="fas fa-plus"></i> Laptop</button>
                 </div>
             </div>
-            <div class="table col-11 ">
+            <div class="table-responsive col-11 ">
                 <table class="table" id="myExpenseTable">
                     <thead>
                     <tr>

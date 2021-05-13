@@ -25,23 +25,24 @@
                         @if(Auth::user()->active)
                             @include('shared.navigationPartials.active')
                         @endif
-                        @if(Auth::user()->approver)
+                            @if(Auth::user()->admin)
+                                @include('shared.navigationPartials.approver')
+                                @include('shared.navigationPartials.finance')
+                                <div class="row d-inline-block">
+                                    <div class="col-12"><a href="/admin/user"><i class="fas fa-users-cog menu-icons"></i>
+                                            <span class="nav-text hider toggle">Users</span>
+                                        </a></div>
+                                </div>
+                            @endif
+
+                        @if(Auth::user()->approver && !Auth::user()->admin)
                             @include('shared.navigationPartials.approver')
                         @endif
 
-                        @if(Auth::user()->finance)
+                        @if(Auth::user()->finance && !Auth::user()->admin)
                             @include('shared.navigationPartials.finance')
                         @endif
 
-                        @if(Auth::user()->admin)
-                            @include('shared.navigationPartials.approver')
-                            @include('shared.navigationPartials.finance')
-                            <div class="row d-inline-block">
-                                <div class="col-12"><a href="/admin/user"><i class="fas fa-users-cog menu-icons"></i>
-                                        <span class="nav-text hider toggle">Users</span>
-                                    </a></div>
-                            </div>
-                        @endif
                         <div class="row">
                             <div class="col-12">
                                 <a href="/logout"><i class="fas fa-sign-out-alt menu-icons"></i>
