@@ -1,6 +1,5 @@
 require('./bootstrap');
 
-
 // Make 'myExpense' accessible inside the HTML pages
 import myExpense from "./myExpense";
 
@@ -22,5 +21,8 @@ $(function () {
         $(this).tooltip('hide');
     });
 });
+
+import TableSort from "./tableSort";
+window.TableSort = TableSort;
 
 
