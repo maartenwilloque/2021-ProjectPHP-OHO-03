@@ -26,10 +26,21 @@
 
     })
 
-    $(document).ready(function() {
+    window.onload = function () {
+
         $('#approval').DataTable( {
-            StateSave: true
-        } );
-    } );
+            "paging": false, // Allow data to be paged
+            "lengthChange": false,
+            "searching": false, // Search box and search function will be actived
+            "ordering": false,
+            "info": false,
+            "autoWidth": true,
+            "processing": true,  // Show processing
+            "serverSide": false,  // Server side processing
+            "deferLoading": 0, // In this case we want the table load on request so initial automatical load is not desired
+            "pageLength": 5,
+        });
+
+    };
 
 </script>

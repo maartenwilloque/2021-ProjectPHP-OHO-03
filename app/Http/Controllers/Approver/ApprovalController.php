@@ -16,24 +16,31 @@ class ApprovalController extends Controller
     /**
      * Display a listing of the resource.
      *
+     * @param Request $request
      * @return Application|Factory|View
      */
-    public function index()
+    public function index(Request $request)
     {
-        $approval = Expense::with(['costcentre:id,responsible,description','type:id,name','expenseprogresss','user:id,name,firstname,email,gsm','attachments','amounts','transfers'])
-            ->whereIn('type_id', [1,2,3,5])
-            ->whereHas('expenseprogresss', function ($query){
-                return $query->where('status_id','=',2);
-            })
-            ->whereHas('costcentre', function ($query){
-                return $query->where('responsible','=',\Auth::user()->id);
-            })
-            ->get();
-        $result = compact('approval');
+        $search = $request->input('name');
 
+        $approvals = Expense::with(['costcentre:id,responsible,description', 'type:id,name', 'expenseprogresss', 'user:id,name,firstname,email,gsm', 'attachments', 'amounts', 'transfers'])
+            ->whereIn('type_id', [1, 2, 3, 5])
+            ->whereHas('expenseprogresss', function ($query) {
+                return $query->where('status_id', '=', 2);
+            })
+            ->whereHas('costcentre', function ($query) {
+                return $query->where('responsible', '=', \Auth::user()->id);
+            })
+            ->where('name', 'LIKE', '%' . $search . '%')
+            ->paginate(10)
+            ->appends([['name' => $request->input('name')]]);
+        $result = compact('approvals');
         Json::dump($result);
-        return view('approver.index',$result);
+
+        return view('approver.index', $result);
+
     }
+
 
     /**
      * Show the form for creating a new resource.
@@ -48,7 +55,7 @@ class ApprovalController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -59,7 +66,7 @@ class ApprovalController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Approval  $approval
+     * @param \App\Approval $approval
      * @return \Illuminate\Http\Response
      */
     public function show(Approval $approval)
@@ -70,7 +77,7 @@ class ApprovalController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Approval  $approval
+     * @param \App\Approval $approval
      * @return \Illuminate\Http\Response
      */
     public function edit(Approval $approval)
@@ -81,8 +88,8 @@ class ApprovalController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Approval  $approval
+     * @param \Illuminate\Http\Request $request
+     * @param \App\Approval $approval
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Approval $approval)
@@ -93,7 +100,7 @@ class ApprovalController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Approval  $approval
+     * @param \App\Approval $approval
      * @return \Illuminate\Http\Response
      */
     public function destroy(Approval $approval)
