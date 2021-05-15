@@ -2,19 +2,16 @@
 @section('title','Users')
 @section('main')
     <div class="row justify-content-center m-auto">
-        {{--        marge--}}
-        <div class="col-1"></div>
-        {{--        marge--}}
-        {{--        user--}}
-        <div class="col-11">
+        <div class="col-11 offset-1">
             {{--        Logo--}}
             {{--            <div class="row justify-content-center pb-5">--}}
             {{--                <img src="/assets/logo/MyExpenseLogo.png" class="mobilelogo d-md-none" alt="My expense Logo">--}}
             {{--            </div>--}}
             {{--            User updaten--}}
             <h5 class="display-5 mt-2">Users</h5>
-            <div class="table col-11 ">
-                <table class="table" id="userTable">
+
+            <div class="table-responsive" >
+                <table class="display" id="userTable" style="width:75%">
                     <thead>
                     <tr>
                         <th class="small" onclick="TableSort.sortTable(0,'userTable')">#<i
@@ -66,9 +63,10 @@
                     @endforeach
                     </tbody>
                 </table>
-                {{--                <div class="col-md-1"></div>--}}
-                {{--        marge--}}
             </div>
+            {{--                <div class="col-md-1"></div>--}}
+            {{--        marge--}}
         </div>
     </div>
+
 @endsection

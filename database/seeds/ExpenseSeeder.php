@@ -54,10 +54,10 @@ class ExpenseSeeder extends Seeder
                     'description' => $faker->sentence
                 ]
             );
-            $status = rand(2,6);
+            $status = rand(2, 6);
             $inspector = null;
             $note = '';
-            switch ($status){
+            switch ($status) {
                 case 2:
                     break;
                 case 3:
@@ -68,18 +68,18 @@ class ExpenseSeeder extends Seeder
                     $note = $faker->sentence;
                     break;
                 case 5:
-                    $inspector = rand(2,3);
+                    $inspector = rand(2, 3);
                     break;
                 case 6:
-                    $inspector = rand(2,3);
+                    $inspector = rand(2, 3);
                     $note = $faker->sentence;
             }
             Expenseprogress::create(
                 [
                     'expense_id' => $expenseid,
                     'inspector_id' => $inspector,
-                    'status_id'=> $status,
-                    'note'=> $note,
+                    'status_id' => $status,
+                    'note' => $note,
                 ]
             );
 
@@ -97,6 +97,7 @@ class ExpenseSeeder extends Seeder
                                     'remaining_amount' => $total - $quarter,
                                 ]
                             );
+                            break;
 
                     }
                     break;

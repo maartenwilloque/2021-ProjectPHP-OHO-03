@@ -2,8 +2,10 @@
 
 namespace App;
 
+use Eloquent;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Carbon;
 
 /**
@@ -35,7 +37,7 @@ use Illuminate\Support\Carbon;
  * @method static \Illuminate\Database\Eloquent\Builder|Expense whereTypeId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Expense whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Expense whereUserId($value)
- * @mixin \Eloquent
+ * @mixin Eloquent
  * @property-read Collection|\App\Attachment[] $attachements
  * @property-read int|null $attachements_count
  * @property-read Collection|\App\Expenseprogress[] $expenseprgresses
@@ -45,6 +47,11 @@ use Illuminate\Support\Carbon;
  */
 class Expense extends Model
 {
+    use Notifiable;
+    protected $fillable = [
+        'costcentre_id','user_id', 'type_id','name','description',''
+    ];
+
     public function user()
     {
         return $this->belongsTo('App\User')->withDefault();

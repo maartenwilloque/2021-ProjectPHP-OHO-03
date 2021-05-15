@@ -1,5 +1,5 @@
 require('./bootstrap');
-require( 'datatables.net-dt' )();
+// require( 'datatables.net-dt' )();
 // Make 'myExpense' accessible inside the HTML pages
 import myExpense from "./myExpense";
 
@@ -24,5 +24,6 @@ $(function () {
 
 import TableSort from "./tableSort";
 window.TableSort = TableSort;
+
 
 

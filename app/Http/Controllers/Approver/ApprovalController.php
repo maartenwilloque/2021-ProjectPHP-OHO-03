@@ -10,33 +10,55 @@ use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Response;
+use Illuminate\Routing\Redirector;
 
 class ApprovalController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
-     * @param Request $request
      * @return Application|Factory|View
      */
-    public function index(Request $request)
+    public function index()
     {
-        $search = $request->input('name');
+//        $search = $request->input('name');
 
-        $approvals = Expense::with(['costcentre:id,responsible,description', 'type:id,name', 'expenseprogresss', 'user:id,name,firstname,email,gsm', 'attachments', 'amounts', 'transfers'])
+//        $approvals = Expense::with(['costcentre:id,responsible,description', 'type:id,name','type.parameterType', 'expenseprogresss', 'user:id,name,firstname,email,gsm', 'attachments', 'amounts', 'transfers'])
+//            ->whereIn('type_id', [1, 2, 3, 5])
+//            ->whereHas('expenseprogresss', function ($query) {
+//                return $query->orderBy('created_at','desc')->latest();
+//            })
+//            ->whereHas('expenseprogresss', function ($query) {
+//                return $query->where('status_id', '=', 2);
+//            })
+//            ->whereHas('costcentre', function ($query) {
+//                return $query->where('responsible', '=', \Auth::user()->id);
+//            })
+//            ->get();
+////            ->where('name', 'LIKE', '%' . $search . '%')
+////            ->paginate(10)
+////            ->appends([['name' => $request->input('name')]]);
+//        $result = compact('approvals');
+//        Json::dump($result);
+//
+//        return view('approver.index', $result);
+        $approvals = Expense::orderBy('name')
             ->whereIn('type_id', [1, 2, 3, 5])
             ->whereHas('expenseprogresss', function ($query) {
+                return $query->orderBy('created_at', 'desc')->latest();
+            })
+            ->
+            whereHas('expenseprogresss', function ($query) {
                 return $query->where('status_id', '=', 2);
             })
-            ->whereHas('costcentre', function ($query) {
+                        ->whereHas('costcentre', function ($query) {
                 return $query->where('responsible', '=', \Auth::user()->id);
             })
-            ->where('name', 'LIKE', '%' . $search . '%')
-            ->paginate(10)
-            ->appends([['name' => $request->input('name')]]);
+            ->get();
         $result = compact('approvals');
         Json::dump($result);
-
         return view('approver.index', $result);
 
     }
@@ -45,7 +67,7 @@ class ApprovalController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function create()
     {
@@ -67,11 +89,11 @@ class ApprovalController extends Controller
      * Display the specified resource.
      *
      * @param \App\Approval $approval
-     * @return \Illuminate\Http\Response
+     * @return Application|RedirectResponse|Redirector
      */
     public function show(Approval $approval)
     {
-        //
+        return redirect('approver/approval');
     }
 
     /**
