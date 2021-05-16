@@ -1,7 +1,15 @@
 require('./bootstrap');
-
+window.Noty = require('noty');
+Noty.overrideDefaults({
+    theme: 'bootstrap-v4',
+    type: 'warning',
+    layout: 'center',
+    modal: true,
+});
+// require( 'datatables.net-dt' )();
 // Make 'myExpense' accessible inside the HTML pages
 import myExpense from "./myExpense";
+
 
 window.myExpense = myExpense;
 // Run the hello() function
@@ -24,5 +32,6 @@ $(function () {
 
 import TableSort from "./tableSort";
 window.TableSort = TableSort;
+
 
 

@@ -23,6 +23,7 @@ class UserSeeder extends Seeder
                     'name' => $name,
                     'firstname' => $firstname,
                     'email' => $email,
+                    'gsm' => $faker->phoneNumber,
                     'street' => $faker->streetName,
                     'number' => rand(1,100),
                     'city' => $faker->city,

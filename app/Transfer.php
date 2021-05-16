@@ -39,8 +39,8 @@ class Transfer extends Model
         return $this->belongsTo('App\Expense');
     }
 
-    public function transfer()
+    public function transport()
     {
-        return $this->belongsTo('App\Transfer');
+        return $this->belongsTo('App\Transport');
     }
 }

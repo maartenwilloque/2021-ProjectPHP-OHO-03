@@ -21,7 +21,7 @@
                     <button type="button" class="btn bg-transparent"><i class="fas fa-plus"></i> Laptop</button>
                 </div>
             </div>
-            <div class="table col-11 ">
+            <div class="table-responsive col-11 ">
                 <table class="table" id="myExpenseTable">
                     <thead>
                     <tr>
@@ -43,39 +43,38 @@
                     </tr>
                     </thead>
                     <tbody>
-                    {{--                    @foreach($users as $user)--}}
-                    <tr>
-                        {{--                            <th class="small" onclick="TableSort.sortTable(0,'myExpenseTable')">#<i class="fas fa-sort small"></i></th>--}}
-                        {{--                            <th class="small" onclick="TableSort.sortTable(1,'myExpenseTable')">Naam<i class="fas fa-sort small"></i></th>--}}
-                        {{--                            <th class="small" onclick="TableSort.sortTable(2,'myExpenseTable')">Voornaam<i class="fas fa-sort small"></i></th>--}}
-                        {{--                            <th class="small" onclick="TableSort.sortTable(3,'myExpenseTable')">Active<i class="fas fa-sort small"></i></th>--}}
-                        {{--                            <th class="small" onclick="TableSort.sortTable(4,'myExpenseTable')">Approver<i class="fas fa-sort small"></i></th>--}}
-                        {{--                            <th class="small" onclick="TableSort.sortTable(5,'myExpenseTable')">Finance<i class="fas fa-sort small"></i></th>--}}
-                        {{--                            <th class="small" onclick="TableSort.sortTable(6,'myExpenseTable')">Admin<i class="fas fa-sort small"></i></th>--}}
-                        {{--                            <td>--}}
-                        {{--                                <form action="/admin/user/{{ $user->id }}" method="post">--}}
-                        {{--                                    @method('delete')--}}
-                        {{--                                    @csrf--}}
-                        {{--                                    <div class="btn-group btn-group">--}}
-                        {{--                                        <a href="/admin/user/{{ $user->id }}/edit" class="btn btn-outline-success"--}}
-                        {{--                                           data-toggle="tooltip"--}}
-                        {{--                                           title="Edit {{ $user->name }}">--}}
-                        {{--                                            <i class="fas fa-edit"></i>--}}
-                        {{--                                        </a>--}}
-                        {{--                                        --}}{{--                                <button type="submit" class="btn btn-danger"--}}
-                        {{--                                        --}}{{--                                        data-toggle="tooltip"--}}
-                        {{--                                        --}}{{--                                        title="Delete {{ $user->name }}">--}}
-                        {{--                                        --}}{{--                                    <i class="fas fa-trash-alt"></i>--}}
-                        {{--                                        --}}{{--                                </button>--}}
-                        {{--                                    </div>--}}
-                        {{--                                </form>--}}
-                        </td>
-                    </tr>
-                    {{--                    @endforeach--}}
+{{--                    @foreach($users as $user)--}}
+{{--                        <tr>--}}
+{{--                            <td class="small">{{ $user->id }}</td>--}}
+{{--                            <td class="small">{{ $user->name }}</td>--}}
+{{--                            <td class="small">{{ $user->firstname }}</td>--}}
+{{--                            <td class="small">{{ $user->active }}</td>--}}
+{{--                            <td class="small">{{ $user->approver }}</td>--}}
+{{--                            <td class="small">{{ $user->finance}}</td>--}}
+{{--                            <td class="small">{{ $user->admin }}</td>--}}
+{{--                            <td>--}}
+{{--                                <form action="/admin/user/{{ $user->id }}" method="post">--}}
+{{--                                    @method('delete')--}}
+{{--                                    @csrf--}}
+{{--                                    <div class="btn-group btn-group">--}}
+{{--                                        <a href="/admin/user/{{ $user->id }}/edit" class="btn btn-outline-success"--}}
+{{--                                           data-toggle="tooltip"--}}
+{{--                                           title="Edit {{ $user->name }}">--}}
+{{--                                            <i class="fas fa-edit"></i>--}}
+{{--                                        </a>--}}
+{{--                                        --}}{{--                                <button type="submit" class="btn btn-danger"--}}
+{{--                                        --}}{{--                                        data-toggle="tooltip"--}}
+{{--                                        --}}{{--                                        title="Delete {{ $user->name }}">--}}
+{{--                                        --}}{{--                                    <i class="fas fa-trash-alt"></i>--}}
+{{--                                        --}}{{--                                </button>--}}
+{{--                                    </div>--}}
+{{--                                </form>--}}
+{{--                            </td>--}}
+{{--                        </tr>--}}
+{{--                    @endforeach--}}
                     </tbody>
                 </table>
-                {{--                <div class="col-md-1"></div>--}}
-                {{--        marge--}}
+                <div class="col-md-1"></div>
 
             </div>
         </div>

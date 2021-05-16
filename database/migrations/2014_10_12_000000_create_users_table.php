@@ -18,7 +18,7 @@ class CreateUsersTable extends Migration
             $table->string('name');
             $table->string('firstname');
             $table->string('email')->unique();
-            $table->string('gsm');
+            $table->string('gsm')->default(014562310);
             $table->string('street');
             $table->string('number');
             $table->string('city');
@@ -72,9 +72,9 @@ class CreateUsersTable extends Migration
                     'street' => 'straat3',
                     'number' => '3',
                     'city' => 'Geel',
-                    'approver' => false,
-                    'finance' => true,
-                    'admin' => true,
+                    'approver' => true,
+                    'finance' => false,
+                    'admin' => false,
                     'password' => Hash::make('maarten'),
                     'created_at' => now(),
                     'email_verified_at' => now()

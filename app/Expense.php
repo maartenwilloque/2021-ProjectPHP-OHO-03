@@ -2,7 +2,11 @@
 
 namespace App;
 
+use Eloquent;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Carbon;
 
 /**
  * App\Expense
@@ -13,15 +17,15 @@ use Illuminate\Database\Eloquent\Model;
  * @property int $type_id
  * @property string $name
  * @property string|null $description
- * @property \Illuminate\Support\Carbon|null $created_at
- * @property \Illuminate\Support\Carbon|null $updated_at
- * @property-read \Illuminate\Database\Eloquent\Collection|\App\Amount[] $amounts
+ * @property Carbon|null $created_at
+ * @property Carbon|null $updated_at
+ * @property-read Collection|Amount[] $amounts
  * @property-read int|null $amounts_count
- * @property-read \App\Costcentre $costcentre
- * @property-read \Illuminate\Database\Eloquent\Collection|\App\Transfer[] $transfers
+ * @property-read Costcentre $costcentre
+ * @property-read Collection|Transfer[] $transfers
  * @property-read int|null $transfers_count
- * @property-read \App\Type $type
- * @property-read \App\User $user
+ * @property-read Type $type
+ * @property-read User $user
  * @method static \Illuminate\Database\Eloquent\Builder|Expense newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Expense newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Expense query()
@@ -33,16 +37,21 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|Expense whereTypeId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Expense whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Expense whereUserId($value)
- * @mixin \Eloquent
- * @property-read \Illuminate\Database\Eloquent\Collection|\App\Attachment[] $attachements
+ * @mixin Eloquent
+ * @property-read Collection|\App\Attachment[] $attachements
  * @property-read int|null $attachements_count
- * @property-read \Illuminate\Database\Eloquent\Collection|\App\Expenseprogress[] $expenseprgresses
+ * @property-read Collection|\App\Expenseprogress[] $expenseprgresses
  * @property-read int|null $expenseprgresses_count
- * @property-read \Illuminate\Database\Eloquent\Collection|\App\Expenseprogress[] $expenseprogresses
+ * @property-read Collection|\App\Expenseprogress[] $expenseprogresses
  * @property-read int|null $expenseprogresses_count
  */
 class Expense extends Model
 {
+    use Notifiable;
+    protected $fillable = [
+        'costcentre_id','user_id', 'type_id','name','description',''
+    ];
+
     public function user()
     {
         return $this->belongsTo('App\User')->withDefault();
@@ -55,7 +64,7 @@ class Expense extends Model
     {
         return $this->belongsTo('App\Type')->withDefault();
     }
-    public function attachements()
+    public function attachments()
     {
         return $this->hasMany('App\Attachment');
     }
@@ -67,7 +76,7 @@ class Expense extends Model
     {
         return $this->hasMany('App\Transfer');
     }
-    public function expenseprogresses()
+    public function expenseprogresss()
     {
         return $this->hasMany('App\Expenseprogress');
     }
