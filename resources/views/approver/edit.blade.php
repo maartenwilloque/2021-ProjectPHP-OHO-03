@@ -8,7 +8,9 @@
                     <h3 class="display-4 mb-5">Details</h3>
                 </div>
                 <div class="row">
-                    <form action="" method="post">
+                    <form action="/approver/expense/{{ $expense->id }}" method="post">
+                        @method('put')
+                        @csrf
                         <label for="name">Omschrijving</label>
                         <input type="text" name="name" id="name" class="form-control " placeholder="Korte Omschrijving"
                                value="{{$expense->id}}">
@@ -47,6 +49,7 @@
                         <label for="name">volledige omschrijving</label>
                         <input type="text" name="name" id="name" class="form-control " placeholder="Korte Omschrijving"
                                value="{{$expense->description}}">
+                        <button type="submit" class="btn btn-light border-dark">Approve</button>
                     </form>
                 </div>
             </div>

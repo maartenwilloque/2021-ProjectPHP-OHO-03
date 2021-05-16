@@ -60,13 +60,9 @@
                                            title="Edit {{ $expense->id }}">
                                             <i class="fas fa-edit"></i>
                                         </a>
-                                        {{--                                <button type="submit" class="btn btn-danger"--}}
-                                        {{--                                        data-toggle="tooltip"--}}
-                                        {{--                                        title="Delete {{ $user->name }}">--}}
-                                        {{--                                    <i class="fas fa-trash-alt"></i>--}}
-                                        {{--                                </button>--}}
                                     </div>
                                 </form>
+
                             </td>
                         </tr>
                     @endforeach
@@ -77,5 +73,6 @@
             </div>
         </div>
     </div>
+    @include('shared.editmodal')
 
 @endsection

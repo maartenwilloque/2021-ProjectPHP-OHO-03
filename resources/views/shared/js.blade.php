@@ -25,6 +25,15 @@
         })
 
     })
+    $(function () {
+        $('body').tooltip({
+            selector: '[data-toggle="tooltip"]',
+            html : true,
+        }).on('click', '[data-toggle="tooltip"]', function () {
+            // hide tooltip when you click on it
+            $(this).tooltip('hide');
+        });
+    });
 
     window.onload = function () {
 
@@ -58,5 +67,4 @@
 
 
     };
-
 </script>

@@ -3,12 +3,15 @@
 namespace App\Http\Controllers\Approver;
 
 use App\Expense;
+use App\Expenseprogress;
 use App\Helpers\Json;
 use App\Http\Controllers\Controller;
+use App\Status;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use Illuminate\Routing\Redirector;
 use Illuminate\View\View;
 
@@ -42,7 +45,7 @@ class ExpenseController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function create()
     {
@@ -52,8 +55,8 @@ class ExpenseController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     * @return Response
      */
     public function store(Request $request)
     {
@@ -86,20 +89,26 @@ class ExpenseController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param Request $request
      * @param Expense $expense
-     * @return \Illuminate\Http\Response
+     * @return Application|Factory|View
      */
     public function update(Request $request, Expense $expense)
     {
-        //
+
+        $statusupdate = new Expenseprogress();
+        $statusupdate->status_id = 3;
+        $statusupdate->expense_id = $expense->id;
+        $statusupdate->inspector_id = auth()->id();
+        $statusupdate->save();
+        return redirect('/approver');
     }
 
     /**
      * Remove the specified resource from storage.
      *
      * @param Expense $expense
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function destroy(Expense $expense)
     {
