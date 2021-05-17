@@ -97,9 +97,9 @@
             //     "infoFiltered": "(filtered from _MAX_ total records)"
             //
             // },
-            columnDefs: [
-                { orderable: false, targets: 6 }
-            ]
+            // columnDefs: [
+            //     { orderable: false, targets: 5 }
+            // ]
         })
 
         $('#typeTable').DataTable({

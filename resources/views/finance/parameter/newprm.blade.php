@@ -41,9 +41,9 @@
                         <label for="fromdate"
                                class="col-form-label text-md-right">{{ __('Van Datum') }}</label>
                         <div class="">
-                            <input id="fromdate" type="date" value="now()"
+                            <input id="fromdate" type="date" value="date()"
                                    class="form-control read"
-                                   name="type" >
+                                   name="fromdate" >
                         </div>
                     </div>
                 </div>

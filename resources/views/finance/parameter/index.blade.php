@@ -17,9 +17,9 @@
                         <th>€</th>
                         <th>Van</th>
                         <th>Tot</th>
-                        <th>Active</th>
-                        <th>
-                        </th>
+                        {{--                        <th>Active</th>--}}
+                        {{--                        <th>--}}
+                        {{--                        </th>--}}
                     </tr>
                     </thead>
                     <tbody>
@@ -30,27 +30,27 @@
                             <td>{{ $parameter->value }}</td>
                             <td>{{ $parameter->from_date }}</td>
                             <td>{{ $parameter->to_date }}</td>
-                            <td>{{ $parameter->active }}</td>
-                            <td>
-                                <form action="/finance/parameter/{{ $parameter->id }}" method="post">
+{{--                                                        <td>{{ $parameter->active }}</td>--}}
+{{--                            <td>--}}
+{{--                                <form action="/finance/parameter/{{ $parameter->id }}" method="post">--}}
 
-                                    {{--                                                                                                        @method('delete')--}}
-                                    @csrf
-                                    <div class="btn-group btn-group">
-                                        <a href="/finance/parameter/{{ $parameter->id }}/edit"
-                                           class="btn btn-outline-success"
-                                           data-toggle="tooltip"
-                                           title="Edit {{ $parameter->id }}">
-                                            <i class="fas fa-edit"></i>
-                                        </a>
-                                        {{--                                                                                                        <button type="submit" class="btn btn-danger"--}}
-                                        {{--                                                                                                                data-toggle="tooltip"--}}
-                                        {{--                                                                                                                title="Delete {{ $user->name }}">--}}
-                                        {{--                                                                                                            <i class="fas fa-trash-alt"></i>--}}
-                                        {{--                                                                                                        </button>--}}
-                                    </div>
-                                </form>
-                            </td>
+{{--                                    @method('delete')--}}
+{{--                                    @csrf--}}
+{{--                                    <div class="btn-group btn-group">--}}
+{{--                                        <a href="/finance/parameter/{{ $parameter->id }}/edit"--}}
+{{--                                           class="btn btn-outline-success"--}}
+{{--                                           data-toggle="tooltip"--}}
+{{--                                           title="Edit {{ $parameter->id }}">--}}
+{{--                                            <i class="fas fa-edit"></i>--}}
+{{--                                        </a>--}}
+{{--                                        <button type="submit" class="btn btn-danger"--}}
+{{--                                                data-toggle="tooltip"--}}
+{{--                                                title="Delete {{ $user->name }}">--}}
+{{--                                            <i class="fas fa-trash-alt"></i>--}}
+{{--                                        </button>--}}
+{{--                                    </div>--}}
+{{--                                </form>--}}
+{{--                            </td>--}}
                         </tr>
                     @endforeach
                     </tbody>
