@@ -34503,9 +34503,9 @@ return jQuery;
 
 /* 
   @package NOTY - Dependency-free notification library 
-  @version version: 3.2.0-beta 
+  @version version: 3.1.4 
   @contributors https://github.com/needim/noty/graphs/contributors 
-  @documentation Examples and Documentation - https://ned.im/noty 
+  @documentation Examples and Documentation - http://needim.github.com/noty 
   @license Licensed under the MIT licenses: http://www.opensource.org/licenses/mit-license.php 
 */
 
@@ -36856,11 +36856,6 @@ var Noty = function () {
     _classCallCheck(this, Noty);
 
     this.options = Utils.deepExtend({}, API.Defaults, options);
-
-    if (API.Store[this.options.id]) {
-      return API.Store[this.options.id];
-    }
-
     this.id = this.options.id || Utils.generateID('bar');
     this.closeTimer = -1;
     this.barDom = null;
@@ -36927,10 +36922,6 @@ var Noty = function () {
     value: function show() {
       var _this = this;
 
-      if (this.showing || this.shown) {
-        return this; // preventing multiple show
-      }
-
       if (this.options.killer === true) {
         Noty.closeAll();
       } else if (typeof this.options.killer === 'string') {
@@ -36990,7 +36981,7 @@ var Noty = function () {
           var btn = _this.barDom.querySelector('#' + _this.options.buttons[key].id);
           Utils.addListener(btn, 'click', function (e) {
             Utils.stopPropagation(e);
-            _this.options.buttons[key].cb(_this);
+            _this.options.buttons[key].cb();
           });
         });
       }
@@ -37218,7 +37209,7 @@ var Noty = function () {
 
       this.closing = true;
 
-      if (this.options.animation.close === null || this.options.animation.close === false) {
+      if (this.options.animation.close === null) {
         this.promises.close = new _es6Promise2.default(function (resolve) {
           resolve();
         });
@@ -37273,33 +37264,12 @@ var Noty = function () {
     }
 
     /**
-     * @param {string} queueName
+     * @param {Object} obj
      * @return {Noty}
-     */
-
-  }, {
-    key: 'clearQueue',
-    value: function clearQueue() {
-      var queueName = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'global';
-
-      if (API.Queues.hasOwnProperty(queueName)) {
-        API.Queues[queueName].queue = [];
-      }
-      return this;
-    }
-
-    /**
-     * @return {API.Queues}
      */
 
   }, {
     key: 'overrideDefaults',
-
-
-    /**
-     * @param {Object} obj
-     * @return {Noty}
-     */
     value: function overrideDefaults(obj) {
       API.Defaults = Utils.deepExtend({}, API.Defaults, obj);
       return this;
@@ -37350,7 +37320,7 @@ var Noty = function () {
   }, {
     key: 'version',
     value: function version() {
-      return "3.2.0-beta";
+      return "3.1.4";
     }
 
     /**
@@ -37363,21 +37333,6 @@ var Noty = function () {
     value: function Push(workerPath) {
       return new _push.Push(workerPath);
     }
-  }, {
-    key: 'Queues',
-    get: function get() {
-      return API.Queues;
-    }
-
-    /**
-     * @return {API.PageHidden}
-     */
-
-  }, {
-    key: 'PageHidden',
-    get: function get() {
-      return API.PageHidden;
-    }
   }]);
 
   return Noty;
@@ -37387,9 +37342,7 @@ var Noty = function () {
 
 
 exports.default = Noty;
-if (typeof window !== 'undefined') {
-  Utils.visibilityChangeFlow();
-}
+Utils.visibilityChangeFlow();
 module.exports = exports['default'];
 
 /***/ }),
@@ -40521,7 +40474,6 @@ module.exports = function(module) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _myExpense__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./myExpense */ "./resources/js/myExpense.js");
-/* harmony import */ var _tableSort__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./tableSort */ "./resources/js/tableSort.js");
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 window.Noty = __webpack_require__(/*! noty */ "./node_modules/noty/lib/noty.js");
@@ -40547,9 +40499,8 @@ $(function () {
     // hide tooltip when you click on it
     $(this).tooltip('hide');
   });
-});
-
-window.TableSort = _tableSort__WEBPACK_IMPORTED_MODULE_1__["default"];
+}); // import TableSort from "./tableSort";
+// window.TableSort = TableSort;
 
 /***/ }),
 
@@ -40619,94 +40570,6 @@ var MyExpense = function () {
 }();
 
 /* harmony default export */ __webpack_exports__["default"] = (MyExpense);
-
-/***/ }),
-
-/***/ "./resources/js/tableSort.js":
-/*!***********************************!*\
-  !*** ./resources/js/tableSort.js ***!
-  \***********************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-var TableSort = function () {
-  var sortTable = function sortTable(n) {
-    var tableID = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : "";
-    var table,
-        rows,
-        switching,
-        i,
-        x,
-        y,
-        shouldSwitch,
-        dir,
-        switchcount = 0;
-    table = document.getElementById(tableID);
-    switching = true; //Set the sorting direction to ascending:
-
-    dir = "asc";
-    /*Make a loop that will continue until
-    no switching has been done:*/
-
-    while (switching) {
-      //start by saying: no switching is done:
-      switching = false;
-      rows = table.rows;
-      /*Loop through all table rows (except the
-      first, which contains table headers):*/
-
-      for (i = 1; i < rows.length - 1; i++) {
-        //start by saying there should be no switching:
-        shouldSwitch = false;
-        /*Get the two elements you want to compare,
-        one from current row and one from the next:*/
-
-        x = rows[i].getElementsByTagName("TD")[n];
-        y = rows[i + 1].getElementsByTagName("TD")[n];
-        /*check if the two rows should switch place,
-        based on the direction, asc or desc:*/
-
-        if (dir == "asc") {
-          if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
-            //if so, mark as a switch and break the loop:
-            shouldSwitch = true;
-            break;
-          }
-        } else if (dir == "desc") {
-          if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
-            //if so, mark as a switch and break the loop:
-            shouldSwitch = true;
-            break;
-          }
-        }
-      }
-
-      if (shouldSwitch) {
-        /*If a switch has been marked, make the switch
-        and mark that a switch has been done:*/
-        rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
-        switching = true; //Each time a switch is done, increase this count by 1:
-
-        switchcount++;
-      } else {
-        /*If no switching has been done AND the direction is "asc",
-        set the direction to "desc" and run the while loop again.*/
-        if (switchcount == 0 && dir == "asc") {
-          dir = "desc";
-          switching = true;
-        }
-      }
-    }
-  };
-
-  return {
-    sortTable: sortTable
-  };
-}();
-
-/* harmony default export */ __webpack_exports__["default"] = (TableSort);
 
 /***/ }),
 
