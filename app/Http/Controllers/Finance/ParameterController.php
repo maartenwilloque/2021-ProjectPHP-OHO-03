@@ -58,6 +58,8 @@ class ParameterController extends Controller
         $this->validate($request, [
             'parameter' => 'required',
             'value' => 'required',
+            'fromdate'=>'required'
+
         ]);
 //        $parameter = Parameter_type::all();
 //        foreach ($parameter as $p) {
@@ -69,16 +71,18 @@ class ParameterController extends Controller
 //                $parameter->to_date=now();
 //                $parameter->();
 //            }
+//        DB::table('parameter_types')
+//            ->where('type_id', $request->parameter)
+//            ->update(['active' => 0]);
+
         DB::table('parameter_types')
             ->where('type_id', $request->parameter)
-            ->update(['active' => 0]);
-
-
-
+            ->update(['to_date' => $request->fromdate]);
 
         $parameter = new Parameter_type();
         $parameter->type_id = $request->parameter;
         $parameter->value = $request->value;
+        $parameter->from_date = $request->fromdate;
         if ($request->get('active')) {
             $parameter->active = 1;
         } else {
