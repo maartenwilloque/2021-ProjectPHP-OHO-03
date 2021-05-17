@@ -1,54 +1,53 @@
 @extends('layouts.template')
-@section('title','Parameters')
+@section('title','Approvals')
 @section('main')
-    <div class="row">
-        {{--        marge--}}
-        <div class="col-1"></div>
-        {{--        marge--}}
-        {{--        parameter--}}
-        <div class="col-5">
-            {{--        Logo--}}
-            {{--            <div class="row justify-content-center pb-5">--}}
-            {{--                <img src="/assets/logo/MyExpenseLogo.png" class="mobilelogo d-md-none" alt="My expense Logo">--}}
-            {{--            </div>--}}
-            {{--            User updaten--}}
-            <h5 class="display-5 mt-2">Parameters</h5>
-            <div class="table col-11" >
-                <table class="table"id="prmTable">
+    <div class="row justify-content-center m-auto">
+        <div class="col-5 offset-1">
+            <h5 class="display-5 mt-2">Parameters <a href="/finance/parameter/create"
+                                                     class="btn btn-outline-success float-right mr-5">
+                    <i class="fas fa-plus-circle mr-1"></i>Parameter toevoegen</a></h5>
+
+
+            <div class="table-responsive">
+                <table id="prmTable" class="display compact" style="width:75%">
                     <thead>
                     <tr>
-                        <th class="small" onclick="TableSort.sortTable(0,'prmTable')">#<i class="fas fa-sort small"></i></th>
-                        <th class="small" onclick="TableSort.sortTable(2,'prmTable')">Type<i class="fas fa-sort small"></i></th>
-                        <th class="small" onclick="TableSort.sortTable(1,'prmTable')">€<i class="fas fa-sort small"></i></th>
-                        <th class="small" onclick="TableSort.sortTable(3,'prmTable')">Van<i class="fas fa-sort small"></i></th>
-                        <th class="small" onclick="TableSort.sortTable(4,'prmTable')">Tot<i class="fas fa-sort small"></i></th>
-                        <th class="small">Update</th>
+                        <th>#</th>
+                        <th>Type</th>
+                        <th>€</th>
+                        <th>Van</th>
+                        <th>Tot</th>
+                        <th>Active</th>
+                        <th>
+                        </th>
                     </tr>
                     </thead>
                     <tbody>
-                    @foreach($parametersTypes as $parametersType)
+                    @foreach($parameters as $parameter)
                         <tr>
-                            <td class="small">{{ $parametersType->id }}</td>
-                            <td class="small"> {{ $parametersType->type->name}}</td>
-                            <td class="small">{{ $parametersType->value }}</td>
-                            <td class="small">{{ $parametersType->from_date }}</td>
-                            <td class="small">{{ $parametersType->to_date }}</td>
+                            <td>{{ $parameter->id }}</td>
+                            <td> {{ $parameter->type->name}}</td>
+                            <td>{{ $parameter->value }}</td>
+                            <td>{{ $parameter->from_date }}</td>
+                            <td>{{ $parameter->to_date }}</td>
+                            <td>{{ $parameter->active }}</td>
                             <td>
-                                <form action="/finance/parameter/{{ $parametersType->id }}" method="post">
-                                    {{--                                    @method('delete')--}}
+                                <form action="/finance/parameter/{{ $parameter->id }}" method="post">
+
+                                    {{--                                                                                                        @method('delete')--}}
                                     @csrf
                                     <div class="btn-group btn-group">
-                                        <a href="/finance/parameter/{{ $parametersType->id }}/edit"
+                                        <a href="/finance/parameter/{{ $parameter->id }}/edit"
                                            class="btn btn-outline-success"
                                            data-toggle="tooltip"
-                                           title="Edit {{ $parametersType->id }}">
+                                           title="Edit {{ $parameter->id }}">
                                             <i class="fas fa-edit"></i>
                                         </a>
-                                        {{--                                <button type="submit" class="btn btn-danger"--}}
-                                        {{--                                        data-toggle="tooltip"--}}
-                                        {{--                                        title="Delete {{ $user->name }}">--}}
-                                        {{--                                    <i class="fas fa-trash-alt"></i>--}}
-                                        {{--                                </button>--}}
+                                        {{--                                                                                                        <button type="submit" class="btn btn-danger"--}}
+                                        {{--                                                                                                                data-toggle="tooltip"--}}
+                                        {{--                                                                                                                title="Delete {{ $user->name }}">--}}
+                                        {{--                                                                                                            <i class="fas fa-trash-alt"></i>--}}
+                                        {{--                                                                                                        </button>--}}
                                     </div>
                                 </form>
                             </td>
@@ -56,42 +55,37 @@
                     @endforeach
                     </tbody>
                 </table>
+
             </div>
         </div>
-        {{--        <div class="col-1"></div>--}}
-        {{--        marge--}}
         <div class="col-5">
-            <h5 class="display-5 mt-2">Types</h5>
-            <div class="table col-11">
-                <table class="table" id="typeTable">
+            <h5 class="display-5 mt-2">Parameter Types</h5>
+            <div class="table-responsive">
+                <table id="typeTable" class="display compact" style="width:75%">
                     <thead>
                     <tr>
-                        <th class="small" onclick="TableSort.sortTable(0,'typeTable')">#<i class="fas fa-sort small"></i></th>
-                        <th class="small" onclick="TableSort.sortTable(1,'typeTable')">Name<i class="fas fa-sort small"></i></th>
-                        <th class="small">Update</th>
+                        <th>#</th>
+                        <th>Naam</th>
+                        <th></th>
                     </tr>
                     </thead>
+                    <thead>
                     <tbody>
                     @foreach($prmTypes as $prmType)
                         <tr>
-                            <td class="small">{{ $prmType->id }}</td>
-                            <td class="small">{{ $prmType->name }}</td>
+                            <td>{{ $prmType->id }}</td>
+                            <td> {{ $prmType->name}}</td>
                             <td>
-                                <form action="/finance/parameter/{{ $prmType->id }}" method="post">
+                                <form action="/finance/parameterType/{{ $prmType->id }}" method="post">
                                     {{--                                    @method('delete')--}}
                                     @csrf
                                     <div class="btn-group btn-group">
-                                        <a href="/finance/parameter/{{ $prmType->id }}/edit"
+                                        <a href="/finance/parameterType/{{ $prmType->id }}/edit"
                                            class="btn btn-outline-success"
                                            data-toggle="tooltip"
                                            title="Edit {{ $prmType->id }}">
                                             <i class="fas fa-edit"></i>
                                         </a>
-                                        {{--                                <button type="submit" class="btn btn-danger"--}}
-                                        {{--                                        data-toggle="tooltip"--}}
-                                        {{--                                        title="Delete {{ $user->name }}">--}}
-                                        {{--                                    <i class="fas fa-trash-alt"></i>--}}
-                                        {{--                                </button>--}}
                                     </div>
                                 </form>
                             </td>

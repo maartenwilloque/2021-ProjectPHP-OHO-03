@@ -30,8 +30,8 @@ $(function () {
     });
 });
 
-import TableSort from "./tableSort";
-window.TableSort = TableSort;
+// import TableSort from "./tableSort";
+// window.TableSort = TableSort;
 
 
 

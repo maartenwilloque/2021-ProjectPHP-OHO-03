@@ -11,6 +11,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property int $type_id
  * @property string $from_date
  * @property string $to_date
+  * @property string $active
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @method static \Illuminate\Database\Eloquent\Builder|Parameter_type newModelQuery()
@@ -20,6 +21,7 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|Parameter_type whereFromDate($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Parameter_type whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Parameter_type whereToDate($value)
+ *  * @method static \Illuminate\Database\Eloquent\Builder|Parameter_type whereActive($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Parameter_type whereTypeId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Parameter_type whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Parameter_type whereValue($value)
