@@ -19,6 +19,7 @@ class CreateExpenseprogressesTable extends Migration
             $table->foreignId('inspector_id')->nullable()->unsigned();// Relation with met user table
             $table->foreignId('status_id');
             $table->text('note')->nullable();
+            $table->boolean('active')->default(true);
             $table->timestamps();
             // Foreign key relation
             $table->foreign('expense_id')->references('id')->on('expenses')->onDelete('cascade')->onUpdate('cascade');
