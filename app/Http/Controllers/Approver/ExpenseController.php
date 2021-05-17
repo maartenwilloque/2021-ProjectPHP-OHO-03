@@ -31,7 +31,7 @@ class ExpenseController extends Controller
             })
             ->
             whereHas('expenseprogresss', function ($query) {
-                return $query->where('status_id', '=', 2);
+                return $query->where('status_id', '=', 2)->where('active','=',true);
             })
             ->whereHas('costcentre', function ($query) {
                 return $query->where('responsible', '=', \Auth::user()->id);
