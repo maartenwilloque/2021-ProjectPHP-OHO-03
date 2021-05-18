@@ -2,7 +2,7 @@
 @section('title','Approvals')
 @section('main')
     <div class="row justify-content-center m-auto">
-        <div class="col-11 offset-1">
+        <div class="col-11 offset-sm-2 offset-md-1">
             <h5 class="display-5 mt-2">Approvals</h5>
             <div class="table-responsive">
                 <table id="approvalTable" class="display compact" style="width:75%">

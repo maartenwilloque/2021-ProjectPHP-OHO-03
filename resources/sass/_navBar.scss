@@ -7,6 +7,7 @@
 .header {
     background-color: $TmGrey;
     height: 13vh;
+    width: 100%;
 }
 .headertitle{
     /* Extra small devices (phones, 600px and down) */
@@ -56,16 +57,14 @@
     font-size: 30px;
 }
 .sidenav {
-    height: 82vh;
+    height: 100%;
     width: 80px;
     position: fixed;
     z-index: 1;
-    top: 13vh;
     left: 0;
     background-color: $TmGrey;
-    //overflow-x: hidden;
+    overflow-x: hidden;
     transition: 0.5s;
-    padding-top: 15px;
 }
 
 .sidenav a {
