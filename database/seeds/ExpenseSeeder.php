@@ -111,7 +111,6 @@ class ExpenseSeeder extends Seeder
                     break;
                 case 3:
                 case 4:
-                case 5:
                     Transfer::create(
                         [
                             'expense_id' => $expenseid,
@@ -119,6 +118,14 @@ class ExpenseSeeder extends Seeder
                             'reason' => $name,
                             'date' => $faker->dateTimeBetween('-1 years', 'now'),
                             'distance' => rand(10, 50)
+                        ]
+                    );
+                    break;
+                case 5:
+                    Amount::create(
+                        [
+                            'expense_id' => $expenseid,
+                            'amount' => rand(5, 50),
                         ]
                     );
 
