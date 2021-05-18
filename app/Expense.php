@@ -58,7 +58,7 @@ class Expense extends Model
     }
     public function costcentre()
     {
-        return $this->belongsTo('App\Costcentre','costcenter_id','id')->withDefault();
+        return $this->belongsTo('App\Costcentre','costcentre_id','id')->withDefault();
     }
     public function type()
     {
