@@ -9,6 +9,7 @@ use App\Parameter_type;
 use App\Type;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use function PHPUnit\Framework\isNull;
 
 class ParameterController extends Controller
 {
@@ -77,6 +78,7 @@ class ParameterController extends Controller
 
         DB::table('parameter_types')
             ->where('type_id', $request->parameter)
+            ->where('to_date')
             ->update(['to_date' => $request->fromdate]);
 
         $parameter = new Parameter_type();
