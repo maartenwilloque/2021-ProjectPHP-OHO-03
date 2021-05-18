@@ -18,6 +18,7 @@ class CreateAmountsTable extends Migration
             $table->foreignId('expense_id');// shorthand for $table->unsignedBigInteger('id');
             $table->float('amount',6,2);
             $table->float('remaining_amount',6,2)->default(0);
+            $table->date('date')->default(date(now()));
             $table->timestamps();
             // Foreign key relation
             $table->foreign('expense_id')->references('id')->on('expenses')->onDelete('cascade')->onUpdate('cascade');

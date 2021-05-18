@@ -74,14 +74,24 @@ class ExpenseSeeder extends Seeder
                     $inspector = rand(2, 3);
                     $note = $faker->sentence;
             }
-            Expenseprogress::create(
-                [
-                    'expense_id' => $expenseid,
-                    'inspector_id' => $inspector,
-                    'status_id' => $status,
-                    'note' => $note,
-                ]
-            );
+            if ($typeid == 4) {
+                Expenseprogress::create(
+                    [
+                        'expense_id' => $expenseid,
+                        'inspector_id' => $inspector,
+                        'status_id' => 7,
+                        'note' => $note,
+                    ]
+                );
+            } else
+                Expenseprogress::create(
+                    [
+                        'expense_id' => $expenseid,
+                        'inspector_id' => $inspector,
+                        'status_id' => $status,
+                        'note' => $note,
+                    ]
+                );
 
             switch ($typeid) {
                 case 2:
@@ -95,6 +105,7 @@ class ExpenseSeeder extends Seeder
                                     'expense_id' => $expenseid,
                                     'amount' => $total,
                                     'remaining_amount' => $total - $quarter,
+                                    'date' => $faker->dateTimeBetween('-1 years', 'now'),
                                 ]
                             );
                             break;
@@ -106,6 +117,7 @@ class ExpenseSeeder extends Seeder
                         [
                             'expense_id' => $expenseid,
                             'amount' => rand(25, 200),
+                            'date' => $faker->dateTimeBetween('-1 years', 'now'),
                         ]
                     );
                     break;
@@ -126,6 +138,7 @@ class ExpenseSeeder extends Seeder
                         [
                             'expense_id' => $expenseid,
                             'amount' => rand(5, 50),
+                            'date' => $faker->dateTimeBetween('-1 years', 'now'),
                         ]
                     );
 

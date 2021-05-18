@@ -50,6 +50,9 @@
                             <td>
                                 @foreach($expense->transfers as $transfers)
                                     {{$transfers->date}}
+                                @endforeach
+                                @foreach($expense->amounts as $amounts)
+                                    {{$amounts->date}}
                                 @endforeach</td>
                             <td>
                                 <form action="expense/{{ $expense->id }}" method="POST">

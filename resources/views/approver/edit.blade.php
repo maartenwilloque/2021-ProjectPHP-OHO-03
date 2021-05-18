@@ -13,7 +13,7 @@
                         @csrf
                         <label for="name">Omschrijving</label>
                         <input type="text" name="name" id="name" class="form-control " placeholder="Korte Omschrijving"
-                               value="{{$expense->id}}">
+                               value="{{$expense->name}}">
                         <label for="name">Type</label>
                         <input type="text" name="name" id="name" class="form-control " placeholder="Korte Omschrijving"
                                value="{{$expense->type->name}}">
