@@ -126,5 +126,29 @@
                 { orderable: false, targets: 2 }
             ]
         })
+        $('#costcenterTable').DataTable({
+            //no search, pagination and page x form y
+            //-------------------------------------------
+            "searching":true,
+            "paging":true,
+            "info":true,
+            //-------------------------------------------
+            "stateSave": true,
+            "autoWidth": true,
+            "processing": true,
+            // "lengthChange": false,
+            // "lengthMenu": [10],
+            // "language": {
+            //     "lengthMenu": "Display _MENU_ records per page",
+            //     "zeroRecords": "Geen onkosten gevonden",
+            //     "info": "Pagina _PAGE_ van _PAGES_",
+            //     "infoEmpty": "Geen onkosten gevonden",
+            //     "infoFiltered": "(filtered from _MAX_ total records)"
+            //
+            // },
+            columnDefs: [
+                { orderable: false, targets: 4 }
+            ]
+        })
     };
 </script>

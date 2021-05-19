@@ -1,14 +1,13 @@
 @extends('layouts.template')
 @section('title','Approvals')
+<i class="fas fa-plus-circle mr-2"></i>
 @section('main')
-    <div class="row justify-content-center m-auto">
-        <div class="col-5 offset-1">
-            <h5 class="display-5 mt-2">Parameters <a href="/finance/parameter/create"
-                                                     class="btn btn-outline-success float-right mr-5">
-                    <i class="fas fa-plus-circle mr-1"></i>Parameter toevoegen</a></h5>
-
-
-            <div class="table-responsive">
+    <div class="row container-fluid justify-content-sm-center justify-content-lg-start">
+        <div class="offset-1 col-sm-8 col-lg-5">
+            <h5 class="display-5 ml-5 mt-3">Parameters<a href="/finance/parameter/create"><i
+                        class="fas fa-plus-circle btnTableAdd"></i></a></h5>
+            @include('shared.alert')
+            <div class="table-responsive small">
                 <table id="prmTable" class="display compact" style="width:75%">
                     <thead>
                     <tr>
@@ -30,37 +29,15 @@
                             <td>{{ $parameter->value }}</td>
                             <td>{{ $parameter->from_date }}</td>
                             <td>{{ $parameter->to_date }}</td>
-{{--                                                        <td>{{ $parameter->active }}</td>--}}
-{{--                            <td>--}}
-{{--                                <form action="/finance/parameter/{{ $parameter->id }}" method="post">--}}
-
-{{--                                    @method('delete')--}}
-{{--                                    @csrf--}}
-{{--                                    <div class="btn-group btn-group">--}}
-{{--                                        <a href="/finance/parameter/{{ $parameter->id }}/edit"--}}
-{{--                                           class="btn btn-outline-success"--}}
-{{--                                           data-toggle="tooltip"--}}
-{{--                                           title="Edit {{ $parameter->id }}">--}}
-{{--                                            <i class="fas fa-edit"></i>--}}
-{{--                                        </a>--}}
-{{--                                        <button type="submit" class="btn btn-danger"--}}
-{{--                                                data-toggle="tooltip"--}}
-{{--                                                title="Delete {{ $user->name }}">--}}
-{{--                                            <i class="fas fa-trash-alt"></i>--}}
-{{--                                        </button>--}}
-{{--                                    </div>--}}
-{{--                                </form>--}}
-{{--                            </td>--}}
                         </tr>
                     @endforeach
                     </tbody>
                 </table>
-
             </div>
         </div>
-        <div class="col-5">
-            <h5 class="display-5 mt-2">Parameter Types</h5>
-            <div class="table-responsive">
+        <div class="offset-1 col-sm-8 col-lg-5">
+            <h5 class="display-5 ml-5 mt-3">Parameter Types</h5>
+            <div class="table-responsive small">
                 <table id="typeTable" class="display compact" style="width:75%">
                     <thead>
                     <tr>
@@ -79,13 +56,58 @@
                                 <form action="/finance/parameterType/{{ $prmType->id }}" method="post">
                                     {{--                                    @method('delete')--}}
                                     @csrf
-                                    <div class="btn-group btn-group">
+                                    <div class="btn-group btn-sm">
                                         <a href="/finance/parameterType/{{ $prmType->id }}/edit"
-                                           class="btn btn-outline-success"
                                            data-toggle="tooltip"
                                            title="Edit {{ $prmType->id }}">
-                                            <i class="fas fa-edit"></i>
+                                            <i class="fas fa-edit btnTableEdit"></i>
                                         </a>
+                                    </div>
+                                </form>
+                            </td>
+                        </tr>
+                    @endforeach
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="row justify-content-sm-center justify-content-lg-start">
+        <div class="offset-1 col-sm-8 col-lg-10">
+            <h5 class="display ml-5 mt-3">CostCenters<a href="/finance/costcenter/create"><i
+                        class="fas fa-plus-circle btnTableAdd"></i></a></h5>
+            <div class="table-responsive small">
+                <table id="costcenterTable" class="display compact" style="width:90%">
+                    <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Verantwoordelijke</th>
+                        <th>CostCenter</th>
+                        <th>Beschrijving</th>
+                        <th></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    @foreach($costcentres as $costcentre)
+                        <tr>
+                            <td>{{ $costcentre->id }}</td>
+                            <td>{{ $costcentre->user->name }} {{ $costcentre->user->firstname }}</td>
+                            <td>{{ $costcentre->costcentre }}</td>
+                            <td>{{ $costcentre->description }}</td>
+                            <td>
+                                <form action="/finance/costcenter/{{ $costcentre->id }}" method="post">
+                                    @method('delete')
+                                    @csrf
+                                    <div class="btn-group btn-sm">
+                                        <a href="/finance/costcenter/{{ $costcentre->id }}/edit"
+                                           data-toggle="tooltip"
+                                           title="Edit {{ $costcentre->costcentre }}">
+                                            <i class="fas fa-edit btnTableEdit"></i>
+                                        </a>
+                                        <button type="submit" class="border-0" data-toggle="tooltip"
+                                                title="Delete {{ $costcentre->costcentre }}">
+                                            <i class="fas fa-trash-alt btnTableDelete"></i>
+                                        </button>
                                     </div>
                                 </form>
                             </td>
