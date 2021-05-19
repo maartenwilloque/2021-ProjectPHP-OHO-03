@@ -1,5 +1,5 @@
 <nav>
-    <div id="mySidenav" class="sidenav">
+    <div id="mySidenav" class="sidenav position-fixed">
         <a href="#" class="closebtn hider toggle btn" id="hidebtn" style="z-index: 2">&times;</a>
         <div class="nav container">
             <div class="row">

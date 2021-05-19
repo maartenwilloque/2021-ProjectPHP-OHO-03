@@ -27,6 +27,6 @@ class Attachment extends Model
 {
     public function expense()
     {
-        return $this->belongsTo('App\Expense')->withDefault();
+        return $this->belongsTo('App\Expense','expense_id','id')->withDefault();
     }
 }

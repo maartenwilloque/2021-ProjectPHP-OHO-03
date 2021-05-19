@@ -54,15 +54,15 @@ class Expense extends Model
 
     public function user()
     {
-        return $this->belongsTo('App\User')->withDefault();
+        return $this->belongsTo('App\User','user_id','id')->withDefault();
     }
     public function costcentre()
     {
-        return $this->belongsTo('App\Costcentre')->withDefault();
+        return $this->belongsTo('App\Costcentre','costcentre_id','id')->withDefault();
     }
     public function type()
     {
-        return $this->belongsTo('App\Type')->withDefault();
+        return $this->belongsTo('App\Type','type_id','id')->withDefault();
     }
     public function attachments()
     {

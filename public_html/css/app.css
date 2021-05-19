@@ -11936,6 +11936,7 @@ a.text-dark:focus {
 .header {
   background-color: #575757;
   height: 13vh;
+  width: 100%;
 }
 
 .headertitle {
@@ -11997,15 +11998,14 @@ a.text-dark:focus {
 }
 
 .sidenav {
-  height: 82vh;
+  height: 100%;
   width: 80px;
   position: fixed;
   z-index: 1;
-  top: 13vh;
   left: 0;
   background-color: #575757;
+  overflow-x: hidden;
   transition: 0.5s;
-  padding-top: 15px;
 }
 
 .sidenav a {

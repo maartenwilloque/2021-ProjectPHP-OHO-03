@@ -38,6 +38,9 @@ class CreateStatusesTable extends Migration
                 ],
                 [
                     'name' => 'Afgekeurd FIN'
+                ],
+                [
+                    'name' => 'Ingediend NA'
                 ]
             ]
         );

@@ -24,13 +24,8 @@ class ExpenseController extends Controller
      */
     public function index()
     {
-        $expenses = Expense::orderBy('name')
-            ->whereIn('type_id', [1, 2, 3, 5])
+        $expenses = Expense::with('user','costcentre','expenseprogresss','type','amounts','transfers')
             ->whereHas('expenseprogresss', function ($query) {
-                return $query->orderBy('created_at', 'desc')->latest();
-            })
-            ->
-            whereHas('expenseprogresss', function ($query) {
                 return $query->where('status_id', '=', 2)->where('active','=',true);
             })
             ->whereHas('costcentre', function ($query) {
