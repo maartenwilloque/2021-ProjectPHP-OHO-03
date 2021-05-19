@@ -28,7 +28,7 @@ class Type extends Model
 {
     public function parameterType()
     {
-        return $this->hasMany('App\Parameter_Type');
+        return $this->hasMany('App\ParameterType','id','type_id');
     }
 
     public function expense()

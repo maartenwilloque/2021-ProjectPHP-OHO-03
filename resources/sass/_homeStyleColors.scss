@@ -1,10 +1,6 @@
-$Blue:#0091a6;
-$Orange: #e73e16;
 $White: #fefefb;
-$Green: #2d995a;
-$Gray: #e8e6e2;
+$Green: #78a346;
 $Yellow: #f2b700;
-$Dark:#5a5a5a;
 $LightGray:#bababa;
 $TmBlue: #009cab;
 $TmOrange:#f04c25;
@@ -13,12 +9,8 @@ $TmGrey: #575757;
 
 //-----------------------------------------------------------
 .color_Orange_Back {
-    background: $Orange;
-    color: $Gray;
-}
-.color_Gray
-{
-    color: $Gray;
+    background: $TmOrange;
+    color: $LightGray;
 }
 .color_LightGray
 {
@@ -27,7 +19,7 @@ $TmGrey: #575757;
 
 .color_Orange
 {
-    color: $Orange;
+    color: $TmOrange;
 }
 .color_Yellow
 {
@@ -39,7 +31,7 @@ $TmGrey: #575757;
 }
 .color_Blue
 {
-    color: $Blue;
+    color: $TmBlue;
 }
 .color_White
 {
@@ -49,5 +41,5 @@ $TmGrey: #575757;
     background-color: $TmGrey;
 }
 #body{
-   background-color: $Gray;
+   background-color: $LightGray;
 }

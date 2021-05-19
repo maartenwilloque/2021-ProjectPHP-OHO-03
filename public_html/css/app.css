@@ -11886,12 +11886,8 @@ a.text-dark:focus {
 }
 
 .color_Orange_Back {
-  background: #e73e16;
-  color: #e8e6e2;
-}
-
-.color_Gray {
-  color: #e8e6e2;
+  background: #f04c25;
+  color: #bababa;
 }
 
 .color_LightGray {
@@ -11899,7 +11895,7 @@ a.text-dark:focus {
 }
 
 .color_Orange {
-  color: #e73e16;
+  color: #f04c25;
 }
 
 .color_Yellow {
@@ -11907,11 +11903,11 @@ a.text-dark:focus {
 }
 
 .color_Green {
-  color: #2d995a;
+  color: #78a346;
 }
 
 .color_Blue {
-  color: #0091a6;
+  color: #009cab;
 }
 
 .color_White {
@@ -11923,7 +11919,7 @@ a.text-dark:focus {
 }
 
 #body {
-  background-color: #e8e6e2;
+  background-color: #bababa;
 }
 
 .logo {
@@ -12083,6 +12079,23 @@ h6 {
 
 .registericon {
   font-size: 30px;
+}
+
+.btnTableAdd {
+  background-color: transparent;
+  color: #009cab !important;
+  margin-left: 10px;
+}
+
+.btnTableEdit {
+  background-color: transparent;
+  color: #78a346 !important;
+}
+
+.btnTableDelete {
+  background-color: transparent;
+  color: #f04c25 !important;
+  margin-left: 10px;
 }
 
 /*!

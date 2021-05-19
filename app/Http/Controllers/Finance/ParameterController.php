@@ -2,14 +2,13 @@
 
 namespace App\Http\Controllers\Finance;
 
+use App\Costcentre;
 use App\Helpers\Json;
 use App\Http\Controllers\Controller;
-use App\Parameter;
-use App\Parameter_type;
+use App\ParameterType;
 use App\Type;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use function PHPUnit\Framework\isNull;
 
 class ParameterController extends Controller
 {
@@ -20,13 +19,21 @@ class ParameterController extends Controller
      */
     public function index(Request $request)
     {
+        $costcentres = Costcentre::with("user")
+            ->get();
+
         $prmTypes = Type::orderBy('name')
             ->get();
-        $parameters = Parameter_type::orderBy('id')
-            ->get();
-        $result = compact('parameters', 'prmTypes');
-        Json::dump($result);
 
+        $parameters = ParameterType::orderBy('id')
+            ->get();
+
+        $result = compact('costcentres', 'parameters', 'prmTypes');
+
+
+        Json::dump($result);
+//
+//        return view('finance.parameter.index', $result);
         return view('finance.parameter.index', $result);
     }
 
@@ -40,7 +47,7 @@ class ParameterController extends Controller
 
         $prmTypes = Type::orderBy('name')->get();
 
-        $parameter = new Parameter_type();
+        $parameter = new ParameterType();
 
         $result = compact('prmTypes', 'parameter');
         Json::dump($result);
@@ -51,7 +58,7 @@ class ParameterController extends Controller
      * Store a newly created resource in storage.
      *
      * @param \Illuminate\Http\Request $request
-     * @param \App\Parameter_type $parameters
+     * @param \App\ParameterType $parameters
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -59,29 +66,15 @@ class ParameterController extends Controller
         $this->validate($request, [
             'parameter' => 'required',
             'value' => 'required',
-            'fromdate'=>'required'
+            'fromdate' => 'required'
 
         ]);
-//        $parameter = Parameter_type::all();
-//        foreach ($parameter as $p) {
-//            if ($p->type_id != 1) {
-//
-//            }
-//            else{
-//                $parameter->active = 0;
-//                $parameter->to_date=now();
-//                $parameter->();
-//            }
-//        DB::table('parameter_types')
-//            ->where('type_id', $request->parameter)
-//            ->update(['active' => 0]);
-
-        DB::table('parameter_types')
+        DB::table('parameter_Types')
             ->where('type_id', $request->parameter)
             ->where('to_date')
             ->update(['to_date' => $request->fromdate]);
 
-        $parameter = new Parameter_type();
+        $parameter = new ParameterType();
         $parameter->type_id = $request->parameter;
         $parameter->value = $request->value;
         $parameter->from_date = $request->fromdate;
@@ -99,10 +92,10 @@ class ParameterController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param \App\Parameter $parameter
+     * @param \App\ParameterType $parameter
      * @return \Illuminate\Http\Response
      */
-    public function show(Parameter $parameter)
+    public function show(ParameterType $parameter)
     {
         return redirect('finance/parameter');
     }
@@ -110,12 +103,12 @@ class ParameterController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param \App\Parameter_type $parameters
+     * @param \App\ParameterType $parameters
      * @return \Illuminate\Http\Response
      */
-    public function edit(Parameter_type $parameter)
+    public function edit(ParameterType $parameters)
     {
-        $result = compact('parameter');
+        $result = compact('parameters');
         Json::dump($result);
         return view('finance.parameter.editprm', $result);
 
@@ -125,10 +118,10 @@ class ParameterController extends Controller
      * Update the specified resource in storage.
      *
      * @param \Illuminate\Http\Request $request
-     * @param \App\Parameter $parameter
+     * @param \App\ParameterType $parameter
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Parameter_type $parameter)
+    public function update(Request $request, ParameterType $parameter)
     {
         $this->validate($request, [
             'id' => 'required,' . $parameter->id
@@ -149,10 +142,10 @@ class ParameterController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param \App\Parameter $parameter
+     * @param \App\ParameterType $parameter
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Parameter $parameter)
+    public function destroy(ParameterType $parameter)
     {
         //
     }
