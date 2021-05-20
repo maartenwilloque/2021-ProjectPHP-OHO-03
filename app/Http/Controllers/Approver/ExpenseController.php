@@ -6,7 +6,9 @@ use App\Expense;
 use App\Expenseprogress;
 use App\Helpers\Json;
 use App\Http\Controllers\Controller;
+use App\ParameterType;
 use App\Status;
+use DB;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Http\RedirectResponse;
@@ -24,14 +26,17 @@ class ExpenseController extends Controller
      */
     public function index()
     {
-        $expenses = Expense::with('user','costcentre','expenseprogresss','type','amounts','transfers')
-            ->whereHas('expenseprogresss', function ($query) {
-                return $query->where('status_id', '=', 2)->where('active','=',true);
+        $expenses = Expense::with('user', 'costcentre', 'expenseprogress', 'type', 'amounts', 'transfers','type.parameterType')
+            ->join('types','type_id','=','types.id')
+            ->whereHas('expenseprogress', function ($query) {
+                return $query->where([['status_id',2],['active', true]]);
             })
             ->whereHas('costcentre', function ($query) {
                 return $query->where('responsible', '=', \Auth::user()->id);
             })
             ->get();
+//
+
         $result = compact('expenses');
         Json::dump($result);
         return view('approver.index', $result);
@@ -91,12 +96,24 @@ class ExpenseController extends Controller
     public function update(Request $request, Expense $expense)
     {
 
-        $statusupdate = new Expenseprogress();
-        $statusupdate->status_id = 3;
-        $statusupdate->expense_id = $expense->id;
-        $statusupdate->inspector_id = auth()->id();
-        $statusupdate->save();
+
+        Expenseprogress::with("expense")->where('expense_id', '=',$request->id )->where('active', '=', true)->update(['active'=>0]);
+//
+//
+//        Expense::with('expenseprogress')
+//            ->whereHas('expenseprogress', function ($query) use($expense) {
+//                return $query->where('expense_id', '=',$expense->id )->where('active', '=', true);
+//            })->update(['active'=>false]);
+
+        $expenseid = $expense->id;
+        Expenseprogress::create([['status_id'=>3],['expense_id'=>$expenseid],['inspector_id'=>auth()->id()]]);
+//        $statusupdate = new Expenseprogress();
+//        $statusupdate->status_id = 3;
+//        $statusupdate->expense_id = $expense->id;
+//        $statusupdate->inspector_id = auth()->id();
+//        $statusupdate->save();
         return redirect('/approver');
+
     }
 
     /**

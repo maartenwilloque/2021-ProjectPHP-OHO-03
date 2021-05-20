@@ -31,14 +31,17 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Expenseprogress extends Model
 {
+    protected $fillable = [
+        'expense_id', 'inspector_id','status_id','note','active',''
+    ];
     public function status()
     {
 
-        return $this->belongsTo('App\Status','status_id','id');
+        return $this->belongsTo('App\Status')->withDefault();
     }
     public function expense()
     {
-        return $this->belongsTo('App\Expense','expense_id','id')->withDefault();
+        return $this->belongsTo('App\Expense')->withDefault();
     }
 
     public function inspector()
