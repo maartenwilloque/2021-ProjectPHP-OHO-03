@@ -18,14 +18,14 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|Status whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Status whereName($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Status whereUpdatedAt($value)
- * @mixin \Eloquent
+ * @mixin Eloquent
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Expenseprogress[] $expenseprogresses
  * @property-read int|null $expenseprogresses_count
  */
 class Status extends Model
 {
-    public function expenseprogresses()
+    public function expenseprogresss()
     {
-        return $this->hasMany('App\Expenseprogress');
+      return $this->hasMany('App\Expenseprogress','id','status_id');
     }
 }

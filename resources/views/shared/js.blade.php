@@ -6,6 +6,7 @@
 
 
     }
+
     $(function () {
         $(document).ready(function () {
             $(".toggle").hide();
@@ -31,7 +32,7 @@
     $(function () {
         $('body').tooltip({
             selector: '[data-toggle="tooltip"]',
-            html : true,
+            html: true,
         }).on('click', '[data-toggle="tooltip"]', function () {
             // hide tooltip when you click on it
             $(this).tooltip('hide');
@@ -41,7 +42,7 @@
     //----------------------------------------------------------------------------------------------
     window.onload = function () {
 
-        $('#approvalTable').DataTable( {
+        $('#approvalTable').DataTable({
             "stateSave": true,
             "autoWidth": true,
             "processing": true,
@@ -56,10 +57,10 @@
 
             },
             columnDefs: [
-                { orderable: false, targets: 5 }
+                {orderable: false, targets: 5}
             ]
         });
-        $('#userTable').DataTable( {
+        $('#userTable').DataTable({
             "stateSave": true,
             "autoWidth": true,
             "processing": true,
@@ -74,15 +75,15 @@
 
             },
             columnDefs: [
-                { orderable: false, targets: 8 }
+                {orderable: false, targets: 8}
             ]
         });
         $('#prmTable').DataTable({
             //no search, pagination and page x form y
             //-------------------------------------------
-            "searching":false,
-            "paging":false,
-            "info":false,
+            "searching": false,
+            "paging": false,
+            "info": false,
             //-------------------------------------------
             "stateSave": true,
             "autoWidth": true,
@@ -105,9 +106,9 @@
         $('#typeTable').DataTable({
             //no search, pagination and page x form y
             //-------------------------------------------
-            "searching":false,
-            "paging":false,
-            "info":false,
+            "searching": false,
+            "paging": false,
+            "info": false,
             //-------------------------------------------
             "stateSave": true,
             "autoWidth": true,
@@ -123,15 +124,15 @@
             //
             // },
             columnDefs: [
-                { orderable: false, targets: 2 }
+                {orderable: false, targets: 2}
             ]
         })
         $('#costcenterTable').DataTable({
             //no search, pagination and page x form y
             //-------------------------------------------
-            "searching":true,
-            "paging":true,
-            "info":true,
+            "searching": true,
+            "paging": true,
+            "info": true,
             //-------------------------------------------
             "stateSave": true,
             "autoWidth": true,
@@ -147,8 +148,35 @@
             //
             // },
             columnDefs: [
-                { orderable: false, targets: 4 }
+                {orderable: false, targets: 4}
             ]
         })
+        $('#myExpenseTable').DataTable({
+                //no search, pagination and page x form y
+                //-------------------------------------------
+                "searching": true,
+                "paging": true,
+                "info": true,
+
+                //-------------------------------------------
+                "stateSave": true,
+                "autoWidth": false,
+                "processing": true,
+                "lengthChange": false,
+                "lengthMenu": [10],
+                // "language": {
+                //     "lengthMenu": "Display _MENU_ records per page",
+                //     "zeroRecords": "Geen onkosten gevonden",
+                //     "info": "Pagina _PAGE_ van _PAGES_",
+                //     "infoEmpty": "Geen onkosten gevonden",
+                //     "infoFiltered": "(filtered from _MAX_ total records)"
+                //
+                // },
+                columnDefs: [
+                    {orderable: false, targets: 1},
+                    {visible: false, targets: 1},
+                ]
+            }
+        )
     };
 </script>

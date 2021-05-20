@@ -36,10 +36,10 @@
                                     @method('delete')
                                     @csrf
                                     <div class="btn-group btn-group">
-                                        <a href="/admin/user/{{ $user->id }}/edit" class="btn btn-outline-success"
+                                        <a href="/admin/user/{{ $user->id }}/edit"
                                            data-toggle="tooltip"
                                            title="Edit {{ $user->name }}">
-                                            <i class="fas fa-edit"></i>
+                                            <i class="fas fa-edit btnTableEdit"></i>
                                         </a>
                                         {{--                                                                                            <button type="submit" class="btn btn-danger"--}}
                                         {{--                                                                                                    data-toggle="tooltip"--}}

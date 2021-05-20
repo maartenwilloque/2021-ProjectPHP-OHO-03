@@ -3,6 +3,7 @@
 namespace App;
 
 use Eloquent;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
@@ -26,17 +27,17 @@ use Illuminate\Support\Carbon;
  * @property-read int|null $transfers_count
  * @property-read Type $type
  * @property-read User $user
- * @method static \Illuminate\Database\Eloquent\Builder|Expense newModelQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|Expense newQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|Expense query()
- * @method static \Illuminate\Database\Eloquent\Builder|Expense whereCostcentreId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Expense whereCreatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Expense whereDescription($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Expense whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Expense whereName($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Expense whereTypeId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Expense whereUpdatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Expense whereUserId($value)
+ * @method static Builder|Expense newModelQuery()
+ * @method static Builder|Expense newQuery()
+ * @method static Builder|Expense query()
+ * @method static Builder|Expense whereCostcentreId($value)
+ * @method static Builder|Expense whereCreatedAt($value)
+ * @method static Builder|Expense whereDescription($value)
+ * @method static Builder|Expense whereId($value)
+ * @method static Builder|Expense whereName($value)
+ * @method static Builder|Expense whereTypeId($value)
+ * @method static Builder|Expense whereUpdatedAt($value)
+ * @method static Builder|Expense whereUserId($value)
  * @mixin Eloquent
  * @property-read Collection|\App\Attachment[] $attachements
  * @property-read int|null $attachements_count
@@ -76,9 +77,13 @@ class Expense extends Model
     {
         return $this->hasMany('App\Transfer');
     }
-    public function expenseprogresss()
+    public function expenseprogress()
     {
-        return $this->hasMany('App\Expenseprogress');
+        return $this->hasMany('App\Expenseprogress','inspector_id','id');
+    }
+    public function expenseStatus()
+    {
+        return $this->hasMany('App\Status');
     }
 
 
