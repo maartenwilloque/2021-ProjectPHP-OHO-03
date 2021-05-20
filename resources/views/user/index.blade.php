@@ -46,6 +46,10 @@
                                                                                 title="Delete {{ $expense->name }}">
                                                                             <i class="fas fa-trash-alt btnTableDelete"></i>
                                                                         </button>
+                                                                        <button type="submit" class="border-0" data-toggle="tooltip"
+                                                                                title="Detail {{ $expense->name }}">
+                                                                            <i class="far fa-eye btnTableView"></i>
+                                                                        </button>
                                                                     </div>
                                                                 </form>
                             </td>
