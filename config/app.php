@@ -228,6 +228,7 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'Json' => Facades\App\Helpers\Json::class,
         'Mask' => Facades\App\Helpers\Mask::class,
+        'MyExpense' => Facades\App\Helpers\MyExpense::class,
     ],
 
 ];

@@ -1,0 +1,5 @@
+//https://datatables.net/reference/api/column().visible()
+//Column Visibility geeft problemen in laravel alsook responisve moet uitstaan , zodoende via sass
+th.hidden-column, td.hidden-column {
+    display: none;
+}

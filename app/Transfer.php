@@ -36,11 +36,11 @@ class Transfer extends Model
 {
     public function expense()
     {
-        return $this->belongsTo('App\Expense','expense_id','id');
+        return $this->belongsTo('App\Expense','expense_id','id')->withDefault();
     }
 
     public function transport()
     {
-        return $this->belongsTo('App\Transport','transport_id','id');
+        return $this->belongsTo('App\Transport','transport_id','id')->withDefault();
     }
 }

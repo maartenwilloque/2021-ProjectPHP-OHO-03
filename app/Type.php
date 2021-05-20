@@ -33,6 +33,6 @@ class Type extends Model
 
     public function expense()
     {
-        return $this->hasMany('App\Expense');
+        return $this->hasMany('App\Expense,id,type_id');
     }
 }

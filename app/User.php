@@ -96,7 +96,7 @@ class User extends Authenticatable
     }
     public function expenseprogresses()
     {
-        return $this->hasMany('App\Expenseprogress');
+        return $this->hasMany('App\Expenseprogress','id','inspector_id');
     }
 
 }

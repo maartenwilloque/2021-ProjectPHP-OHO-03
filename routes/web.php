@@ -40,10 +40,25 @@ Route::middleware(['auth'])->prefix('approver')->group(function () {
 
 Route::middleware(['auth'])->prefix('user')->group(function () {
     Route::redirect('/', 'user');
-    Route::view('/', 'user.index');
+//    session Routes MyExpense
+//    ---------------------------------------------------------------------
+    Route::get('/', 'User\MyExpenseController@index');
+    Route::get('user/add/{id}', 'User\MyExpenseController@addToMyExpense');
+    Route::get('user/delete/{id}', 'User\MyExpenseController@deleteFromMyExpense');
+    Route::get('user/empty', 'User\MyExpenseController@emptyMyExpense');
+    Route::prefix('demo')->group(function (){
+        Route::get('expenses', 'User\MyExpenseController@Expenses');
+        Route::get('users', 'User\MyExpenseController@users');
+    });
+//    ---------------------------------------------------------------------
+//    Routes Profile and Password
+//    ---------------------------------------------------------------------
     Route::get('profile', 'User\ProfileController@edit');
     Route::post('profile', 'User\ProfileController@update');
     Route::get('password', 'User\PasswordController@edit');
     Route::post('password', 'User\PasswordController@update');
 });
-//--------------------------------------------------------------------------------------------------
+//    ---------------------------------------------------------------------
+
+
+
