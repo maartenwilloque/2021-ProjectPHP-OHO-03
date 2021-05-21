@@ -55,15 +55,14 @@
                                     {{$amounts->date}}
                                 @endforeach</td>
                             <td>
-                                <form action="expense/{{ $expense->id }}" method="POST">
+                                <form action="expense/{{$expense->id}}" method="POST">
                                     @method('delete')
                                     @csrf
-                                    <div class="btn-group btn-group">
+                                    <div class="btn-group btn-sm">
                                         <a href="expense/{{ $expense->id }}/edit"
-                                           class="btn btn-outline-success"
                                            data-toggle="tooltip"
                                            title="Edit {{ $expense->id }}">
-                                            <i class="fas fa-edit"></i>
+                                            <i class="fas fa-thumbs-up btnTableEdit"></i>
                                         </a>
                                     </div>
                                 </form>
