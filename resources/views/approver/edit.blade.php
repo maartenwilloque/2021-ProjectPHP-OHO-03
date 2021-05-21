@@ -64,7 +64,7 @@
                                     @case(1)
                                     @case(2)
                                     @case(5)
-                                    <div class="col-12 text-center"><label for="name">Bedrag</label>
+                                    <div class="col-12"><label for="name">Bedrag</label>
                                         <input type="text" name="name" id="name"
                                                class="form-control rounded-pill border-0 shadow-sm px-4"
                                                placeholder="Bedrag"

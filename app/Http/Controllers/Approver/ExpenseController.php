@@ -96,13 +96,6 @@ class ExpenseController extends Controller
     {
 
         Expenseprogress::with("expense")->where('expense_id', '=',$expense->id )->where('active', 1)->update(['active'=>0]);
-//
-//
-//        Expense::with('expenseprogress')
-//            ->whereHas('expenseprogress', function ($query) use($expense) {
-//                return $query->where('expense_id', '=',$expense->id )->where('active', '=', true);
-//            })->update(['active'=>false]);
-
 
         $statusupdate = new Expenseprogress();
         $statusupdate->status_id = 3;
