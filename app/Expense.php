@@ -71,15 +71,15 @@ class Expense extends Model
     }
     public function amounts()
     {
-        return $this->hasMany('App\Amount');
+        return $this->hasMany('App\Amount','expense_id','id');
     }
     public function transfers()
     {
-        return $this->hasMany('App\Transfer');
+        return $this->hasMany('App\Transfer','expense_id','id');
     }
     public function expenseprogress()
     {
-        return $this->hasMany('App\Expenseprogress','inspector_id','id');
+        return $this->hasMany('App\Expenseprogress','expense_id','id');
     }
     public function expenseStatus()
     {

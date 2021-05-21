@@ -32,6 +32,9 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Expenseprogress extends Model
 {
+    protected $fillable = [
+        'expense_id', 'inspector_id','status_id','note','active',''
+    ];
     public function status()
     {
 
@@ -39,7 +42,7 @@ class Expenseprogress extends Model
     }
     public function expense()
     {
-        return $this->belongsTo('App\Expense','expense_id','id')->withDefault();
+        return $this->belongsTo('App\Expense','expense_id','id');
     }
 
     public function inspector()

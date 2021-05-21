@@ -28,11 +28,11 @@ class Type extends Model
 {
     public function parameterType()
     {
-        return $this->hasMany('App\ParameterType','id','type_id');
+        return $this->hasMany('App\ParameterType');
     }
 
     public function expense()
     {
-        return $this->hasMany('App\Expense,id,type_id');
+        return $this->hasMany('App\Expense');
     }
 }
