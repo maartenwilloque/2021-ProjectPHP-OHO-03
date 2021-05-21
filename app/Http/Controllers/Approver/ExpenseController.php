@@ -25,7 +25,7 @@ class ExpenseController extends Controller
     public function index()
     {
         $expenses = Expense::with('user','costcentre','expenseprogresss','type','amounts','transfers')
-            ->whereHas('expenseprogresss', function ($query) {
+            ->whereHas('expenseprogress', function ($query) {
                 return $query->where('status_id', '=', 2)->where('active','=',true);
             })
             ->whereHas('costcentre', function ($query) {

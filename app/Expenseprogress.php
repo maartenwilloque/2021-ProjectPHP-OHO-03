@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 
 /**
@@ -14,16 +15,16 @@ use Illuminate\Database\Eloquent\Model;
  * @property string|null $note
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
- * @method static \Illuminate\Database\Eloquent\Builder|Expenseprogress newModelQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|Expenseprogress newQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|Expenseprogress query()
- * @method static \Illuminate\Database\Eloquent\Builder|Expenseprogress whereCreatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Expenseprogress whereExpenseId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Expenseprogress whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Expenseprogress whereInspectorId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Expenseprogress whereNote($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Expenseprogress whereStatusId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Expenseprogress whereUpdatedAt($value)
+ * @method static Builder|Expenseprogress newModelQuery()
+ * @method static Builder|Expenseprogress newQuery()
+ * @method static Builder|Expenseprogress query()
+ * @method static Builder|Expenseprogress whereCreatedAt($value)
+ * @method static Builder|Expenseprogress whereExpenseId($value)
+ * @method static Builder|Expenseprogress whereId($value)
+ * @method static Builder|Expenseprogress whereInspectorId($value)
+ * @method static Builder|Expenseprogress whereNote($value)
+ * @method static Builder|Expenseprogress whereStatusId($value)
+ * @method static Builder|Expenseprogress whereUpdatedAt($value)
  * @mixin \Eloquent
  * @property-read \App\User $approver
  * @property-read \App\Expense $onkost
