@@ -27,7 +27,6 @@ class ExpenseController extends Controller
     public function index()
     {
         $expenses = Expense::with('user', 'costcentre', 'expenseprogress', 'type', 'amounts', 'transfers','type.parameterType')
-            ->join('types','type_id','=','types.id')
             ->whereHas('expenseprogress', function ($query) {
                 return $query->where([['status_id',2],['active', true]]);
             })
@@ -96,8 +95,7 @@ class ExpenseController extends Controller
     public function update(Request $request, Expense $expense)
     {
 
-
-        Expenseprogress::with("expense")->where('expense_id', '=',$request->id )->where('active', '=', true)->update(['active'=>0]);
+        Expenseprogress::with("expense")->where('expense_id', '=',$expense->id )->where('active', 1)->update(['active'=>0]);
 //
 //
 //        Expense::with('expenseprogress')
@@ -105,13 +103,12 @@ class ExpenseController extends Controller
 //                return $query->where('expense_id', '=',$expense->id )->where('active', '=', true);
 //            })->update(['active'=>false]);
 
-        $expenseid = $expense->id;
-        Expenseprogress::create([['status_id'=>3],['expense_id'=>$expenseid],['inspector_id'=>auth()->id()]]);
-//        $statusupdate = new Expenseprogress();
-//        $statusupdate->status_id = 3;
-//        $statusupdate->expense_id = $expense->id;
-//        $statusupdate->inspector_id = auth()->id();
-//        $statusupdate->save();
+
+        $statusupdate = new Expenseprogress();
+        $statusupdate->status_id = 3;
+        $statusupdate->expense_id = $expense->id;
+        $statusupdate->inspector_id = auth()->id();
+        $statusupdate->save();
         return redirect('/approver');
 
     }

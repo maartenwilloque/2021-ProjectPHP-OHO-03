@@ -71,7 +71,7 @@ class Expense extends Model
     }
     public function amounts()
     {
-        return $this->hasMany('App\Amount');
+        return $this->hasMany('App\Amount','expense_id','id');
     }
     public function transfers()
     {

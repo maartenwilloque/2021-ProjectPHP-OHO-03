@@ -37,11 +37,11 @@ class Expenseprogress extends Model
     public function status()
     {
 
-        return $this->belongsTo('App\Status')->withDefault();
+        return $this->belongsTo('App\Status','status_id','id');
     }
     public function expense()
     {
-        return $this->belongsTo('App\Expense')->withDefault();
+        return $this->belongsTo('App\Expense','expense_id','id');
     }
 
     public function inspector()

@@ -55,7 +55,7 @@
                                     {{$amounts->date}}
                                 @endforeach</td>
                             <td>
-                                <form action="expense/{{ $expense->id }}" method="POST">
+                                <form action="expense/{{$expense->id}}" method="POST">
                                     @method('delete')
                                     @csrf
                                     <div class="btn-group btn-group">
