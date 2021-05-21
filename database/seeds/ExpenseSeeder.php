@@ -54,7 +54,7 @@ class ExpenseSeeder extends Seeder
                     'description' => $faker->sentence
                 ]
             );
-            $status = rand(2, 6);
+            $status = rand(2, 8);
             $inspector = null;
             $note = '';
             switch ($status) {

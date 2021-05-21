@@ -11472,6 +11472,40 @@ h6 {
   margin-left: 10px;
 }
 
+.btnTableView {
+  background-color: transparent;
+  color: #8F00FF !important;
+  margin-left: 10px;
+}
+
+.btnTableExpConcept {
+  background-color: transparent;
+  color: #f04c25 !important;
+  margin-left: 3vw;
+  margin-right: 3vw;
+}
+
+.btnTableExpIngediend {
+  background-color: transparent;
+  color: #8F00FF !important;
+  margin-left: 3vw;
+  margin-right: 3vw;
+}
+
+.btnTableExpOk {
+  background-color: transparent;
+  color: #78a346 !important;
+  margin-left: 3vw;
+  margin-right: 3vw;
+}
+
+.btnTableExpAfgekeurd {
+  background-color: transparent;
+  color: #DC143C !important;
+  margin-left: 3vw;
+  margin-right: 3vw;
+}
+
 th.hidden-column,
 td.hidden-column {
   display: none;

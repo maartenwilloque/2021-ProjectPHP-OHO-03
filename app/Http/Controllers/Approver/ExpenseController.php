@@ -26,15 +26,17 @@ class ExpenseController extends Controller
      */
     public function index()
     {
+
+
         $expenses = Expense::with('user', 'costcentre', 'expenseprogress', 'type', 'amounts', 'transfers','type.parameterType')
             ->whereHas('expenseprogress', function ($query) {
                 return $query->where([['status_id',2],['active', true]]);
+
             })
             ->whereHas('costcentre', function ($query) {
                 return $query->where('responsible', '=', \Auth::user()->id);
             })
             ->get();
-//
 
         $result = compact('expenses');
         Json::dump($result);

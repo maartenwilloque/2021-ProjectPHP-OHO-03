@@ -41,6 +41,9 @@ class CreateStatusesTable extends Migration
                 ],
                 [
                     'name' => 'Ingediend NA'
+                ],
+                [
+                    'name' => 'Afgerond'
                 ]
             ]
         );

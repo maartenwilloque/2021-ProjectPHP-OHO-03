@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\User;
 
 use App\Expense;
-use App\Expenseprogress;
+
 use App\Helpers\Json;
 use App\Helpers\MyExpense;
 use App\Http\Controllers\Controller;

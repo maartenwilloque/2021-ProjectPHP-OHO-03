@@ -173,8 +173,9 @@
                 //
                 // },
                 columnDefs: [
-                    {orderable: false, targets: 1},
-                    {visible: false, targets: 1},
+                    {orderable: false, targets: 5},
+                    {orderable: false, targets: 6},
+                    {orderable: false, targets: 7},
                 ]
             }
         )
