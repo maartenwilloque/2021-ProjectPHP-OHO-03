@@ -110,10 +110,17 @@ class ExpenseController extends Controller
      * Remove the specified resource from storage.
      *
      * @param Expense $expense
-     * @return Response
+     * @return Application|RedirectResponse|Redirector
      */
     public function destroy(Expense $expense)
     {
-        //
+        Expenseprogress::with("expense")->where('expense_id', '=',$expense->id )->where('active', 1)->update(['active'=>0]);
+
+        $statusupdate = new Expenseprogress();
+        $statusupdate->status_id = 1;
+        $statusupdate->expense_id = $expense->id;
+        $statusupdate->inspector_id = auth()->id();
+        $statusupdate->save();
+        return redirect('/approver');
     }
 }

@@ -9,9 +9,9 @@
                 </div>
                 <div class="row">
                     <div class="col-12">
-                        <form action="/approver/expense/{{$expense->id }}" method="post">
-                            @method('put')
-                            @csrf
+{{--                        <form action="/approver/expense/{{$expense->id }}" method="post">--}}
+{{--                            @method('put')--}}
+{{--                            @csrf--}}
                             <div class="row">
                                 <div class="form-group col-6">
                                     <label for="name">Type</label>
@@ -93,14 +93,22 @@
                             </div>
 
                             <div class="row mt-5">
+                                <form action="/approver/expense/{{$expense->id }}" method="post">
+                                    @method('put')
+                                    @csrf
                                 <div class="col-6 text-center">
                                     <button type="submit" class="btn btn-success border-dark rounded-pill border-0 shadow-sm px-4">Goedkeuren</button>
                                 </div>
+                                </form>
+                                <form action="/approver/expense/{{$expense->id }}" method="post">
+                                    @method('delete')
+                                    @csrf
                                 <div class="col-6 text-center">
                                     <button type="submit" class="btn btn-danger border-dark rounded-pill border-0 shadow-sm px-4">Afkeuren</button>
                                 </div>
+                                </form>
                             </div>
-                        </form>
+{{--                        </form>--}}
                     </div>
 
                 </div>
