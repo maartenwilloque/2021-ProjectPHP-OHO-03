@@ -19,7 +19,7 @@ class CreateExpenselinesTable extends Migration
             $table->foreignId('expense_id');
             $table->date('date')->default(now());
             $table->foreignId('type_id');
-            $table->string('attachment_id')->nullable();
+            $table->string('attachment')->nullable();
             $table->float('distance',6,2)->nullable();
             $table->float('amount',6,2)->nullable();
             $table->timestamps();
