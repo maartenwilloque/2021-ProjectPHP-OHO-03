@@ -61,21 +61,11 @@ class Expense extends Model
     {
         return $this->belongsTo('App\Costcentre','costcentre_id','id')->withDefault();
     }
-    public function type()
+
+
+    public function expenselines()
     {
-        return $this->belongsTo('App\Type','type_id','id')->withDefault();
-    }
-    public function attachments()
-    {
-        return $this->hasMany('App\Attachment');
-    }
-    public function amounts()
-    {
-        return $this->hasMany('App\Amount','expense_id','id');
-    }
-    public function transfers()
-    {
-        return $this->hasMany('App\Transfer','expense_id','id');
+        return $this->hasMany('App\expenseline','expense_id','id');
     }
     public function expenseprogress()
     {
