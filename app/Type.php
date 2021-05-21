@@ -26,13 +26,9 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Type extends Model
 {
-    public function parameterType()
-    {
-        return $this->hasMany('App\ParameterType');
-    }
 
-    public function expense()
+    public function expenselines()
     {
-        return $this->hasMany('App\Expense');
+        return $this->hasMany('App\Expenseline');
     }
 }

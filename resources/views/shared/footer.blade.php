@@ -26,15 +26,14 @@
                 <button type="button" class="close " data-dismiss="modal" aria-label="Close">
                     <i class="fas fa-times-circle color_LightGray"></i>
                 </button>
-                <h5 class="modal-title pb-3 color_Gray" id="exampleModalLabel">About</h5>
-                <h4 class="color_Gray">Development team</h4>
-                <ul class="color_Gray">
+                <h5 class="modal-title pb-3 color_LightGray" id="exampleModalLabel">About</h5>
+                <h4 class="color_LightGray">Development team</h4>
+                <ul class="color_LightGray">
                     <li> Erwin Van Moorleghem</li>
-                    <li> Alex Swaan</li>
                     <li> Maarten Willoqué</li>
                 </ul>
-                <h4 class="color_Gray">Opdrachtgever</h4>
-                <ul class="color_Gray">
+                <h4 class="color_LightGray">Opdrachtgever</h4>
+                <ul class="color_LightGray">
                     <li> Christel Maes</li>
                 </ul>
             </div>
