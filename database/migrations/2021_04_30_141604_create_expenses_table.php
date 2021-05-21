@@ -17,7 +17,7 @@ class CreateExpensesTable extends Migration
             $table->id();
             $table->foreignId('costcentre_id');// shorthand for $table->unsignedBigInteger('id');
             $table->foreignId('user_id');
-            $table->foreignId('type_id');
+//            $table->foreignId('type_id');
             $table->string('name');
             $table->date('date')->default(now());
             $table->text('description')->nullable();
@@ -25,7 +25,7 @@ class CreateExpensesTable extends Migration
             // Foreign key relation
             $table->foreign('costcentre_id')->references('id')->on('costcentres')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
-            $table->foreign('type_id')->references('id')->on('types')->onDelete('cascade')->onUpdate('cascade');
+//            $table->foreign('type_id')->references('id')->on('types')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 
