@@ -16,7 +16,7 @@ class CreateTypesTable extends Migration
         Schema::create('types', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->float('value',6,2)->nullable();
+            $table->float('value', 6, 2)->nullable();
             $table->timestamps();
         });
         //Insert Types
@@ -27,16 +27,16 @@ class CreateTypesTable extends Migration
                 ],
                 [
                     'name' => 'Algemeen_Laptop',
-                    'value'=> '800'
+                    'value' => '800'
 
                 ],
                 [
                     'name' => 'Vervoer_KM',
-                    'value'=> '0.50'
+                    'value' => '0.50'
                 ],
                 [
                     'name' => 'Vervoer_Fiets',
-                    'value'=> '0.15'
+                    'value' => '0.15'
 
                 ],
                 [

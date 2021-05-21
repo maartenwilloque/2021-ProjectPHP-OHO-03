@@ -137,8 +137,8 @@
             "stateSave": true,
             "autoWidth": true,
             "processing": true,
-            // "lengthChange": false,
-            // "lengthMenu": [10],
+            "lengthChange": false,
+             "lengthMenu": [5],
             // "language": {
             //     "lengthMenu": "Display _MENU_ records per page",
             //     "zeroRecords": "Geen onkosten gevonden",
