@@ -28,7 +28,7 @@ class ExpenseController extends Controller
     {
 
 
-        $expenses = Expense::with('user', 'costcentre', 'expenseprogress', 'type', 'amounts', 'transfers','type.parameterType')
+        $expenses = Expense::with('user', 'costcentre', 'expenseprogress','expenselines','expenselines.type')
             ->whereHas('expenseprogress', function ($query) {
                 return $query->where([['status_id',2],['active', true]]);
 

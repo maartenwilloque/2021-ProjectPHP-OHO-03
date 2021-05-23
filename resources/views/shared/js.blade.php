@@ -57,7 +57,7 @@
 
             },
             columnDefs: [
-                {orderable: false, targets: 5}
+                {orderable: false, targets: 4}
             ]
         });
         $('#userTable').DataTable({
@@ -179,5 +179,6 @@
                 ]
             }
         )
+        $('#detailTable').DataTable()
     };
 </script>
