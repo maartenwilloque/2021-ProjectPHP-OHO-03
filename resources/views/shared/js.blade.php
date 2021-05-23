@@ -159,24 +159,25 @@
                 "info": true,
 
                 //-------------------------------------------
+
                 "stateSave": true,
-                "autoWidth": false,
+                "autoWidth": true,
                 "processing": true,
-                "lengthChange": false,
+                "lengthChange": true,
                 "lengthMenu": [10],
-                // "language": {
-                //     "lengthMenu": "Display _MENU_ records per page",
-                //     "zeroRecords": "Geen onkosten gevonden",
-                //     "info": "Pagina _PAGE_ van _PAGES_",
-                //     "infoEmpty": "Geen onkosten gevonden",
-                //     "infoFiltered": "(filtered from _MAX_ total records)"
-                //
-                // },
-                columnDefs: [
-                    {orderable: false, targets: 5},
-                    {orderable: false, targets: 6},
-                    {orderable: false, targets: 7},
-                ]
+                "language": {
+                    "lengthMenu": "Display _MENU_ records per page",
+                    "zeroRecords": "Geen onkosten gevonden",
+                    "info": "Pagina _PAGE_ van _PAGES_",
+                    "infoEmpty": "Geen onkosten gevonden",
+                    "infoFiltered": "(filtered from _MAX_ total records)"
+
+                },
+                // columnDefs: [
+                //     {orderable: false, targets: 5},
+                //     {orderable: false, targets: 6},
+                //     {orderable: false, targets: 7},
+                // ]
             }
         )
     };

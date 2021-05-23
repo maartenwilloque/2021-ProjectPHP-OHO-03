@@ -6,7 +6,7 @@
             <div class="row justify-content-center">
                 <img src="/assets/logo/MyExpenseLogo.png" class="mobilelogo d-md-none" alt="My expense Logo">
             </div>
-            <h5 class="display-5 mt-2">Update Type</h5>
+            <h2 class="display-5 mt-2">Update Type</h2>
             <form action="/finance/parameter/{{ $types->id}}" method="post">
                 @method('put')
                 @csrf

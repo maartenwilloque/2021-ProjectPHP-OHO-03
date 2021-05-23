@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\User;
 
 use App\Expense;
-
+use App\Expenseline;
 use App\Helpers\Json;
 use App\Helpers\MyExpense;
 use App\Http\Controllers\Controller;
@@ -14,16 +14,17 @@ class MyExpenseController extends Controller
 {
     public function index()
     {
+        $amounts = Expenseline::with('expense', 'expense.expenseprogress.status')
+            ->select([DB::raw("SUM(amount) as total"), 'expense_id'])
+            ->groupBy('expense_id')
+            ->get();
 
-        $expenses = DB::table('expenses')
-            ->join('expenseprogresses', 'expenseprogresses.expense_id', '=', 'expenses.id')
-            ->join('types', 'types.id', '=', 'expenses.type_id')
-            ->join('costcentres', 'costcentres.id', '=', 'expenses.costcentre_id')
-            ->join('statuses', 'statuses.id', '=', 'expenseprogresses.status_id')
-            ->get(['expenses.name','expenses.id' ,'expenses.description', 'expenses.date', 'costcentres.costcentre','costcentres.description as costcentresBeschrijving', 'statuses.id as statusID','types.name as typeName']);
-        $result = compact('expenses');
+        $expenses = Expense::join('costcentres', 'expenses.costcentre_id', '=', 'costcentres.id')
+            ->Join('expenseprogresses', 'expenses.id', '=', 'expenseprogresses.expense_id')->where('expenseprogresses.active', '=', 1)
+            ->Join('statuses', 'statuses.id', '=', 'expenseprogresses.status_id')
+            ->get(['expenses.name', 'expenses.id  as expID', 'expenses.description', 'expenses.date', 'costcentres.costcentre', 'costcentres.description as CCDescription', 'statuses.id as statusID', 'statuses.name as statusName']);
 
-
+        $result = compact('expenses', 'amounts');
         Json::dump($result);
         return view('user.index', $result);
     }

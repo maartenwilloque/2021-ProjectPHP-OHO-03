@@ -4,7 +4,7 @@
 @section('main')
     <div class="row container-fluid justify-content-sm-center justify-content-lg-start">
         <div class="offset-1 col-sm-8 col-lg-5">
-            <h5 class="display-5 ml-5 mt-3">Parameters</h5>
+            <h2 class="display-5 ml-5 mt-3">Parameters</h2>
             @include('shared.alert')
             <div class="offset-1 col-sm-11 col-lg-11">
                 <h5 class="display-5 ml-5 mt-3 font"><br></h5>
