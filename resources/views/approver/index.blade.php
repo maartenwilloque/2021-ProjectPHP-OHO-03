@@ -9,9 +9,8 @@
                     <thead>
                     <tr>
                         <th>Omschrijving</th>
-                        <th>User</th>
-                        <th>Type</th>
-                        <th>Bedrag</th>
+                        <th>Indiener</th>
+                        <th>Kostenplaats</th>
                         <th>Datum</th>
                         <th>
                         </th>
@@ -22,38 +21,9 @@
                         <tr>
                             <td> {{$expense->name}}</td>
                             <td>{{$expense->user->firstname}} {{$expense->user->name}}</td>
-                            <td> {{$expense->type->name}}</td>
-                            <td>
-                                @switch($expense->type->id)
-
-                                    @case(2)
-                                    @foreach($expense->amounts as $amounts)
-                                        €{{$amounts->amount/4}}
-                                    @endforeach
-                                    @break
-                                    @case(1)
-                                    @case(5)
-                                    @foreach($expense->amounts as $amounts)
-                                        €{{$amounts->amount}}
-                                    @endforeach
-                                    @break
-                                    @case(3)
-                                    @case(4)
-                                    @foreach($expense->type->parameterType as $type)
-                                        @foreach($expense->transfers as $transfers)
-                                            €{{$transfers->distance * $type->value}}
-                                        @endforeach
-                                    @endforeach
-                                    @break
-                                @endswitch
+                            <td>{{$expense->costcentre->description}}</td>
+                            <td>{{$expense->date}}
                             </td>
-                            <td>
-                                @foreach($expense->transfers as $transfers)
-                                    {{$transfers->date}}
-                                @endforeach
-                                @foreach($expense->amounts as $amounts)
-                                    {{$amounts->date}}
-                                @endforeach</td>
                             <td>
                                 <form action="expense/{{$expense->id}}" method="POST">
                                     @method('delete')
@@ -66,7 +36,6 @@
                                         </a>
                                     </div>
                                 </form>
-
                             </td>
                         </tr>
                     @endforeach
@@ -77,5 +46,4 @@
             </div>
         </div>
     </div>
-
 @endsection
