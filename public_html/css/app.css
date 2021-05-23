@@ -11456,54 +11456,49 @@ h6 {
 }
 
 .btnTableAdd {
-  background-color: transparent;
+  background-color: transparent !important;
   color: #009cab !important;
   margin-left: 10px;
 }
 
 .btnTableEdit {
-  background-color: transparent;
+  background-color: transparent !important;
   color: #78a346 !important;
 }
 
 .btnTableDelete {
-  background-color: transparent;
+  background-color: transparent !important;
   color: #f04c25 !important;
-  margin-left: 10px;
 }
 
 .btnTableView {
-  background-color: transparent;
+  background-color: transparent !important;
   color: #8F00FF !important;
-  margin-left: 10px;
+  text-align: center;
 }
 
 .btnTableExpConcept {
-  background-color: transparent;
+  background-color: transparent !important;
   color: #f04c25 !important;
-  margin-left: 3vw;
-  margin-right: 3vw;
+  text-align: center;
 }
 
 .btnTableExpIngediend {
-  background-color: transparent;
+  background-color: transparent !important;
   color: #8F00FF !important;
-  margin-left: 3vw;
-  margin-right: 3vw;
+  text-align: center;
 }
 
 .btnTableExpOk {
-  background-color: transparent;
+  background-color: transparent !important;
   color: #78a346 !important;
-  margin-left: 3vw;
-  margin-right: 3vw;
+  text-align: center;
 }
 
 .btnTableExpAfgekeurd {
-  background-color: transparent;
+  background-color: transparent !important;
   color: #DC143C !important;
-  margin-left: 3vw;
-  margin-right: 3vw;
+  text-align: center;
 }
 
 th.hidden-column,

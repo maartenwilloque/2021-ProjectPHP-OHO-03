@@ -3,19 +3,19 @@
 @section('main')
     <div class="row justify-content-center m-auto">
         <div class="col-11 offset-1">
-            <h5 class="display-5 mt-2">Approvals</h5>
+            <h2 class="display-5 mt-2">Approvals</h2>
             <div class="table-responsive">
-                <table id="userTable" class="display compact" style="width:75%">
+                <table id="userTable" class="display compact" style="width:100%">
                     <thead>
                     <tr>
                         <th>#</th>
                         <th>Naam</th>
                         <th>Voornaam</th>
                         <th>Email</th>
-                        <th>Active</th>
-                        <th>Approver</th>
-                        <th>Finance</th>
-                        <th>Admin</th>
+                        <th class="dt-center">Active</th>
+                        <th class="dt-center">Approver</th>
+                        <th class="dt-center">Finance</th>
+                        <th class="dt-center">Admin</th>
                         <th>
                         </th>
                     </tr>
@@ -27,13 +27,13 @@
                             <td>{{ $user->name }}</td>
                             <td>{{ $user->firstname }}</td>
                             <td>{{ $user->email }}</td>
-                            <td>{{ $user->active }}</td>
-                            <td>{{ $user->approver }}</td>
-                            <td>{{ $user->finance}}</td>
-                            <td>{{ $user->admin }}</td>
-                            <td>
+                            <td class="dt-center">{{ $user->active }}</td>
+                            <td class="dt-center">{{ $user->approver }}</td>
+                            <td class="dt-center">{{ $user->finance}}</td>
+                            <td class="dt-center">{{ $user->admin }}</td>
+                            <td class="dt-center">
                                 <form action="/admin/user/{{ $user->id }}" method="post">
-                                    @method('delete')
+{{--                                    @method('delete')--}}
                                     @csrf
                                     <div class="btn-group btn-group">
                                         <a href="/admin/user/{{ $user->id }}/edit"

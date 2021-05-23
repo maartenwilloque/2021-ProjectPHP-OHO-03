@@ -3,7 +3,7 @@
 @section('main')
     <div class="row justify-content-center m-auto">
         <div class="col-11 offset-sm-2 offset-md-1">
-            <h5 class="display-5 mt-2">Approvals</h5>
+            <h2 class="display-5 mt-2">Approvals</h2>
             <div class="table-responsive">
                 <table id="approvalTable" class="display compact" style="width:75%">
                     <thead>
