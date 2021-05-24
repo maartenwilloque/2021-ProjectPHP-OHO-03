@@ -34,8 +34,9 @@ Route::middleware(['auth'])->prefix('finance')->group(function () {
 
 
 Route::middleware(['auth'])->prefix('approver')->group(function () {
-    route::redirect('/', '/approver/expense');
+    Route::redirect('/', '/approver/expense');
     Route::resource('expense', 'Approver\ExpenseController');
+
 });
 
 Route::middleware(['auth'])->prefix('user')->group(function () {

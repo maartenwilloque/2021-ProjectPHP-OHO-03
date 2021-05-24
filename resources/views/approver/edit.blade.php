@@ -72,13 +72,40 @@
             </form>
         </div>
         <div class="col-6 text-center">
-            <form action="/approver/expense/{{$expense->id }}" method="post">
-                @method('delete')
-                @csrf
-                <button type="submit" class="btn btn-danger border-dark rounded-pill border-0 shadow-sm px-4">
-                    Afkeuren
-                </button>
-            </form>
+            <button type="button" class="btn btn-danger border-dark rounded-pill border-0 shadow-sm px-4"
+                    data-toggle="modal" data-target="#rejectmodal">
+                Afkeuren
+            </button>
         </div>
     </div>
+
+@endsection
+@section('detailmodal')
+    <form action="/approver/expense/{{$expense->id }}" method="post">
+        <div class="modal fade" id="rejectmodal" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Reden voor afkeuren</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <textarea type="text" class="form-control" id="rejectreason" name="rejectreason"></textarea>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        @method('delete')
+                        @csrf
+                        <button type="submit" class="btn btn-danger border-dark rounded-pill border-0 shadow-sm px-4">
+                            Afkeuren
+                        </button>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
 @endsection

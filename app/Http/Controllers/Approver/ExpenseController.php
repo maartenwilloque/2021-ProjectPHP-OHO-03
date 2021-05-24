@@ -7,6 +7,7 @@ use App\Expenseline;
 use App\Expenseprogress;
 use App\Helpers\Json;
 use App\Http\Controllers\Controller;
+use App\Mail\RejectMail;
 use App\ParameterType;
 use App\Status;
 use DB;
@@ -72,6 +73,7 @@ class ExpenseController extends Controller
      */
     public function show($expense)
     {
+        return redirect('approver.index');
     }
 
     /**
@@ -104,6 +106,8 @@ class ExpenseController extends Controller
         $statusupdate->expense_id = $expense->id;
         $statusupdate->inspector_id = auth()->id();
         $statusupdate->save();
+
+
         return redirect('/approver');
 
     }
@@ -111,18 +115,34 @@ class ExpenseController extends Controller
     /**
      * Remove the specified resource from storage.
      *
+     * @param Request $request
      * @param Expense $expense
      * @return Application|RedirectResponse|Redirector
      */
-    public function destroy(Expense $expense)
+    public function destroy(Request $request,Expense $expense)
     {
         Expenseprogress::with("expense")->where('expense_id', '=',$expense->id )->where('active', 1)->update(['active'=>0]);
 
         $statusupdate = new Expenseprogress();
-        $statusupdate->status_id = 1;
+        $statusupdate->status_id = 4;
         $statusupdate->expense_id = $expense->id;
         $statusupdate->inspector_id = auth()->id();
+        $statusupdate->note = $request->rejectreason;
         $statusupdate->save();
+
+//      Reject email
+        $email = $expense->user->email;
+        $firstname = $expense->user->firstname;
+        $lastname = $expense->user->name;
+        $expensetitle = $expense->name;
+        $rejectreason = $request->rejectreason;
+        $inspector = Auth::user()->firstname.' '.Auth::user()->name;
+
+
+        $rejectmail = new RejectMail($firstname,$lastname,$expensetitle,$rejectreason,$inspector);
+        $to = $email;
+        \Mail::to($email)->send($rejectmail);
+
         return redirect('/approver');
     }
 }
