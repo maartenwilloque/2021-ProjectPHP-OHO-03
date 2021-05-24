@@ -11501,15 +11501,20 @@ h6 {
   text-align: center;
 }
 
+.detailmainbox {
+  border-width: 1px;
+  border-radius: 15px;
+  padding: 25px;
+  background-color: white;
+}
+
+h4 {
+  color: #f04c25;
+}
+
 th.hidden-column,
 td.hidden-column {
   display: none;
-}
-
-.detailbox {
-  border-color: lightgrey;
-  border-width: 1px;
-  border-radius: 15px;
 }
 
 /*!

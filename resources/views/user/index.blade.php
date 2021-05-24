@@ -39,67 +39,16 @@
                             <td>{{ $expense->CCDescription }}</td>
                             <td>{{ $expense->costcentre }}</td>
                             <td class="dt-center">
-                                @switch( $expense->statusID)
-                                    @case(1)
-                                    {{--                                    Concept--}}
-                                    <span class="border-0 bg-transparent" data-toggle="tooltip"
-                                          title="{{ $expense->statusName }}">
-                                        <i class="fas fa-folder-plus btnTableExpConcept"></i>
+                                <span class="border-0 bg-transparent" data-toggle="tooltip"
+                                      title="{{ $expense->statusName }}">
+                                        <i class="{{$expense->statusIcon}}"
+                                           style="color: {{$expense->statusColor}}!important;"></i>
                                     </span>
-                                    @break
-                                    @case(2)
-                                    <span class="border-0 bg-transparent" data-toggle="tooltip"
-                                          title="{{ $expense->statusName }}">
-                                         <i class="fas fa-sign-in-alt btnTableExpIngediend"></i>
-                                    </span>
-                                    {{--                                    ingediend--}}
-                                    @break
-                                    @case(3)
-                                    {{--                                    Goedgekeurd KP--}}
-                                    <span class="border-0 bg-transparent" data-toggle="tooltip"
-                                          title="{{ $expense->statusName }}">
-                                        <i class="far fa-thumbs-up btnTableExpOk"></i>
-                                    </span>
-                                    @break
-                                    @case(4)
-                                    {{--                                    Afgekeurd KP--}}
-                                    <span class="border-0 bg-transparent" data-toggle="tooltip"
-                                          title="{{ $expense->statusName }}">
-                                        <i class="far fa-check-square btnTableExpAfgekeurd"></i>
-                                    </span>
-                                    @break
-                                    @case(5)
-                                    {{--                                    Goedgekeurd FIN--}}
-                                    <span class="border-0 bg-transparent" data-toggle="tooltip"
-                                          title="{{ $expense->statusName }}">
-                                      <i class="far fa-hand-paper btnTableExpOk"></i>
-                                    </span>
-                                    @break
-                                    @case(6)
-                                    {{--                                    Afgekeurd FIN--}}
-                                    <span class="border-0 bg-transparent" data-toggle="tooltip"
-                                          title="{{ $expense->statusName }}">
-                                         <i class="fas fa-ban btnTableExpAfgekeurd"></i>
-                                    </span>
-                                    @break
-                                    @case(7)
-                                    {{--                                    ingediend NA--}}
-                                    <span class="border-0 bg-transparent" data-toggle="tooltip"
-                                          title="{{ $expense->statusName }}">
-                                          <i class="fas fa-hand-holding-usd btnTableExpOk"></i>
-                                    </span>
-                                    @break
-                                    @case(8)
-                                    {{--                                    afgerond--}}
-                                    <span class="border-0 bg-transparent" data-toggle="tooltip"
-                                          title="{{ $expense->statusName }}">
-                                        <i class="fas fa-euro-sign btnTableExpOk"></i>
-                                    </span>
-                                    @break
-                                @endswitch
-                            </td>
-                            <td class="hidden-column">{{ $expense->statusName }}</td>
-                            {{--                            <td class="hidden-column">{{ $expense->statusID}}</td>--}}
+
+                            {{--
+                                                        </td>
+                                                        <td class="hidden-column">{{ $expense->statusName }}</td>
+                                                        {{--                            <td class="hidden-column">{{ $expense->statusID}}</td>--}}
                             <td class="dt-center>
                                 <form action="
                             /user/{{ $expense->id }}" method="post">

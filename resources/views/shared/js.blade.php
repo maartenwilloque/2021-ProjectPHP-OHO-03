@@ -40,6 +40,7 @@
     });
     //DataTable Script
     //----------------------------------------------------------------------------------------------
+
     window.onload = function () {
 
         $('#approvalTable').DataTable({
@@ -57,8 +58,10 @@
 
             },
             columnDefs: [
-                {orderable: false, targets: 4}
-            ]
+                {orderable: false, targets: 7}
+            ],
+
+
         });
         $('#userTable').DataTable({
             "stateSave": true,
@@ -138,7 +141,7 @@
             "autoWidth": true,
             "processing": true,
             "lengthChange": false,
-             "lengthMenu": [5],
+            "lengthMenu": [5],
             // "language": {
             //     "lengthMenu": "Display _MENU_ records per page",
             //     "zeroRecords": "Geen onkosten gevonden",
@@ -180,6 +183,17 @@
                 // ]
             }
         )
-        $('#detailTable').DataTable()
+        $('#detailTable').DataTable(
+            {
+                "scrollY": "150px",
+                "scrollCollapse": true,
+                "paging": false,
+                "searching": false,
+                columnDefs: [
+                    {orderable: false, targets: 3}],
+                "autoWidth": true
+
+            }
+        )
     };
 </script>

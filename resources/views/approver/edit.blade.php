@@ -5,7 +5,7 @@
         </div>
         <div class="col-4"><p>{{$expense->name}}</p>
         </div>
-        <div class="col2 offset-4"><p>{{$expense->date}}</p>
+        <div class="col2 offset-4"><p class="pl-5">{{$expense->date}}</p>
         </div>
     </div>
     <div class="row">
@@ -17,14 +17,22 @@
         <div class="col-2"><h5>Kostenplaats:</h5>
         </div>
         <div class="col-4">
-            <p>{{$expense->costcentre->description}}</p>
+            <p>{{$expense->costcentre->description}} ({{$expense->costcentre->costcentre}})</p>
         </div>
     </div>
     <div class="row">
-        <div class="col-12"><h5>Omschrijving:</h5>
+        <div class="col-6"><h5>Omschrijving:</h5>
             <div class="row">
                 <div class="col-12">
                     <p>{{$expense->description}}</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="row">
+                <div class="col-4"><h5>Totaal:</h5>
+                </div>
+                <div class="col-8"><p>€ {{$expense->expenselines->sum('amount')}}</p>
                 </div>
             </div>
         </div>
@@ -53,20 +61,24 @@
     </table>
 @endsection
 @section('detailsubmit')
-    <form action="/approver/expense/{{$expense->id }}" method="post">
-        @method('put')
-        @csrf
+    <div class="row">
         <div class="col-6 text-center">
-            <button type="submit" class="btn btn-success border-dark rounded-pill border-0 shadow-sm px-4">Goedkeuren
-            </button>
+            <form action="/approver/expense/{{$expense->id }}" method="post">
+                @method('put')
+                @csrf
+                <button type="submit" class="btn btn-success border-dark rounded-pill border-0 shadow-sm px-4">
+                    Goedkeuren
+                </button>
+            </form>
         </div>
-    </form>
-    <form action="/approver/expense/{{$expense->id }}" method="post">
-        @method('delete')
-        @csrf
         <div class="col-6 text-center">
-            <button type="submit" class="btn btn-danger border-dark rounded-pill border-0 shadow-sm px-4">Afkeuren
-            </button>
+            <form action="/approver/expense/{{$expense->id }}" method="post">
+                @method('delete')
+                @csrf
+                <button type="submit" class="btn btn-danger border-dark rounded-pill border-0 shadow-sm px-4">
+                    Afkeuren
+                </button>
+            </form>
         </div>
-    </form>
+    </div>
 @endsection

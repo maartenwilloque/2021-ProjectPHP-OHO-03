@@ -22,7 +22,7 @@ class MyExpenseController extends Controller
         $expenses = Expense::join('costcentres', 'expenses.costcentre_id', '=', 'costcentres.id')
             ->Join('expenseprogresses', 'expenses.id', '=', 'expenseprogresses.expense_id')->where('expenseprogresses.active', '=', 1)
             ->Join('statuses', 'statuses.id', '=', 'expenseprogresses.status_id')
-            ->get(['expenses.name', 'expenses.id  as expID', 'expenses.description', 'expenses.date', 'costcentres.costcentre', 'costcentres.description as CCDescription', 'statuses.id as statusID', 'statuses.name as statusName']);
+            ->get(['expenses.name', 'expenses.id  as expID', 'expenses.description', 'expenses.date', 'costcentres.costcentre', 'costcentres.description as CCDescription', 'statuses.id as statusID', 'statuses.name as statusName','statuses.icon as statusIcon','statuses.color as statusColor']);
 
         $result = compact('expenses', 'amounts');
         Json::dump($result);
