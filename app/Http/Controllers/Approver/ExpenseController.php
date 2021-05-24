@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Approver;
 
 use App\Expense;
+use App\Expenseline;
 use App\Expenseprogress;
 use App\Helpers\Json;
 use App\Http\Controllers\Controller;
@@ -15,6 +16,7 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Redirector;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
 
 class ExpenseController extends Controller
@@ -26,15 +28,13 @@ class ExpenseController extends Controller
      */
     public function index()
     {
-
-
         $expenses = Expense::with('user', 'costcentre', 'expenseprogress','expenselines','expenselines.type')
             ->whereHas('expenseprogress', function ($query) {
                 return $query->where([['status_id',2],['active', true]]);
 
             })
             ->whereHas('costcentre', function ($query) {
-                return $query->where('responsible', '=', \Auth::user()->id);
+                return $query->where('responsible', '=', Auth::user()->id);
             })
             ->get();
 
