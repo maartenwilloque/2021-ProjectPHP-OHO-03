@@ -12,7 +12,7 @@
                     </div>
                     <h4 class="mt-3">Onkosten</h4>
                     <div class="row ">
-                        <div class="col-12 border detailmainbox "> @yield('detailexpenses')</div>
+                        <div class="col-12 border detailmainbox " style="min-height:280px "> @yield('detailexpenses')</div>
                     </div>
                     <div class="row mt-3">
                         <div class="col-12"> @yield('detailsubmit')</div>
@@ -22,4 +22,8 @@
             </div>
         </div>
     </div>
+</div>
+{{--Modal--}}
+<div>
+    @yield('detailmodal')
 </div>
