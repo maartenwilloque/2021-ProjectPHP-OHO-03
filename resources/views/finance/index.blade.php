@@ -5,7 +5,7 @@
         <div class="col-11 offset-sm-2 offset-md-1">
             <h2 class="display-5 mt-2">Approvals</h2>
             <div class="table-responsive">
-                <table id="approvalTable" class="display compact" style="width:100%">
+                <table id="financeTable" class="display compact" style="width:100%">
                     <thead>
                     <tr>
                         <th>Titel</th>
@@ -29,7 +29,7 @@
 
                             <td>{{$expense->costcentre->description}}</td>
                             <td>{{$expense->costcentre->costcentre}}</td>
-                            <td  class="dt-center">
+                            <td class="dt-center">
                                 <form action="expense/{{$expense->id}}" method="POST">
                                     @method('delete')
                                     @csrf
@@ -46,6 +46,19 @@
                     @endforeach
 
                     </tbody>
+                    <tfoot>
+                    <tr>
+                        <th></th>
+                        <th></th>
+                        <th>Indiener</th>
+                        <th></th>
+                        <th class="dt-head-center"></th>
+                        <th>CostCenter</th>
+                        <th>CC-Code</th>
+                        <th class="dt-head-center"></th>
+                    </tr>
+                    </tfoot>
+
                 </table>
 
             </div>

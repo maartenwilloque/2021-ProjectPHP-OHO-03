@@ -45,9 +45,75 @@
     //DataTable Script
     //----------------------------------------------------------------------------------------------
 
+    $(document).ready(function() {
+        // Setup - add a text input to each footer cell
+
+    } );
+
     window.onload = function () {
 
+        var table = $('#financeTable').DataTable({
+            initComplete: function () {
+                this.api().columns([2,5,6]).every( function () {
+                    var column = this;
+                    var select = $('<select><option value=""></option></select>')
+                        .appendTo( $(column.footer()).empty() )
+                        .on( 'change', function () {
+                            var val = $.fn.dataTable.util.escapeRegex(
+                                $(this).val()
+                            );
+
+                            column
+                                .search( val ? '^'+val+'$' : '', true, false )
+                                .draw();
+                        } );
+
+                    column.data().unique().sort().each( function ( d, j ) {
+                        select.append( '<option value="'+d+'">'+d+'</option>' )
+                    } );
+                } );
+            },
+            "stateSave": true,
+            "autoWidth": true,
+            "processing": true,
+            "lengthChange": false,
+            "lengthMenu": [10],
+            "language": {
+                "lengthMenu": "Display _MENU_ records per page",
+                "zeroRecords": "Geen onkosten gevonden",
+                "info": "Pagina _PAGE_ van _PAGES_",
+                "infoEmpty": "Geen onkosten gevonden",
+                "infoFiltered": "(filtered from _MAX_ total records)"
+
+            },
+            columnDefs: [
+                {orderable: false, targets: [4,7]}
+            ],
+
+        });
+
+
         $('#approvalTable').DataTable({
+            initComplete: function () {
+                this.api().columns([2,5,6]).every( function () {
+                    var column = this;
+                    var select = $('<select><option value=""></option></select>')
+                        .appendTo( $(column.footer()).empty() )
+                        .on( 'change', function () {
+                            var val = $.fn.dataTable.util.escapeRegex(
+                                $(this).val()
+                            );
+
+                            column
+                                .search( val ? '^'+val+'$' : '', true, false )
+                                .draw();
+                        } );
+
+                    column.data().unique().sort().each( function ( d, j ) {
+                        select.append( '<option value="'+d+'">'+d+'</option>' )
+                    } );
+                } );
+            },
             "stateSave": true,
             "autoWidth": true,
             "processing": true,
@@ -67,26 +133,7 @@
 
 
         });
-        $('#financeTable').DataTable({
-            "stateSave": true,
-            "autoWidth": true,
-            "processing": true,
-            "lengthChange": false,
-            "lengthMenu": [10],
-            "language": {
-                "lengthMenu": "Display _MENU_ records per page",
-                "zeroRecords": "Geen onkosten gevonden",
-                "info": "Pagina _PAGE_ van _PAGES_",
-                "infoEmpty": "Geen onkosten gevonden",
-                "infoFiltered": "(filtered from _MAX_ total records)"
 
-            },
-            columnDefs: [
-                {orderable: false, targets: 7}
-            ],
-
-
-        });
         $('#userTable').DataTable({
             "stateSave": true,
             "autoWidth": true,

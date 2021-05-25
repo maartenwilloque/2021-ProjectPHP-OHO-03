@@ -46,6 +46,18 @@
                     @endforeach
 
                     </tbody>
+                    <tfoot>
+                    <tr>
+                        <th></th>
+                        <th></th>
+                        <th>Indiener</th>
+                        <th></th>
+                        <th class="dt-head-center"></th>
+                        <th>CostCenter</th>
+                        <th>CC-Code</th>
+                        <th class="dt-head-center"></th>
+                    </tr>
+                    </tfoot>
                 </table>
 
             </div>
