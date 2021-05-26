@@ -12143,6 +12143,12 @@ td.hidden-column {
   display: none;
 }
 
+
+tfoot input {
+  width: 100%;
+  padding: 3px;
+  box-sizing: border-box;
+
 a {
   color: #282425 !important;
 }
@@ -12190,6 +12196,7 @@ ul.nav.nav-tabs > li a.active {
   font-weight: 400;
   position: absolute;
   right: 0;
+
 }
 
 /*!

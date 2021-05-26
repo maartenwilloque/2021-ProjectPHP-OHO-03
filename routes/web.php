@@ -27,8 +27,9 @@ Route::middleware(['auth'])->prefix('admin')->group(function () {
 
 Route::middleware(['auth'])->prefix('finance')->group(function () {
 //    https://www.digitalocean.com/community/tutorials/simple-laravel-crud-with-resource-controllers
-    Route::redirect('/','/finance/parameter');
+    Route::redirect('/','/finance/expense');
     Route::resource('parameter', 'Finance\TypeController', ['parameters' => ['parameter' => 'types']]);
+    Route::resource('expense','Finance\ExpenseController');
 //    Route::resource('parameterType', 'Finance\ParameterTypeController');
 });
 
