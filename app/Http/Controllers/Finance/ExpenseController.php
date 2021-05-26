@@ -67,11 +67,13 @@ class ExpenseController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param \App\Expense $expense
-     * @return \Illuminate\Http\Response
+     * @return Application|Factory|View
      */
     public function edit(Expense $expense)
     {
-        //
+        $result = compact('expense');
+        Json::dump($expense);
+        return view('finance.edit', $result);
     }
 
     /**
