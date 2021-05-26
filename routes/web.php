@@ -17,7 +17,7 @@ Auth::routes();
 Route::get('logout', 'Auth\LoginController@logout');
 Route::redirect('home', '/');
 Route::view('/', 'auth.index');
-
+Route::view('/faq', 'faq');
 
 Route::middleware(['auth'])->prefix('admin')->group(function () {
     Route::redirect('/','/admin/user');
