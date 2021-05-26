@@ -8,18 +8,19 @@ use App\Helpers\Json;
 use App\Helpers\MyExpense;
 use App\Http\Controllers\Controller;
 use App\User;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class MyExpenseController extends Controller
 {
     public function index()
     {
-        $amounts = Expenseline::with('expense', 'expense.expenseprogress.status')
+        $amounts = Expenseline::with('expense', 'expense')
             ->select([DB::raw("SUM(amount) as total"), 'expense_id'])
             ->groupBy('expense_id')
             ->get();
 
-        $expenses = Expense::join('costcentres', 'expenses.costcentre_id', '=', 'costcentres.id')
+        $expenses = Expense::join('costcentres', 'expenses.costcentre_id', '=', 'costcentres.id')->where('user_id', '=', Auth::user()->id)
             ->Join('expenseprogresses', 'expenses.id', '=', 'expenseprogresses.expense_id')->where('expenseprogresses.active', '=', 1)
             ->Join('statuses', 'statuses.id', '=', 'expenseprogresses.status_id')
             ->get(['expenses.name', 'expenses.id  as expID', 'expenses.description', 'expenses.date', 'costcentres.costcentre', 'costcentres.description as CCDescription', 'statuses.id as statusID', 'statuses.name as statusName','statuses.icon as statusIcon','statuses.color as statusColor']);
