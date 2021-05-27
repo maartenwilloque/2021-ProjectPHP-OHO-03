@@ -226,6 +226,26 @@
             ]
         })
         $('#myExpenseTable').DataTable({
+            initComplete: function () {
+                this.api().columns([2,4,5,6]).every( function () {
+                    var column = this;
+                    var select = $('<select><option value=""></option></select>')
+                        .appendTo( $(column.footer()).empty() )
+                        .on( 'change', function () {
+                            var val = $.fn.dataTable.util.escapeRegex(
+                                $(this).val()
+                            );
+
+                            column
+                                .search( val ? '^'+val+'$' : '', true, false )
+                                .draw();
+                        } );
+
+                    column.data().unique().sort().each( function ( d, j ) {
+                        select.append( '<option value="'+d+'">'+d+'</option>' )
+                    } );
+                } );
+            },
                 //no search, pagination and page x form y
                 //-------------------------------------------
                 "searching": true,
@@ -237,7 +257,7 @@
                 "stateSave": true,
                 "autoWidth": true,
                 "processing": true,
-                "lengthChange": true,
+                "lengthChange": false,
                 "lengthMenu": [10],
                 "language": {
                     "lengthMenu": "Display _MENU_ records per page",
