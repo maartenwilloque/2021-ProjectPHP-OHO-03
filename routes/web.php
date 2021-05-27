@@ -41,17 +41,18 @@ Route::middleware(['auth'])->prefix('approver')->group(function () {
 });
 
 Route::middleware(['auth'])->prefix('user')->group(function () {
-    Route::redirect('/', 'user');
+    Route::redirect('/', 'user/expense');
 //    session Routes MyExpense
 //    ---------------------------------------------------------------------
-    Route::get('/', 'User\MyExpenseController@index');
-    Route::get('user/add/{id}', 'User\MyExpenseController@addToMyExpense');
-    Route::get('user/delete/{id}', 'User\MyExpenseController@deleteFromMyExpense');
-    Route::get('user/empty', 'User\MyExpenseController@emptyMyExpense');
-    Route::prefix('demo')->group(function (){
-        Route::get('expenses', 'User\MyExpenseController@Expenses');
-        Route::get('users', 'User\MyExpenseController@users');
-    });
+//    Route::get('/', 'User\MyExpenseController@index');
+//    Route::get('user/add/{id}', 'User\MyExpenseController@addToMyExpense');
+//    Route::get('user/delete/{id}', 'User\MyExpenseController@deleteFromMyExpense');
+//    Route::get('user/empty', 'User\MyExpenseController@emptyMyExpense');
+//    Route::prefix('demo')->group(function (){
+//        Route::get('expenses', 'User\MyExpenseController@Expenses');
+//        Route::get('users', 'User\MyExpenseController@users');
+//    });
+    Route::resource('expense','User\ExpenseController');
 //    ---------------------------------------------------------------------
 //    Routes Profile and Password
 //    ---------------------------------------------------------------------
