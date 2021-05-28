@@ -78,12 +78,16 @@ class ExpenseController extends Controller
      */
     public function edit(Expense $expense)
     {
+
         $costcentre = Costcentre::get();
         $expenselines = Expenseline::with('type')->where('expense_id','=',$expense->id)->get();
 
         $result = compact('expense','costcentre','expenselines');
         Json::dump($result);
+        $this->qryexpenselines($expense->id);
         return view('user.edit', $result);
+
+
     }
 
     /**
@@ -117,6 +121,26 @@ class ExpenseController extends Controller
     public function destroy(Expense $expense)
     {
         //
+    }
+
+    public function qryexpenselines($id){
+        return Expenseline::with('type')->where('expense_id','=',$id)->get();
+    }
+
+    public function updateExpenselines(Request $request){
+
+        $expenselines = Expenseline::findOrFail($request->id);
+        $expenselines->description = $request->description;
+        $expenselines->date = $request->date;
+        $expenselines->amount = $request->amount;
+        $expenselines->distance = $request->distance;
+        $expenselines->attachment = $request->attachment;
+        session()->flash('success', 'Onkostlijn aangepast');
+        $expenselines->save();
+
+
+       return back();
+
     }
 
 }

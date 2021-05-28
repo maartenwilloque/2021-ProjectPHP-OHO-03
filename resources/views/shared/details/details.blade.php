@@ -1,5 +1,5 @@
 @extends('layouts.template')
 @section('title','Update parameter')
 @section('main')
-@include('layouts.templateDetails')
+    @include('layouts.templateDetails')
 @endsection
