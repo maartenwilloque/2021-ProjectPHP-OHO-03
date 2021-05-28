@@ -42,6 +42,7 @@ Route::middleware(['auth'])->prefix('approver')->group(function () {
 
 Route::middleware(['auth'])->prefix('user')->group(function () {
     Route::redirect('/', 'user/expense');
+
 //    session Routes MyExpense
 //    ---------------------------------------------------------------------
 //    Route::get('/', 'User\MyExpenseController@index');

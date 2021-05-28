@@ -66,8 +66,8 @@
 
 
                             <td class="dt-center">
-                                <form action="expense/{{ $expense->id }}" method="post">
-                                    @method('delete')
+                                <form action="expense/{{ $expense->id }}/edit" method="POST">
+                                    @method('get')
                                     @csrf
                                     <div class="btn-group btn-sm">
                                         {{--                                        <a href="/admin/user/{{ $expense->id }}/edit"--}}

@@ -8,6 +8,16 @@
     }
 
     $(function () {
+        $(".editexpenseline").click(function () {
+            var expenseline_id = $(this).data('id');
+            console.log(expenseline_id);
+            $("#expenseline_id").val( expenseline_id );
+
+        })
+
+    })
+
+    $(function () {
         $(document).ready(function () {
             $(".toggle").hide();
             console.log('hidden')
