@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers\User;
 
+use App\Costcentre;
 use App\Expense;
+use App\Expenseline;
 use App\Helpers\Json;
 use App\Http\Controllers\Controller;
 use Illuminate\Contracts\Foundation\Application;
@@ -64,20 +66,24 @@ class ExpenseController extends Controller
     public function show(Expense $expense)
     {
 
-        $result = compact('expense');
-        Json::dump($result);
-        return view('user.edit', $result);
+
+        return redirect('approver.index');
     }
 
     /**
      * Show the form for editing the specified resource.
      *
      * @param  \App\Expense  $expense
-     * @return \Illuminate\Http\Response
+     * @return Application|Factory|View
      */
     public function edit(Expense $expense)
     {
-        //
+        $costcentre = Costcentre::get();
+        $expenselines = Expenseline::with('type')->where('expense_id','=',$expense->id)->get();
+
+        $result = compact('expense','costcentre','expenselines');
+        Json::dump($result);
+        return view('user.edit', $result);
     }
 
     /**
@@ -85,12 +91,22 @@ class ExpenseController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\Expense  $expense
-     * @return \Illuminate\Http\Response
+     * @return RedirectResponse
      */
     public function update(Request $request, Expense $expense)
     {
-        //
+
+        // Update user in the database and redirect to previous page
+        $expense = Expense::findOrFail($expense->id);
+        $expense->name= $request->title;
+        $expense->description = $request->description;
+        $expense->costcentre_id = $request->costcentre;
+        $expense->date = now();
+        $expense->save();
+        session()->flash('success', 'Onkost aangepast');
+        return back();
     }
+
 
     /**
      * Remove the specified resource from storage.
@@ -102,4 +118,5 @@ class ExpenseController extends Controller
     {
         //
     }
+
 }
