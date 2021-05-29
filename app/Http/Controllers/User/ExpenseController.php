@@ -164,5 +164,15 @@ class ExpenseController extends Controller
 
         return back();
     }
+    public function deleteExpenselines(Request $request){
+
+        $expenselines = Expenseline::findOrFail($request->id);
+        $expenselines->delete();
+        session()->flash('success', 'Onkostlijn verwijderd');
+
+
+
+        return back();
+    }
 
 }

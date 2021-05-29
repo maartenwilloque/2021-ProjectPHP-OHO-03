@@ -28,6 +28,12 @@
         console.log(id)
 
     })
+    $(document).on('click','.btn-delete',function () {
+        var id = $(this).data('id')
+        $(".deleteExpenselinemodal #id").val( id );
+        console.log(id)
+
+    })
 
     $(function () {
         $(document).ready(function () {

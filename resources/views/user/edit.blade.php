@@ -46,7 +46,8 @@
 @section('detailexpenses')
     <div class="row justify-content-end">
         <div class="col-12 text-right">
-            <i class="fas fa-plus-circle btn btn-create" data-toggle="modal" data-target="#createExpenselinemodal" data-id="{{$expense->id}}"></i>
+            <i class="fas fa-plus-circle btn btn-create" data-toggle="modal" data-target="#createExpenselinemodal"
+               data-id="{{$expense->id}}"></i>
         </div>
     </div>
     <table id="MyExpenslinesTable" class=" table table-fixed">
@@ -72,10 +73,16 @@
                 <td><a href="{{$expenselines->attachmment}}"><i class="fas fa-file-download"></i></a></td>
                 <td><i id="editexpenseline" class="fas fa-edit btn btn-edit" data-toggle="modal"
                        title="{{$expenselines->id}}"
-                       data-target="#editExpenselinemodal" data-id="{{$expenselines->id}}"
+                       data-target="#deleteExpenselinemodal" data-id="{{$expenselines->id}}"
                        data-description="{{$expenselines->description}}" data-date="{{$expenselines->date}}"
                        data-amount="{{$expenselines->amount}}" data-distance="{{$expenselines->distance}}"
-                       data-attachment="{{$expenselines->attachmment}}"></i></td>
+                       data-attachment="{{$expenselines->attachmment}}"></i><i id="editexpenseline"
+                                                                               class="far fa-trash-alt btn btn-delete"
+                                                                               data-toggle="modal"
+                                                                               title="{{$expenselines->id}}"
+                                                                               data-target="#deleteExpenselinemodal"
+                                                                               data-id="{{$expenselines->id}}"></i>
+                </td>
             </tr>
         @endforeach
         </tbody>
@@ -101,6 +108,7 @@
 
 @endsection
 @section('detailmodal')
+    {{--    Update Expense modal--}}
     <div class="modal fade" id="editExpensemodal" tabindex="-1" role="dialog" aria-hidden="true">
         <form action="/user/expense/{{$expense->id }}" method="post">
             @method('put')
@@ -165,9 +173,7 @@
 
         </form>
     </div>
-
-
-
+    {{--    Update Expenselines modal--}}
     <div class="modal fade" id="editExpenselinemodal" tabindex="-1" role="dialog" aria-hidden="true">
         <form action="{{ route('updateexpenselines') }}" method="post">
             @csrf
@@ -232,13 +238,14 @@
 
         </form>
     </div>
+    {{--    Create Expenselines modal--}}
     <div class="modal fade" id="createExpenselinemodal" tabindex="-1" role="dialog" aria-hidden="true">
         <form action="{{ route('createexpenselines') }}" method="post">
             @csrf
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" >Onkostlijn aanmaken</h5>
+                        <h5 class="modal-title">Onkostlijn aanmaken</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -294,6 +301,40 @@
                     <div class="modal-footer">
                         <button type="submit" class="btn btn-success border-dark rounded-pill border-0 shadow-sm px-4">
                             Aanpassen
+                        </button>
+
+                    </div>
+
+                </div>
+            </div>
+
+
+        </form>
+    </div>
+    {{--    Delete Expenselines modal--}}
+    <div class="modal fade" id="deleteExpenselinemodal" tabindex="-1" role="dialog" aria-hidden="true">
+        <form action="{{ route('deleteexpenselines') }}" method="post">
+            @csrf
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Onkostlijn verwijderen</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body deleteExpenselinemodal">
+                        <div class="form-group">
+                            <label for="id" class="d-none">id</label>
+                            <input type="text" name="id" id="id"
+                                   class="d-none"
+                                   placeholder="id"
+                                   value="">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-danger border-dark rounded-pill border-0 shadow-sm px-4">
+                            Verwijderen
                         </button>
 
                     </div>
