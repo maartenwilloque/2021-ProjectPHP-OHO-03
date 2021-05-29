@@ -55,6 +55,7 @@ Route::middleware(['auth'])->prefix('user')->group(function () {
 //    });
     Route::get('expense/qryexpenselines', 'User\ExpenseController@qryexpenselines');
     Route::post('updateexpenselines','User\ExpenseController@updateExpenselines')->name('updateexpenselines');
+    Route::post('createexpenselines','User\ExpenseController@createExpenselines')->name('createexpenselines');
     Route::resource('expense','User\ExpenseController');
 
 //    ---------------------------------------------------------------------

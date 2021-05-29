@@ -46,7 +46,7 @@
 @section('detailexpenses')
     <div class="row justify-content-end">
         <div class="col-12 text-right">
-            <i class="fas fa-plus-circle"></i>
+            <i class="fas fa-plus-circle btn btn-create" data-toggle="modal" data-target="#createExpenselinemodal" data-id="{{$expense->id}}"></i>
         </div>
     </div>
     <table id="MyExpenslinesTable" class=" table table-fixed">
@@ -165,27 +165,30 @@
 
         </form>
     </div>
+
+
+
     <div class="modal fade" id="editExpenselinemodal" tabindex="-1" role="dialog" aria-hidden="true">
         <form action="{{ route('updateexpenselines') }}" method="post">
             @csrf
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Onkostlijn aanpassen</h5>
+                        <h5 class="modal-title">Onkostlijn aanpassen</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
-                    <div class="modal-body">
+                    <div class="modal-body editExpenselinemodal">
                         <div class="form-group">
-                            <label for="id" class="">id</label>
+                            <label for="id" class="d-none">id</label>
                             <input type="text" name="id" id="id"
-                                   class=""
+                                   class="d-none"
                                    placeholder="id"
                                    value="">
                         </div>
                         <div class="form-group">
-                            <label for="description" class="">id</label>
+                            <label for="description" class="">Omschrijving</label>
                             <input type="text" name="description" id="description"
                                    class=""
                                    placeholder="expenseline_description"
@@ -210,7 +213,79 @@
                                    value="">
                         </div>
                         <div class="form-group">
-                            <label for="date">Bijlage</label>
+                            <label for="attachment">Bijlage</label>
+                            <input type="text" name="attachment" id="attachment"
+                                   placeholder="Omschrijving"
+                                   value="">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-success border-dark rounded-pill border-0 shadow-sm px-4">
+                            Aanpassen
+                        </button>
+
+                    </div>
+
+                </div>
+            </div>
+
+
+        </form>
+    </div>
+    <div class="modal fade" id="createExpenselinemodal" tabindex="-1" role="dialog" aria-hidden="true">
+        <form action="{{ route('createexpenselines') }}" method="post">
+            @csrf
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" >Onkostlijn aanmaken</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body createExpenselinemodal">
+                        <div class="form-group">
+                            <label for="id" class="d-none">id</label>
+                            <input type="text" name="id" id="id"
+                                   class="d-none"
+                                   placeholder="id"
+                                   value="">
+                        </div>
+                        <div class="form-group">
+                            <label for="type" class="">Type</label>
+                            <select name="type" id="type">
+                                @foreach($types as $type )
+                                    <option value="{{$type->id}}">{{$type->name}}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="description" class="">Omschrijving</label>
+                            <input type="text" name="description" id="description"
+                                   class=""
+                                   placeholder="Omschrijving"
+                                   value="">
+                        </div>
+                        <div class="form-group">
+                            <label for="date">Datum</label>
+                            <input type="date" name="date" id="date"
+                                   placeholder="Datum"
+                                   value="">
+                        </div>
+                        <div class="form-group">
+                            <label for="amount">Bedrag</label>
+                            <input type="text" name="amount" id="amount"
+                                   placeholder="Bedrag"
+                                   value="">
+                        </div>
+                        <div class="form-group">
+                            <label for="distance">Afstand</label>
+                            <input type="text" name="distance" id="distance"
+                                   placeholder="Afstand"
+                                   value="">
+                        </div>
+                        <div class="form-group">
+                            <label for="attachment">Bijlage</label>
                             <input type="text" name="attachment" id="attachment"
                                    placeholder="Omschrijving"
                                    value="">

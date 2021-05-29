@@ -7,6 +7,7 @@ use App\Expense;
 use App\Expenseline;
 use App\Helpers\Json;
 use App\Http\Controllers\Controller;
+use App\Type;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Http\RedirectResponse;
@@ -81,8 +82,13 @@ class ExpenseController extends Controller
 
         $costcentre = Costcentre::get();
         $expenselines = Expenseline::with('type')->where('expense_id','=',$expense->id)->get();
+        if ($expenselines->contains('type_id',4)){
+            $types = Type::where('id','=',4)->get();
+        }else {
+            $types = Type::where('id','!=',4)->where('id','!=',2)->get();
+            }
 
-        $result = compact('expense','costcentre','expenselines');
+        $result = compact('expense','costcentre','expenselines','types');
         Json::dump($result);
         $this->qryexpenselines($expense->id);
         return view('user.edit', $result);
@@ -141,6 +147,22 @@ class ExpenseController extends Controller
 
        return back();
 
+    }
+    public function createExpenselines(Request $request){
+
+        $expenselines = new Expenseline();
+        $expenselines->type_id = $request->type;
+        $expenselines->expense_id = $request->id;
+        $expenselines->description = $request->description;
+        $expenselines->date = $request->date;
+        $expenselines->amount = $request->amount;
+        $expenselines->distance = $request->distance;
+        $expenselines->attachment = $request->attachment;
+        session()->flash('success', 'Onkostlijn aangemaakt');
+        $expenselines->save();
+
+
+        return back();
     }
 
 }

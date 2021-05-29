@@ -13,15 +13,22 @@
         var amount = $(this).data('amount')
         var distance = $(this).data('distance')
         var attachment = $(this).data('attachment')
-        $(".modal-body #id").val( id );
-        $(".modal-body #description").val( description );
-        $(".modal-body #date").val( date );
-        $(".modal-body #amount").val( amount );
-        $(".modal-body #distance").val( distance );
-        $(".modal-body #attachment").val( attachment );
+        $(".editExpenselinemodal #id").val( id );
+        $(".editExpenselinemodal #description").val( description );
+        $(".editExpenselinemodal #date").val( date );
+        $(".editExpenselinemodal #amount").val( amount );
+        $(".editExpenselinemodal #distance").val( distance );
+        $(".editExpenselinemodal #attachment").val( attachment );
         console.log(id,description,date,amount,distance,attachment)
 
     })
+    $(document).on('click','.btn-create',function () {
+        var id = $(this).data('id')
+        $(".createExpenselinemodal #id").val( id );
+        console.log(id)
+
+    })
+
     $(function () {
         $(document).ready(function () {
             $(".toggle").hide();
