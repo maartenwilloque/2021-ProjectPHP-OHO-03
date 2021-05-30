@@ -30,7 +30,7 @@
                             <td>{{$expense->costcentre->description}}</td>
                             <td>{{$expense->costcentre->costcentre}}</td>
 
-                                @foreach($expense->expenseprogress as $expenseprogress)
+                            @foreach($expense->expenseprogress as $expenseprogress)
                                 <td class="hidden-column">{{ $expenseprogress->status->name}}</td>
                                 <td class="dt-center">
                                     <span class="border-0 bg-transparent" data-toggle="tooltip"
@@ -41,12 +41,12 @@
                                 </td>
 
                                 <td class="hidden-column">{{ $expenseprogress->status->id}}</td>
-                                @endforeach
-
+                            @endforeach
 
 
                             <td class="dt-center">
-                                <form action="expense/{{ $expense->id }}/edit" action="expense/qryexpenselines/{{ $expense->id }}" method="POST">
+                                <form action="expense/{{ $expense->id }}/edit"
+                                      action="expense/qryexpenselines/{{ $expense->id }}" method="POST">
                                     @method('get')
                                     @csrf
                                     <div class="btn-group btn-sm">

@@ -24,8 +24,8 @@ class ExpenseController extends Controller
      */
     public function index()
     {
-        $expenses = Expense::with('user', 'costcentre', 'expenseprogress','expenselines','expenselines.type','expenseprogress.status')
-            ->where('user_id','=',\Auth::user()->id)
+        $expenses = Expense::with('user', 'costcentre', 'expenseprogress', 'expenselines', 'expenselines.type', 'expenseprogress.status')
+            ->where('user_id', '=', \Auth::user()->id)
             ->whereHas('expenseprogress', function ($query) {
                 return $query->where([['active', true]]);
 
@@ -50,7 +50,7 @@ class ExpenseController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -61,7 +61,7 @@ class ExpenseController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Expense  $expense
+     * @param \App\Expense $expense
      * @return Application|RedirectResponse|Redirector
      */
     public function show(Expense $expense)
@@ -74,21 +74,21 @@ class ExpenseController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Expense  $expense
+     * @param \App\Expense $expense
      * @return Application|Factory|View
      */
     public function edit(Expense $expense)
     {
 
         $costcentre = Costcentre::get();
-        $expenselines = Expenseline::with('type')->where('expense_id','=',$expense->id)->get();
-        if ($expenselines->contains('type_id',4)){
-            $types = Type::where('id','=',4)->get();
-        }else {
-            $types = Type::where('id','!=',4)->where('id','!=',2)->get();
-            }
+        $expenselines = Expenseline::with('type')->where('expense_id', '=', $expense->id)->get();
+        if ($expenselines->contains('type_id', 4)) {
+            $types = Type::where('id', '=', 4)->get();
+        } else {
+            $types = Type::where('id', '!=', 4)->where('id', '!=', 2)->get();
+        }
 
-        $result = compact('expense','costcentre','expenselines','types');
+        $result = compact('expense', 'costcentre', 'expenselines', 'types');
         Json::dump($result);
         $this->qryexpenselines($expense->id);
         return view('user.edit', $result);
@@ -99,8 +99,8 @@ class ExpenseController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Expense  $expense
+     * @param \Illuminate\Http\Request $request
+     * @param \App\Expense $expense
      * @return RedirectResponse
      */
     public function update(Request $request, Expense $expense)
@@ -108,7 +108,7 @@ class ExpenseController extends Controller
 
         // Update user in the database and redirect to previous page
         $expense = Expense::findOrFail($expense->id);
-        $expense->name= $request->title;
+        $expense->name = $request->title;
         $expense->description = $request->description;
         $expense->costcentre_id = $request->costcentre;
         $expense->date = now();
@@ -121,7 +121,7 @@ class ExpenseController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Expense  $expense
+     * @param \App\Expense $expense
      * @return \Illuminate\Http\Response
      */
     public function destroy(Expense $expense)
@@ -129,11 +129,13 @@ class ExpenseController extends Controller
         //
     }
 
-    public function qryexpenselines($id){
-        return Expenseline::with('type')->where('expense_id','=',$id)->get();
+    public function qryexpenselines($id)
+    {
+        return Expenseline::with('type')->where('expense_id', '=', $id)->get();
     }
 
-    public function updateExpenselines(Request $request){
+    public function updateExpenselines(Request $request)
+    {
 
         $expenselines = Expenseline::findOrFail($request->id);
         $expenselines->description = $request->description;
@@ -145,10 +147,17 @@ class ExpenseController extends Controller
         $expenselines->save();
 
 
-       return back();
+        return back();
 
     }
-    public function createExpenselines(Request $request){
+
+    public function createExpenselines(Request $request)
+    {
+//        $input = $request->all();
+        $request->validate([
+            'file' => 'max:2048',
+            'file.*' => 'mimes:jpeg,png,jpg,gif,svg'
+        ]);
 
         $expenselines = new Expenseline();
         $expenselines->type_id = $request->type;
@@ -157,20 +166,35 @@ class ExpenseController extends Controller
         $expenselines->date = $request->date;
         $expenselines->amount = $request->amount;
         $expenselines->distance = $request->distance;
-        $expenselines->attachment = $request->attachment;
+        if ($request->file) {
+//            $attachement = $request->file('file');
+            $fileName = $request->file->getClientOriginalName();
+            $attachment = $fileName;
+            $request->file->move(public_path('/uploads/'), $attachment);
+            $expenselines->attachment = ('/uploads/' . $attachment);
+        }
         session()->flash('success', 'Onkostlijn aangemaakt');
         $expenselines->save();
 
 
         return back();
     }
-    public function deleteExpenselines(Request $request){
+
+    public function deleteExpenselines(Request $request)
+    {
+
 
         $expenselines = Expenseline::findOrFail($request->id);
+
+        $attachment = Expenseline::where('id', '=', $request->id)->get('attachment');
+        $result = compact($attachment);
+
+//        dd($attachment);
+        $image_path = public_path() . '/upload/' . $attachment;
+        if (file_exists($image_path)) // check if the image indeed exists
+            unlink($image_path);
         $expenselines->delete();
         session()->flash('success', 'Onkostlijn verwijderd');
-
-
 
         return back();
     }
