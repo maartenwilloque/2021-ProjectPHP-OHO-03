@@ -10,13 +10,13 @@
             </div>
             <div class="row">
                 <div class="col-12">
-                    <button>algemeen</button>
-                    <button>fiets</button>
+                    <i class="fas fa-plus-circle btn btn-create" data-toggle="modal" data-target="#createExpensemodal"
+                       ></i>
                 </div>
             </div>
-                <div class="row justify-content-center">
-                    <div class="col-12">
-                        <div class="table">
+            <div class="row justify-content-center">
+                <div class="col-12">
+                    <div class="table">
                         <table id="myExpenseTable" class="display compact" style="width:100%">
                             <thead>
                             <tr>
@@ -92,5 +92,71 @@
                 </div>
             </div>
         </div>
+    </div>
+{{--    Modal--}}
+
+
+    <div class="modal fade" id="createExpensemodal" tabindex="-1" role="dialog" aria-hidden="true">
+        <form action="/user/expense" method="post">
+            @csrf
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Onkost aanmaken</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label for="title">Titel</label>
+                            <input type="text" name="title" id="title"
+                                   class="form-control @error('title') is-invalid @enderror"
+                                   placeholder="Titel"
+                                   value=""
+                                   required>
+                            @error('title')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                            @enderror
+                        </div>
+                        <div class="form-group">
+                            <label for="title">Omschrijving</label>
+                            <input type="text" name="description" id="description"
+                                   class="form-control @error('description') is-invalid @enderror"
+                                   placeholder="Omschrijving"
+                                   value=""
+                                   required>
+                            @error('title')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                            @enderror
+                        </div>
+                        <div class="form-group">
+                            <label for="costcentre">Kostenplaats</label>
+                            <br>
+                            <label>
+                                <input list="costcentre" name="costcentre"
+                                       data-value="">
+                            </label>
+                            <datalist id="costcentre">
+                                @foreach($costcentre as $costcentre)
+                                    <option value="{{$costcentre->id}}">{{$costcentre->description}}
+                                        ({{$costcentre->costcentre}})
+                                    </option>
+                                @endforeach
+                            </datalist>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-success border-dark rounded-pill border-0 shadow-sm px-4">
+                            Aanmaken
+                        </button>
+
+                    </div>
+
+                </div>
+            </div>
+
+
+        </form>
     </div>
 @endsection

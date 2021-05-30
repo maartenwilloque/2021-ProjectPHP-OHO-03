@@ -33,8 +33,9 @@ class ExpenseController extends Controller
 
             })
             ->get();
+        $costcentre = Costcentre::get();
 
-        $result = compact('expenses');
+        $result = compact('expenses','costcentre');
         Json::dump($result);
         return view('user.index', $result);
     }
@@ -44,22 +45,35 @@ class ExpenseController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+
     }
 
     /**
      * Store a newly created resource in storage.
      *
      * @param \Illuminate\Http\Request $request
-     * @return \Illuminate\Http\Response
+     * @return RedirectResponse
      */
     public function store(Request $request)
     {
-        //
-    }
+        $expense = new Expense();
+        $expense->name = $request->title;
+        $expense->description = $request->description;
+        $expense->costcentre_id = $request->costcentre;
+        $expense->date = now();
+        $expense->user_id = \Auth::user()->id;
+        $expense->save();
+        $id = $expense->id;
 
+        $expenseprogress = new Expenseprogress();
+        $expenseprogress->expense_id = $id;
+        $expenseprogress->status_id = 1;
+        $expenseprogress->save();
+
+        return redirect()->route('expense.edit',$id);
+    }
     /**
      * Display the specified resource.
      *
