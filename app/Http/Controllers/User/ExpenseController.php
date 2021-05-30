@@ -9,6 +9,7 @@ use App\Expenseprogress;
 use App\Helpers\Json;
 use App\Http\Controllers\Controller;
 use App\Type;
+use DateTime;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Http\RedirectResponse;
@@ -169,23 +170,54 @@ class ExpenseController extends Controller
             case 4:
                 $amount = $request->distance * $typeselect->value;
                 $distance = $request->distance;
+            $expenselines = new Expenseline();
+            $expenselines->type_id = $request->type;
+            $expenselines->expense_id = $request->id;
+            $expenselines->description = $request->description;
+            $expenselines->date = $request->date;
+            $expenselines->amount = $amount;
+            $expenselines->distance = $distance;
+            $expenselines->attachment = $request->attachment;
+            session()->flash('success', 'Onkostlijn aangemaakt');
+            $expenselines->save();
                 break;
             case 1:
+                $distance = 0;
+                $amount = ($request->amount);
+                $expenselines = new Expenseline();
+                $expenselines->type_id = $request->type;
+                $expenselines->expense_id = $request->id;
+                $expenselines->description = $request->description;
+                $expenselines->date = $request->date;
+                $expenselines->amount = $amount;
+                $expenselines->distance = $distance;
+                $expenselines->attachment = $request->attachment;
+                session()->flash('success', 'Onkostlijn aangemaakt');
+                $expenselines->save();
+                break;
             case 2:
                 $distance = 0;
-                $amount = $request->amount;
+                $amount = ($request->amount)/4;
+
+                $date =DateTime::createFromFormat('Y-m-d',$request->date);
+
+                for($i = 0; $i < 4;$i++){
+                    $expenselines = new Expenseline();
+                    $expenselines->type_id = $request->type;
+                    $expenselines->expense_id = $request->id;
+                    $expenselines->description = $request->description;
+                    $expenselines->date = date_add($date,date_interval_create_from_date_string("1 year"));
+                    $expenselines->amount = $amount;
+                    $expenselines->distance = $distance;
+                    $expenselines->attachment = $request->attachment;
+                    session()->flash('success', 'Onkostlijn aangemaakt');
+                    $expenselines->save();
+                }
         }
 
-        $expenselines = new Expenseline();
-        $expenselines->type_id = $request->type;
-        $expenselines->expense_id = $request->id;
-        $expenselines->description = $request->description;
-        $expenselines->date = $request->date;
-        $expenselines->amount = $amount;
-        $expenselines->distance = $distance;
-        $expenselines->attachment = $request->attachment;
-        session()->flash('success', 'Onkostlijn aangemaakt');
-        $expenselines->save();
+
+
+
 
 
         return back();

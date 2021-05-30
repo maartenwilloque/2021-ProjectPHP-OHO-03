@@ -66,7 +66,7 @@
         @foreach($expense->expenselines as $expenselines)
             <tr>
                 <td class="d-none">{{$expenselines->id}}</td>
-                <td>{{$expenselines->description}}</td>
+                <td>{{$expenselines->description}} ({{$expenselines->type->name}})</td>
                 <td>{{$expenselines->date}}</td>
                 <td>€{{$expenselines->amount}}</td>
                 <td class="d-none">€{{$expenselines->distance}}</td>
@@ -76,7 +76,7 @@
                        data-target="#editExpenselinemodal" data-id="{{$expenselines->id}}"
                        data-description="{{$expenselines->description}}" data-date="{{$expenselines->date}}"
                        data-amount="{{$expenselines->amount}}" data-distance="{{$expenselines->distance}}"
-                       data-attachment="{{$expenselines->attachmment}}"></i>
+                       data-attachment="{{$expenselines->attachmment}}" data-type="{{$expenselines->type_id}}"></i>
 
                     <i id="editexpenseline"
                                                                                class="far fa-trash-alt btn btn-delete"
@@ -215,13 +215,13 @@
                                    placeholder="Omschrijving"
                                    value="">
                         </div>
-                        <div class="form-group">
+                        <div class="form-group amount_input">
                             <label for="amount">Bedrag</label>
                             <input type="text" name="amount" id="amount"
                                    placeholder="Omschrijving"
                                    value="">
                         </div>
-                        <div class="form-group">
+                        <div class="form-group distance_input">
                             <label for="distance">Afstand</label>
                             <input type="text" name="distance" id="distance"
                                    placeholder="Omschrijving"
@@ -268,8 +268,9 @@
                                    value="">
                         </div>
                         <div class="form-group">
-                            <label for="type" class="">Type</label>
-                            <select name="type" id="type">
+                            <label for="type_create" >Type</label>
+                            <select class="type_input" name="type" id="type_create">
+                                <option value="" disabled selected>Type</option>
                                 @foreach($types as $type )
                                     <option value="{{$type->id}}">{{$type->name}}</option>
                                 @endforeach
@@ -288,13 +289,13 @@
                                    placeholder="Datum"
                                    value="">
                         </div>
-                        <div class="form-group">
+                        <div class="form-group d-none amount_input">
                             <label for="amount">Bedrag</label>
                             <input type="text" name="amount" id="amount"
                                    placeholder="Bedrag"
                                    value="">
                         </div>
-                        <div class="form-group">
+                        <div class="form-group d-none distance_input" >
                             <label for="distance">Afstand</label>
                             <input type="text" name="distance" id="distance"
                                    placeholder="Afstand"
