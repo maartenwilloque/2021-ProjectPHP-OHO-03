@@ -70,12 +70,17 @@
                 <td>{{$expenselines->date}}</td>
                 <td>€{{$expenselines->amount}}</td>
                 <td class="d-none">€{{$expenselines->distance}}</td>
-                <td><a href="{{$expenselines->attachmment}}"><i class="fas fa-file-download"></i></a></td>
+                @if(isset($expenselines->attachment))
+                    <td><a href='{{$expenselines->attachment}}'><i class="fas fa-file-download"></i></a></td>
+                @else
+                    <td><i class="far fa-times-circle"></i></td>
+                @endif
                 <td><i id="editexpenseline" class="fas fa-edit btn btn-edit" data-toggle="modal"
                        title="{{$expenselines->id}}"
                        data-target="#editExpenselinemodal" data-id="{{$expenselines->id}}"
                        data-description="{{$expenselines->description}}" data-date="{{$expenselines->date}}"
                        data-amount="{{$expenselines->amount}}" data-distance="{{$expenselines->distance}}"
+
                        data-attachment="{{$expenselines->attachmment}}" data-type="{{$expenselines->type_id}}"></i>
 
                     <i id="editexpenseline"
@@ -84,6 +89,7 @@
                                                                                title="{{$expenselines->id}}"
                                                                                data-target="#deleteExpenselinemodal"
                                                                                data-id="{{$expenselines->id}}"></i>
+
                 </td>
             </tr>
         @endforeach
@@ -249,7 +255,7 @@
     </div>
     {{--    Create Expenselines modal--}}
     <div class="modal fade" id="createExpenselinemodal" tabindex="-1" role="dialog" aria-hidden="true">
-        <form action="{{ route('createexpenselines') }}" method="post">
+        <form action="{{ route('createexpenselines') }}" method="post" enctype="multipart/form-data">
             @csrf
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
@@ -302,10 +308,8 @@
                                    value="">
                         </div>
                         <div class="form-group">
-                            <label for="attachment">Bijlage</label>
-                            <input type="text" name="attachment" id="attachment"
-                                   placeholder="Omschrijving"
-                                   value="">
+                            <label>Bijlage</label>
+                            <input type="file" name="file" class="form-control">
                         </div>
                     </div>
                     <div class="modal-footer">

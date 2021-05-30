@@ -54,6 +54,7 @@ class ExpenseController extends Controller
      * Store a newly created resource in storage.
      *
      * @param \Illuminate\Http\Request $request
+
      * @return RedirectResponse
      */
     public function store(Request $request)
@@ -106,6 +107,7 @@ class ExpenseController extends Controller
             $types = Type::where('id', '!=', 4)->where('id', '!=', 2)->get();
         } else($types = Type::get());
 
+
         $result = compact('expense', 'costcentre', 'expenselines', 'types');
         Json::dump($result);
         return view('user.edit', $result);
@@ -146,6 +148,7 @@ class ExpenseController extends Controller
         //
     }
 
+
     public function updateExpenselines(Request $request)
     {
 
@@ -160,6 +163,7 @@ class ExpenseController extends Controller
             case 2:
                 $distance = 0;
                 $amount = $request->amount;
+
 
 
         }
@@ -178,6 +182,10 @@ class ExpenseController extends Controller
 
     public function createExpenselines(Request $request)
     {
+  $request->validate([
+            'file' => 'max:2048',
+            'file.*' => 'mimes:jpeg,png,jpg,gif,svg'
+        ]);
         $typeselect = Type::findOrFail($request->type);
         switch ($request->type) {
             case 3:
@@ -191,7 +199,12 @@ class ExpenseController extends Controller
             $expenselines->date = $request->date;
             $expenselines->amount = $amount;
             $expenselines->distance = $distance;
-            $expenselines->attachment = $request->attachment;
+           if ($request->file) {
+            $fileName = $request->file->getClientOriginalName();
+            $attachment = $fileName;
+            $request->file->move(public_path('/uploads/'), $attachment);
+            $expenselines->attachment = ('/uploads/' . $attachment);
+        }
             session()->flash('success', 'Onkostlijn aangemaakt');
             $expenselines->save();
                 break;
@@ -231,20 +244,19 @@ class ExpenseController extends Controller
 
 
 
-
-
-
         return back();
     }
 
     public function deleteExpenselines(Request $request)
     {
 
+
         $expenselines = Expenseline::findOrFail($request->id);
-        $expenselines->delete();
+
+        $attachment = Expenseline::where('id', '=', $request->id)->get('attachment');
+        $result = compact($attachment);
+
         session()->flash('success', 'Onkostlijn verwijderd');
-
-
         return back();
     }
 

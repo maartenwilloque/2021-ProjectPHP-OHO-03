@@ -11,6 +11,16 @@ use Illuminate\Support\Carbon;
 
 class Expenseline extends Model
 {
+    protected $fillable = [
+        'description',
+        'expense_id',
+        'date',
+        'type_id',
+        'attachement',
+        'distance',
+        'amount'
+    ];
+
     public function expense()
     {
         return $this->belongsTo('App\Expense','expense_id','id')->withDefault();
