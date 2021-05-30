@@ -16,7 +16,6 @@ class CreateFaqTabelsTable extends Migration
         Schema::create('faq_tabels', function (Blueprint $table) {
             $table->id();
             $table->string('userRol');
-            $table->string('domein');
             $table->string('vraag');
             $table->string('antwoord');
             $table->timestamps();

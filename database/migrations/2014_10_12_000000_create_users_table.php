@@ -24,7 +24,7 @@ class CreateUsersTable extends Migration
             $table->string('city');
             $table->boolean('approver')->default(false);
             $table->boolean('finance')->default(false);
-            $table->boolean('active')->default(true);
+            $table->boolean('active')->default(false);
             $table->boolean('admin')->default(false);
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password')->default("Password001");
@@ -42,6 +42,7 @@ class CreateUsersTable extends Migration
                     'street' => 'straat1',
                     'number' => '1',
                     'city' => 'Geel',
+                    'active'=>true,
                     'approver' => false,
                     'finance' => false,
                     'admin' => true,
@@ -57,6 +58,7 @@ class CreateUsersTable extends Migration
                     'street' => 'straat2',
                     'number' => '2',
                     'city' => 'Geel',
+                    'active'=>true,
                     'approver' => false,
                     'finance' => true,
                     'admin' => false,
@@ -72,6 +74,7 @@ class CreateUsersTable extends Migration
                     'street' => 'straat3',
                     'number' => '3',
                     'city' => 'Geel',
+                    'active'=>true,
                     'approver' => true,
                     'finance' => false,
                     'admin' => false,
@@ -87,6 +90,7 @@ class CreateUsersTable extends Migration
                     'street' => 'straat2',
                     'number' => '2',
                     'city' => 'Geel',
+                    'active'=>true,
                     'approver' => false,
                     'finance' => false,
                     'admin' => false,
@@ -102,6 +106,7 @@ class CreateUsersTable extends Migration
                     'street' => 'straat2',
                     'number' => '2',
                     'city' => 'Geel',
+                    'active'=>true,
                     'approver' => true,
                     'finance' => false,
                     'admin' => false,
@@ -117,6 +122,7 @@ class CreateUsersTable extends Migration
                     'street' => 'straat2',
                     'number' => '2',
                     'city' => 'Geel',
+                    'active'=>true,
                     'approver' => false,
                     'finance' => true,
                     'admin' => false,
@@ -132,6 +138,7 @@ class CreateUsersTable extends Migration
                     'street' => 'straat2',
                     'number' => '2',
                     'city' => 'Geel',
+                    'active'=>true,
                     'approver' => false,
                     'finance' => false,
                     'admin' => true,

@@ -1,5 +1,9 @@
 <!-- footer.html  -->
+<div>
+    <a href="/faq"> <i class="far fa-question-circle faqSymbol fa-1x" data-toggle="tooltip" title="Q&A-Vraag en Antwoord"></i></a>
+</div>
 <footer class="fixed-bottom footerHeigth">
+
     <div class="row container-fluid justify-content-between">
         <div class="my-auto pl-3">
             <span class="color_Blue small"><i class="fab fa-facebook a"></i></span>
