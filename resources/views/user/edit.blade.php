@@ -73,10 +73,12 @@
                 <td><a href="{{$expenselines->attachmment}}"><i class="fas fa-file-download"></i></a></td>
                 <td><i id="editexpenseline" class="fas fa-edit btn btn-edit" data-toggle="modal"
                        title="{{$expenselines->id}}"
-                       data-target="#deleteExpenselinemodal" data-id="{{$expenselines->id}}"
+                       data-target="#editExpenselinemodal" data-id="{{$expenselines->id}}"
                        data-description="{{$expenselines->description}}" data-date="{{$expenselines->date}}"
                        data-amount="{{$expenselines->amount}}" data-distance="{{$expenselines->distance}}"
-                       data-attachment="{{$expenselines->attachmment}}"></i><i id="editexpenseline"
+                       data-attachment="{{$expenselines->attachmment}}"></i>
+
+                    <i id="editexpenseline"
                                                                                class="far fa-trash-alt btn btn-delete"
                                                                                data-toggle="modal"
                                                                                title="{{$expenselines->id}}"
@@ -98,11 +100,18 @@
                 <i class="far fa-trash-alt" type="submit"></i>
             </form>
         </div>
-        <div class="col-6 text-center">
-            <button type="button" class="btn btn-danger border-dark rounded-pill border-0 shadow-sm px-4"
-                    data-toggle="modal" data-target="#rejectmodal">
-                Afkeuren
-            </button>
+        <div class="col-12 text-right">
+            <form action="{{ route('submitexpense') }}" method="post">
+                @csrf
+                <label for="id" class="d-none">id</label>
+                <input type="text" name="id" id="id"
+                       class="d-none"
+                       placeholder="id"
+                       value="{{$expense->id}}">
+                <button type="submit" class="btn btn-success border-dark rounded-pill border-0 shadow-sm px-4">
+                    Indienen
+                </button>
+            </form>
         </div>
     </div>
 
