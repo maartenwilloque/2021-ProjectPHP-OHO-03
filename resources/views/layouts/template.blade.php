@@ -22,9 +22,5 @@
 <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.24/datatables.min.js"></script>
 @yield('Scripts')
 @include('shared.js')
-<br>
-<br>
-<br>
-<br>
 </body>
 </html>

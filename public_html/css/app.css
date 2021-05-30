@@ -11512,6 +11512,12 @@ h4 {
   color: #f04c25;
 }
 
+.detailtable {
+  height: 200px;
+  overflow-y: auto;
+  width: 100%;
+}
+
 th.hidden-column,
 td.hidden-column {
   display: none;
