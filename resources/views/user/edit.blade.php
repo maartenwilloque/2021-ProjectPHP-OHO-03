@@ -66,17 +66,19 @@
         @foreach($expense->expenselines as $expenselines)
             <tr>
                 <td class="d-none">{{$expenselines->id}}</td>
-                <td>{{$expenselines->description}}</td>
+                <td>{{$expenselines->description}} ({{$expenselines->type->name}})</td>
                 <td>{{$expenselines->date}}</td>
                 <td>€{{$expenselines->amount}}</td>
                 <td class="d-none">€{{$expenselines->distance}}</td>
                 <td><a href="{{$expenselines->attachmment}}"><i class="fas fa-file-download"></i></a></td>
                 <td><i id="editexpenseline" class="fas fa-edit btn btn-edit" data-toggle="modal"
                        title="{{$expenselines->id}}"
-                       data-target="#deleteExpenselinemodal" data-id="{{$expenselines->id}}"
+                       data-target="#editExpenselinemodal" data-id="{{$expenselines->id}}"
                        data-description="{{$expenselines->description}}" data-date="{{$expenselines->date}}"
                        data-amount="{{$expenselines->amount}}" data-distance="{{$expenselines->distance}}"
-                       data-attachment="{{$expenselines->attachmment}}"></i><i id="editexpenseline"
+                       data-attachment="{{$expenselines->attachmment}}" data-type="{{$expenselines->type_id}}"></i>
+
+                    <i id="editexpenseline"
                                                                                class="far fa-trash-alt btn btn-delete"
                                                                                data-toggle="modal"
                                                                                title="{{$expenselines->id}}"
@@ -98,11 +100,18 @@
                 <i class="far fa-trash-alt" type="submit"></i>
             </form>
         </div>
-        <div class="col-6 text-center">
-            <button type="button" class="btn btn-danger border-dark rounded-pill border-0 shadow-sm px-4"
-                    data-toggle="modal" data-target="#rejectmodal">
-                Afkeuren
-            </button>
+        <div class="col-12 text-right">
+            <form action="{{ route('submitexpense') }}" method="post">
+                @csrf
+                <label for="id" class="d-none">id</label>
+                <input type="text" name="id" id="id"
+                       class="d-none"
+                       placeholder="id"
+                       value="{{$expense->id}}">
+                <button type="submit" class="btn btn-success border-dark rounded-pill border-0 shadow-sm px-4">
+                    Indienen
+                </button>
+            </form>
         </div>
     </div>
 
@@ -206,13 +215,13 @@
                                    placeholder="Omschrijving"
                                    value="">
                         </div>
-                        <div class="form-group">
+                        <div class="form-group amount_input">
                             <label for="amount">Bedrag</label>
                             <input type="text" name="amount" id="amount"
                                    placeholder="Omschrijving"
                                    value="">
                         </div>
-                        <div class="form-group">
+                        <div class="form-group distance_input">
                             <label for="distance">Afstand</label>
                             <input type="text" name="distance" id="distance"
                                    placeholder="Omschrijving"
@@ -259,8 +268,9 @@
                                    value="">
                         </div>
                         <div class="form-group">
-                            <label for="type" class="">Type</label>
-                            <select name="type" id="type">
+                            <label for="type_create" >Type</label>
+                            <select class="type_input" name="type" id="type_create">
+                                <option value="" disabled selected>Type</option>
                                 @foreach($types as $type )
                                     <option value="{{$type->id}}">{{$type->name}}</option>
                                 @endforeach
@@ -279,13 +289,13 @@
                                    placeholder="Datum"
                                    value="">
                         </div>
-                        <div class="form-group">
+                        <div class="form-group d-none amount_input">
                             <label for="amount">Bedrag</label>
                             <input type="text" name="amount" id="amount"
                                    placeholder="Bedrag"
                                    value="">
                         </div>
-                        <div class="form-group">
+                        <div class="form-group d-none distance_input" >
                             <label for="distance">Afstand</label>
                             <input type="text" name="distance" id="distance"
                                    placeholder="Afstand"

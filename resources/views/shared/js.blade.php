@@ -6,34 +6,67 @@
 
 
     }
-    $(document).on('click','.btn-edit',function () {
+
+    $(document).on('click', '.btn-edit', function () {
         var id = $(this).data('id')
         var description = $(this).data('description')
         var date = $(this).data('date')
         var amount = $(this).data('amount')
         var distance = $(this).data('distance')
         var attachment = $(this).data('attachment')
-        $(".editExpenselinemodal #id").val( id );
-        $(".editExpenselinemodal #description").val( description );
-        $(".editExpenselinemodal #date").val( date );
-        $(".editExpenselinemodal #amount").val( amount );
-        $(".editExpenselinemodal #distance").val( distance );
-        $(".editExpenselinemodal #attachment").val( attachment );
-        console.log(id,description,date,amount,distance,attachment)
+        var type = $(this).data('type')
+        $(".editExpenselinemodal #id").val(id);
+        $(".editExpenselinemodal #description").val(description);
+        $(".editExpenselinemodal #date").val(date);
+        $(".editExpenselinemodal #amount").val(amount);
+        $(".editExpenselinemodal #distance").val(distance);
+        $(".editExpenselinemodal #attachment").val(attachment);
+        switch (type) {
+            case 1:
+            case 2:
+                $(".amount_input").removeClass("d-none");
+                $(".distance_input").addClass("d-none");
+                break;
+            case 3:
+            case 4:
+                $(".distance_input").removeClass("d-none");
+                $(".amount_input").addClass("d-none")
+        }
+
+
+
+
+        console.log(id, description, date, amount, distance, attachment)
 
     })
-    $(document).on('click','.btn-create',function () {
+    $(document).on('click', '.btn-create', function () {
         var id = $(this).data('id')
-        $(".createExpenselinemodal #id").val( id );
+        $(".createExpenselinemodal #id").val(id);
         console.log(id)
 
     })
-    $(document).on('click','.btn-delete',function () {
+    $(document).on('click', '.btn-delete', function () {
         var id = $(this).data('id')
-        $(".deleteExpenselinemodal #id").val( id );
+        $(".deleteExpenselinemodal #id").val(id);
         console.log(id)
 
     })
+    $('#type_create').change(function () {
+        var typeselect = document.getElementById("type_create");
+        console.log(typeselect.value)
+        switch (typeselect.value) {
+            case '1':
+            case '2':
+                $(".amount_input").removeClass("d-none");
+                $(".distance_input").addClass("d-none");
+                break;
+            case '3':
+            case '4':
+                $(".distance_input").removeClass("d-none");
+                $(".amount_input").addClass("d-none")
+        }
+    })
+
 
     $(function () {
         $(document).ready(function () {
