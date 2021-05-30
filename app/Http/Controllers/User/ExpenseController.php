@@ -276,7 +276,7 @@ class ExpenseController extends Controller
             $statusupdate->expense_id = $request->id;
             $statusupdate->save();
         }
-        return redirect('user/');
+        return redirect('/user');
 
     }
 

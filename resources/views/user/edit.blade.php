@@ -46,7 +46,7 @@
 @section('detailexpenses')
     <div class="row justify-content-end">
         <div class="col-12 text-right">
-            <i class="fas fa-plus-circle btn btn-create" data-toggle="modal" data-target="#createExpenselinemodal"
+            <i class="far fa-plus-square btn btn-create" data-toggle="modal" data-target="#createExpenselinemodal"
                data-id="{{$expense->id}}"></i>
         </div>
     </div>
@@ -314,7 +314,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="submit" class="btn btn-success border-dark rounded-pill border-0 shadow-sm px-4">
-                            Aanpassen
+                            Toevoegen
                         </button>
 
                     </div>
