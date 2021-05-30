@@ -1,34 +1,40 @@
-a{
-    color: #282425!important;
+a {
+    color: #282425 !important;
 }
-ul.nav.nav-tabs > li{
+
+ul.nav.nav-tabs > li {
     display: inline-block;
     line-height: 50px;
     height: 100%;
-    text-transform:uppercase;
+    text-transform: uppercase;
 }
-ul.nav.nav-tabs > li a{
-    display:block;
-    padding:15px;
-    color: #282425!important;
+
+ul.nav.nav-tabs > li a {
+    display: block;
+    padding: 15px;
+    color: #282425 !important;
 
 }
-ul.nav.nav-tabs > li a:hover, ul.nav.nav-tabs > li:hover{
-    background:	$TmBlue;;
-    color:#fff!important;
-    text-decoration: none!important;
+
+ul.nav.nav-tabs > li a:hover, ul.nav.nav-tabs > li:hover {
+    background: $TmBlue;;
+    color: #fff !important;
+    text-decoration: none !important;
 }
-ul.nav.nav-tabs > li a.active{
-    background:	$TmOrange;;
-    color:#fff!important;
-    text-decoration: none!important;
+
+ul.nav.nav-tabs > li a.active {
+    background: $TmOrange;;
+    color: #fff !important;
+    text-decoration: none !important;
 }
+
 .card-header {
-    background-color: rgb(245,245,245,0.3)!important;
-    border-radius:0!important;
+    background-color: rgb(245, 245, 245, 0.3) !important;
+    border-radius: 0 !important;
 }
-.card{
-    border-radius:0!important;
+
+.card {
+    border-radius: 0 !important;
 }
 
 .card > .card-header a::before {
@@ -39,4 +45,12 @@ ul.nav.nav-tabs > li a.active{
     font-weight: 400;
     position: absolute;
     right: 0;
+}
+
+.faqSymbol {
+    background: transparent;
+    position: fixed;
+    right: 2vw;
+    bottom: 7vh;
+    color:$TmGrey!important;
 }

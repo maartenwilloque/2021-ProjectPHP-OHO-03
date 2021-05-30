@@ -17,11 +17,12 @@ Auth::routes();
 Route::get('logout', 'Auth\LoginController@logout');
 Route::redirect('home', '/');
 Route::view('/', 'auth.index');
-Route::view('/faq', 'faq');
+Route::get('/faq', 'Faq\faqViewController@index');
 
 Route::middleware(['auth'])->prefix('admin')->group(function () {
     Route::redirect('/','/admin/user');
     Route::resource('user', 'Admin\UsersController');
+    Route::resource('faq','Admin\FAqController');
 });
 
 

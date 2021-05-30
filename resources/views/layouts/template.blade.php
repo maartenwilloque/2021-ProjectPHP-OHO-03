@@ -14,6 +14,9 @@
 <div class="container-fluid ">
     @yield('main')
 </div>
+
+
+
 @include('shared.footer')
 <script src="{{ mix('js/app.js') }}"></script>
 <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.24/datatables.min.js"></script>
