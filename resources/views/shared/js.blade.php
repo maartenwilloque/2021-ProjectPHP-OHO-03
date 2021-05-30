@@ -6,14 +6,32 @@
 
 
     }
+    $(document).on('click','.btn-edit',function () {
+        var id = $(this).data('id')
+        var description = $(this).data('description')
+        var date = $(this).data('date')
+        var amount = $(this).data('amount')
+        var distance = $(this).data('distance')
+        var attachment = $(this).data('attachment')
+        $(".editExpenselinemodal #id").val( id );
+        $(".editExpenselinemodal #description").val( description );
+        $(".editExpenselinemodal #date").val( date );
+        $(".editExpenselinemodal #amount").val( amount );
+        $(".editExpenselinemodal #distance").val( distance );
+        $(".editExpenselinemodal #attachment").val( attachment );
+        console.log(id,description,date,amount,distance,attachment)
 
-    $(function () {
-        $(".editexpenseline").click(function () {
-            var expenseline_id = $(this).data('id');
-            console.log(expenseline_id);
-            $("#expenseline_id").val( expenseline_id );
+    })
+    $(document).on('click','.btn-create',function () {
+        var id = $(this).data('id')
+        $(".createExpenselinemodal #id").val( id );
+        console.log(id)
 
-        })
+    })
+    $(document).on('click','.btn-delete',function () {
+        var id = $(this).data('id')
+        $(".deleteExpenselinemodal #id").val( id );
+        console.log(id)
 
     })
 
@@ -23,6 +41,7 @@
             console.log('hidden')
             $("#mySidenav").width("80px")
         })
+
     })
     $(function () {
         $("#showbtn").click(function () {
@@ -55,33 +74,33 @@
     //DataTable Script
     //----------------------------------------------------------------------------------------------
 
-    $(document).ready(function() {
+    $(document).ready(function () {
         // Setup - add a text input to each footer cell
 
-    } );
+    });
 
     window.onload = function () {
 
         var table = $('#financeTable').DataTable({
             initComplete: function () {
-                this.api().columns([2,5,6]).every( function () {
+                this.api().columns([2, 5, 6]).every(function () {
                     var column = this;
                     var select = $('<select><option value=""></option></select>')
-                        .appendTo( $(column.footer()).empty() )
-                        .on( 'change', function () {
+                        .appendTo($(column.footer()).empty())
+                        .on('change', function () {
                             var val = $.fn.dataTable.util.escapeRegex(
                                 $(this).val()
                             );
 
                             column
-                                .search( val ? '^'+val+'$' : '', true, false )
+                                .search(val ? '^' + val + '$' : '', true, false)
                                 .draw();
-                        } );
+                        });
 
-                    column.data().unique().sort().each( function ( d, j ) {
-                        select.append( '<option value="'+d+'">'+d+'</option>' )
-                    } );
-                } );
+                    column.data().unique().sort().each(function (d, j) {
+                        select.append('<option value="' + d + '">' + d + '</option>')
+                    });
+                });
             },
             "stateSave": true,
             "autoWidth": true,
@@ -97,7 +116,7 @@
 
             },
             columnDefs: [
-                {orderable: false, targets: [4,7]}
+                {orderable: false, targets: [4, 7]}
             ],
 
         });
@@ -105,24 +124,24 @@
 
         $('#approvalTable').DataTable({
             initComplete: function () {
-                this.api().columns([2,5,6]).every( function () {
+                this.api().columns([2, 5, 6]).every(function () {
                     var column = this;
                     var select = $('<select><option value=""></option></select>')
-                        .appendTo( $(column.footer()).empty() )
-                        .on( 'change', function () {
+                        .appendTo($(column.footer()).empty())
+                        .on('change', function () {
                             var val = $.fn.dataTable.util.escapeRegex(
                                 $(this).val()
                             );
 
                             column
-                                .search( val ? '^'+val+'$' : '', true, false )
+                                .search(val ? '^' + val + '$' : '', true, false)
                                 .draw();
-                        } );
+                        });
 
-                    column.data().unique().sort().each( function ( d, j ) {
-                        select.append( '<option value="'+d+'">'+d+'</option>' )
-                    } );
-                } );
+                    column.data().unique().sort().each(function (d, j) {
+                        select.append('<option value="' + d + '">' + d + '</option>')
+                    });
+                });
             },
             "stateSave": true,
             "autoWidth": true,
@@ -236,26 +255,26 @@
             ]
         })
         $('#myExpenseTable').DataTable({
-            initComplete: function () {
-                this.api().columns([2,4,5,6]).every( function () {
-                    var column = this;
-                    var select = $('<select><option value=""></option></select>')
-                        .appendTo( $(column.footer()).empty() )
-                        .on( 'change', function () {
-                            var val = $.fn.dataTable.util.escapeRegex(
-                                $(this).val()
-                            );
+                initComplete: function () {
+                    this.api().columns([2, 4, 5, 6]).every(function () {
+                        var column = this;
+                        var select = $('<select><option value=""></option></select>')
+                            .appendTo($(column.footer()).empty())
+                            .on('change', function () {
+                                var val = $.fn.dataTable.util.escapeRegex(
+                                    $(this).val()
+                                );
 
-                            column
-                                .search( val ? '^'+val+'$' : '', true, false )
-                                .draw();
-                        } );
+                                column
+                                    .search(val ? '^' + val + '$' : '', true, false)
+                                    .draw();
+                            });
 
-                    column.data().unique().sort().each( function ( d, j ) {
-                        select.append( '<option value="'+d+'">'+d+'</option>' )
-                    } );
-                } );
-            },
+                        column.data().unique().sort().each(function (d, j) {
+                            select.append('<option value="' + d + '">' + d + '</option>')
+                        });
+                    });
+                },
                 //no search, pagination and page x form y
                 //-------------------------------------------
                 "searching": true,
@@ -286,6 +305,7 @@
         )
         $('#detailTable').DataTable(
             {
+                "stateSave": true,
                 "scrollY": "150px",
                 "scrollCollapse": true,
                 "paging": false,
@@ -296,5 +316,20 @@
 
             }
         )
+        $(document).ready(function () {
+            $('#MyExpenslinesTable').DataTable({
+
+                "stateSave": true,
+                "scrollY": "150px",
+                "scrollCollapse": true,
+                "paging": false,
+                "searching": false,
+                columnDefs: [
+                    {orderable: false, targets: 3}],
+                "autoWidth": true
+
+
+            });
+        });
     };
 </script>

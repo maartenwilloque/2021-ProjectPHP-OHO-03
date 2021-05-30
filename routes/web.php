@@ -53,7 +53,12 @@ Route::middleware(['auth'])->prefix('user')->group(function () {
 //        Route::get('expenses', 'User\MyExpenseController@Expenses');
 //        Route::get('users', 'User\MyExpenseController@users');
 //    });
+    Route::get('expense/qryexpenselines', 'User\ExpenseController@qryexpenselines');
+    Route::post('updateexpenselines','User\ExpenseController@updateExpenselines')->name('updateexpenselines');
+    Route::post('createexpenselines','User\ExpenseController@createExpenselines')->name('createexpenselines');
+    Route::post('deleteexpenselines','User\ExpenseController@deleteExpenselines')->name('deleteexpenselines');
     Route::resource('expense','User\ExpenseController');
+
 //    ---------------------------------------------------------------------
 //    Routes Profile and Password
 //    ---------------------------------------------------------------------
