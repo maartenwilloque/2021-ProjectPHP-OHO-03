@@ -65,7 +65,7 @@ class Expense extends Model
 
     public function expenselines()
     {
-        return $this->hasMany('App\expenseline','expense_id','id');
+        return $this->hasMany('App\Expenseline','expense_id','id');
     }
     public function expenseprogress()
     {

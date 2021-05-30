@@ -66,6 +66,20 @@
                 $(".amount_input").addClass("d-none")
         }
     })
+    $(document).ready(function () {
+        var status = document.getElementById('status');
+        console.log(status.innerText)
+        switch (status.innerText) {
+            case '3':
+            case '5':
+            case '8':
+                $('.statusedit').addClass('d-none')
+
+
+
+        }
+
+    })
 
 
     $(function () {

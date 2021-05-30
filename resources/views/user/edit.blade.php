@@ -5,7 +5,16 @@
         </div>
         <div class="col-4"><p>{{$expense->name}}</p>
         </div>
-        <div class="col2 offset-4"><p class="pl-5">{{$expense->date}}</p>
+        <div class="col-2"><h5>Status:</h5>
+        </div>
+        @foreach($expense->expenseprogress->where('active',true) as $expenseprogress)
+            <div class="col-2" ><p>
+                    {{$expenseprogress->status->name}}
+                </p>
+                <p class="d-none" id="status">{{$expenseprogress->status->id}}</p>
+            </div>
+        @endforeach
+        <div class="col2 text-right"><p class="pl-5">{{$expense->date}}</p>
         </div>
     </div>
     <div class="row">
@@ -37,19 +46,8 @@
             </div>
         </div>
     </div>
-    <div class="row justify-content-end">
-        <div class="col-12 text-right">
-            <i class="fas fa-edit btn" data-toggle="modal" data-target="#editExpensemodal"></i>
-        </div>
-    </div>
 @endsection
 @section('detailexpenses')
-    <div class="row justify-content-end">
-        <div class="col-12 text-right">
-            <i class="fas fa-plus-circle btn btn-create" data-toggle="modal" data-target="#createExpenselinemodal"
-               data-id="{{$expense->id}}"></i>
-        </div>
-    </div>
     <table id="MyExpenslinesTable" class=" table table-fixed">
         <thead>
         <tr>
@@ -84,11 +82,11 @@
                        data-attachment="{{$expenselines->attachmment}}" data-type="{{$expenselines->type_id}}"></i>
 
                     <i id="editexpenseline"
-                                                                               class="far fa-trash-alt btn btn-delete"
-                                                                               data-toggle="modal"
-                                                                               title="{{$expenselines->id}}"
-                                                                               data-target="#deleteExpenselinemodal"
-                                                                               data-id="{{$expenselines->id}}"></i>
+                       class="far fa-trash-alt btn btn-delete"
+                       data-toggle="modal"
+                       title="{{$expenselines->id}}"
+                       data-target="#deleteExpenselinemodal"
+                       data-id="{{$expenselines->id}}"></i>
 
                 </td>
             </tr>
@@ -103,7 +101,7 @@
             <form action="/approver/expense/{{$expense->id }}" method="post">
                 @method('put')
                 @csrf
-                <i class="far fa-trash-alt" type="submit"></i>
+                <i class="far fa-trash-alt statusedit" type="submit"></i>
             </form>
         </div>
         <div class="col-12 text-right">
@@ -114,7 +112,7 @@
                        class="d-none"
                        placeholder="id"
                        value="{{$expense->id}}">
-                <button type="submit" class="btn btn-success border-dark rounded-pill border-0 shadow-sm px-4">
+                <button type="submit" class="btn btn-success border-dark rounded-pill border-0 shadow-sm px-4 statusedit">
                     Indienen
                 </button>
             </form>
@@ -274,7 +272,7 @@
                                    value="">
                         </div>
                         <div class="form-group">
-                            <label for="type_create" >Type</label>
+                            <label for="type_create">Type</label>
                             <select class="type_input" name="type" id="type_create">
                                 <option value="" disabled selected>Type</option>
                                 @foreach($types as $type )
@@ -301,7 +299,7 @@
                                    placeholder="Bedrag"
                                    value="">
                         </div>
-                        <div class="form-group d-none distance_input" >
+                        <div class="form-group d-none distance_input">
                             <label for="distance">Afstand</label>
                             <input type="text" name="distance" id="distance"
                                    placeholder="Afstand"
@@ -314,7 +312,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="submit" class="btn btn-success border-dark rounded-pill border-0 shadow-sm px-4">
-                            Aanpassen
+                            Toevoegen
                         </button>
 
                     </div>

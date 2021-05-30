@@ -10,7 +10,7 @@
             </div>
             <div class="row">
                 <div class="col-12">
-                    <i class="fas fa-plus-circle btn btn-create" data-toggle="modal" data-target="#createExpensemodal"
+                    <i class="far fa-plus-square btn btn-create" data-toggle="modal" data-target="#createExpensemodal"
                        ></i>
                 </div>
             </div>
