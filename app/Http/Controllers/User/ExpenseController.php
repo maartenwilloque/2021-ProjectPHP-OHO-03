@@ -15,6 +15,7 @@ use Illuminate\Contracts\View\Factory;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Redirector;
+use Illuminate\Support\Facades\File;
 use Illuminate\View\View;
 
 class ExpenseController extends Controller
@@ -35,7 +36,7 @@ class ExpenseController extends Controller
             ->get();
         $costcentre = Costcentre::get();
 
-        $result = compact('expenses','costcentre');
+        $result = compact('expenses', 'costcentre');
         Json::dump($result);
         return view('user.index', $result);
     }
@@ -54,7 +55,6 @@ class ExpenseController extends Controller
      * Store a newly created resource in storage.
      *
      * @param \Illuminate\Http\Request $request
-
      * @return RedirectResponse
      */
     public function store(Request $request)
@@ -73,8 +73,9 @@ class ExpenseController extends Controller
         $expenseprogress->status_id = 1;
         $expenseprogress->save();
 
-        return redirect()->route('expense.edit',$id);
+        return redirect()->route('expense.edit', $id);
     }
+
     /**
      * Display the specified resource.
      *
@@ -165,11 +166,10 @@ class ExpenseController extends Controller
                 $amount = $request->amount;
 
 
-
         }
         $expenselines->description = $request->description;
         $expenselines->date = $request->date;
-        $expenselines->amount =$amount;
+        $expenselines->amount = $amount;
         $expenselines->distance = $distance;
         $expenselines->attachment = $request->attachment;
         session()->flash('success', 'Onkostlijn aangepast');
@@ -182,31 +182,36 @@ class ExpenseController extends Controller
 
     public function createExpenselines(Request $request)
     {
-  $request->validate([
-            'file' => 'max:2048',
-            'file.*' => 'mimes:jpeg,png,jpg,gif,svg'
-        ]);
         $typeselect = Type::findOrFail($request->type);
+
+        $request->validate([
+            'file' => 'mimes:pdf,xlx,csv|max:2048',
+        ]);
+
+        if ($request->file) {
+            $fileName = time() . '.' . $request->file->extension();
+            $request->file->move(public_path('uploads'), $fileName);
+
+        }
+
+
         switch ($request->type) {
             case 3:
             case 4:
                 $amount = $request->distance * $typeselect->value;
                 $distance = $request->distance;
-            $expenselines = new Expenseline();
-            $expenselines->type_id = $request->type;
-            $expenselines->expense_id = $request->id;
-            $expenselines->description = $request->description;
-            $expenselines->date = $request->date;
-            $expenselines->amount = $amount;
-            $expenselines->distance = $distance;
-           if ($request->file) {
-            $fileName = $request->file->getClientOriginalName();
-            $attachment = $fileName;
-            $request->file->move(public_path('/uploads/'), $attachment);
-            $expenselines->attachment = ('/uploads/' . $attachment);
-        }
-            session()->flash('success', 'Onkostlijn aangemaakt');
-            $expenselines->save();
+                $expenselines = new Expenseline();
+                $expenselines->type_id = $request->type;
+                $expenselines->expense_id = $request->id;
+                $expenselines->description = $request->description;
+                $expenselines->date = $request->date;
+                $expenselines->amount = $amount;
+                $expenselines->distance = $distance;
+                if ($request->file) {
+                    $expenselines->attachment = $fileName;
+                }
+                session()->flash('success', 'Onkostlijn aangemaakt');
+                $expenselines->save();
                 break;
             case 1:
                 $distance = 0;
@@ -218,31 +223,35 @@ class ExpenseController extends Controller
                 $expenselines->date = $request->date;
                 $expenselines->amount = $amount;
                 $expenselines->distance = $distance;
-                $expenselines->attachment = $request->attachment;
+                if ($request->file) {
+                    $expenselines->attachment = $fileName;
+                }
                 session()->flash('success', 'Onkostlijn aangemaakt');
                 $expenselines->save();
                 break;
             case 2:
                 $distance = 0;
-                $amount = ($request->amount)/4;
+                $amount = ($request->amount) / 4;
 
-                $date =DateTime::createFromFormat('Y-m-d',$request->date);
+                $date = DateTime::createFromFormat('Y-m-d', $request->date);
 
-                for($i = 0; $i < 4;$i++){
+                for ($i = 0; $i < 4; $i++) {
                     $expenselines = new Expenseline();
                     $expenselines->type_id = $request->type;
                     $expenselines->expense_id = $request->id;
                     $expenselines->description = $request->description;
-                    $expenselines->date = date_add($date,date_interval_create_from_date_string("1 year"));
+                    $expenselines->date = date_add($date, date_interval_create_from_date_string("1 year"));
                     $expenselines->amount = $amount;
                     $expenselines->distance = $distance;
-                    $expenselines->attachment = $request->attachment;
+                    if ($request->file) {
+                        $expenselines->attachment = $fileName;
+                    }
                     session()->flash('success', 'Onkostlijn aangemaakt');
                     $expenselines->save();
                 }
+
+
         }
-
-
 
         return back();
     }
@@ -250,12 +259,11 @@ class ExpenseController extends Controller
     public function deleteExpenselines(Request $request)
     {
 
-
         $expenselines = Expenseline::findOrFail($request->id);
-
-        $attachment = Expenseline::where('id', '=', $request->id)->get('attachment');
-        $result = compact($attachment);
-
+        if (File::exists(public_path('uploads/' . $expenselines->attachment))) {
+            File::delete(public_path('uploads/' . $expenselines->attachment));
+        }
+        Expenseline::where('id', $request->id)->delete();
         session()->flash('success', 'Onkostlijn verwijderd');
         return back();
     }
