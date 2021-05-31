@@ -38,7 +38,7 @@ class FaqSeeder extends Seeder
             ]);
         FaqTabel::create(
             [
-                'userRol' => "Approver", ,
+                'userRol' => "Approver",
                 'vraag' => "Hoe behandelen?",
                 'antwoord' => "bla bla",
             ]);

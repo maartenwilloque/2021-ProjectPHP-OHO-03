@@ -17,7 +17,7 @@ class ExpenseSeeder extends Seeder
     public function run()
     {
         $faker = Factory::create('nl_BE');
-        for ($i = 0; $i < 500; $i++) {
+        for ($i = 0; $i < 100; $i++) {
             $expenseid = $i + 1;
             $costcenter = (rand(1, 100) <= 25) ? 1 : rand(2, 48);
             $userid = rand(1, 50);

@@ -29,8 +29,9 @@
                                     </a>
                                 </div>
                             </div>
+                        @endif
                 </div>
-                @endif
+
 
                 @if(Auth::user()->approver && !Auth::user()->admin)
                     @include('shared.navigationPartials.approver')
@@ -40,18 +41,17 @@
                     @include('shared.navigationPartials.finance')
                 @endif
 
-                <div class="row justify-content-center">
-                    <div class="col-12">
-                        <a href="/logout"><i class="fas fa-sign-out-alt menu-icons"></i>
-                            <span
-                                class="nav-text hider toggle">Logout</span></a>
-                    </div>
-                </div>
+
             </div>
             @endauth
+            <div class="row justify-content-center">
+                <div class="col-12">
+                    <a href="/logout"><i class="fas fa-sign-out-alt menu-icons"></i>
+                        <span
+                            class="nav-text hider toggle">Logout</span></a>
+                </div>
+            </div>
         </div>
     </div>
-    </div>
-
 </nav>
 
