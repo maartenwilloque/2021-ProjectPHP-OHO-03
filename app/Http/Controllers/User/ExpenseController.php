@@ -185,7 +185,7 @@ class ExpenseController extends Controller
         $typeselect = Type::findOrFail($request->type);
 
         $request->validate([
-            'file' => 'mimes:pdf,xlx,csv|max:2048',
+            'file' => 'mimes:jpeg,bmp,png,gif,svg,pdf,xlx,csv|max:2048',
         ]);
 
         if ($request->file) {

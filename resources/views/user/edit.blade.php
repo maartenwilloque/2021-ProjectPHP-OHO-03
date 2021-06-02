@@ -8,7 +8,7 @@
         <div class="col-2"><h5>Status:</h5>
         </div>
         @foreach($expense->expenseprogress->where('active',true) as $expenseprogress)
-            <div class="col-2" ><p>
+            <div class="col-2"><p>
                     {{$expenseprogress->status->name}}
                 </p>
                 <p class="d-none" id="status">{{$expenseprogress->status->id}}</p>
@@ -69,7 +69,8 @@
                 <td>€{{$expenselines->amount}}</td>
                 <td class="d-none">€{{$expenselines->distance}}</td>
                 @if(isset($expenselines->attachment))
-                    <td><a href='{{$expenselines->attachment}}'><i class="fas fa-file-download"></i></a></td>
+                    <td><a href='../../../uploads/{{$expenselines->attachment}}' target="_blank"><i
+                                class="fas fa-file-download"></i></a></td>
                 @else
                     <td><i class="far fa-times-circle"></i></td>
                 @endif
@@ -112,7 +113,8 @@
                        class="d-none"
                        placeholder="id"
                        value="{{$expense->id}}">
-                <button type="submit" class="btn btn-success border-dark rounded-pill border-0 shadow-sm px-4 statusedit">
+                <button type="submit"
+                        class="btn btn-success border-dark rounded-pill border-0 shadow-sm px-4 statusedit">
                     Indienen
                 </button>
             </form>
@@ -123,7 +125,7 @@
 @section('detailmodal')
     {{--    Update Expense modal--}}
     <div class="modal fade" id="editExpensemodal" tabindex="-1" role="dialog" aria-hidden="true">
-        <form action="/user/expense/{{$expense->id }}" method="post">
+        <form action="/user/expense/{{$expense->id }}" method="post" enctype="multipart/form-data">
             @method('put')
             @csrf
             <div class="modal-dialog" role="document">
@@ -222,7 +224,7 @@
                         <div class="form-group amount_input">
                             <label for="amount">Bedrag</label>
                             <input type="text" name="amount" id="amount"
-                                   placeholder="Omschrijving"
+                                   placeholder="Bedrag"
                                    value="">
                         </div>
                         <div class="form-group distance_input">
@@ -232,10 +234,8 @@
                                    value="">
                         </div>
                         <div class="form-group">
-                            <label for="attachment">Bijlage</label>
-                            <input type="text" name="attachment" id="attachment"
-                                   placeholder="Omschrijving"
-                                   value="">
+                            <label>Bijlage</label>
+                            <input type="file" name="file" class="form-control">
                         </div>
                     </div>
                     <div class="modal-footer">
