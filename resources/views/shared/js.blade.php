@@ -14,14 +14,15 @@
         var date = $(this).data('date')
         var amount = $(this).data('amount')
         var distance = $(this).data('distance')
-        var attachment = $(this).data('attachment')
+        var file = $(this).data('file')
         var type = $(this).data('type')
         $(".editExpenselinemodal #id").val(id);
         $(".editExpenselinemodal #description").val(description);
         $(".editExpenselinemodal #date").val(date);
         $(".editExpenselinemodal #amount").val(amount);
         $(".editExpenselinemodal #distance").val(distance);
-        $(".editExpenselinemodal #attachment").val(attachment);
+        $(".editExpenselinemodal #attachment").val(file);
+        console.log(file)
         switch (type) {
             case 1:
             case 2:
@@ -35,9 +36,7 @@
         }
 
 
-
-
-        console.log(id, description, date, amount, distance, attachment)
+        console.log(id, description, date, amount, distance, file)
 
     })
     $(document).on('click', '.btn-create', function () {
@@ -68,17 +67,19 @@
         }
     })
     $(document).ready(function () {
-        var status = document.getElementById('status');
-        console.log(status.innerText)
-        switch (status.innerText) {
-            case '3':
-            case '5':
-            case '8':
-                $('.statusedit').addClass('d-none')
+        if (document.getElementById('status')) {
+            var status = document.getElementById('status');
+            console.log(status.innerText)
+            switch (status.innerText) {
+                case '3':
+                case '5':
+                case '8':
+                    $('.statusedit').addClass('d-none')
 
 
-
+            }
         }
+
 
     })
 
@@ -342,17 +343,14 @@
                 "lengthMenu": [10],
                 "language": {
                     "lengthMenu": "Display _MENU_ records per page",
-                    "zeroRecords": "Geen onkosten gevonden",
-                    "info": "Pagina _PAGE_ van _PAGES_",
+                    "zeroRecords": "",
+                    "info": "_MAX_ Onkosten",
                     "infoEmpty": "Geen onkosten gevonden",
                     "infoFiltered": "(filtered from _MAX_ total records)"
 
                 },
-                // columnDefs: [
-                //     {orderable: false, targets: 5},
-                //     {orderable: false, targets: 6},
-                //     {orderable: false, targets: 7},
-                // ]
+                columnDefs: [
+                    {orderable: false, targets: 9}]
             }
         )
         $('#detailTable').DataTable(
@@ -377,8 +375,17 @@
                 "paging": false,
                 "searching": false,
                 columnDefs: [
-                    {orderable: false, targets: 3}],
-                "autoWidth": true
+                    {orderable: false, targets: [4, 5, 6]},
+                    {width: "10%", targets: [3, 4, 5, 6]},
+                ],
+                "autoWidth": true,
+                "language": {
+                    "lengthMenu": "Display _MENU_ records per page",
+                    "zeroRecords": "Geen onkostlijnen gevonden",
+                    "info": "_MAX_ Onkostlijnen",
+                    "infoEmpty": "",
+                    "infoFiltered": "(filtered from _MAX_ total records)"
+                }
 
 
             });

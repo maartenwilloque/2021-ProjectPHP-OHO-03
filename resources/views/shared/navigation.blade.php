@@ -30,27 +30,28 @@
                                 </div>
                             </div>
                         @endif
+
+
+
+                        @if(Auth::user()->approver && !Auth::user()->admin)
+                            @include('shared.navigationPartials.approver')
+                        @endif
+
+                        @if(Auth::user()->finance && !Auth::user()->admin)
+                            @include('shared.navigationPartials.finance')
+                        @endif
+                    @endauth
+                    <div class="row justify-content-center ">
+                        <div class="col-12 sidebarfooter">
+                            <a href="/logout"><i class="fas fa-sign-out-alt menu-icons"></i>
+                                <span
+                                    class="nav-text hider toggle">Logout</span></a>
+                        </div>
+                    </div>
                 </div>
-
-
-                @if(Auth::user()->approver && !Auth::user()->admin)
-                    @include('shared.navigationPartials.approver')
-                @endif
-
-                @if(Auth::user()->finance && !Auth::user()->admin)
-                    @include('shared.navigationPartials.finance')
-                @endif
-
-
             </div>
-            @endauth
-            <div class="row justify-content-center">
-                <div class="col-12">
-                    <a href="/logout"><i class="fas fa-sign-out-alt menu-icons"></i>
-                        <span
-                            class="nav-text hider toggle">Logout</span></a>
-                </div>
-            </div>
+
+
         </div>
     </div>
 </nav>
