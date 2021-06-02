@@ -27,12 +27,6 @@ class CreateCostcentresTable extends Migration
             [
                 [
                     'responsible' => 1,
-                    'costcentre' => '0000000000',
-                    'description' => 'Algemeen',
-                    'created_at' => now(),
-                ],
-                [
-                    'responsible' => 1,
                     'costcentre' => 'WU3EIGE02274',
                     'description' => 'Buitenlandse reis',
                     'created_at' => now(),
@@ -41,12 +35,6 @@ class CreateCostcentresTable extends Migration
                     'responsible' => 2,
                     'costcentre' => 'WU3BWGB00000',
                     'description' => 'BW Beleid en Opleidingsinitiatieven',
-                    'created_at' => now(),
-                ],
-                [
-                    'responsible' => 3,
-                    'costcentre' => 'WU3BWGB01000',
-                    'description' => 'BW Professionalisering Personeel',
                     'created_at' => now(),
                 ],
                 [
@@ -68,21 +56,9 @@ class CreateCostcentresTable extends Migration
                     'created_at' => now(),
                 ],
                 [
-                    'responsible' => 3,
-                    'costcentre' => 'WU3ZZGB03040',
-                    'description' => 'CreateCave',
-                    'created_at' => now(),
-                ],
-                [
                     'responsible' => 2,
                     'costcentre' => 'WU3ZZGT02186',
                     'description' => 'Cybersecurity',
-                    'created_at' => now(),
-                ],
-                [
-                    'responsible' => 3,
-                    'costcentre' => 'WU3EIGB00000',
-                    'description' => 'EI Beleid en Opleidingsinitiatieven',
                     'created_at' => now(),
                 ],
                 [
@@ -97,12 +73,7 @@ class CreateCostcentresTable extends Migration
                     'description' => 'EI Studentenrekening',
                     'created_at' => now(),
                 ],
-                [
-                    'responsible' => 3,
-                    'costcentre' => 'WU3EMGB00000',
-                    'description' => 'EM Beleid en Opleidingsinitiatieven',
-                    'created_at' => now(),
-                ],
+
                 [
                     'responsible' => 1,
                     'costcentre' => 'WU3EMGB01000',
@@ -113,12 +84,6 @@ class CreateCostcentresTable extends Migration
                     'responsible' => 2,
                     'costcentre' => 'WU3EMGE12000',
                     'description' => 'EM Studentenrekening',
-                    'created_at' => now(),
-                ],
-                [
-                    'responsible' => 3,
-                    'costcentre' => 'WU3ETGB00000',
-                    'description' => 'ET Beleid en Opleidingsinitiatieven',
                     'created_at' => now(),
                 ],
                 [
@@ -133,12 +98,7 @@ class CreateCostcentresTable extends Migration
                     'description' => 'ET Studentenrekening',
                     'created_at' => now(),
                 ],
-                [
-                    'responsible' => 3,
-                    'costcentre' => 'WU3ETIGT02364',
-                    'description' => 'ITF Project 4.0',
-                    'created_at' => now(),
-                ],
+
                 [
                     'responsible' => 1,
                     'costcentre' => 'WU3BWGD02396',
@@ -151,12 +111,7 @@ class CreateCostcentresTable extends Migration
                     'description' => 'Labo Automatisatie: Verbruik',
                     'created_at' => now(),
                 ],
-                [
-                    'responsible' => 3,
-                    'costcentre' => 'WU3EZZGB03037',
-                    'description' => 'Labo Bouw: Verbruik',
-                    'created_at' => now(),
-                ],
+
                 [
                     'responsible' => 1,
                     'costcentre' => 'WU3EZZGB03033',
@@ -169,12 +124,7 @@ class CreateCostcentresTable extends Migration
                     'description' => 'Labo Electronica: Verbruik',
                     'created_at' => now(),
                 ],
-                [
-                    'responsible' => 3,
-                    'costcentre' => 'WU3EZZGT03030',
-                    'description' => 'Labo Mechanica: Externe dienstverlening',
-                    'created_at' => now(),
-                ],
+
                 [
                     'responsible' => 1,
                     'costcentre' => 'WU3EZZGB03030',
@@ -187,12 +137,7 @@ class CreateCostcentresTable extends Migration
                     'description' => 'More BIM II',
                     'created_at' => now(),
                 ],
-                [
-                    'responsible' => 3,
-                    'costcentre' => 'WU3BWGT02037',
-                    'description' => 'More BIM II (BTW)',
-                    'created_at' => now(),
-                ],
+
                 [
                     'responsible' => 1,
                     'costcentre' => 'WU3TIGE01519',
@@ -205,12 +150,7 @@ class CreateCostcentresTable extends Migration
                     'description' => 'OOF VAK plus',
                     'created_at' => now(),
                 ],
-                [
-                    'responsible' => 3,
-                    'costcentre' => 'WU3EMGV01922',
-                    'description' => 'Opleiding hernieuwbare energie',
-                    'created_at' => now(),
-                ],
+
                 [
                     'responsible' => 1,
                     'costcentre' => 'WU3ZZGZ80000',
@@ -223,12 +163,7 @@ class CreateCostcentresTable extends Migration
                     'description' => 'EG Energiecoördinator',
                     'created_at' => now(),
                 ],
-                [
-                    'responsible' => 3,
-                    'costcentre' => 'WU3BWGE01159',
-                    'description' => 'Project Realisatie eigen ontw.',
-                    'created_at' => now(),
-                ],
+
                 [
                     'responsible' => 1,
                     'costcentre' => 'WU3BWGT01987',
@@ -241,12 +176,7 @@ class CreateCostcentresTable extends Migration
                     'description' => 'Projectweek EM',
                     'created_at' => now(),
                 ],
-                [
-                    'responsible' => 3,
-                    'costcentre' => 'WU3ZZGE02254',
-                    'description' => 'Projectwerk EM',
-                    'created_at' => now(),
-                ],
+
                 [
                     'responsible' => 1,
                     'costcentre' => 'WU3ZZZV00633',
@@ -271,12 +201,7 @@ class CreateCostcentresTable extends Migration
                     'description' => 'TI Professionalisering Personeel',
                     'created_at' => now(),
                 ],
-                [
-                    'responsible' => 3,
-                    'costcentre' => 'WU3TIGE12000',
-                    'description' => 'TI Studentenrekening',
-                    'created_at' => now(),
-                ],
+
                 [
                     'responsible' => 1,
                     'costcentre' => 'WU3ZZGB00000',
@@ -289,12 +214,7 @@ class CreateCostcentresTable extends Migration
                     'description' => 'U3 Gastsprekers',
                     'created_at' => now(),
                 ],
-                [
-                    'responsible' => 3,
-                    'costcentre' => 'WU3BWGE01247',
-                    'description' => 'Uitstap 3 Bouw',
-                    'created_at' => now(),
-                ],
+
                 [
                     'responsible' => 1,
                     'costcentre' => 'WU3ZZGZ60000',
@@ -307,12 +227,7 @@ class CreateCostcentresTable extends Migration
                     'description' => 'VDAB-Studenten Bouw',
                     'created_at' => now(),
                 ],
-                [
-                    'responsible' => 3,
-                    'costcentre' => 'WU3TIGE00094',
-                    'description' => 'VLIR-IUS project Mekele',
-                    'created_at' => now(),
-                ],
+
                 [
                     'responsible' => 1,
                     'costcentre' => 'WU3TIGV00160',

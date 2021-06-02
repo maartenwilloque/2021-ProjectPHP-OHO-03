@@ -8,7 +8,7 @@
         <div class="col-2"><h5>Status:</h5>
         </div>
         @foreach($expense->expenseprogress->where('active',true) as $expenseprogress)
-            <div class="col-2"><p>
+            <div class="col-2" ><p  data-toggle="tooltip" data-placement="top" title="{{$expenseprogress->status->note}}">
                     {{$expenseprogress->status->name}}
                 </p>
                 <p class="d-none" id="status">{{$expenseprogress->status->id}}</p>
