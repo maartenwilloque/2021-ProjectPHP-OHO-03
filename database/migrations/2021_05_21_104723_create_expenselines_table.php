@@ -22,6 +22,7 @@ class CreateExpenselinesTable extends Migration
             $table->string('attachment')->nullable();
             $table->float('distance',6,2)->nullable();
             $table->float('amount',6,2)->nullable();
+            $table->boolean('active')->default(true);
             $table->timestamps();
             // Foreign key relation
             $table->foreign('expense_id')->references('id')->on('expenses')->onDelete('cascade')->onUpdate('cascade');

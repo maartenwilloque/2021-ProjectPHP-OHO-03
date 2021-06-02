@@ -40,7 +40,7 @@ class CreateTypesTable extends Migration
 
 
 
-                    'value'=> 0.50
+                    'value'=> 0.05
                 ],
                 [
                     'name' => 'Vervoer_Fiets',

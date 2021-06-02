@@ -7,6 +7,7 @@
 
     }
 
+
     $(document).on('click', '.btn-edit', function () {
         var id = $(this).data('id')
         var description = $(this).data('description')
@@ -110,14 +111,18 @@
     //Tooltip Script
     //----------------------------------------------------------------------------------------------
     $(function () {
-        $('body').tooltip({
-            selector: '[data-toggle="tooltip"]',
-            html: true,
-        }).on('click', '[data-toggle="tooltip"]', function () {
-            // hide tooltip when you click on it
-            $(this).tooltip('hide');
-        });
-    });
+        $('[data-toggle="tooltip"]').tooltip()
+    })
+
+    // $(function () {
+    //     $('body').tooltip({
+    //         selector: '[data-toggle="tooltip"]',
+    //         html: true,
+    //     }).on('click', '[data-toggle="tooltip"]', function () {
+    //         // hide tooltip when you click on it
+    //         $(this).tooltip('hide');
+    //     });
+    // });
     //DataTable Script
     //----------------------------------------------------------------------------------------------
 

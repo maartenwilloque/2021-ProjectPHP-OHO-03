@@ -1,6 +1,6 @@
 <div class="row justify-content-center m-auto">
     <div class="col-11 offset-1">
-        <div class="container">
+        <div class="container-fluid">
             <div class="row">
                 <h3 class="display-4">Details</h3>
             </div>
