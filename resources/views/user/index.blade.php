@@ -99,7 +99,7 @@
             </div>
         </div>
     </div>
-{{--    Modal--}}
+    {{--    Modal--}}
 
 
     <div class="modal fade" id="createExpensemodal" tabindex="-1" role="dialog" aria-hidden="true">
@@ -156,13 +156,9 @@
                         <button type="submit" class="btn btn-success border-dark rounded-pill border-0 shadow-sm px-4">
                             Aanmaken
                         </button>
-
                     </div>
-
                 </div>
             </div>
-
-
         </form>
     </div>
 @endsection
