@@ -155,9 +155,9 @@
                     });
                 });
             },
-            "stateSave": true,
+            "stateSave": false,
             "autoWidth": true,
-            "processing": true,
+            "processing": false,
             "lengthChange": false,
             "lengthMenu": [10],
             "language": {
@@ -196,9 +196,9 @@
                     });
                 });
             },
-            "stateSave": true,
+            "stateSave": false,
             "autoWidth": true,
-            "processing": true,
+            "processing": false,
             "lengthChange": false,
             "lengthMenu": [10],
             "language": {
@@ -216,9 +216,9 @@
 
         });
         $('#userTable').DataTable({
-            "stateSave": true,
+            "stateSave": false,
             "autoWidth": true,
-            "processing": true,
+            "processing": false,
             "lengthChange": false,
             "lengthMenu": [10],
             "language": {
@@ -240,23 +240,13 @@
             "paging": false,
             "info": false,
             //-------------------------------------------
-            "stateSave": true,
+            "stateSave": false,
             "autoWidth": true,
-            "processing": true,
-            // "lengthChange": false,
-            // "lengthMenu": [10],
-            // "language": {
-            //     "lengthMenu": "Display _MENU_ records per page",
-            //     "zeroRecords": "Geen onkosten gevonden",
-            //     "info": "Pagina _PAGE_ van _PAGES_",
-            //     "infoEmpty": "Geen onkosten gevonden",
-            //     "infoFiltered": "(filtered from _MAX_ total records)"
-            //
-            // },
-            // columnDefs: [
-            //     { orderable: false, targets: 5 }
-            // ]
-        })
+            "processing": false,
+            columnDefs: [
+                {orderable: false, targets: 2}]
+        }
+        )
         $('#typeTable').DataTable({
             //no search, pagination and page x form y
             //-------------------------------------------
@@ -264,21 +254,11 @@
             "paging": false,
             "info": false,
             //-------------------------------------------
-            "stateSave": true,
+            "stateSave": false,
             "autoWidth": true,
-            "processing": true,
-            // "lengthChange": false,
-            // "lengthMenu": [10],
-            // "language": {
-            //     "lengthMenu": "Display _MENU_ records per page",
-            //     "zeroRecords": "Geen onkosten gevonden",
-            //     "info": "Pagina _PAGE_ van _PAGES_",
-            //     "infoEmpty": "Geen onkosten gevonden",
-            //     "infoFiltered": "(filtered from _MAX_ total records)"
-            //
-            // },
+            "processing": false,
             columnDefs: [
-                {orderable: false, targets: 2}
+                {orderable: false, targets: [2,3]}
             ]
         })
         $('#costcenterTable').DataTable({
@@ -288,19 +268,20 @@
             "paging": true,
             "info": true,
             //-------------------------------------------
-            "stateSave": true,
+            "stateSave": false,
             "autoWidth": true,
-            "processing": true,
+            "processing": false,
             "lengthChange": false,
-            "lengthMenu": [5],
-            // "language": {
-            //     "lengthMenu": "Display _MENU_ records per page",
-            //     "zeroRecords": "Geen onkosten gevonden",
-            //     "info": "Pagina _PAGE_ van _PAGES_",
-            //     "infoEmpty": "Geen onkosten gevonden",
-            //     "infoFiltered": "(filtered from _MAX_ total records)"
-            //
-            // },
+            "lengthMenu": [10],
+            "pageLength": 50,
+            "language": {
+                "lengthMenu": "Display _MENU_ records per page",
+                "zeroRecords": "",
+                "info": "Pagina _PAGE_ van _PAGES_",
+                "infoEmpty": "",
+                "infoFiltered": "(filtered from _MAX_ total records)"
+
+            },
             columnDefs: [
                 {orderable: false, targets: 4}
             ]
@@ -334,9 +315,9 @@
 
                 //-------------------------------------------
 
-                "stateSave": true,
+                "stateSave": false,
                 "autoWidth": true,
-                "processing": true,
+                "processing": false,
                 "lengthChange": false,
                 "lengthMenu": [10],
                 "language": {
@@ -344,31 +325,18 @@
                     "zeroRecords": "",
                     "info": "_MAX_ Onkosten",
                     "infoEmpty": "Geen onkosten gevonden",
-                    "infoFiltered": "(filtered from _MAX_ total records)"
+                    "infoFiltered": ""
 
                 },
                 columnDefs: [
                     {orderable: false, targets: 9}]
             }
         )
-        // $('#detailTable').DataTable(
-        //     {
-        //         "stateSave": true,
-        //         "scrollY": "150px",
-        //         "scrollCollapse": true,
-        //         "paging": false,
-        //         "searching": false,
-        //         columnDefs: [
-        //             {orderable: false, targets: [3,4,5,6,7,8]}],
-        //         "autoWidth": true
-        //
-        //     }
-        // )
         $(document).ready(function () {
             $('#MyExpenslinesTable').DataTable({
 
-                "stateSave": true,
-                "scrollY": "150px",
+                "stateSave": false,
+                "scrollY": "15vh",
                 "scrollCollapse": true,
                 "paging": false,
                 "searching": false,
