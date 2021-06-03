@@ -12,7 +12,7 @@
                 </div>
                 <div class="modal-body">
                     <div class="form-group">
-                        <label for="title">Titel</label>
+                        <label for="title" class="px-4 ">Titel</label>
                         <input type="text" name="title" id="title"
                                class="rounded-pill border-0 shadow-sm px-4 form-control @error('title') is-invalid @enderror"
                                placeholder="Titel"
@@ -23,7 +23,7 @@
                         @enderror
                     </div>
                     <div class="form-group">
-                        <label for="title">Omschrijving</label>
+                        <label for="title" class="px-4 ">Omschrijving</label>
                         <input type="text" name="description" id="description"
                                class=" rounded-pill border-0 shadow-sm px-4 form-control @error('description') is-invalid @enderror"
                                placeholder="Omschrijving"
@@ -34,7 +34,7 @@
                         @enderror
                     </div>
                     <div class="form-group">
-                        <label for="costcentre">Kostenplaats</label>
+                        <label for="costcentre" class="px-4 ">Kostenplaats</label>
                         <br>
                         <label>
                             <input class="rounded-pill border-0 shadow-sm px-4" list="costcentre" name="costcentre"

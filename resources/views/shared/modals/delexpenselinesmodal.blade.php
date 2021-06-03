@@ -11,7 +11,7 @@
                 </div>
                 <div class="modal-body deleteExpenselinemodal">
                     <div class="form-group">
-                        <label for="id" class="d-none">id</label>
+                        <label for="id" class="d-none px-4 ">id</label>
                         <input type="text" name="id" id="id"
                                class="d-none"
                                placeholder="id"

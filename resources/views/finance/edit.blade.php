@@ -63,7 +63,7 @@
 @section('detailsubmit')
     <div class="row">
         <div class="col-6 text-center">
-            <form action="/approver/expense/{{$expense->id }}" method="post">
+            <form action="/finance/expense/{{$expense->id }}" method="post">
                 @method('put')
                 @csrf
                 <button type="submit" class="btn btn-success border-dark rounded-pill border-0 shadow-sm px-4 submitbtn">
@@ -81,32 +81,8 @@
 
 @endsection
 @section('detailmodal')
-    <form action="/approver/expense/{{$expense->id }}" method="post">
-        <div class="modal fade" id="rejectmodal" tabindex="-1" role="dialog" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Reden voor afkeuren</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <div class="form-group">
-                            <textarea type="text" class="form-control" id="rejectreason" name="rejectreason"></textarea>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        @method('delete')
-                        @csrf
-                        <button type="submit" class="btn btn-danger border-dark rounded-pill border-0 shadow-sm px-4 submitbtn">
-                            Afkeuren
-                        </button>
-
-                    </div>
-                </div>
-            </div>
-        </div>
+    <form action="/finance/expense/{{$expense->id }}" method="post">
+       @include('shared.modals.rejectmodal')
     </form>
 @endsection
 

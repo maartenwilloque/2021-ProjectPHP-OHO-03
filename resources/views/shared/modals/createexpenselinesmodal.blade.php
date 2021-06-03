@@ -18,7 +18,7 @@
                                value="">
                     </div>
                     <div class="form-group">
-                        <label for="type_create">Type</label>
+                        <label for="type_create" class="px-4 ">Type</label>
                         <select class="type_input rounded-pill border-0 shadow-sm px-4 form-control" name="type" id="type_create">
                             <option value="" disabled selected>Type</option>
                             @foreach($types as $type )
@@ -27,32 +27,32 @@
                         </select>
                     </div>
                     <div class="form-group">
-                        <label for="description" class="">Omschrijving</label>
+                        <label for="description" class="px-4 ">Omschrijving</label>
                         <input type="text" name="description" id="description"
                                class="rounded-pill border-0 shadow-sm px-4 form-control"
                                placeholder="Omschrijving"
                                value="">
                     </div>
                     <div class="form-group">
-                        <label for="date">Datum</label>
+                        <label for="date" class="px-4 ">Datum</label>
                         <input type="date" name="date" id="date"
                                placeholder="Datum"
                                value="" class="rounded-pill border-0 shadow-sm px-4 form-control">
                     </div>
                     <div class="form-group d-none amount_input">
-                        <label for="amount">Bedrag</label>
+                        <label for="amount" class="px-4 ">Bedrag</label>
                         <input type="text" name="amount" id="amount"
                                placeholder="Bedrag"
                                value="" class="rounded-pill border-0 shadow-sm px-4 form-control">
                     </div>
                     <div class="form-group d-none distance_input">
-                        <label for="distance">Afstand</label>
+                        <label for="distance" class="px-4 " >Afstand</label>
                         <input type="text" name="distance" id="distance"
                                placeholder="Afstand"
                                value="" class="rounded-pill border-0 shadow-sm px-4 form-control">
                     </div>
                     <div class="form-group">
-                        <label>Bijlage</label>
+                        <label class="px-4 ">Bijlage</label>
                         <input type="file" name="file" class="rounded-pill border-0 shadow-sm px-4 form-control-file">
                     </div>
                 </div>

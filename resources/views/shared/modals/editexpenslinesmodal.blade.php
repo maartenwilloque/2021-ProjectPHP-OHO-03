@@ -11,39 +11,39 @@
                 </div>
                 <div class="modal-body editExpenselinemodal">
                     <div class="form-group">
-                        <label for="id" class="d-none">id</label>
+                        <label for="id" class="d-none px-4 ">id</label>
                         <input type="text" name="id" id="id"
                                class="d-none rounded-pill border-0 shadow-sm px-4 form-control"
                                placeholder="id"
                                value="">
                     </div>
                     <div class="form-group">
-                        <label for="description" class="">Omschrijving</label>
+                        <label for="description" class="px-4 ">Omschrijving</label>
                         <input type="text" name="description" id="description"
                                class="rounded-pill border-0 shadow-sm px-4 form-control"
                                placeholder="expenseline_description"
                                value="">
                     </div>
                     <div class="form-group">
-                        <label for="date">Datum</label>
+                        <label for="date" class="px-4 ">Datum</label>
                         <input type="date" name="date" id="date"
                                placeholder="Omschrijving"
                                value="" class="rounded-pill border-0 shadow-sm px-4 form-control">
                     </div>
                     <div class="form-group amount_input">
-                        <label for="amount">Bedrag</label>
+                        <label for="amount" class="px-4 ">Bedrag</label>
                         <input type="text" name="amount" id="amount"
                                placeholder="Bedrag"
                                value="" class="rounded-pill border-0 shadow-sm px-4 form-control">
                     </div>
                     <div class="form-group distance_input">
-                        <label for="distance">Afstand</label>
+                        <label for="distance" class="px-4 ">Afstand</label>
                         <input type="text" name="distance" id="distance"
                                placeholder="Omschrijving"
                                value="" class="rounded-pill border-0 shadow-sm px-4 form-control">
                     </div>
                     <div class="form-group">
-                        <label>Bijlage</label>
+                        <label class="px-4 ">Bijlage</label>
                         <input type="file" name="file" class="form-control-file rounded-pill border-0 shadow-sm px-4">
                     </div>
                 </div>

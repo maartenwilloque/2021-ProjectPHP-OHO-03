@@ -162,9 +162,9 @@
             "lengthMenu": [10],
             "language": {
                 "lengthMenu": "Display _MENU_ records per page",
-                "zeroRecords": "Geen onkosten gevonden",
-                "info": "Pagina _PAGE_ van _PAGES_",
-                "infoEmpty": "Geen onkosten gevonden",
+                "zeroRecords": "",
+                "info": "_MAX_ Betalingen te doen",
+                "infoEmpty": "Alles is uitbetaald",
                 "infoFiltered": "(filtered from _MAX_ total records)"
 
             },
@@ -203,9 +203,9 @@
             "lengthMenu": [10],
             "language": {
                 "lengthMenu": "Display _MENU_ records per page",
-                "zeroRecords": "Geen onkosten gevonden",
-                "info": "Pagina _PAGE_ van _PAGES_",
-                "infoEmpty": "Geen onkosten gevonden",
+                "zeroRecords": "",
+                "info": "_MAX_ Goedkeuringen",
+                "infoEmpty": "Er moet niets worden goedgekeurg: GOED GEWERKT!!!",
                 "infoFiltered": "(filtered from _MAX_ total records)"
 
             },
