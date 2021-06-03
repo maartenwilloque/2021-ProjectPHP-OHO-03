@@ -5,9 +5,7 @@
     background-color: white;;
 
 }
-h4{
-    color: $TmOrange;
-}
+
 .detailtable{
     height:200px;
     overflow-y:auto;
@@ -15,5 +13,13 @@ h4{
 }
 .submitbtn {
     min-width: 200px !important;
+}
+h4{
+    color: $TmOrange;
+}
+.modalborder {
+    border-radius: 15px !important;
+    border-color: $TmOrange !important;
+    border-width: 2px !important;
 }
 
