@@ -25,25 +25,25 @@ class CreateTypesTable extends Migration
         DB::table('types')->insert(
             [
                 [
-                    'name' => 'Algemeen',
+                    'name' => 'Algemene Onkost',
                     'value'=> 1
                 ],
                 [
-                    'name' => 'Algemeen_Laptop',
+                    'name' => 'Laptop',
 
                     'value'=> 800
 
 
                 ],
                 [
-                    'name' => 'Vervoer_KM',
+                    'name' => 'Verplaatsing(niet fiets)',
 
 
 
                     'value'=> 0.05
                 ],
                 [
-                    'name' => 'Vervoer_Fiets',
+                    'name' => 'Fiets',
                     'value'=> 0.15
 
 

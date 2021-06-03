@@ -162,10 +162,10 @@
             "lengthMenu": [10],
             "language": {
                 "lengthMenu": "Display _MENU_ records per page",
-                "zeroRecords": "Geen onkosten gevonden",
-                "info": "Pagina _PAGE_ van _PAGES_",
-                "infoEmpty": "Geen onkosten gevonden",
-                "infoFiltered": "(filtered from _MAX_ total records)"
+                "zeroRecords": "",
+                "info": "_MAX_ Betalingen",
+                "infoEmpty": "Alles is uitbetaald",
+                "infoFiltered": ""
 
             },
             columnDefs: [
@@ -203,10 +203,10 @@
             "lengthMenu": [10],
             "language": {
                 "lengthMenu": "Display _MENU_ records per page",
-                "zeroRecords": "Geen onkosten gevonden",
-                "info": "Pagina _PAGE_ van _PAGES_",
-                "infoEmpty": "Geen onkosten gevonden",
-                "infoFiltered": "(filtered from _MAX_ total records)"
+                "zeroRecords": "",
+                "info": "_MAX_ Goedkeuringen",
+                "infoEmpty": "Er moet niets worden goedgekeurg: GOED GEWERKT!!!",
+                "infoFiltered": ""
 
             },
             columnDefs: [
@@ -215,7 +215,6 @@
 
 
         });
-
         $('#userTable').DataTable({
             "stateSave": true,
             "autoWidth": true,
@@ -258,7 +257,6 @@
             //     { orderable: false, targets: 5 }
             // ]
         })
-
         $('#typeTable').DataTable({
             //no search, pagination and page x form y
             //-------------------------------------------
@@ -353,19 +351,19 @@
                     {orderable: false, targets: 9}]
             }
         )
-        $('#detailTable').DataTable(
-            {
-                "stateSave": true,
-                "scrollY": "150px",
-                "scrollCollapse": true,
-                "paging": false,
-                "searching": false,
-                columnDefs: [
-                    {orderable: false, targets: 3}],
-                "autoWidth": true
-
-            }
-        )
+        // $('#detailTable').DataTable(
+        //     {
+        //         "stateSave": true,
+        //         "scrollY": "150px",
+        //         "scrollCollapse": true,
+        //         "paging": false,
+        //         "searching": false,
+        //         columnDefs: [
+        //             {orderable: false, targets: [3,4,5,6,7,8]}],
+        //         "autoWidth": true
+        //
+        //     }
+        // )
         $(document).ready(function () {
             $('#MyExpenslinesTable').DataTable({
 
@@ -375,8 +373,9 @@
                 "paging": false,
                 "searching": false,
                 columnDefs: [
-                    {orderable: false, targets: [4, 5, 6]},
-                    {width: "10%", targets: [3, 4, 5, 6]},
+                    {orderable: false, targets: [4, 5, 6,7]},
+                    {width: "100px", targets: [ 4, 5, 6,7]},
+                    {width: "200px", targets: [2,3]},
                 ],
                 "autoWidth": true,
                 "language": {
@@ -384,7 +383,7 @@
                     "zeroRecords": "Geen onkostlijnen gevonden",
                     "info": "_MAX_ Onkostlijnen",
                     "infoEmpty": "",
-                    "infoFiltered": "(filtered from _MAX_ total records)"
+                    "infoFiltered": ""
                 }
 
 

@@ -11431,7 +11431,7 @@ h6 {
 
 .aboutmodal {
   background-color: #575757 !important;
-  border-radius: 30px !important;
+  border-radius: 15px !important;
 }
 
 .login,
@@ -11512,10 +11512,6 @@ h6 {
   background-color: white;
 }
 
-h4 {
-  color: #f04c25;
-}
-
 .detailtable {
   height: 200px;
   overflow-y: auto;
@@ -11524,6 +11520,20 @@ h4 {
 
 .submitbtn {
   min-width: 200px !important;
+}
+
+h4 {
+  color: #f04c25;
+}
+
+.modalborder {
+  border-radius: 15px !important;
+  border-color: #f04c25 !important;
+  border-width: 2px !important;
+}
+
+.rowheight {
+  max-height: 40px;
 }
 
 th.hidden-column,
