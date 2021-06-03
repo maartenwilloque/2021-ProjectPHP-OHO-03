@@ -50,17 +50,24 @@ class ExpenselineSeeder extends Seeder
                                 case 2:
                                 case 3:
                                 case 5:
+                                    $inspector = null;
+                                    $note = '';
+                                    $active = true;
+                                    break;
                                 case 8:
                                     $inspector = null;
                                     $note = '';
+                                    $active = false;
                                     break;
                                 case 4:
                                     $inspector = $faker->randomElement([3, 5]);
                                     $note = $faker->sentence;
+                                    $active = true;
                                     break;
                                 case 6:
                                     $inspector = $faker->randomElement([3, 6]);
                                     $note = $faker->sentence;
+                                    $active = true;
 
 
                             }
@@ -70,6 +77,8 @@ class ExpenselineSeeder extends Seeder
                                 'inspector_id' => $inspector,
                                 'status_id' => $status,
                                 'note' => $note,
+                                'active' => $active
+
 
                             ]);
 
@@ -77,13 +86,6 @@ class ExpenselineSeeder extends Seeder
                             break;
                         case 4:
                             $distance = rand(10, 50);
-                            Expenseline::create([
-                                'description' => 'fiets',
-                                'expense_id' => $expenseid,
-                                'date' => $date,
-                                'type_id' => $typeid,
-                                'distance' => $distance,
-                                'amount' => $distance * 0.15]);
                             $status = $faker->randomElement([1, 2, 7, 8]);
                             $inspector = null;
                             $note = '';
@@ -95,38 +97,61 @@ class ExpenselineSeeder extends Seeder
                                 'note' => $note,
 
                             ]);
-
-                            break;
-                        case 3:
-                            $distance = rand(10, 50);
+                            switch ($status) {
+                                case 1:
+                                case 2:
+                                case 7:
+                                    $inspector = null;
+                                    $note = '';
+                                    $active = true;
+                                    break;
+                                case 8:
+                                    $inspector = null;
+                                    $note = '';
+                                    $active = false;
+                            }
                             Expenseline::create([
-                                'description' => $faker->randomElement(['klantbezoek', 'ophalen materiaal', 'stageplaats', 'excursie']),
+                                'description' => 'fiets',
                                 'expense_id' => $expenseid,
                                 'date' => $date,
                                 'type_id' => $typeid,
                                 'distance' => $distance,
-                                'amount' => $distance * 0.05]);
+                                'amount' => $distance * 0.15,
+                                'active'=> $active
+                                ]);
+
+
+
+                            break;
+                        case 3:
+                            $distance = rand(10, 50);
                             $status = $faker->randomElement([1, 2, 3, 4, 5, 6, 8]);
                             switch ($status) {
                                 case 1:
                                 case 2:
                                 case 3:
                                 case 5:
+                                $inspector = null;
+                                $note = '';
+                                $active = true;
+                                break;
                                 case 8:
                                     $inspector = null;
                                     $note = '';
+                                    $active = false;
                                     break;
                                 case 4:
                                     $inspector = $faker->randomElement([3, 5]);
                                     $note = $faker->sentence;
+                                    $active = true;
                                     break;
                                 case 6:
                                     $inspector = $faker->randomElement([3, 6]);
                                     $note = $faker->sentence;
+                                    $active = true;
 
 
                             }
-
                             Expenseprogress::create([
                                 'expense_id' => $expenseid,
                                 'inspector_id' => $inspector,
@@ -134,6 +159,15 @@ class ExpenselineSeeder extends Seeder
                                 'note' => $note,
 
                             ]);
+
+                            Expenseline::create([
+                                'description' => $faker->randomElement(['klantbezoek', 'ophalen materiaal', 'stageplaats', 'excursie']),
+                                'expense_id' => $expenseid,
+                                'date' => $date,
+                                'type_id' => $typeid,
+                                'distance' => $distance,
+                                'amount' => $distance * 0.05,
+                                'active'=>$active]);
 
 
                             break;

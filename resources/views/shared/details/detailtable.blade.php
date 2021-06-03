@@ -7,16 +7,17 @@
         <th class="dt-head-left">Bedrag/ Afstand</th>
         <th class="d-none">Afstand</th>
         <th class="dt-head-left">Bijlage</th>
-        @if($expense->user_id == Auth::user()->id)
-            <th class="statusedit"></th>
-        @else
-            <th class="d-none"></th>
-        @endif
         @if(Auth::user()->finance == true)
             <th>Status</th>
         @else
             <th class="d-none"></th>
         @endif
+        @if($expense->user_id == Auth::user()->id)
+            <th class="statusedit"></th>
+        @else
+            <th class="d-none"></th>
+        @endif
+
     </tr>
     </thead>
     <tbody class="detailtable overflow-hidden" style="max-height: 150px">
@@ -25,7 +26,7 @@
             <td class="d-none">{{$expenselines->id}}</td>
             <td>{{$expenselines->description}} ({{$expenselines->type->name}})</td>
             <td>{{$expenselines->date}}</td>
-            <td class="dt-body-left pl-5">@if($expenselines->distance == '')
+            <td class="dt-body-left pl-5 ">@if($expenselines->distance == '')
                     €{{$expenselines->amount}}@else{{$expenselines->distance}}km @endif </td>
             <td class="d-none">{{$expenselines->distance}}</td>
             @if(isset($expenselines->attachment))
