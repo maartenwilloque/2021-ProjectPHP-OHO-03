@@ -2,11 +2,8 @@
 @section('title','Update Parameter')
 @section('main')
     <div class="row">
-        <div class="col-11 offset-1">
-            <div class="row justify-content-center">
-                <img src="/assets/logo/MyExpenseLogo.png" class="mobilelogo d-md-none" alt="My expense Logo">
-            </div>
-            <h2 class="display-5 mt-2">Update Type</h2>
+        <div class="col-10 offset-1">
+            <h3 class="display-4">Update Type</h3>
             <form action="/finance/parameter/{{ $types->id}}" method="post">
                 @method('put')
                 @csrf
