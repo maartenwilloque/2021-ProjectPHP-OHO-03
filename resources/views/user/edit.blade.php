@@ -8,8 +8,12 @@
         <div class="col-2"><h5>Status:</h5>
         </div>
         @foreach($expense->expenseprogress->where('active',true) as $expenseprogress)
-            <div class="col-2" ><p  data-toggle="tooltip" data-placement="top" title="{{$expenseprogress->status->note}}">
-                    {{$expenseprogress->status->name}}
+            <div class="col-2"><p>
+                    {{$expenseprogress->status->name}} <span>@if($expenseprogress->status->id != 4 and $expenseprogress->status->id != 6)
+                            <i class="fas fa-info-circle d-none" ></i>
+                        @else
+                            <i class="fas fa-info-circle" data-toggle="tooltip" title="{{$expenseprogress->note}}"></i>
+                        @endif</span>
                 </p>
                 <p class="d-none" id="status">{{$expenseprogress->status->id}}</p>
             </div>
@@ -48,64 +52,11 @@
     </div>
 @endsection
 @section('detailexpenses')
-    <table id="MyExpenslinesTable" class=" table table-fixed">
-        <thead>
-        <tr>
-            <th class="d-none">#</th>
-            <th>Omschrijving</th>
-            <th>Datum</th>
-            <th>Bedrag</th>
-            <th class="d-none">Afstand</th>
-            <th>Bijlage</th>
-            <th></th>
-        </tr>
-        </thead>
-        <tbody class="detailtable overflow-hidden" style="max-height: 150px">
-        @foreach($expense->expenselines as $expenselines)
-            <tr>
-                <td class="d-none">{{$expenselines->id}}</td>
-                <td>{{$expenselines->description}} ({{$expenselines->type->name}})</td>
-                <td>{{$expenselines->date}}</td>
-                <td>€{{$expenselines->amount}}</td>
-                <td class="d-none">€{{$expenselines->distance}}</td>
-                @if(isset($expenselines->attachment))
-                    <td><a href='../../../uploads/{{$expenselines->attachment}}' target="_blank"><i
-                                class="fas fa-file-download"></i></a></td>
-                @else
-                    <td><i class="far fa-times-circle"></i></td>
-                @endif
-                <td><i id="editexpenseline" class="fas fa-edit btn btn-edit" data-toggle="modal"
-                       title="{{$expenselines->id}}"
-                       data-target="#editExpenselinemodal" data-id="{{$expenselines->id}}"
-                       data-description="{{$expenselines->description}}" data-date="{{$expenselines->date}}"
-                       data-amount="{{$expenselines->amount}}" data-distance="{{$expenselines->distance}}"
-
-                       data-attachment="{{$expenselines->attachmment}}" data-type="{{$expenselines->type_id}}"></i>
-
-                    <i id="editexpenseline"
-                       class="far fa-trash-alt btn btn-delete"
-                       data-toggle="modal"
-                       title="{{$expenselines->id}}"
-                       data-target="#deleteExpenselinemodal"
-                       data-id="{{$expenselines->id}}"></i>
-
-                </td>
-            </tr>
-        @endforeach
-        </tbody>
-    </table>
-
+@include('shared.details.detailtable')
 @endsection
 @section('detailsubmit')
-    <div class="row">
+    <div class="row statusedit">
         <div class="col-6 text-center">
-            <form action="/approver/expense/{{$expense->id }}" method="post">
-                @method('put')
-                @csrf
-                <i class="far fa-trash-alt statusedit" type="submit"></i>
-            </form>
-        </div>
-        <div class="col-12 text-right">
             <form action="{{ route('submitexpense') }}" method="post">
                 @csrf
                 <label for="id" class="d-none">id</label>
@@ -114,8 +65,22 @@
                        placeholder="id"
                        value="{{$expense->id}}">
                 <button type="submit"
-                        class="btn btn-success border-dark rounded-pill border-0 shadow-sm px-4 statusedit">
+                        class="btn btn-success border-dark rounded-pill border-0 shadow-sm px-4 submitbtn" style="width: 200px !important;">
                     Indienen
+                </button>
+            </form>
+        </div>
+        <div class="col-6 text-center">
+            <form action="/approver/expense/{{$expense->id }}" method="post">
+                @method('delete')
+                @csrf
+                <input type="text" name="id" id="id"
+                          class="d-none"
+                          placeholder="id"
+                          value="{{$expense->id}}">
+                <button type="submit"
+                        class="btn btn-danger border-dark rounded-pill border-0 shadow-sm px-4 statusedit submitbtn" style="width: 200px !important;">
+                    Verwijderen
                 </button>
             </form>
         </div>
@@ -190,7 +155,7 @@
     </div>
     {{--    Update Expenselines modal--}}
     <div class="modal fade" id="editExpenselinemodal" tabindex="-1" role="dialog" aria-hidden="true">
-        <form action="{{ route('updateexpenselines') }}" method="post">
+        <form action="{{ route('updateexpenselines') }}" method="post" enctype="multipart/form-data">
             @csrf
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
@@ -342,6 +307,7 @@
                                    class="d-none"
                                    placeholder="id"
                                    value="">
+                            <p>Wil je deze lijn echt verwijderen?</p>
                         </div>
                     </div>
                     <div class="modal-footer">

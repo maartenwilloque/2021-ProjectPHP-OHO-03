@@ -66,13 +66,13 @@
             <form action="/approver/expense/{{$expense->id }}" method="post">
                 @method('put')
                 @csrf
-                <button type="submit" class="btn btn-success border-dark rounded-pill border-0 shadow-sm px-4">
+                <button type="submit" class="btn btn-success border-dark rounded-pill border-0 shadow-sm px-4 submitbtn">
                     Goedkeuren
                 </button>
             </form>
         </div>
         <div class="col-6 text-center">
-            <button type="button" class="btn btn-danger border-dark rounded-pill border-0 shadow-sm px-4"
+            <button type="button" class="btn btn-danger border-dark rounded-pill border-0 shadow-sm px-4 submitbtn"
                     data-toggle="modal" data-target="#rejectmodal">
                 Afkeuren
             </button>
@@ -99,7 +99,7 @@
                     <div class="modal-footer">
                         @method('delete')
                         @csrf
-                        <button type="submit" class="btn btn-danger border-dark rounded-pill border-0 shadow-sm px-4">
+                        <button type="submit" class="btn btn-danger border-dark rounded-pill border-0 shadow-sm px-4 submitbtn">
                             Afkeuren
                         </button>
 

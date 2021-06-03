@@ -154,6 +154,18 @@ class ExpenseController extends Controller
     {
 
         $expenselines = Expenseline::with('type')->findOrFail($request->id);
+        if (File::exists(public_path('uploads/' . $expenselines->attachment))) {
+            File::delete(public_path('uploads/' . $expenselines->attachment));
+        }
+        $request->validate([
+            'file' => 'mimes:jpeg,bmp,png,gif,svg,pdf,xlx,csv|max:2048',
+        ]);
+
+        if ($request->file) {
+            $fileName = time() . '.' . $request->file->extension();
+            $request->file->move(public_path('uploads'), $fileName);
+
+        }
         switch ($expenselines->type_id) {
             case 3:
             case 4:
@@ -171,7 +183,9 @@ class ExpenseController extends Controller
         $expenselines->date = $request->date;
         $expenselines->amount = $amount;
         $expenselines->distance = $distance;
-        $expenselines->attachment = $request->attachment;
+        if ($request->file) {
+            $expenselines->attachment = $fileName;
+        }
         session()->flash('success', 'Onkostlijn aangepast');
         $expenselines->save();
 
