@@ -163,7 +163,7 @@
             "language": {
                 "lengthMenu": "Display _MENU_ records per page",
                 "zeroRecords": "",
-                "info": "_MAX_ Betalingen te doen",
+                "info": "_MAX_ Betalingen",
                 "infoEmpty": "Alles is uitbetaald",
                 "infoFiltered": "(filtered from _MAX_ total records)"
 

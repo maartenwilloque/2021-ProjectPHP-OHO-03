@@ -31,11 +31,11 @@ class ExpenseController extends Controller
     {
         $expenses = Expense::with('user', 'costcentre', 'expenseprogress','expenselines','expenselines.type')
             ->whereHas('expenseprogress', function ($query) {
-                return $query->where([['status_id',2],['active', true]]);
+                return $query->where([['status_id',2],['active', true],['user_id','!=',Auth::user()->id]]);
 
             })
             ->whereHas('costcentre', function ($query) {
-                return $query->where('responsible', '=', Auth::user()->id);
+                return $query->where([['responsible', '=', Auth::user()->id]]);
             })
             ->get();
 

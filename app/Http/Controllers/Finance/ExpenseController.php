@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Finance;
 
 use App\Expense;
+use App\Expenseline;
 use App\Expenseprogress;
 use App\Helpers\Json;
 use App\Http\Controllers\Controller;
@@ -22,16 +23,18 @@ class ExpenseController extends Controller
      */
     public function index()
     {
-        $expenses = Expense::with('user', 'costcentre', 'expenseprogress', 'expenselines', 'expenselines.type')
+        $expenses = Expense::with('user', 'costcentre', 'expenseprogress', 'expenselines', 'expenselines.type')->where('user_id', '!=', Auth::user()->id)
             ->whereHas('expenseprogress', function ($query) {
-                return $query->where([['status_id',3], ['active', true]])->orwhere([['status_id',7], ['active', true]]);
-
+                return $query->where([['active', true]])->whereIn('status_id', [3, 7, 8]);
+            })
+            ->whereHas('expenselines', function ($query) {
+                return $query->where([['active', true], ['date', '<=', now()]]);
             })
             ->get();
 
         $result = compact('expenses');
         Json::dump($result);
-        return view('finance.index',$result);
+        return view('finance.index', $result);
     }
 
     /**
@@ -88,7 +91,16 @@ class ExpenseController extends Controller
      */
     public function update(Request $request, Expense $expense)
     {
-        Expenseprogress::with("expense")->where('expense_id', '=',$expense->id )->where('active', 1)->update(['active'=>0]);
+        $status = Expenseline::where('expense_id', '=', $expense->id)->get()->first();
+
+        if ($status->type_id == 2) {
+            Expenseline::with('expense')->where([['expense_id', '=', $expense->id], ['date', '<=', now()]])->update(['active' => 0]);
+
+        } else {
+            Expenseline::with('expense')->where('expense_id', '=', $expense->id)->update(['active' => 0]);
+        }
+
+        Expenseprogress::with("expense")->where('expense_id', '=', $expense->id)->where('active', 1)->update(['active' => 0]);
 
         $statusupdate = new Expenseprogress();
         $statusupdate->status_id = 8;
@@ -107,9 +119,9 @@ class ExpenseController extends Controller
      * @param \App\Expense $expense
      * @return Application|\Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
-    public function destroy(Request $request,Expense $expense)
+    public function destroy(Request $request, Expense $expense)
     {
-        Expenseprogress::with("expense")->where('expense_id', '=',$expense->id )->where('active', 1)->update(['active'=>0]);
+        Expenseprogress::with("expense")->where('expense_id', '=', $expense->id)->where('active', 1)->update(['active' => 0]);
 
         $statusupdate = new Expenseprogress();
         $statusupdate->status_id = 6;
@@ -124,10 +136,10 @@ class ExpenseController extends Controller
         $lastname = $expense->user->name;
         $expensetitle = $expense->name;
         $rejectreason = $request->rejectreason;
-        $inspector = Auth::user()->firstname.' '.Auth::user()->name;
+        $inspector = Auth::user()->firstname . ' ' . Auth::user()->name;
 
 
-        $rejectmail = new RejectMail($firstname,$lastname,$expensetitle,$rejectreason,$inspector);
+        $rejectmail = new RejectMail($firstname, $lastname, $expensetitle, $rejectreason, $inspector);
         $to = $email;
         \Mail::to($email)->send($rejectmail);
 

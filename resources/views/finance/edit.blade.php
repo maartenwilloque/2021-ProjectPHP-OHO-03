@@ -39,26 +39,7 @@
     </div>
 @endsection
 @section('detailexpenses')
-    <table id="detailTable">
-        <thead>
-        <tr>
-            <th>Omschrijving</th>
-            <th>Datum</th>
-            <th>Bedrag</th>
-            <th>Bijlage</th>
-        </tr>
-        </thead>
-        <tbody>
-        @foreach($expense->expenselines->where('date','<=',now()) as $expenselines)
-            <tr>
-                <td>{{$expenselines->description}}</td>
-                <td>{{$expenselines->date}}</td>
-                <td>€{{$expenselines->amount}}</td>
-                <td><a href="{{$expenselines->attachmment}}"><i class="fas fa-file-download"></i></a></td>
-            </tr>
-        @endforeach
-        </tbody>
-    </table>
+    @include('shared.details.detailtable')
 @endsection
 @section('detailsubmit')
     <div class="row">

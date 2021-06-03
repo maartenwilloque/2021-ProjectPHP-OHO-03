@@ -10,7 +10,12 @@
         @if($expense->user_id == Auth::user()->id)
             <th class="statusedit"></th>
         @else
-            <td class="d-none"></td>
+            <th class="d-none"></th>
+        @endif
+        @if(Auth::user()->finance == true)
+            <th>Status</th>
+        @else
+            <th class="d-none"></th>
         @endif
     </tr>
     </thead>
@@ -20,12 +25,22 @@
             <td class="d-none">{{$expenselines->id}}</td>
             <td>{{$expenselines->description}} ({{$expenselines->type->name}})</td>
             <td>{{$expenselines->date}}</td>
-            <td class="dt-body-left pl-5">@if($expenselines->distance == '') €{{$expenselines->amount}}@else{{$expenselines->distance}}km @endif </td>
+            <td class="dt-body-left pl-5">@if($expenselines->distance == '')
+                    €{{$expenselines->amount}}@else{{$expenselines->distance}}km @endif </td>
             <td class="d-none">{{$expenselines->distance}}</td>
             @if(isset($expenselines->attachment))
                 <td class="dt-body-center"><a href='../../../uploads/{{$expenselines->attachment}}' target="_blank"><i
                             class="fas fa-file-download"></i></a></td> @else
                 <td class="dt-body-justify"><i class="far fa-times-circle "></i></td> @endif
+            @if(Auth::user()->finance == true)
+                @if($expenselines->active == false)
+                    <td><span style="color: red">PAYED</span></td>
+                @else
+                    <td><span style="color: lime">OPEN</span></td>
+                @endif
+            @else
+                <td></td>
+            @endif
 
             @if($expense->user_id == Auth::user()->id)
                 <td class="statusedit"><i id="editexpenseline" class="fas fa-edit btn btn-edit "
