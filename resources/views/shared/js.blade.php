@@ -155,9 +155,9 @@
                     });
                 });
             },
-            "stateSave": true,
+            "stateSave": false,
             "autoWidth": true,
-            "processing": true,
+            "processing": false,
             "lengthChange": false,
             "lengthMenu": [10],
             "language": {
@@ -196,9 +196,9 @@
                     });
                 });
             },
-            "stateSave": true,
+            "stateSave": false,
             "autoWidth": true,
-            "processing": true,
+            "processing": false,
             "lengthChange": false,
             "lengthMenu": [10],
             "language": {
@@ -216,9 +216,9 @@
 
         });
         $('#userTable').DataTable({
-            "stateSave": true,
+            "stateSave": false,
             "autoWidth": true,
-            "processing": true,
+            "processing": false,
             "lengthChange": false,
             "lengthMenu": [10],
             "language": {
@@ -240,9 +240,9 @@
             "paging": false,
             "info": false,
             //-------------------------------------------
-            "stateSave": true,
+            "stateSave": false,
             "autoWidth": true,
-            "processing": true,
+            "processing": false,
             columnDefs: [
                 {orderable: false, targets: 2}]
         }
@@ -254,9 +254,9 @@
             "paging": false,
             "info": false,
             //-------------------------------------------
-            "stateSave": true,
+            "stateSave": false,
             "autoWidth": true,
-            "processing": true,
+            "processing": false,
             columnDefs: [
                 {orderable: false, targets: [2,3]}
             ]
@@ -268,9 +268,9 @@
             "paging": true,
             "info": true,
             //-------------------------------------------
-            "stateSave": true,
+            "stateSave": false,
             "autoWidth": true,
-            "processing": true,
+            "processing": false,
             "lengthChange": false,
             "lengthMenu": [10],
             "pageLength": 50,
@@ -315,9 +315,9 @@
 
                 //-------------------------------------------
 
-                "stateSave": true,
+                "stateSave": false,
                 "autoWidth": true,
-                "processing": true,
+                "processing": false,
                 "lengthChange": false,
                 "lengthMenu": [10],
                 "language": {
@@ -335,8 +335,8 @@
         $(document).ready(function () {
             $('#MyExpenslinesTable').DataTable({
 
-                "stateSave": true,
-                "scrollY": "150px",
+                "stateSave": false,
+                "scrollY": "15vh",
                 "scrollCollapse": true,
                 "paging": false,
                 "searching": false,
