@@ -89,11 +89,11 @@
 @endsection
 @section('detailmodal')
     {{--    Update Expense modal--}}
-    @include('shared.details.modals.editexpensesmodal')
+    @include('shared.modals.editexpensesmodal')
     {{--    Update Expenselines modal--}}
-   @include('shared.details.modals.editexpenslinesmodal')
+   @include('shared.modals.editexpenslinesmodal')
     {{--    Create Expenselines modal--}}
-    @include('shared.details.modals.createexpenselinesmodal')
+    @include('shared.modals.createexpenselinesmodal')
     {{--    Delete Expenselines modal--}}
-    @include('shared.details.modals.delexpenselinesmodal')
+    @include('shared.modals.delexpenselinesmodal')
 @endsection
