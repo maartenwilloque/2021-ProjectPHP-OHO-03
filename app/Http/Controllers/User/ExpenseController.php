@@ -142,11 +142,15 @@ class ExpenseController extends Controller
      * Remove the specified resource from storage.
      *
      * @param \App\Expense $expense
-     * @return \Illuminate\Http\Response
+     * @return RedirectResponse
      */
     public function destroy(Expense $expense)
     {
-        //
+        $expense = Expense::findOrFail($expense->id);
+
+        Expense::where('id', $expense->id)->delete();
+        session()->flash('success', 'Onkostlijn verwijderd');
+        return redirect('user/expense');
     }
 
 
@@ -254,7 +258,7 @@ class ExpenseController extends Controller
                     $expenselines->type_id = $request->type;
                     $expenselines->expense_id = $request->id;
                     $expenselines->description = $request->description;
-                    $expenselines->date = date_add($date, date_interval_create_from_date_string("1 year"));
+                    $expenselines->date = date_add($date, date_interval_create_from_date_string($i." year"));
                     $expenselines->amount = $amount;
                     $expenselines->distance = $distance;
                     if ($request->file) {

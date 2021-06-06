@@ -71,7 +71,7 @@
             </form>
         </div>
         <div class="col-6 text-center">
-            <form action="/approver/expense/{{$expense->id }}" method="post">
+            <form action="/user/expense/{{$expense->id }}" method="post">
                 @method('delete')
                 @csrf
                 <input type="text" name="id" id="id"

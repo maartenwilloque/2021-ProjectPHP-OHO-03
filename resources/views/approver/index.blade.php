@@ -37,7 +37,7 @@
                                         <td> {{$expense->description}}</td>
                                         <td>{{$expense->user->firstname}} {{$expense->user->name}}</td>
                                         <td>{{$expense->date}}
-                                        <td>€ {{$expense->expenselines->where('date','<',now())->sum('amount')}}</td>
+                                        <td>€ {{$expense->expenselines->sum('amount')}}</td>
 
                                         <td>{{$expense->costcentre->description}}</td>
                                         <td>{{$expense->costcentre->costcentre}}</td>

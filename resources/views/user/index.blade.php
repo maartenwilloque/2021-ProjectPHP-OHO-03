@@ -43,7 +43,7 @@
                                         <td>{{ $expense->name}}</td>
                                         <td>{{ $expense->description }}</td>
                                         <td>{{ $expense->date }}</td>
-                                        <td class="dt-head-center">€ {{$expense->expenselines->where('date','<',now())->sum('amount')}}</td>
+                                        <td class="dt-head-center">€ {{$expense->expenselines->sum('amount')}}</td>
                                         <td>{{$expense->costcentre->description}}</td>
                                         <td>{{$expense->costcentre->costcentre}}</td>
 
