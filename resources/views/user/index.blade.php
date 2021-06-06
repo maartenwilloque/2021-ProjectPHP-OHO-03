@@ -6,12 +6,12 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-12">
-                        <h3 class="display-4 mt-2">Overzicht</h3>
+                        <h3 class="subheadertitle">Overzicht</h3>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-6">
-                        <h4 class="mt-3">Mijn Onkosten</h4>
+                        <h4 class="mt-2">Mijn Onkosten</h4>
                     </div>
                     <div class="col-6 text-right">
                         <i class="far fa-plus-square btn btn-create" data-toggle="modal"

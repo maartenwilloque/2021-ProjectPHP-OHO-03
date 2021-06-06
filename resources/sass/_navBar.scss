@@ -9,6 +9,10 @@
     height: 13vh;
     width: 100%;
 }
+.subheader{
+    background-color: $TmGrey;
+    width: 100%;
+}
 .headertitle{
     /* Extra small devices (phones, 600px and down) */
     @media only screen and (max-width: 600px) {

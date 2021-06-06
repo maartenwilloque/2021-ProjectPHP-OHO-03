@@ -3,13 +3,13 @@ html, body {
     padding: 0;
     width: 100%;
 }
+.subheadertitle{
+    font-size: 300% ;
 
-header {
-    width: 100%;
-    height: 100vh;
-    background-size: cover;
 }
-
+h5  {
+    color: $LightGray;
+}
 .content {
     width: 94%;
     margin: 4em auto;
@@ -36,5 +36,6 @@ header {
 .tooltip:hover .tooltiptext {
     visibility: visible;
 }
+
 
 
