@@ -94,7 +94,7 @@
     })
     $(function () {
         $("#showbtn").click(function () {
-            $("#mySidenav").width("300px")
+            $("#mySidenav").width("350px")
             $(".toggle").delay(300).fadeIn();
 
         })
@@ -136,7 +136,7 @@
 
         var table = $('#financeTable').DataTable({
             initComplete: function () {
-                this.api().columns([2, 5, 6]).every(function () {
+                this.api().columns([1,2, 4, 5]).every(function () {
                     var column = this;
                     var select = $('<select><option value=""></option></select>')
                         .appendTo($(column.footer()).empty())
@@ -169,15 +169,17 @@
 
             },
             columnDefs: [
-                {orderable: false, targets: [4, 7]}
+                {orderable: false, targets: [3, 6]},
+                { width: '30%', targets: 0 }
             ],
+            "fixedColumns": true,
 
         });
 
 
         $('#approvalTable').DataTable({
             initComplete: function () {
-                this.api().columns([2, 5, 6]).every(function () {
+                this.api().columns([1,2, 4, 5]).every(function () {
                     var column = this;
                     var select = $('<select><option value=""></option></select>')
                         .appendTo($(column.footer()).empty())
@@ -210,8 +212,11 @@
 
             },
             columnDefs: [
-                {orderable: false, targets: 7}
+                {orderable: false, targets: 6},
+                { width: '30%', targets: 0 }
+
             ],
+            "fixedColumns": true,
 
 
         });
@@ -234,18 +239,18 @@
             ]
         });
         $('#prmTable').DataTable({
-            //no search, pagination and page x form y
-            //-------------------------------------------
-            "searching": false,
-            "paging": false,
-            "info": false,
-            //-------------------------------------------
-            "stateSave": false,
-            "autoWidth": true,
-            "processing": false,
-            columnDefs: [
-                {orderable: false, targets: 2}]
-        }
+                //no search, pagination and page x form y
+                //-------------------------------------------
+                "searching": false,
+                "paging": false,
+                "info": false,
+                //-------------------------------------------
+                "stateSave": false,
+                "autoWidth": true,
+                "processing": false,
+                columnDefs: [
+                    {orderable: false, targets: 2}]
+            }
         )
         $('#typeTable').DataTable({
             //no search, pagination and page x form y
@@ -258,7 +263,7 @@
             "autoWidth": true,
             "processing": false,
             columnDefs: [
-                {orderable: false, targets: [2,3]}
+                {orderable: false, targets: [2, 3]}
             ]
         })
         $('#costcenterTable').DataTable({
@@ -288,7 +293,7 @@
         })
         $('#myExpenseTable').DataTable({
                 initComplete: function () {
-                    this.api().columns([2, 4, 5, 6]).every(function () {
+                    this.api().columns([1, 3, 4, 5]).every(function () {
                         var column = this;
                         var select = $('<select><option value=""></option></select>')
                             .appendTo($(column.footer()).empty())
@@ -329,22 +334,25 @@
 
                 },
                 columnDefs: [
-                    {orderable: false, targets: 9}]
+                    {orderable: false, targets: 8},
+                    { width: '30%', targets: 0 }
+                    ],
+            "fixedColumns": true,
             }
         )
         $(document).ready(function () {
             $('#MyExpenslinesTable').DataTable({
 
                 "stateSave": false,
-                "scrollY": "15vh",
+                "scrollY": "30vh",
                 "scrollCollapse": true,
                 "paging": false,
                 "searching": false,
                 columnDefs: [
-                    {orderable: false, targets: [4, 5, 6,7]},
-                    {width: "100px", targets: [ 4, 5, 6,7]},
-                    {width: "200px", targets: [2,3]},
+                    {orderable: false, targets: [4, 5, 6, 7]},
+                    { width: '30%', targets: 0 }
                 ],
+                "fixedColumns": true,
                 "autoWidth": true,
                 "language": {
                     "lengthMenu": "Display _MENU_ records per page",

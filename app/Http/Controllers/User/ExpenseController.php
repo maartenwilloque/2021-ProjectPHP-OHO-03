@@ -61,7 +61,6 @@ class ExpenseController extends Controller
     {
         $expense = new Expense();
         $expense->name = $request->title;
-        $expense->description = $request->description;
         $expense->costcentre_id = $request->costcentre;
         $expense->date = now();
         $expense->user_id = \Auth::user()->id;
@@ -129,7 +128,6 @@ class ExpenseController extends Controller
         // Update user in the database and redirect to previous page
         $expense = Expense::findOrFail($expense->id);
         $expense->name = $request->title;
-        $expense->description = $request->description;
         $expense->costcentre_id = $request->costcentre;
         $expense->date = now();
         $expense->save();

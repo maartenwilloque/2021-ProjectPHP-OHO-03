@@ -8,3 +8,11 @@ tfoot input {
     padding: 3px;
     box-sizing: border-box;
 }
+th, td { white-space: nowrap; }
+div.dataTables_wrapper {
+    margin: 0 auto;
+}
+
+div.container {
+    width: 80%;
+}

@@ -23,17 +23,6 @@
                         @enderror
                     </div>
                     <div class="form-group">
-                        <label for="title" class="px-4 ">Omschrijving</label>
-                        <input type="text" name="description" id="description"
-                               class=" rounded-pill border-0 shadow-sm px-4 form-control @error('description') is-invalid @enderror"
-                               placeholder="Omschrijving"
-                               value="{{ "omschrijving", old('omschrijving',$expense->description) }}"
-                               required>
-                        @error('title')
-                        <div class="invalid-feedback">{{ $message }}</div>
-                        @enderror
-                    </div>
-                    <div class="form-group">
                         <label for="costcentre" class="px-4 ">Kostenplaats</label>
                         <br>
                         <label>

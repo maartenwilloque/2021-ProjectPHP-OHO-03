@@ -2,13 +2,13 @@
     <div class="col-10 offset-1">
         <div class="container-fluid">
             <div class="row">
-                <h3 class="display-4">Details</h3>
+                <h3 class="subheadertitle">Details</h3>
             </div>
             <div class="row">
                 <div class="col-12">
                     <div class="row">
                         <div class="col-6">
-                            <h4 class="mt-3">Algemeen</h4>
+                            <h4 class="mt-2">Onkostennota</h4>
                         </div>
                         @if($expense->user_id == Auth::user()->id)
                         <div class="col-6 mt-2 text-right">

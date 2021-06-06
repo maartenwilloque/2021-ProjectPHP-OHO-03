@@ -6,12 +6,12 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-12">
-                        <h3 class="display-4 mt-2">Overzicht</h3>
+                        <h3 class="subheadertitle">Overzicht</h3>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-12">
-                        <h4 class="mt-3">Mijn Goedkeuringen</h4>
+                        <h4 class="mt-2">Mijn Goedkeuringen</h4>
                     </div>
                 </div>
                 <div class="row justify-content-center">
@@ -21,7 +21,6 @@
                                 <thead>
                                 <tr>
                                     <th>Titel</th>
-                                    <th>Omschrijving</th>
                                     <th>Indiener</th>
                                     <th>Datum</th>
                                     <th class="dt-head-center">€</th>
@@ -34,11 +33,9 @@
                                 @foreach($expenses as $expense)
                                     <tr>
                                         <td> {{$expense->name}}</td>
-                                        <td> {{$expense->description}}</td>
                                         <td>{{$expense->user->firstname}} {{$expense->user->name}}</td>
                                         <td>{{$expense->date}}
                                         <td>€ {{$expense->expenselines->sum('amount')}}</td>
-
                                         <td>{{$expense->costcentre->description}}</td>
                                         <td>{{$expense->costcentre->costcentre}}</td>
                                         <td class="dt-center">
@@ -61,9 +58,8 @@
                                 <tfoot>
                                 <tr>
                                     <th></th>
-                                    <th></th>
                                     <th>Indiener</th>
-                                    <th></th>
+                                    <th>Datum</th>
                                     <th class="dt-head-center"></th>
                                     <th>CostCenter</th>
                                     <th>CC-Code</th>

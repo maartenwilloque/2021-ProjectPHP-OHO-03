@@ -27,7 +27,6 @@ class ExpenselineSeeder extends Seeder
                 'user_id' => $userid,
                 'name' => 'Algemeen',
                 'date' => now(),
-                'description' => $faker->sentence
             ]);
             $expenselinescounter = rand(1, 8);
             switch ($expenselinescounter) {
