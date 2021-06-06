@@ -21,7 +21,6 @@
                                 <thead>
                                 <tr>
                                     <th>Titel</th>
-                                    <th>Omschrijving</th>
                                     <th>Indiener</th>
                                     <th>Datum</th>
                                     <th class="dt-head-center">€</th>
@@ -34,7 +33,6 @@
                                 @foreach($expenses as $expense)
                                     <tr>
                                         <td> {{$expense->name}}</td>
-                                        <td> {{$expense->description}}</td>
                                         <td>{{$expense->user->firstname}} {{$expense->user->name}}</td>
                                         <td>{{$expense->date}}
                                         <td>€ {{$expense->expenselines->where('date','<',now())->sum('amount')}}</td>
@@ -61,9 +59,8 @@
                                 <tfoot>
                                 <tr>
                                     <th></th>
-                                    <th></th>
                                     <th>Indiener</th>
-                                    <th></th>
+                                    <th>datum</th>
                                     <th class="dt-head-center"></th>
                                     <th>CostCenter</th>
                                     <th>CC-Code</th>

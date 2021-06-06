@@ -12,7 +12,6 @@
                 @if(Auth::user()->active)
                     <h5>{{Auth::user()->firstname}} {{Auth::user()->name}} <a href="/user/profile">
                             <i class="fas fa-user pl-3"></i>
-                            <span class="nav-text toggle">Mijn profiel aanpassen</span>
                         </a></h5>
                 @endif
             </div>

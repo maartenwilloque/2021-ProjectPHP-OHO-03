@@ -20,7 +20,6 @@ class CreateExpensesTable extends Migration
 //            $table->foreignId('type_id');
             $table->string('name');
             $table->date('date')->default(now());
-            $table->text('description')->nullable();
             $table->timestamps();
             // Foreign key relation
             $table->foreign('costcentre_id')->references('id')->on('costcentres')->onDelete('cascade')->onUpdate('cascade');

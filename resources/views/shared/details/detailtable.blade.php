@@ -1,4 +1,4 @@
-<table id="MyExpenslinesTable" class=" table table-fixed">
+<table id="MyExpenslinesTable" class="table">
     <thead>
     <tr>
         <th class="d-none">#</th>
@@ -20,7 +20,7 @@
 
     </tr>
     </thead>
-    <tbody class="detailtable overflow-hidden" style="max-height: 150px">
+    <tbody class="overflow-hidden" style="max-height: 250px">
     @foreach($expense->expenselines as $expenselines)
         <tr>
             <td class="d-none">{{$expenselines->id}}</td>

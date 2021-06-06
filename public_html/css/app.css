@@ -11428,7 +11428,7 @@ h5 {
 }
 
 .sidenav a {
-  padding: 8px 8px 8px 8px;
+  padding: 8px 8px 8px 0px;
   text-decoration: none;
   font-size: 18px;
   color: #818181;
@@ -11557,14 +11557,8 @@ h6 {
 .detailmainbox {
   border-width: 1px;
   border-radius: 15px;
-  padding: 25px;
+  padding: 15px;
   background-color: white;
-}
-
-.detailtable {
-  height: 200px;
-  overflow-y: auto;
-  width: 100%;
 }
 
 .submitbtn {
@@ -11581,10 +11575,6 @@ h4 {
   border-width: 2px !important;
 }
 
-.rowheight {
-  max-height: 40px;
-}
-
 th.hidden-column,
 td.hidden-column {
   display: none;
@@ -11594,6 +11584,19 @@ tfoot input {
   width: 100%;
   padding: 3px;
   box-sizing: border-box;
+}
+
+th,
+td {
+  white-space: nowrap;
+}
+
+div.dataTables_wrapper {
+  margin: 0 auto;
+}
+
+div.container {
+  width: 80%;
 }
 
 a {
