@@ -34,7 +34,7 @@
                                     <tr>
                                         <td> {{$expense->name}}</td>
                                         <td>{{$expense->user->firstname}} {{$expense->user->name}}</td>
-                                        <td>{{$expense->date}}
+                                        <td>{{\Carbon\Carbon::parse($expense->date)->format('d/m/Y')}}</td>
                                         <td>€ {{$expense->expenselines->sum('amount')}}</td>
                                         <td>{{$expense->costcentre->description}}</td>
                                         <td>{{$expense->costcentre->costcentre}}</td>

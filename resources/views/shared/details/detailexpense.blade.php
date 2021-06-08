@@ -3,7 +3,7 @@
     </div>
     <div class="col-4"><p>{{$expense->name}}</p>
     </div>
-    <div class="col2 offset-4"><p class="pl-5">{{$expense->date}}</p>
+    <div class="col2 offset-4"><p class="pl-5">{{\Carbon\Carbon::parse($expense->date)->format('d/m/Y')}}</p>
     </div>
 </div>
 <div class="row">

@@ -40,7 +40,7 @@
                                 @foreach($expenses as $expense)
                                     <tr>
                                         <td>{{ $expense->name}}</td>
-                                        <td>{{ $expense->date }}</td>
+                                        <td>{{\Carbon\Carbon::parse($expense->date)->format('d/m/Y')}}</td>
                                         <td class="dt-head-center">€ {{$expense->expenselines->sum('amount')}}</td>
                                         <td>{{$expense->costcentre->description}}</td>
                                         <td>{{$expense->costcentre->costcentre}}</td>
