@@ -24,7 +24,7 @@
                         <div class="form-group mb-3">
                             <input id="email" type="email"
                                    class="rounded-pill border-0 shadow-sm px-4 form-control @error('email') is-invalid @enderror"
-                                   name="email" placeholder="Email-adres"
+                                   name="email" placeholder="E-mail adres"
                                    value="{{ old('email') }}" required autocomplete="email" autofocus>
                             @error('email')
                             <span class="invalid-feedback" role="alert">

@@ -25,7 +25,7 @@ class CreateTypesTable extends Migration
         DB::table('types')->insert(
             [
                 [
-                    'name' => 'Algemene Onkost',
+                    'name' => 'Andere Onkost',
                     'value'=> 1
                 ],
                 [
@@ -36,7 +36,7 @@ class CreateTypesTable extends Migration
 
                 ],
                 [
-                    'name' => 'Verplaatsing(niet fiets)',
+                    'name' => 'Verplaatsing wagen',
 
 
 

@@ -7,7 +7,6 @@
 
     }
 
-
     $(document).on('click', '.btn-edit', function () {
         var id = $(this).data('id')
         var description = $(this).data('description')
@@ -28,11 +27,13 @@
             case 2:
                 $(".amount_input").removeClass("d-none");
                 $(".distance_input").addClass("d-none");
+                $(".attachment_input").removeClass("d-none");
                 break;
             case 3:
             case 4:
                 $(".distance_input").removeClass("d-none");
-                $(".amount_input").addClass("d-none")
+                $(".amount_input").addClass("d-none");
+                $(".attachment_input").addClass("d-none");
         }
 
 
@@ -59,11 +60,13 @@
             case '2':
                 $(".amount_input").removeClass("d-none");
                 $(".distance_input").addClass("d-none");
+                $(".attachment_input").removeClass("d-none");
                 break;
             case '3':
             case '4':
                 $(".distance_input").removeClass("d-none");
                 $(".amount_input").addClass("d-none")
+                $(".attachment_input").addClass("d-none");
         }
     })
     $(document).ready(function () {

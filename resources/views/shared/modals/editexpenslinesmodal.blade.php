@@ -31,18 +31,18 @@
                                value="" class="rounded-pill border-0 shadow-sm px-4 form-control">
                     </div>
                     <div class="form-group amount_input">
-                        <label for="amount" class="px-4 ">Bedrag</label>
+                        <label for="amount" class="px-4 ">Bedrag (€)</label>
                         <input type="text" name="amount" id="amount"
                                placeholder="Bedrag"
                                value="" class="rounded-pill border-0 shadow-sm px-4 form-control">
                     </div>
                     <div class="form-group distance_input">
-                        <label for="distance" class="px-4 ">Afstand</label>
+                        <label for="distance" class="px-4 ">Afstand (km)</label>
                         <input type="text" name="distance" id="distance"
                                placeholder="Omschrijving"
                                value="" class="rounded-pill border-0 shadow-sm px-4 form-control">
                     </div>
-                    <div class="form-group">
+                    <div class="form-group attachment_input">
                         <label class="px-4 ">Bijlage</label>
                         <input type="file" name="file" class="form-control-file rounded-pill border-0 shadow-sm px-4">
                     </div>

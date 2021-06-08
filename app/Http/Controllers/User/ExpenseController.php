@@ -85,7 +85,7 @@ class ExpenseController extends Controller
     {
 
 
-        return redirect('approver.index');
+        return redirect('user.index');
     }
 
     /**
