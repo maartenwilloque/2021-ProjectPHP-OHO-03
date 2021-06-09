@@ -100,12 +100,11 @@ class FaqController extends Controller
      * @param \App\FaqTabel $faqTabel
      * @return \Illuminate\Http\Response
      */
-    public function destroy(FaqTabel $faqs)
+    public function destroy($id)
     {
-        $faqs->delete();
+        $faq=FaqTabel::findOrFail($id);
+        $faq->delete();
         session()->flash('success', 'Faq verwijderd');
         return redirect('admin/faq');
-
-
     }
 }

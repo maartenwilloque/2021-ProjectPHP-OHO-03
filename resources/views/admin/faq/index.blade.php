@@ -29,7 +29,7 @@
                                     <th>UserRol</th>
                                     <th>Vraag</th>
                                     <th>Antwoord</th>
-                                    <th class="dt-head-center"><i class="fas fa-tasks"></i></th>
+                                    <th class="dt-head-le"><i class="fas fa-tasks"></i></th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -50,10 +50,10 @@
                                                        title="Edit {{ $faq->name }}">
                                                         <i class="far fa-eye btnTableView"></i>
                                                     </a>
-                                                    <button type="submit" class="btn btn-sm btnTableDelete"
+                                                    <button type="submit" class="btn btn-sm"
                                                             data-toggle="tooltip"
                                                             title="Delete {{ $faq->name }}">
-                                                        <i class="fas fa-trash-alt "></i>
+                                                        <i class="fas fa-trash-alt btnTableDelete"></i>
                                                     </button>
                                                 </div>
                                             </form>
@@ -65,7 +65,7 @@
                                 <tr>
                                     <th></th>
                                     <th></th>
-                                    <th class="dt-head-center"></th>
+                                    <th></th>
                                     <th></th>
                                     <th></th>
                                     <th></th>
