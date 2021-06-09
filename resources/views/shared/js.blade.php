@@ -7,7 +7,6 @@
 
     }
 
-
     $(document).on('click', '.btn-edit', function () {
         var id = $(this).data('id')
         var description = $(this).data('description')
@@ -28,11 +27,13 @@
             case 2:
                 $(".amount_input").removeClass("d-none");
                 $(".distance_input").addClass("d-none");
+                $(".attachment_input").removeClass("d-none");
                 break;
             case 3:
             case 4:
                 $(".distance_input").removeClass("d-none");
-                $(".amount_input").addClass("d-none")
+                $(".amount_input").addClass("d-none");
+                $(".attachment_input").addClass("d-none");
         }
 
 
@@ -59,11 +60,13 @@
             case '2':
                 $(".amount_input").removeClass("d-none");
                 $(".distance_input").addClass("d-none");
+                $(".attachment_input").removeClass("d-none");
                 break;
             case '3':
             case '4':
                 $(".distance_input").removeClass("d-none");
                 $(".amount_input").addClass("d-none")
+                $(".attachment_input").addClass("d-none");
         }
     })
     $(document).ready(function () {
@@ -169,10 +172,11 @@
 
             },
             columnDefs: [
-                {orderable: false, targets: [3, 6]},
+                {orderable: false, targets: [0,7]},
                 { width: '30%', targets: 0 }
             ],
             "fixedColumns": true,
+            "aoSearchCols":[null,null,null,null,null,{"sSearch":"Goedgekeurd KP"}]
 
         });
 
@@ -181,7 +185,7 @@
             initComplete: function () {
                 this.api().columns([1,2, 4, 5]).every(function () {
                     var column = this;
-                    var select = $('<select><option value=""></option></select>')
+                    var select = $('<select id=""><option value=""></option></select>')
                         .appendTo($(column.footer()).empty())
                         .on('change', function () {
                             var val = $.fn.dataTable.util.escapeRegex(
@@ -207,19 +211,23 @@
                 "lengthMenu": "Display _MENU_ records per page",
                 "zeroRecords": "",
                 "info": "_MAX_ Goedkeuringen",
-                "infoEmpty": "Er moet niets worden goedgekeurg: GOED GEWERKT!!!",
+                "infoEmpty": "Er moet niets worden goedgekeurd: GOED GEWERKT!!!",
                 "infoFiltered": ""
 
             },
             columnDefs: [
-                {orderable: false, targets: 6},
+                {orderable: false, targets: [0,7]},
                 { width: '30%', targets: 0 }
 
             ],
             "fixedColumns": true,
+            "aoSearchCols":[null,null,null,null,null,{"sSearch":"Ingediend"}]
 
 
         });
+
+
+
         $('#userTable').DataTable({
             "stateSave": false,
             "autoWidth": true,
@@ -235,7 +243,7 @@
 
             },
             columnDefs: [
-                {orderable: false, targets: 8}
+                {orderable: false, targets: [0,8]}
             ]
         });
         $('#prmTable').DataTable({

@@ -36,6 +36,9 @@ h5  {
 .tooltip:hover .tooltiptext {
     visibility: visible;
 }
+.ui.table thead {
+    display: none !important;
+}
 
 
 

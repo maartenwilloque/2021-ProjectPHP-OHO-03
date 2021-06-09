@@ -11966,6 +11966,10 @@ h5 {
   visibility: visible;
 }
 
+.ui.table thead {
+  display: none !important;
+}
+
 .logo {
   max-width: 8vh;
   padding-top: 2vh;
