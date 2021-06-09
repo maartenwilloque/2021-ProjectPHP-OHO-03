@@ -1,43 +1,6 @@
 @extends('shared.details.details')
 @section('detailmain')
     @include('shared.details.detailexpense')
-{{--    <div class="row">--}}
-{{--        <div class="col-2"><h5>Titel:</h5>--}}
-{{--        </div>--}}
-{{--        <div class="col-4"><p>{{$expense->name}}</p>--}}
-{{--        </div>--}}
-{{--        <div class="col2 offset-4"><p class="pl-5">{{$expense->date}}</p>--}}
-{{--        </div>--}}
-{{--    </div>--}}
-{{--    <div class="row">--}}
-{{--        <div class="col-2"><h5>Eigenaar:</h5>--}}
-{{--        </div>--}}
-{{--        <div class="col-4">--}}
-{{--            <p>{{$expense->user->firstname}} {{$expense->user->name}}</p>--}}
-{{--        </div>--}}
-{{--        <div class="col-2"><h5>Kostenplaats:</h5>--}}
-{{--        </div>--}}
-{{--        <div class="col-4">--}}
-{{--            <p>{{$expense->costcentre->description}} ({{$expense->costcentre->costcentre}})</p>--}}
-{{--        </div>--}}
-{{--    </div>--}}
-{{--    <div class="row">--}}
-{{--        <div class="col-6"><h5>Omschrijving:</h5>--}}
-{{--            <div class="row">--}}
-{{--                <div class="col-12">--}}
-{{--                    <p>{{$expense->description}}</p>--}}
-{{--                </div>--}}
-{{--            </div>--}}
-{{--        </div>--}}
-{{--        <div class="col-6">--}}
-{{--            <div class="row">--}}
-{{--                <div class="col-4"><h5>Totaal:</h5>--}}
-{{--                </div>--}}
-{{--                <div class="col-8"><p>€ {{$expense->expenselines->sum('amount')}}</p>--}}
-{{--                </div>--}}
-{{--            </div>--}}
-{{--        </div>--}}
-{{--    </div>--}}
 @endsection
 @section('detailexpenses')
     @include('shared.details.detailtable')

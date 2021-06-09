@@ -85,7 +85,7 @@ class ExpenseController extends Controller
     {
 
 
-        return redirect('approver.index');
+        return redirect('user.index');
     }
 
     /**
@@ -160,7 +160,7 @@ class ExpenseController extends Controller
             File::delete(public_path('uploads/' . $expenselines->attachment));
         }
         $request->validate([
-            'file' => 'mimes:jpeg,bmp,png,gif,svg,pdf,xlx,csv|max:2048',
+            'file' => 'mimes:jpeg,bmp,png,gif,svg,pdf,xlsx,csv|max:2048',
         ]);
 
         if ($request->file) {
@@ -201,7 +201,7 @@ class ExpenseController extends Controller
         $typeselect = Type::findOrFail($request->type);
 
         $request->validate([
-            'file' => 'mimes:jpeg,bmp,png,gif,svg,pdf,xlx,csv|max:2048',
+            'file' => 'mimes:jpeg,bmp,png,gif,svg,pdf,xlsx,csv|max:2048',
         ]);
 
         if ($request->file) {
@@ -252,11 +252,22 @@ class ExpenseController extends Controller
                 $date = DateTime::createFromFormat('Y-m-d', $request->date);
 
                 for ($i = 0; $i < 4; $i++) {
+                    $y = 0;
+                    switch ($i){
+                        case 0:
+                            $y = 0;
+                            break;
+                        case 2:
+                        case 3:
+                        case 4:
+                            $y = 1;
+                            break;
+                    }
                     $expenselines = new Expenseline();
                     $expenselines->type_id = $request->type;
                     $expenselines->expense_id = $request->id;
                     $expenselines->description = $request->description;
-                    $expenselines->date = date_add($date, date_interval_create_from_date_string($i." year"));
+                    $expenselines->date = date_add($date, date_interval_create_from_date_string($y." year"));
                     $expenselines->amount = $amount;
                     $expenselines->distance = $distance;
                     if ($request->file) {
@@ -290,7 +301,7 @@ class ExpenseController extends Controller
         if ($expenselines->contains('type_id', 4)) {
             Expenseprogress::with("expense")->where('expense_id', '=', $request->id)->where('active', 1)->update(['active' => 0]);
             $statusupdate = new Expenseprogress();
-            $statusupdate->status_id = 7;
+            $statusupdate->status_id = 3;
             $statusupdate->expense_id = $request->id;
             $statusupdate->save();
         } else {

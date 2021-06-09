@@ -25,7 +25,7 @@
         <tr>
             <td class="d-none">{{$expenselines->id}}</td>
             <td>{{$expenselines->description}} ({{$expenselines->type->name}})</td>
-            <td>{{$expenselines->date}}</td>
+            <td>{{\Carbon\Carbon::parse($expenselines->date)->format('d/m/Y')}}</td>
             <td class="dt-body-left pl-5 ">@if($expenselines->distance == '')
                     €{{$expenselines->amount}}@else{{$expenselines->distance}}km @endif </td>
             <td class="d-none">{{$expenselines->distance}}</td>
