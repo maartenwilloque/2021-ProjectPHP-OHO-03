@@ -21,9 +21,9 @@
                         <label for="userRol" class="px-4 ">Rol</label>
                         <select type="text" name="userRol" id="userRol"
                                 class="rounded-pill border-0 shadow-sm px-4 form-control @error('userRol') is-invalid @enderror"
-                                required
-                                value="{{ old('userRol', $faq->userRol) }}">
-                            <option value="Active">Medewerker</option>
+                                required>
+                            <option disabled selected value> -- selecteer rol -- </option>
+                            <option value="Active">Active</option>
                             <option value="Approver">Approver</option>
                             <option value="Financieel medewerker">Financieel medewerker</option>
                         </select>
@@ -35,18 +35,16 @@
                     <div class="form-group">
                         <label for="vraag" class="px-4 ">Vraag</label>
                         <input type="text" name="vraag" id="vraag"
-                               class="rounded-pill border-0 shadow-sm px-4 form-control @error('vraag') is-invalid @enderror
+                               class="rounded-pill border-0 shadow-sm px-4 form-control @error('vraag') is-invalid @enderror"
                                required
                                value="{{ old('vraag', $faq->vraag) }}">
-                        </input>
                     </div>
                     <div class="form-group">
                         <label for="antwoord" class="px-4 ">Antwoord</label>
                         <input type="text" name="antwoord" id="antwoord"
-                               class="rounded-pill border-0 shadow-sm px-4 form-control @error('antwoord') is-invalid @enderror
+                               class="rounded-pill border-0 shadow-sm px-4 form-control @error('antwoord') is-invalid @enderror"
                                required
                                value="{{ old('antwoord', $faq->antwoord) }}">
-                        </input>
                     </div>
                 </div>
                 <button type="submit" class="btn btn-success">Save genre</button>

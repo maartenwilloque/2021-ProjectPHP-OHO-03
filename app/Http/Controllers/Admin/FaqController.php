@@ -12,7 +12,7 @@ class FaqController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function index()
     {
@@ -64,14 +64,14 @@ class FaqController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param \App\FaqTabel $faqTabel
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function edit(FaqTabel $faq)
     {
 //        $faqs = FaqTabel::findOrFail($id);
         $result = compact('faq');
         Json::dump($result);
-        return view('admin/faq/edit', $result);
+        return view('admin.faq.edit', $result);
     }
 
     /**
@@ -79,7 +79,7 @@ class FaqController extends Controller
      *
      * @param \Illuminate\Http\Request $request
      * @param \App\FaqTabel $faqTabel
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
     public function update(Request $request, FaqTabel $faq)
     {

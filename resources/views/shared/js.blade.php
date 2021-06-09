@@ -238,7 +238,7 @@
                 "lengthMenu": "Display _MENU_ records per page",
                 "zeroRecords": "Geen onkosten gevonden",
                 "info": "Pagina _PAGE_ van _PAGES_",
-                "infoEmpty": "Geen onkosten gevonden",
+                "infoEmpty": "Geen personen gevonden",
                 "infoFiltered": "(filtered from _MAX_ total records)"
 
             },
