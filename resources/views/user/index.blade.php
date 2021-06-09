@@ -48,14 +48,13 @@
                                         @foreach($expense->expenseprogress->where('active',1) as $expenseprogress)
                                             <td class="hidden-column">{{ $expenseprogress->status->name}}</td>
                                             <td class="dt-center">
-                                                                                <span class="border-0 bg-transparent"
-                                                                                      data-toggle="tooltip"
-                                                                                      title="{{ $expenseprogress->status->name }}">
-                                                                                                                    <i class="{{$expenseprogress->status->icon}}"
-                                                                                                                       style="color: {{$expenseprogress->status->color}}!important;"></i>
-                                                                                                                </span>
+                                       <span class="border-0 bg-transparent"
+                                             data-toggle="tooltip"
+                                             title="{{ $expenseprogress->status->name }}">
+                                     <i class="{{$expenseprogress->status->icon}}"
+                                        style="color: {{$expenseprogress->status->color}}!important;"></i>
+                                           </span>
                                             </td>
-
                                             <td class="hidden-column">{{ $expenseprogress->status->id}}</td>
                                         @endforeach
 
@@ -97,5 +96,5 @@
         </div>
     </div>
     {{--    Modal--}}
-@include('shared.modals.createexpensesmodal')
+    @include('shared.modals.createexpensesmodal')
 @endsection

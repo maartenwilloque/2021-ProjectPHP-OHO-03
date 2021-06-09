@@ -16,7 +16,7 @@ class FaqController extends Controller
      */
     public function index()
     {
-        $faqs=FaqTabel::OrderBy('UserRol')->OrderBy('vraag')->get();
+        $faqs = FaqTabel::OrderBy('UserRol')->OrderBy('vraag')->get();
         $result = compact('faqs');
         Json::dump($result);
         return view('admin.faq.index', $result);
@@ -35,65 +35,77 @@ class FaqController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
-        //
+        $faq = new FaqTabel();
+        $faq->userRol = $request->userRol;
+        $faq->vraag = $request->vraag;
+        $faq->antwoord = $request->antwoord;
+        $faq->save();
+
+        return redirect('admin/faq');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\FaqTabel  $faqTabel
+     * @param \App\FaqTabel $faqTabel
      * @return \Illuminate\Http\Response
      */
     public function show(FaqTabel $faqTabel)
     {
-        return redirect('admin.faq.index');
+        return redirect('admin/faq');
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\FaqTabel  $faqTabel
+     * @param \App\FaqTabel $faqTabel
      * @return \Illuminate\Http\Response
      */
-    public function edit(FaqTabel $faqTabel)
+    public function edit(FaqTabel $faq)
     {
-        $result=compact('faqTabel');
+//        $faqs = FaqTabel::findOrFail($id);
+        $result = compact('faq');
         Json::dump($result);
-
-        return view('admin.faq.edit',$result);
+        return view('admin/faq/edit', $result);
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\FaqTabel  $faqTabel
+     * @param \Illuminate\Http\Request $request
+     * @param \App\FaqTabel $faqTabel
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, FaqTabel $faqTabel)
+    public function update(Request $request, FaqTabel $faq)
     {
-        $this->validate($request,[
-            'name' => 'required|min:3|unique:genres,name,' . $genre->id
+        $this->validate($request, [
+            'vraag' => 'required'
         ]);
-        $genre->name = $request->name;
-        $genre->save();
-        session()->flash('success', 'The genre has been updated');
-        return redirect('admin/genres');
+        $faq->userRol = $request->userRol;
+        $faq->vraag = $request->vraag;
+        $faq->antwoord = $request->antwoord;
+        $faq->save();
+        session()->flash('success', 'Q&A is geupdate');
+        return redirect('admin/faq');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\FaqTabel  $faqTabel
+     * @param \App\FaqTabel $faqTabel
      * @return \Illuminate\Http\Response
      */
-    public function destroy(FaqTabel $faqTabel)
+    public function destroy(FaqTabel $faqs)
     {
-        //
+        $faqs->delete();
+        session()->flash('success', 'Faq verwijderd');
+        return redirect('admin/faq');
+
+
     }
 }

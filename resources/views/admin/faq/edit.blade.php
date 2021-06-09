@@ -12,71 +12,44 @@
                 <img src="/assets/logo/MyExpenseLogo.png" class="mobilelogo d-md-none" alt="My expense Logo">
             </div>
             {{--            Profiel updaten--}}
-            <h5 class="display-5 mt-2">Update user: {{ $faqTabel->vraag }}</h5>
-            <form action="/admin/faq/{{ $faqTabel->id }}" method="post">
+            <h5 class="display-5 mt-2">Update user: {{ $faq->vraag }}</h5>
+            <form action="/admin/faq/{{ $faq->id }}" method="post">
                 @method('put')
                 @csrf
-                <fieldset>
-                    <div class="form-check">
-                        @if($faqTabel->active ==1)
-                            <input class="form-check-input" type="checkbox" name="active[]" value="" id="activeTrue"
-                                   checked>
-                            <label class="form-check-label" for="activeTrue">
-                                Active
-                            </label>
-                        @else
-                            <input class="form-check-input" type="checkbox" name="active[]" value="" id="activeFalse">
-                            <label class="form-check-label" for="activeFalse">
-                                Active
-                            </label>
-                        @endif
+                <div class="form-group">
+                    <div class="form-group">
+                        <label for="userRol" class="px-4 ">Rol</label>
+                        <select type="text" name="userRol" id="userRol"
+                                class="rounded-pill border-0 shadow-sm px-4 form-control @error('userRol') is-invalid @enderror"
+                                required
+                                value="{{ old('userRol', $faq->userRol) }}">
+                            <option value="Active">Medewerker</option>
+                            <option value="Approver">Approver</option>
+                            <option value="Financieel medewerker">Financieel medewerker</option>
+                        </select>
                     </div>
+                    @error('userRol')
+                    <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
 
-                    <div class="form-check">
-                        @if($faqTabel->approver ==1)
-                            <input class="form-check-input" type="checkbox" name="approver[]" value="" id="approverTrue"
-                                   checked>
-                            <label class="form-check-label" for="approverTrue">
-                                Approver
-                            </label>
-                        @else
-                            <input class="form-check-input" type="checkbox" name="approver[]" value=""
-                                   id="approverFalse">
-                            <label class="form-check-label" for="approverFalse">
-                                Approver
-                            </label>
-                        @endif
+                    <div class="form-group">
+                        <label for="vraag" class="px-4 ">Vraag</label>
+                        <input type="text" name="vraag" id="vraag"
+                               class="rounded-pill border-0 shadow-sm px-4 form-control @error('vraag') is-invalid @enderror
+                               required
+                               value="{{ old('vraag', $faq->vraag) }}">
+                        </input>
                     </div>
-                    <div class="form-check">
-                        @if($faqTabel->finance ==1)
-                            <input class="form-check-input" type="checkbox" name="finance[]" value="" id="financeTrue"
-                                   checked>
-                            <label class="form-check-label" for="financeTrue">
-                                Finance
-                            </label>
-                        @else
-                            <input class="form-check-input" type="checkbox" name="finance[]" value="" id="financeFalse">
-                            <label class="form-check-label" for="financeFalse">
-                                Finance
-                            </label>
-                        @endif
+                    <div class="form-group">
+                        <label for="antwoord" class="px-4 ">Antwoord</label>
+                        <input type="text" name="antwoord" id="antwoord"
+                               class="rounded-pill border-0 shadow-sm px-4 form-control @error('antwoord') is-invalid @enderror
+                               required
+                               value="{{ old('antwoord', $faq->antwoord) }}">
+                        </input>
                     </div>
-                    <div class="form-check">
-                        @if($faqTabel->admin ==1)
-                            <input class="form-check-input" type="checkbox" name="admin[]" value="" id="adminTrue"
-                                   checked>
-                            <label class="form-check-label" for="adminTrue">
-                                Admin
-                            </label>
-                        @else
-                            <input class="form-check-input" type="checkbox" name="admin[]" value="" id="adminFalse">
-                            <label class="form-check-label" for="adminFalse">
-                                Admin
-                            </label>
-                        @endif
-                    </div>
-                    <button type="submit" class="btn btn-light border-dark">Save user</button>
-                </fieldset>
+                </div>
+                <button type="submit" class="btn btn-success">Save genre</button>
             </form>
         </div>
     </div>

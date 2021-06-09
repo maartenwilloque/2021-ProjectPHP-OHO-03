@@ -1,64 +1,87 @@
 @extends('layouts.template')
-@section('title','Approvals')
+@section('title','Q & A')
 @section('main')
     <div class="row justify-content-center m-auto">
-        <div class="col-11 offset-1">
-            <h2 class="display-5 mt-2">Faq management</h2>
-            <div class="table-responsive">
-                <p>
-                    <a href="/admin/faq/create" class="btn btn-outline-success">
-                        <i class="fas fa-plus-circle mr-1"></i>Maak nieuwe Faq aan</a>
-                </p>
-                <table id="userTable" class="display compact" style="width:100%">
-                    <thead>
-                    <tr>
-                        <th>#</th>
-                        <th>Naam</th>
-                        <th>Voornaam</th>
-                        <th>Email</th>
-                        <th class="dt-center">Active</th>
-                        <th class="dt-center">Approver</th>
-                        <th class="dt-center">Finance</th>
-                        <th class="dt-center">Admin</th>
-                        <th>
-                        </th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    @foreach($faqs as $faq)
-                        <tr>
-                            <td>{{ $faq->id }}</td>
-                            <td>{{ $faq->name }}</td>
-                            <td>{{ $faq->firstname }}</td>
-                            <td>{{ $faq->email }}</td>
-                            <td class="dt-center">{{ $faq->active }}</td>
-                            <td class="dt-center">{{ $faq->approver }}</td>
-                            <td class="dt-center">{{ $faq->finance}}</td>
-                            <td class="dt-center">{{ $faq->admin }}</td>
-                            <td class="dt-center">
-                                <form action="/admin/user/{{ $faq->id }}" method="post">
-                                    {{--                                    @method('delete')--}}
-                                    @csrf
-                                    <div class="btn-group btn-group">
-                                        <a href="/admin/user/{{ $faq->id }}/edit"
-                                           data-toggle="tooltip"
-                                           title="Edit {{ $faq->name }}">
-                                            <i class="fas fa-edit btnTableEdit"></i>
-                                        </a>
-                                        {{--                                                                                            <button type="submit" class="btn btn-danger"--}}
-                                        {{--                                                                                                    data-toggle="tooltip"--}}
-                                        {{--                                                                                                    title="Delete {{ $user->name }}">--}}
-                                        {{--                                                                                                <i class="fas fa-trash-alt"></i>--}}
-                                        {{--                                                                                            </button>--}}
-                                    </div>
-                                </form>
-                            </td>
-                        </tr>
-                    @endforeach
-                    </tbody>
-                </table>
+        <div class="col-10 offset-1">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-12">
+                        <h3 class="subheadertitle">Q & A</h3>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                        <h4 class="mt-2">Faq</h4>
+                    </div>
+                    <div class="col-6 text-right">
+                        <i class="far fa-plus-square btn btn-create" data-toggle="modal"
+                           data-target="#createFaqModal" style="color: orangered !important; font-size: 20px;"
+                        ></i>
+                    </div>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-12 detailmainbox border">
+                        <div class="table">
+                            <table id="myFaqTable" class="display compact" style="width:100%">
+                                <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>UserRol</th>
+                                    <th>Vraag</th>
+                                    <th>Antwoord</th>
+                                    <th class="dt-head-center"><i class="fas fa-tasks"></i></th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                @foreach($faqs as $faq)
+                                    <tr>
+                                        <td>{{$faq->id}}</td>
+                                        <td>{{ $faq->userRol }}</td>
+                                        <td>{{$faq->vraag}}</td>
+                                        <td>{{$faq->antwoord}}</td>
 
+                                        <td class="dt-center">
+                                            <form action="/admin/faq/{{ $faq->id }}" method="post">
+                                                @method('delete')
+                                                @csrf
+                                                <div class="btn btn-sm">
+                                                    <a href="/admin/faq/{{ $faq->id }}/edit" class="btn"
+                                                       data-toggle="tooltip"
+                                                       title="Edit {{ $faq->name }}">
+                                                        <i class="far fa-eye btnTableView"></i>
+                                                    </a>
+                                                    <button type="submit" class="btn btn-sm btnTableDelete"
+                                                            data-toggle="tooltip"
+                                                            title="Delete {{ $faq->name }}">
+                                                        <i class="fas fa-trash-alt "></i>
+                                                    </button>
+                                                </div>
+                                            </form>
+                                        </td>
+                                    </tr>
+                                @endforeach
+                                </tbody>
+                                <tfoot>
+                                <tr>
+                                    <th></th>
+                                    <th></th>
+                                    <th class="dt-head-center"></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
+    {{--    Modal--}}
+    @include('shared.modals.createFaqModal')
+    @include('shared.modals.editFaqModal')
 @endsection
