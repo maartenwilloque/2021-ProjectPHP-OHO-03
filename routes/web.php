@@ -22,7 +22,7 @@ Route::get('/faq', 'Faq\faqViewController@index');
 Route::middleware(['auth'])->prefix('admin')->group(function () {
     Route::redirect('/','/admin/user');
     Route::resource('user', 'Admin\UsersController');
-    Route::resource('faq','Admin\FAqController');
+    Route::resource('faq','Admin\FaqController');
 });
 
 
@@ -43,17 +43,6 @@ Route::middleware(['auth'])->prefix('approver')->group(function () {
 
 Route::middleware(['auth'])->prefix('user')->group(function () {
     Route::redirect('/', 'user/expense');
-
-//    session Routes MyExpense
-//    ---------------------------------------------------------------------
-//    Route::get('/', 'User\MyExpenseController@index');
-//    Route::get('user/add/{id}', 'User\MyExpenseController@addToMyExpense');
-//    Route::get('user/delete/{id}', 'User\MyExpenseController@deleteFromMyExpense');
-//    Route::get('user/empty', 'User\MyExpenseController@emptyMyExpense');
-//    Route::prefix('demo')->group(function (){
-//        Route::get('expenses', 'User\MyExpenseController@Expenses');
-//        Route::get('users', 'User\MyExpenseController@users');
-//    });
     Route::post('submitexpense','User\ExpenseController@submitExpense')->name('submitexpense');
     Route::post('updateexpenselines','User\ExpenseController@updateExpenselines')->name('updateexpenselines');
     Route::post('createexpenselines','User\ExpenseController@createExpenselines')->name('createexpenselines');
