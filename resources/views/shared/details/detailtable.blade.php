@@ -44,24 +44,26 @@
             @endif
 
             @if($expense->user_id == Auth::user()->id)
-                <td class="statusedit"><i id="editexpenseline" class="fas fa-edit btn btn-edit "
-                                          style="color: limegreen!important;" data-toggle="modal"
-                                          title="{{$expenselines->id}}"
-                                          data-target="#editExpenselinemodal" data-id="{{$expenselines->id}}"
-                                          data-description="{{$expenselines->description}}"
-                                          data-date="{{$expenselines->date}}"
-                                          data-amount="{{$expenselines->amount}}"
-                                          data-distance="{{$expenselines->distance}}"
+                <td class="statusedit">
+                    <div class="btn-group">
+                        <i id="editexpenseline" class="fas fa-edit btn btn-edit "
+                             style="color: limegreen!important;" data-toggle="modal"
+                             title="{{$expenselines->id}}"
+                             data-target="#editExpenselinemodal" data-id="{{$expenselines->id}}"
+                             data-description="{{$expenselines->description}}"
+                             data-date="{{$expenselines->date}}"
+                             data-amount="{{$expenselines->amount}}"
+                             data-distance="{{$expenselines->distance}}"
 
-                                          data-file='{{$expenselines->attachment}}'
-                                          data-type="{{$expenselines->type_id}}"></i>
-                    <i id="editexpenseline"
-                       class="far fa-trash-alt btn btn-delete" style="color: red!important;"
-                       data-toggle="modal"
-                       title="{{$expenselines->id}}"
-                       data-target="#deleteExpenselinemodal"
-                       data-id="{{$expenselines->id}}"></i>
-
+                             data-file='{{$expenselines->attachment}}'
+                             data-type="{{$expenselines->type_id}}"></i>
+                        <i id="editexpenseline"
+                           class="far fa-trash-alt btn btn-delete" style="color: red!important;"
+                           data-toggle="modal"
+                           title="{{$expenselines->id}}"
+                           data-target="#deleteExpenselinemodal"
+                           data-id="{{$expenselines->id}}"></i>
+                    </div>
                 </td>
             @else
                 <td class="d-none"></td>

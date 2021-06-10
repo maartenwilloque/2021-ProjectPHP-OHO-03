@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.24/datatables.min.css"/>
-    <title>@yield('title', 'Under Construction')</title>
+    <title>@yield('title', 'MyExpense')</title>
     @include('shared.icons')
 </head>
 <body>

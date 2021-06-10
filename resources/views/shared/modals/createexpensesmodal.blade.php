@@ -13,20 +13,18 @@
                     <div class="form-group">
                         <label for="title" class="px-4 ">Titel</label>
                         <input type="text" name="title" id="title"
-                               class="rounded-pill border-0 shadow-sm px-4 form-control @error('title') is-invalid @enderror"
+                               class="rounded-pill border-0 shadow-sm px-4 form-control {{ $errors->first('title') ? 'is-invalid' : '' }}"
                                placeholder="Titel"
                                value=""
                                required>
-                        @error('title')
-                        <div class="invalid-feedback">{{ $message }}</div>
-                        @enderror
+                        <div class="invalid-feedback">{{ $errors->first('title') }}</div>
                     </div>
                     <div class="form-group">
                         <label for="costcentre" class="px-4 ">Kostenplaats</label>
                         <br>
                         <label>
                             <input list="costcentre" name="costcentre"
-                                   data-value="" class="rounded-pill border-0 shadow-sm px-4 form-control">
+                                   data-value="" class="rounded-pill border-0 shadow-sm px-4 form-control" required>
                         </label>
                         <datalist id="costcentre">
                             @foreach($costcentre as $costcentre)
@@ -38,7 +36,8 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="submit" class="btn btn-success border-dark rounded-pill border-0 shadow-sm px-4 submitbtn">
+                    <button type="submit"
+                            class="btn btn-success border-dark rounded-pill border-0 shadow-sm px-4 submitbtn">
                         Aanmaken
                     </button>
                 </div>

@@ -1,5 +1,5 @@
 @extends('layouts.template')
-@section('title','My expensenses')
+@section('title','MyExpense FAQ')
 {{--benodigd voorde Faq Page  :/ --}}
 <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>

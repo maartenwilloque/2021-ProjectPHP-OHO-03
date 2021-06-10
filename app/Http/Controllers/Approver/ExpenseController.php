@@ -122,7 +122,11 @@ class ExpenseController extends Controller
      * @return Application|RedirectResponse|Redirector
      */
     public function destroy(Request $request,Expense $expense)
+
     {
+        $request->validate([
+            'rejectreason'=>'required',
+        ]);
         Expenseprogress::with("expense")->where('expense_id', '=',$expense->id )->where('active', 1)->update(['active'=>0]);
 
         $statusupdate = new Expenseprogress();

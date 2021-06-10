@@ -9,7 +9,8 @@
             </div>
             <div class="modal-body">
                 <div class="form-group">
-                    <textarea type="text" class="frounded-pill border-0 shadow-sm px-4 " id="rejectreason" name="rejectreason" style="width: 100%"></textarea>
+                    <textarea type="text" class="frounded-pill border-0 shadow-sm px-4 " id="rejectreason"
+                              name="rejectreason" style="width: 100%" required></textarea>
                 </div>
             </div>
             <div class="modal-footer">

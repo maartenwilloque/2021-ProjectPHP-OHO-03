@@ -1,5 +1,5 @@
 @extends('layouts.template')
-@section('title','Approvals')
+@section('title','Gebruikers')
 @section('main')
     <div class="row justify-content-center m-auto">
         <div class="col-10 offset-1">

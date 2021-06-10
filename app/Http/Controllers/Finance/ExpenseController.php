@@ -134,6 +134,9 @@ class ExpenseController extends Controller
     public function destroy(Request $request, Expense $expense)
     {
         Expenseprogress::with("expense")->where('expense_id', '=', $expense->id)->where('active', 1)->update(['active' => 0]);
+        $request->validate([
+            'rejectreason'=>'required',
+        ]);
 
         $statusupdate = new Expenseprogress();
         $statusupdate->status_id = 6;

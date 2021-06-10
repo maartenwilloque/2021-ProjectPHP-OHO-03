@@ -1,9 +1,9 @@
 @extends('layouts.template')
-@section('title','Update Parameter')
+@section('title','Update Parameters')
 @section('main')
     <div class="row">
         <div class="col-10 offset-1">
-            <h3 class="display-4">Update Type</h3>
+            <h3 class="subheadertitle">Update Type</h3>
             <form action="/finance/parameter/{{ $types->id}}" method="post">
                 @method('put')
                 @csrf
@@ -21,7 +21,7 @@
                 <div class="form-group row">
                     <div col-1></div>
                     <div class="col-2">
-                        <label for="bedrag" class="col-form-label text-md-right"> {{ ('Bedrag-€') }}</label>
+                        <label for="bedrag" class="col-form-label text-md-right"> {{ ('Bedrag €') }}</label>
                         <div>
                             <input id="bedrag" type="valuta"
                                    class="form-control"

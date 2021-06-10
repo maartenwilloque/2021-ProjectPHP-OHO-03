@@ -1,5 +1,5 @@
 @extends('layouts.templateExternal')
-@section('title','My Expense Verify')
+@section('title','MyExpense Verify')
 @section('main')
 <div class="container">
     <div class="row justify-content-center">

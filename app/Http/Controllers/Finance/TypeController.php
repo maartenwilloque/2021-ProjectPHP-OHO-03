@@ -6,8 +6,13 @@ use App\Costcentre;
 use App\Helpers\Json;
 use App\Http\Controllers\Controller;
 use App\Type;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Routing\Redirector;
+use Illuminate\View\View;
 use Validator;
 
 class TypeController extends Controller
@@ -15,7 +20,7 @@ class TypeController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return Response
+     * @return Application|Factory|View
      */
     public function index()
     {
@@ -56,7 +61,7 @@ class TypeController extends Controller
      * Display the specified resource.
      *
      * @param Type $type
-     * @return Response
+     * @return Application|RedirectResponse|Redirector
      */
     public function show(Type $type)
     {
@@ -67,7 +72,7 @@ class TypeController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param Type $types
-     * @return Response
+     * @return Application|Factory|View
      */
     public function edit(Type $types)
     {
@@ -81,7 +86,7 @@ class TypeController extends Controller
      *
      * @param Request $request
      * @param Type $types
-     * @return Response
+     * @return Application|RedirectResponse|Redirector
      */
     public function update(Request $request, Type $types)
     {

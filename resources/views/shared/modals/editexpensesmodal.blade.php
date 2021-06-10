@@ -27,9 +27,11 @@
                         <br>
                         <label>
                             <input class="rounded-pill border-0 shadow-sm px-4" list="costcentre" name="costcentre"
-                                   data-value="{{ old('kostenplaats',$expense->costcentre->description) }}" style="width: 100% !important;">
+                                   data-value="{{ old('kostenplaats',$expense->costcentre->description) }}"
+                                   style="width: 100% !important;">
                         </label>
-                        <datalist class="rounded-pill border-0 shadow-sm px-4" id="costcentre" style="width: 100% !important;">
+                        <datalist class="rounded-pill border-0 shadow-sm px-4" id="costcentre"
+                                  style="width: 100% !important;">
                             @foreach($costcentre as $costcentre)
                                 <option value="{{$costcentre->id}}">{{$costcentre->description}}
                                     ({{$costcentre->costcentre}})
@@ -39,7 +41,8 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="submit" class="btn btn-success border-dark rounded-pill border-0 shadow-sm px-4 submitbtn">
+                    <button type="submit"
+                            class="btn btn-success border-dark rounded-pill border-0 shadow-sm px-4 submitbtn">
                         Aanpassen
                     </button>
 

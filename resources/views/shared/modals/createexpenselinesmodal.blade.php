@@ -19,7 +19,8 @@
                     </div>
                     <div class="form-group">
                         <label for="type_create" class="px-4 ">Type</label>
-                        <select class="type_input rounded-pill border-0 shadow-sm px-4 form-control" name="type" id="type_create">
+                        <select class="type_input rounded-pill border-0 shadow-sm px-4 form-control" name="type"
+                                id="type_create">
                             <option value="" disabled selected>Type</option>
                             @foreach($types as $type )
                                 <option value="{{$type->id}}">{{$type->name}}</option>
@@ -31,13 +32,13 @@
                         <input type="text" name="description" id="description"
                                class="rounded-pill border-0 shadow-sm px-4 form-control"
                                placeholder="Omschrijving"
-                               value="">
+                               value="" required>
                     </div>
                     <div class="form-group">
                         <label for="date" class="px-4 ">Datum</label>
                         <input type="date" name="date" id="date"
                                placeholder="Datum"
-                               value="" class="rounded-pill border-0 shadow-sm px-4 form-control">
+                               value="" class="rounded-pill border-0 shadow-sm px-4 form-control" required>
                     </div>
                     <div class="form-group d-none amount_input">
                         <label for="amount" class="px-4 ">Bedrag (€)</label>
@@ -46,7 +47,7 @@
                                value="" class="rounded-pill border-0 shadow-sm px-4 form-control">
                     </div>
                     <div class="form-group d-none distance_input">
-                        <label for="distance" class="px-4 " >Afstand (km)</label>
+                        <label for="distance" class="px-4 ">Afstand (km)</label>
                         <input type="text" name="distance" id="distance"
                                placeholder="Afstand"
                                value="" class="rounded-pill border-0 shadow-sm px-4 form-control">
@@ -57,7 +58,8 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="submit" class="btn btn-success border-dark rounded-pill border-0 shadow-sm px-4 submitbtn">
+                    <button type="submit"
+                            class="btn btn-success border-dark rounded-pill border-0 shadow-sm px-4 submitbtn">
                         Toevoegen
                     </button>
 

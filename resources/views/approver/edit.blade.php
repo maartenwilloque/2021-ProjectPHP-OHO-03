@@ -23,7 +23,6 @@
             </button>
         </div>
     </div>
-
 @endsection
 @section('detailmodal')
     <form action="/approver/expense/{{$expense->id }}" method="post">

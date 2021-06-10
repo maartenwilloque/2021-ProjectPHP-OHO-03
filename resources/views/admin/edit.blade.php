@@ -1,16 +1,8 @@
 @extends('layouts.template')
-@section('title','Update user')
+@section('title','Aanpassen gebruikers')
 @section('main')
     <div class="row">
-        {{--        marge--}}
-        <div class="col-1"></div>
-        {{--        marge--}}
-        {{--        profiel--}}
-        <div class="col-5">
-            {{--        Logo--}}
-            <div class="row justify-content-center">
-                <img src="/assets/logo/MyExpenseLogo.png" class="mobilelogo d-md-none" alt="My expense Logo">
-            </div>
+        <div class="col-5 offset-1">
             {{--            Profiel updaten--}}
             <h5 class="display-5 mt-2">Update user: {{ $user->name." ".$user->firstname }}</h5>
             <form action="/admin/user/{{ $user->id }}" method="post">

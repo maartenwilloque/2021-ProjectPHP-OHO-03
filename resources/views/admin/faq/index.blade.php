@@ -29,7 +29,7 @@
                                     <th>UserRol</th>
                                     <th>Vraag</th>
                                     <th>Antwoord</th>
-                                    <th class="dt-head-le"><i class="fas fa-tasks"></i></th>
+                                    <th><i class="fas fa-tasks"></i></th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -39,8 +39,7 @@
                                         <td>{{ $faq->userRol }}</td>
                                         <td>{{$faq->vraag}}</td>
                                         <td>{{$faq->antwoord}}</td>
-
-                                        <td class="dt-center">
+                                        <td>
                                             <form action="/admin/faq/{{ $faq->id }}" method="post">
                                                 @method('delete')
                                                 @csrf
@@ -61,19 +60,6 @@
                                     </tr>
                                 @endforeach
                                 </tbody>
-                                <tfoot>
-                                <tr>
-                                    <th></th>
-                                    <th></th>
-                                    <th></th>
-                                    <th></th>
-                                    <th></th>
-                                    <th></th>
-                                    <th></th>
-                                    <th></th>
-                                    <th></th>
-                                </tr>
-                                </tfoot>
                             </table>
                         </div>
                     </div>

@@ -20,7 +20,8 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="submit" class="btn btn-danger border-dark rounded-pill border-0 shadow-sm px-4 submitbtn">
+                    <button type="submit"
+                            class="btn btn-danger border-dark rounded-pill border-0 shadow-sm px-4 submitbtn">
                         Verwijderen
                     </button>
 

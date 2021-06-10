@@ -5,14 +5,20 @@ namespace App\Http\Controllers\Admin;
 use App\FaqTabel;
 use App\Helpers\Json;
 use App\Http\Controllers\Controller;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
+use Illuminate\Routing\Redirector;
+use Illuminate\View\View;
 
 class FaqController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @return Application|Factory|View
      */
     public function index()
     {
@@ -25,7 +31,7 @@ class FaqController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function create()
     {
@@ -35,8 +41,8 @@ class FaqController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param \Illuminate\Http\Request $request
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     * @return Application|RedirectResponse|Redirector
      */
     public function store(Request $request)
     {
@@ -53,7 +59,7 @@ class FaqController extends Controller
      * Display the specified resource.
      *
      * @param \App\FaqTabel $faqTabel
-     * @return \Illuminate\Http\Response
+     * @return Application|RedirectResponse|Redirector
      */
     public function show(FaqTabel $faqTabel)
     {
@@ -64,7 +70,7 @@ class FaqController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param \App\FaqTabel $faqTabel
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @return Application|Factory|View
      */
     public function edit(FaqTabel $faq)
     {
@@ -77,9 +83,9 @@ class FaqController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param \Illuminate\Http\Request $request
+     * @param Request $request
      * @param \App\FaqTabel $faqTabel
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     * @return Application|RedirectResponse|Redirector
      */
     public function update(Request $request, FaqTabel $faq)
     {
@@ -98,7 +104,7 @@ class FaqController extends Controller
      * Remove the specified resource from storage.
      *
      * @param \App\FaqTabel $faqTabel
-     * @return \Illuminate\Http\Response
+     * @return Application|RedirectResponse|Redirector
      */
     public function destroy($id)
     {
