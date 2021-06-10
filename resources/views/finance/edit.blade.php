@@ -6,6 +6,8 @@
     @include('shared.details.detailtable')
 @endsection
 @section('detailsubmit')
+    @foreach($expense->expenseprogress->where('active',true) as $expenseprogress)
+    @if($expenseprogress->status->id !== 8 && $expense->expenselines->where('active','=',true)->where('date', '<=', now()))
     <div class="row">
         <div class="col-6 text-center">
             <form action="/finance/expense/{{$expense->id }}" method="post">
@@ -23,6 +25,8 @@
             </button>
         </div>
     </div>
+    @endif
+    @endforeach
 
 @endsection
 @section('detailmodal')

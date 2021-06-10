@@ -83,7 +83,7 @@ class UserSeeder extends Seeder
                 'email_verified_at' => now()
             ]);
 
-        for ($i = 3; $i < 15; $i++) {
+        for ($i = 3; $i < 9; $i++) {
             $name = $faker->lastName;
             $firstname = $faker->firstName;
             $email =  'R'.rand(1000000,99999999).'@thomasmore.be';

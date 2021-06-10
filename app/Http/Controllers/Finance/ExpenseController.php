@@ -28,7 +28,7 @@ class ExpenseController extends Controller
                 return $query->where([['active', true]])->whereIn('status_id', [3, 8]);
             })
             ->whereHas('expenselines', function ($query) {
-                return $query->where([['active', true], ['date', '<=', now()]]);
+                return $query->where([['date', '<=', now()]]);
             })
             ->get();
 
@@ -98,7 +98,7 @@ class ExpenseController extends Controller
             Expenseline::with('expense')->where([['expense_id', '=', $expense->id], ['date', '<=', now()]])->update(['active' => 0]);
             if (Expenseline::with('expense')->where([['expense_id', '=', $expense->id], ['active', 1]])) {
                 $statusupdate = new Expenseprogress();
-                $statusupdate->status_id = 3;
+                $statusupdate->status_id = 8;
                 $statusupdate->expense_id = $expense->id;
                 $statusupdate->inspector_id = auth()->id();
                 $statusupdate->save();
