@@ -79,7 +79,7 @@ class UsersController extends Controller
      *
      * @param \Illuminate\Http\Request $request
      * @param User $user
-     * @return Response
+     * @return Application|RedirectResponse|Redirector
      */
     public function update(Request $request, User $user)
     {

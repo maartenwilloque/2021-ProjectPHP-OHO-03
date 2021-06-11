@@ -5,9 +5,15 @@
         <div class="col-10 offset-1">
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-12">
-                        <h3 class="display-4 mt-2">Parameters</h3>
+                    <div class="col-3">
+                        <h3 class="subheadertitle">Parameters</h3>
                     </div>
+                    @if (session()->has('success'))
+                        <div class=" col-6 alert alert-success alert-dismissable">{!! session()->get('success') !!}</div>
+                    @endif
+                    @if (session()->has('danger'))
+                        <div class=" col-6 alert alert-danger alert-dismissable">{!! session()->get('danger') !!}</div>
+                    @endif
                 </div>
                 <div class="row justify-content-between">
                     <div class="col-5">

@@ -1,13 +1,8 @@
 @extends('layouts.template')
-@section('title','Update user')
+@section('title','Q&A aanpassen')
 @section('main')
-    <div class="row">
-        {{--        marge--}}
-        <div class="col-1"></div>
-        {{--        marge--}}
-        {{--        profiel--}}
-        <div class="col-5">
-            {{--        Logo--}}
+    <div class="row justify-content-center">
+        <div class="col-5 offset-1">
             <div class="row justify-content-center">
                 <img src="/assets/logo/MyExpenseLogo.png" class="mobilelogo d-md-none" alt="My expense Logo">
             </div>

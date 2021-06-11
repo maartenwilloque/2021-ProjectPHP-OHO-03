@@ -2,7 +2,13 @@
     <div class="col-10 offset-1">
         <div class="container-fluid">
             <div class="row">
-                <h3 class="subheadertitle">Details</h3>
+                <div class="col-3"> <h3 class="subheadertitle">Details</h3></div>
+                @if (session()->has('success'))
+                    <div class=" col-6 alert alert-success alert-dismissable">{!! session()->get('success') !!}</div>
+                @endif
+                @if (session()->has('danger'))
+                    <div class=" col-6 alert alert-danger alert-dismissable">{!! session()->get('danger') !!}</div>
+                @endif
             </div>
             <div class="row">
                 <div class="col-12">

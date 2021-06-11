@@ -59,6 +59,10 @@ class ExpenseController extends Controller
      */
     public function store(Request $request)
     {
+        $this->validate($request, [
+            'title' => 'required',
+            'costcentre' => 'required'
+        ]);
         $expense = new Expense();
         $expense->name = $request->title;
         $expense->costcentre_id = $request->costcentre;
@@ -72,7 +76,7 @@ class ExpenseController extends Controller
         $expenseprogress->status_id = 1;
         $expenseprogress->save();
 
-        return redirect()->route('expense.edit', $id);
+        return redirect()->route('expense.edit', $id)->with('success','Onkostennota aangemaakt');
     }
 
     /**
@@ -131,8 +135,7 @@ class ExpenseController extends Controller
         $expense->costcentre_id = $request->costcentre;
         $expense->date = now();
         $expense->save();
-        session()->flash('success', 'Onkost aangepast');
-        return back();
+        return back()->with('success','Onkostennota is aangepast');
     }
 
 
@@ -148,7 +151,7 @@ class ExpenseController extends Controller
 
         Expense::where('id', $expense->id)->delete();
         session()->flash('success', 'Onkostlijn verwijderd');
-        return redirect('user/expense');
+        return redirect('user/expense')->with('danger','Onkostennota is verwijderd');
     }
 
 
@@ -161,6 +164,8 @@ class ExpenseController extends Controller
         }
         $request->validate([
             'file' => 'mimes:jpeg,bmp,png,gif,svg,pdf,xlsx,csv|max:2048',
+            'description'=>'required',
+            'date'=>'required'
         ]);
 
         if ($request->file) {
@@ -188,11 +193,10 @@ class ExpenseController extends Controller
         if ($request->file) {
             $expenselines->attachment = $fileName;
         }
-        session()->flash('success', 'Onkostlijn aangepast');
         $expenselines->save();
 
 
-        return back();
+        return back()->with('success','Onkost aangepast');
 
     }
 
@@ -202,6 +206,7 @@ class ExpenseController extends Controller
 
         $request->validate([
             'file' => 'mimes:jpeg,bmp,png,gif,svg,pdf,xlsx,csv|max:2048',
+            ''
         ]);
 
         if ($request->file) {
@@ -253,7 +258,7 @@ class ExpenseController extends Controller
 
                 for ($i = 0; $i < 4; $i++) {
                     $y = 0;
-                    switch ($i){
+                    switch ($i) {
                         case 0:
                             $y = 0;
                             break;
@@ -267,7 +272,7 @@ class ExpenseController extends Controller
                     $expenselines->type_id = $request->type;
                     $expenselines->expense_id = $request->id;
                     $expenselines->description = $request->description;
-                    $expenselines->date = date_add($date, date_interval_create_from_date_string($y." year"));
+                    $expenselines->date = date_add($date, date_interval_create_from_date_string($y . " year"));
                     $expenselines->amount = $amount;
                     $expenselines->distance = $distance;
                     if ($request->file) {
@@ -291,8 +296,7 @@ class ExpenseController extends Controller
             File::delete(public_path('uploads/' . $expenselines->attachment));
         }
         Expenseline::where('id', $request->id)->delete();
-        session()->flash('success', 'Onkostlijn verwijderd');
-        return back();
+        return back()->with('danger','onkost verwijderd');
     }
 
     public function submitExpense(Request $request)
@@ -311,7 +315,7 @@ class ExpenseController extends Controller
             $statusupdate->expense_id = $request->id;
             $statusupdate->save();
         }
-        return redirect('/user');
+        return redirect('/user')->with('success','Onkostennota is ingediend');
 
     }
 

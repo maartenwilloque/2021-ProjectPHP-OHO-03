@@ -1,6 +1,7 @@
 <!-- footer.html  -->
 <div>
-    <a href="/faq"> <i class="far fa-question-circle faqSymbol fa-1x" data-toggle="tooltip" title="Q&A-Vraag en Antwoord"></i></a>
+    <a href="/faq"> <i class="far fa-question-circle faqSymbol fa-1x" data-toggle="tooltip"
+                       title="Q&A-Vraag en Antwoord"></i></a>
 </div>
 <footer class="fixed-bottom footerHeigth">
 

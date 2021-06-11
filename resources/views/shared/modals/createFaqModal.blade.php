@@ -27,16 +27,14 @@
                     <div class="form-group">
                         <label for="vraag" class="px-4 ">Vraag</label>
                         <input type="text" name="vraag" id="vraag"
-                                class="rounded-pill border-0 shadow-sm px-4 form-control @error('vraag') is-invalid @enderror"
-                                required>
-                        </input>
+                               class="rounded-pill border-0 shadow-sm px-4 form-control @error('vraag') is-invalid @enderror"
+                               required>
                     </div>
                     <div class="form-group">
                         <label for="antwoord" class="px-4 ">Antwoord</label>
                         <input type="text" name="antwoord" id="antwoord"
                                class="rounded-pill border-0 shadow-sm px-4 form-control @error('antwoord') is-invalid @enderror"
                                required>
-                        </input>
                     </div>
                 </div>
                 <div class="modal-footer">
