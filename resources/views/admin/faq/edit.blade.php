@@ -42,7 +42,7 @@
                                value="{{ old('antwoord', $faq->antwoord) }}">
                     </div>
                 </div>
-                <button type="submit" class="btn btn-success">Save genre</button>
+                <button type="submit" class="btn btn-success">Save Q & A</button>
             </form>
         </div>
     </div>

@@ -14,7 +14,7 @@
                 @method('put')
                 @csrf
                 <button type="submit" class="btn btn-success border-dark rounded-pill border-0 shadow-sm px-4 submitbtn">
-                    Goedkeuren
+                    Uitbetalen
                 </button>
             </form>
         </div>
