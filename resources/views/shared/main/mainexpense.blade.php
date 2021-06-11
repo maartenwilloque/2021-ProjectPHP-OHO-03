@@ -6,10 +6,12 @@
                                 <th class="dt-head-center">€</th>
                                 <th>CostCenter</th>
                                 <th>CC-Code</th>
+                                @if(count($expenses)>0)
                                 @foreach($expenses as $expense)
                                 @endforeach
                                 @if($expense->user_id == Auth::user()->id)
                                     <th class="dt-head-center"><i class="fas fa-wallet"></i></th>
+                                @endif
                                 @endif
                                 <th class="hidden-column">StatusOmschrijving</th>
                                 <th class="hidden-column"></th>
@@ -63,8 +65,10 @@
                                 <th class="dt-head-center"></th>
                                 <th></th>
                                 <th></th>
+                                @if(count($expenses)>0)
                                 @if($expense->user_id == Auth::user()->id)
                                 <th></th>
+                                @endif
                                 @endif
                                 <th></th>
                                 <th></th>
