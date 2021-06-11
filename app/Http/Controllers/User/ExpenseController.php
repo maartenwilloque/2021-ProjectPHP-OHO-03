@@ -31,7 +31,6 @@ class ExpenseController extends Controller
             ->where('user_id', '=', \Auth::user()->id)
             ->whereHas('expenseprogress', function ($query) {
                 return $query->where('active', true);
-
             })
             ->get();
         $costcentre = Costcentre::get();
@@ -76,7 +75,7 @@ class ExpenseController extends Controller
         $expenseprogress->status_id = 1;
         $expenseprogress->save();
 
-        return redirect()->route('expense.edit', $id)->with('success','Onkostennota aangemaakt');
+        return redirect()->route('expense.edit', $id)->with('success', 'Onkostennota aangemaakt');
     }
 
     /**
@@ -135,7 +134,7 @@ class ExpenseController extends Controller
         $expense->costcentre_id = $request->costcentre;
         $expense->date = now();
         $expense->save();
-        return back()->with('success','Onkostennota is aangepast');
+        return back()->with('success', 'Onkostennota is aangepast');
     }
 
 
@@ -151,7 +150,7 @@ class ExpenseController extends Controller
 
         Expense::where('id', $expense->id)->delete();
         session()->flash('success', 'Onkostlijn verwijderd');
-        return redirect('user/expense')->with('danger','Onkostennota is verwijderd');
+        return redirect('user/expense')->with('danger', 'Onkostennota is verwijderd');
     }
 
 
@@ -164,8 +163,8 @@ class ExpenseController extends Controller
         }
         $request->validate([
             'file' => 'mimes:jpeg,bmp,png,gif,svg,pdf,xlsx,csv|max:2048',
-            'description'=>'required',
-            'date'=>'required'
+            'description' => 'required',
+            'date' => 'required'
         ]);
 
         if ($request->file) {
@@ -196,7 +195,7 @@ class ExpenseController extends Controller
         $expenselines->save();
 
 
-        return back()->with('success','Onkost aangepast');
+        return back()->with('success', 'Onkost aangepast');
 
     }
 
@@ -296,7 +295,7 @@ class ExpenseController extends Controller
             File::delete(public_path('uploads/' . $expenselines->attachment));
         }
         Expenseline::where('id', $request->id)->delete();
-        return back()->with('danger','onkost verwijderd');
+        return back()->with('danger', 'onkost verwijderd');
     }
 
     public function submitExpense(Request $request)
@@ -315,7 +314,7 @@ class ExpenseController extends Controller
             $statusupdate->expense_id = $request->id;
             $statusupdate->save();
         }
-        return redirect('/user')->with('success','Onkostennota is ingediend');
+        return redirect('/user')->with('success', 'Onkostennota is ingediend');
 
     }
 
